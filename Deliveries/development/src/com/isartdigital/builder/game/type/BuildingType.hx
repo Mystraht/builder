@@ -12,6 +12,7 @@ class BuildingType
 	public static inline var HOUSE:String 			= "house";
 	public static inline var MAIN_SQUARE:String 	= "mainSquare";
 	public static inline var PARK:String 			= "park";
+	public static inline var ALTAR:String 			= "altar";
 	public static inline var STATUE:String 			= "statue";
 	public static inline var BIG_FLOWER_POT:String 	= "bigFlowerPot";
 	public static inline var FLOATING_FLOWER:String = "floatingFlower";

@@ -6,6 +6,7 @@ import com.isartdigital.builder.api.Utils;
 import com.isartdigital.builder.game.manager.RessourceManager;
 import com.isartdigital.builder.game.manager.Ressources;
 import com.isartdigital.builder.ui.GraphicLoader;
+import com.isartdigital.builder.ui.hud.SpiceCurrency;
 import com.isartdigital.builder.ui.screens.TitleCard;
 import com.isartdigital.builder.ui.UIManager;
 import com.isartdigital.builder.ui.uimodule.BackButton;
@@ -23,6 +24,7 @@ import com.isartdigital.utils.game.GameStageScale;
 import com.isartdigital.builder.game.GameManager;
 import com.isartdigital.utils.game.StateGraphic;
 import com.isartdigital.utils.loader.GameLoader;
+import com.isartdigital.utils.Localization;
 import com.isartdigital.utils.system.DeviceCapabilities;
 import com.isartdigital.utils.ui.UIBuilder;
 import eventemitter3.EventEmitter;
@@ -195,6 +197,10 @@ class Main extends EventEmitter
 
 		lLoader.addTxtFile("json/basemap.json");
 		lLoader.addTxtFile("json/building.json");
+		
+		lLoader.addTxtFile("json/en.json");
+		lLoader.addTxtFile("json/localization/fr.json");
+		
 		lLoader.addAssetFile("graphics.json");
 		lLoader.addAssetFile("background.json");
 		
@@ -278,7 +284,14 @@ class Main extends EventEmitter
 		StateGraphic.addBoxes(GameLoader.getContent(""));
 		
 		//initialise le builder d'UI
-		UIBuilder.init("ui.json", "com.isartdigital.builder.ui");
+		UIBuilder.init("ui.json", "com.isartdigital.builder.ui", "com.isartdigital.builder.ui.hud");
+		UIBuilder.addTextStyle(Reflect.field(pLoader.resources, "assets/hd/ui/textsUI.json").data);
+		
+		//Localization.getInstance().selectJson(Localization.LANG_EN, pLoader);
+		trace (Json.stringify(GameLoader.getContent("en.json")));
+		
+		trace (Reflect.field(pLoader.resources, "assets/json/en.json").data);
+		Localization.getInstance().setDataLocalization(Json.stringify(GameLoader.getContent("json/en.json")));
 		
 		assetsLoaded = true;
 		tryToStartGame();
@@ -297,7 +310,7 @@ class Main extends EventEmitter
 	 * Démarre le jeu
 	 */
 	private function startGame() {
-		// Ouvre la TitleClard
+		//Ouvre la TitleClard
 		//UIManager.getInstance().openScreen(TitleCard.getInstance());
 		UIManager.getInstance().startGame();
 		GameManager.getInstance().start();
@@ -342,6 +355,7 @@ class Main extends EventEmitter
 		CreditsButton;
 		BackButton;
 		ShopButton1;
+		SpiceCurrency;
 	}
 	
 	/**

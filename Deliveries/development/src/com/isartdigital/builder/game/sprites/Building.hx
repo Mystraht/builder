@@ -1,6 +1,7 @@
 package com.isartdigital.builder.game.sprites;
 
 import com.isartdigital.builder.api.Api;
+import com.isartdigital.builder.api.DataDef;
 import com.isartdigital.builder.game.def.BuildingDef;
 import com.isartdigital.builder.game.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
@@ -17,6 +18,7 @@ import com.isartdigital.utils.game.iso.IZSortable;
 import com.isartdigital.utils.game.StateGraphic;
 import com.isartdigital.utils.loader.GameLoader;
 import eventemitter3.EventEmitter;
+import haxe.Json;
 import js.html.EventTarget;
 import js.html.MouseEvent;
 import js.Lib;
@@ -238,7 +240,6 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		}
 	}
 	
-	
 	/**
 	 * Annule le deplacement du batiment actuellement en train de bouger et le remet à sa position initiale
 	 */
@@ -255,12 +256,25 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		}
 	}
 	
+	public function callServerToDestroy():Void {
+		trace('callServerToDestroybefore');
+		var modelPosistion:Point = toModel(true);
+		Api.buildings.destroy(Std.int(modelPosistion.x), Std.int(modelPosistion.y), cbTryToDestroy );
+		trace('callServerToDestroyafter');
+	}
 	
-	override public function destroy():Void 
-	{
+	private function cbTryToDestroy(pResponse:String): Void {
+		var lResponse:DataDef = cast(Json.parse(pResponse));
+		
+		if (!lResponse.error) {
+			destroy();
+		}
+	}
+	
+	override public function destroy():Void {
 		super.destroy();
+		GameStage.getInstance().getBuildingsContainer().removeChild(this);
 		list.splice(list.indexOf(this), 1);
-		MapManager.getInstance().saveMap();
 	}
 	
 }

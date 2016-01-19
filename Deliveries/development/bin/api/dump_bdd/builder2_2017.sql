@@ -122,6 +122,14 @@ CREATE TABLE IF NOT EXISTS building_statue
     UNIQUE (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS building_altar
+(
+    id int NOT NULL AUTO_INCREMENT,
+    user_id int NOT NULL,
+    UNIQUE (id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 CREATE TABLE IF NOT EXISTS building_big_flower_pot
 (
     id int NOT NULL AUTO_INCREMENT,
@@ -247,3 +255,4 @@ INSERT INTO `building_type` (`id`, `building_name`) VALUES ('14', 'city_hall');
 INSERT INTO `building_type` (`id`, `building_name`) VALUES ('15', 'church');
 INSERT INTO `building_type` (`id`, `building_name`) VALUES ('16', 'cantina');
 INSERT INTO `building_type` (`id`, `building_name`) VALUES ('17', 'harbor');
+INSERT INTO `building_type` (`id`, `building_name`) VALUES ('18', 'altar');

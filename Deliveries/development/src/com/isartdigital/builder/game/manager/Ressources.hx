@@ -6,7 +6,7 @@ package com.isartdigital.builder.game.manager;
 
 enum Ressources 
 {
-	DIAMONDS;
+	SPICE;
 	GOLD;
-	WOOD;
+	OFFERINGS;
 }

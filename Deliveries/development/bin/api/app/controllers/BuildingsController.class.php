@@ -298,13 +298,12 @@ class BuildingsController extends ApplicationController
 				$request->execute(array($userId));
 				break;
 			case 'main_square':
-				if (BuildingModel::getBuildings($buildingID, $userId)) {
-					$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_main_square VALUES (NULL, ?)');
-					$request->execute(array($userId));
-					break;
-				}else{
+				if (!BuildingModel::getBuildings($buildingID, $userId)) 
 					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
-				}
+					
+				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_main_square VALUES (NULL, ?)');
+				$request->execute(array($userId));
+				break;
 			case 'pyrotechnician':
 				$date = date("Y-m-d H:i:s");
 				$lvl = 1;
@@ -312,25 +311,23 @@ class BuildingsController extends ApplicationController
 				$request->execute(array($userId, $lvl, $date));
 				break;
 			case 'city_hall':
-				if (BuildingModel::getBuildings($buildingID, $userId)) {
-					$date = date("Y-m-d H:i:s");
-					$lvl = 1;
-					$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_city_hall VALUES (NULL, ?, ?, ?)');
-					$request->execute(array($userId, $lvl, $date));
-					break;
-				}else{
+				if (!BuildingModel::getBuildings($buildingID, $userId)) 
 					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
-				}
+					
+				$date = date("Y-m-d H:i:s");
+				$lvl = 1;
+				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_city_hall VALUES (NULL, ?, ?, ?)');
+				$request->execute(array($userId, $lvl, $date));
+				break;
 			case 'church':
-				if (BuildingModel::getBuildings($buildingID, $userId)) {
-					$date = date("Y-m-d H:i:s");
-					$lvl = 1;
-					$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_church VALUES (NULL, ?, ?, ?)');
-					$request->execute(array($userId, $lvl, $date));
-					break;
-				}else{
-					return Utils::formatErrorMessage(ERROR_BUILDING_ALREADY_EXISTS, "Building unique déja construit");
-				}
+				if (!BuildingModel::getBuildings($buildingID, $userId)) 
+					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
+					
+				$date = date("Y-m-d H:i:s");
+				$lvl = 1;
+				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_church VALUES (NULL, ?, ?, ?)');
+				$request->execute(array($userId, $lvl, $date));
+				break;
 			case 'cantina':
 				$date = date("Y-m-d H:i:s");
 				$lvl = 1;
@@ -338,13 +335,12 @@ class BuildingsController extends ApplicationController
 				$request->execute(array($userId, $lvl, $date));
 				break;
 			case 'gift_shop':
-				if (BuildingModel::getBuildings($buildingID, $userId)) {
-					$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_gift_shop VALUES (NULL, ?)');
-					$request->execute(array($userId));
-					break;
-				}else{
+				if (!BuildingModel::getBuildings($buildingID, $userId)) 
 					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
-				}
+					
+				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_gift_shop VALUES (NULL, ?)');
+				$request->execute(array($userId));
+				break;
 			default:
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_' . $params['name']. ' VALUES (NULL, ?)');
 				$request->execute(array($userId));

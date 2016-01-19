@@ -155,7 +155,6 @@ class GameManager
 		ClippingManager.getInstance().addAllObjetInView();
 		
 		Hud.getInstance().refreshHUD();
-		Api.buildings.create(BuildingType.CITY_HALL, 0, 15, function (pString:String) { trace (pString); } );
 	}
 	
 	/**
@@ -171,6 +170,7 @@ class GameManager
 		Camera.getInstance().move();
 		
 		ClippingManager.getInstance().manage();
+	
 		
 		doActions(cast Building.list);
 		

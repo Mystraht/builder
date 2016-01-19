@@ -207,17 +207,6 @@ Std.parseInt = function(x) {
 	if(isNaN(v)) return null;
 	return v;
 };
-var StringBuf = function() {
-	this.b = "";
-};
-$hxClasses["StringBuf"] = StringBuf;
-StringBuf.__name__ = ["StringBuf"];
-StringBuf.prototype = {
-	add: function(x) {
-		this.b += Std.string(x);
-	}
-	,__class__: StringBuf
-};
 var Type = function() { };
 $hxClasses["Type"] = Type;
 Type.__name__ = ["Type"];
@@ -313,6 +302,7 @@ com_isartdigital_builder_Main.importClasses = function() {
 	com_isartdigital_builder_ui_uimodule_CreditsButton;
 	com_isartdigital_builder_ui_uimodule_BackButton;
 	com_isartdigital_builder_ui_uimodule_ShopButton1;
+	com_isartdigital_builder_ui_hud_SpiceCurrency;
 };
 com_isartdigital_builder_Main.__super__ = EventEmitter;
 com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
@@ -346,6 +336,8 @@ com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
 		lLoader.addSoundFile("sounds.json");
 		lLoader.addTxtFile("json/basemap.json");
 		lLoader.addTxtFile("json/building.json");
+		lLoader.addTxtFile("json/en.json");
+		lLoader.addTxtFile("json/localization/fr.json");
 		lLoader.addAssetFile("graphics.json");
 		lLoader.addAssetFile("background.json");
 		lLoader.addTxtFile("hd/ui/textsUI.json");
@@ -397,7 +389,11 @@ com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
 		com_isartdigital_utils_game_factory_MovieClipAnimFactory.addTextures(com_isartdigital_utils_loader_GameLoader.getContent("assets.json"));
 		com_isartdigital_utils_game_factory_MovieClipAnimFactory.addTextures(com_isartdigital_utils_loader_GameLoader.getContent("bakckground.json"));
 		com_isartdigital_utils_game_StateGraphic.addBoxes(com_isartdigital_utils_loader_GameLoader.getContent(""));
-		com_isartdigital_utils_ui_UIBuilder.init("ui.json","com.isartdigital.builder.ui");
+		com_isartdigital_utils_ui_UIBuilder.init("ui.json","com.isartdigital.builder.ui","com.isartdigital.builder.ui.hud");
+		com_isartdigital_utils_ui_UIBuilder.addTextStyle(Reflect.field(pLoader.resources,"assets/hd/ui/textsUI.json").data);
+		console.log(JSON.stringify(com_isartdigital_utils_loader_GameLoader.getContent("en.json")));
+		console.log(Reflect.field(pLoader.resources,"assets/json/en.json").data);
+		com_isartdigital_utils_Localization.getInstance().setDataLocalization(JSON.stringify(com_isartdigital_utils_loader_GameLoader.getContent("json/en.json")));
 		this.assetsLoaded = true;
 		this.tryToStartGame();
 	}
@@ -761,9 +757,8 @@ com_isartdigital_builder_game_GameManager.prototype = {
 		lCitizen.start();
 		com_isartdigital_builder_game_manager_ClippingManager.getInstance().addAllObjetInView();
 		com_isartdigital_builder_ui_hud_Hud.getInstance().refreshHUD();
-		com_isartdigital_builder_api_Api.buildings.create("cityHall",0,15,function(pString) {
-			console.log(pString);
-		});
+		console.log("snip");
+		com_isartdigital_builder_game_sprites_Building.list[0].callServerToDestroy();
 	}
 	,gameLoop: function(pEvent) {
 		this.screenRect = com_isartdigital_utils_system_DeviceCapabilities.getScreenRect(com_isartdigital_utils_game_GameStage.getInstance().getGameContainer());
@@ -1281,7 +1276,6 @@ com_isartdigital_builder_game_manager_Maps.prototype = {
 };
 var com_isartdigital_builder_game_manager_RessourceManager = function() {
 	this.ressources = new haxe_ds_EnumValueMap();
-	this.warehousesNb = 1;
 	com_isartdigital_builder_game_manager_Manager.call(this);
 };
 $hxClasses["com.isartdigital.builder.game.manager.RessourceManager"] = com_isartdigital_builder_game_manager_RessourceManager;
@@ -1294,21 +1288,19 @@ com_isartdigital_builder_game_manager_RessourceManager.__super__ = com_isartdigi
 com_isartdigital_builder_game_manager_RessourceManager.prototype = $extend(com_isartdigital_builder_game_manager_Manager.prototype,{
 	start: function() {
 		var _g = new haxe_ds_EnumValueMap();
-		_g.set(com_isartdigital_builder_game_manager_Ressources.DIAMONDS,0);
+		_g.set(com_isartdigital_builder_game_manager_Ressources.SPICE,0);
 		_g.set(com_isartdigital_builder_game_manager_Ressources.GOLD,0);
-		_g.set(com_isartdigital_builder_game_manager_Ressources.WOOD,0);
+		_g.set(com_isartdigital_builder_game_manager_Ressources.OFFERINGS,0);
 		this.ressources = _g;
 	}
 	,getRessources: function(pRessource) {
 		return this.ressources.get(pRessource);
 	}
 	,addRessources: function(pRessource,pNumber) {
-		if(this.ressources.get(pRessource) < this.countMaxStock(pRessource)) {
-			var _g = pRessource;
-			var v = this.ressources.get(_g) + pNumber;
-			this.ressources.set(_g,v);
-			v;
-		} else console.log("Nombre de ressources maximal atteint");
+		var _g = pRessource;
+		var v = this.ressources.get(_g) + pNumber;
+		this.ressources.set(_g,v);
+		v;
 	}
 	,removeRessources: function(pRessource,pNumber) {
 		if(this.ressources.get(pRessource) > 0) {
@@ -1318,30 +1310,24 @@ com_isartdigital_builder_game_manager_RessourceManager.prototype = $extend(com_i
 			v;
 		} else console.log("Plus de ressources");
 	}
-	,countMaxStock: function(pRessource) {
-		if(pRessource != com_isartdigital_builder_game_manager_Ressources.DIAMONDS) {
-			this.maxStock = 100 + 100 * this.warehousesNb;
-			return this.maxStock;
-		} else {
-			this.maxStock = -1;
-			return this.maxStock;
-		}
+	,updateRessources: function() {
+		this.updateSpice(this.ressources.get(com_isartdigital_builder_game_manager_Ressources.SPICE));
 	}
 	,destroy: function() {
 		com_isartdigital_builder_game_manager_RessourceManager.instance = null;
 	}
 	,__class__: com_isartdigital_builder_game_manager_RessourceManager
 });
-var com_isartdigital_builder_game_manager_Ressources = { __ename__ : true, __constructs__ : ["DIAMONDS","GOLD","WOOD"] };
-com_isartdigital_builder_game_manager_Ressources.DIAMONDS = ["DIAMONDS",0];
-com_isartdigital_builder_game_manager_Ressources.DIAMONDS.toString = $estr;
-com_isartdigital_builder_game_manager_Ressources.DIAMONDS.__enum__ = com_isartdigital_builder_game_manager_Ressources;
+var com_isartdigital_builder_game_manager_Ressources = { __ename__ : true, __constructs__ : ["SPICE","GOLD","OFFERINGS"] };
+com_isartdigital_builder_game_manager_Ressources.SPICE = ["SPICE",0];
+com_isartdigital_builder_game_manager_Ressources.SPICE.toString = $estr;
+com_isartdigital_builder_game_manager_Ressources.SPICE.__enum__ = com_isartdigital_builder_game_manager_Ressources;
 com_isartdigital_builder_game_manager_Ressources.GOLD = ["GOLD",1];
 com_isartdigital_builder_game_manager_Ressources.GOLD.toString = $estr;
 com_isartdigital_builder_game_manager_Ressources.GOLD.__enum__ = com_isartdigital_builder_game_manager_Ressources;
-com_isartdigital_builder_game_manager_Ressources.WOOD = ["WOOD",2];
-com_isartdigital_builder_game_manager_Ressources.WOOD.toString = $estr;
-com_isartdigital_builder_game_manager_Ressources.WOOD.__enum__ = com_isartdigital_builder_game_manager_Ressources;
+com_isartdigital_builder_game_manager_Ressources.OFFERINGS = ["OFFERINGS",2];
+com_isartdigital_builder_game_manager_Ressources.OFFERINGS.toString = $estr;
+com_isartdigital_builder_game_manager_Ressources.OFFERINGS.__enum__ = com_isartdigital_builder_game_manager_Ressources;
 var com_isartdigital_builder_game_pooling_IPoolObject = function() { };
 $hxClasses["com.isartdigital.builder.game.pooling.IPoolObject"] = com_isartdigital_builder_game_pooling_IPoolObject;
 com_isartdigital_builder_game_pooling_IPoolObject.__name__ = ["com","isartdigital","builder","game","pooling","IPoolObject"];
@@ -1757,10 +1743,20 @@ com_isartdigital_builder_game_sprites_Building.prototype = $extend(com_isartdigi
 			lMapManager.saveMap();
 		}
 	}
+	,callServerToDestroy: function() {
+		console.log("callServerToDestroybefore");
+		var modelPosistion = this.toModel(true);
+		com_isartdigital_builder_api_Api.buildings.destroy(modelPosistion.x | 0,modelPosistion.y | 0,$bind(this,this.cbTryToDestroy));
+		console.log("callServerToDestroyafter");
+	}
+	,cbTryToDestroy: function(pResponse) {
+		var lResponse = JSON.parse(pResponse);
+		if(!lResponse.error) this.destroy();
+	}
 	,destroy: function() {
 		com_isartdigital_builder_game_sprites_SpriteObject.prototype.destroy.call(this);
+		com_isartdigital_utils_game_GameStage.getInstance().getBuildingsContainer().removeChild(this);
 		com_isartdigital_builder_game_sprites_Building.list.splice(HxOverrides.indexOf(com_isartdigital_builder_game_sprites_Building.list,this,0),1);
-		com_isartdigital_builder_game_manager_MapManager.getInstance().saveMap();
 	}
 	,__class__: com_isartdigital_builder_game_sprites_Building
 });
@@ -2137,6 +2133,7 @@ com_isartdigital_builder_ui_UIManager.prototype = {
 var com_isartdigital_builder_ui_hud_Hud = function() {
 	com_isartdigital_utils_ui_Screen.call(this);
 	this._modal = false;
+	this.build();
 	this.hudRessources = new PIXI.Container();
 	this.goldText = new PIXI.Text("Gold : ");
 	this.goldText.position.set(50,50);
@@ -2160,7 +2157,7 @@ com_isartdigital_builder_ui_hud_Hud.getInstance = function() {
 com_isartdigital_builder_ui_hud_Hud.__super__ = com_isartdigital_utils_ui_Screen;
 com_isartdigital_builder_ui_hud_Hud.prototype = $extend(com_isartdigital_utils_ui_Screen.prototype,{
 	onResize: function(pEvent) {
-		com_isartdigital_utils_ui_UIPosition.setPosition(this.hudRessources,"top");
+		com_isartdigital_utils_ui_Screen.prototype.onResize.call(this);
 	}
 	,refreshHUD: function() {
 		com_isartdigital_builder_api_Api.resources.get($bind(this,this.cb_resourceAll));
@@ -2180,6 +2177,20 @@ com_isartdigital_builder_ui_hud_Hud.prototype = $extend(com_isartdigital_utils_u
 		com_isartdigital_utils_ui_Screen.prototype.destroy.call(this);
 	}
 	,__class__: com_isartdigital_builder_ui_hud_Hud
+});
+var com_isartdigital_builder_ui_hud_SpiceCurrency = function() {
+	com_isartdigital_utils_ui_UIComponent.call(this);
+	this.build();
+};
+$hxClasses["com.isartdigital.builder.ui.hud.SpiceCurrency"] = com_isartdigital_builder_ui_hud_SpiceCurrency;
+com_isartdigital_builder_ui_hud_SpiceCurrency.__name__ = ["com","isartdigital","builder","ui","hud","SpiceCurrency"];
+com_isartdigital_builder_ui_hud_SpiceCurrency.__super__ = com_isartdigital_utils_ui_UIComponent;
+com_isartdigital_builder_ui_hud_SpiceCurrency.prototype = $extend(com_isartdigital_utils_ui_UIComponent.prototype,{
+	changeCount: function(pNumber) {
+		console.log("Number :" + pNumber);
+		(js_Boot.__cast(this.getChildByName("Spice_txt") , PIXI.Text)).text = pNumber;
+	}
+	,__class__: com_isartdigital_builder_ui_hud_SpiceCurrency
 });
 var com_isartdigital_utils_ui_Popin = function() {
 	com_isartdigital_utils_ui_UIComponent.call(this);
@@ -2474,12 +2485,21 @@ com_isartdigital_utils_Localization.getInstance = function() {
 };
 com_isartdigital_utils_Localization.prototype = {
 	selectJson: function(pLang) {
-		var json = com_isartdigital_utils_loader_GameLoader.getContent("../localization/" + pLang + ".json");
-		this.myJson = JSON.parse(json);
-		console.log(this.myJson.toString());
+		this.json = com_isartdigital_utils_loader_GameLoader.getContent("json/localization/en.json");
 	}
 	,getText: function(pLabel) {
-		console.log(this.myJson.get(pLabel));
+		console.log(this.json);
+		console.log(Reflect.field(this.json,"label"));
+	}
+	,setDataLocalization: function(pData) {
+		var _g = 0;
+		var _g1 = Reflect.fields(pData);
+		while(_g < _g1.length) {
+			var label = _g1[_g];
+			++_g;
+			var value = Reflect.field(pData,label);
+			this.myJson.set(label,value);
+		}
 	}
 	,destroy: function() {
 		com_isartdigital_utils_Localization.instance = null;
@@ -3374,9 +3394,20 @@ var com_isartdigital_utils_ui_UIBuilder = function() {
 };
 $hxClasses["com.isartdigital.utils.ui.UIBuilder"] = com_isartdigital_utils_ui_UIBuilder;
 com_isartdigital_utils_ui_UIBuilder.__name__ = ["com","isartdigital","utils","ui","UIBuilder"];
-com_isartdigital_utils_ui_UIBuilder.init = function(pFile,pPackage) {
+com_isartdigital_utils_ui_UIBuilder.addTextStyle = function(pData) {
+	var _g = 0;
+	var _g1 = Reflect.fields(pData);
+	while(_g < _g1.length) {
+		var pName = _g1[_g];
+		++_g;
+		var value = Reflect.field(pData,pName);
+		com_isartdigital_utils_ui_UIBuilder.textStyle.set(pName,value);
+	}
+};
+com_isartdigital_utils_ui_UIBuilder.init = function(pFile,pPackage,pPackageCurrency) {
 	com_isartdigital_utils_ui_UIBuilder.description = pFile;
 	com_isartdigital_utils_ui_UIBuilder.btnPackage = pPackage;
+	com_isartdigital_utils_ui_UIBuilder.currencyPackage = pPackageCurrency;
 };
 com_isartdigital_utils_ui_UIBuilder.build = function(pId) {
 	var lData = com_isartdigital_utils_loader_GameLoader.getContent(com_isartdigital_utils_ui_UIBuilder.description);
@@ -3395,7 +3426,7 @@ com_isartdigital_utils_ui_UIBuilder.build = function(pId) {
 			while(_g2 < _g3.length) {
 				var lItem1 = _g3[_g2];
 				++_g2;
-				if(lItem1.name.indexOf("_txt") == lItem1.name.length - "_txt".length) lObj = new com_isartdigital_utils_ui_UIAsset(lItem1.keyframes[0].ref); else if(lItem1.name.indexOf("Button") == lItem1.name.length - "Button".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.btnPackage + "." + lItem1.keyframes[0].ref),[]); else lObj = new com_isartdigital_utils_ui_UIAsset(lItem1.keyframes[0].ref);
+				if(lItem1.name.indexOf("_txt") != -1 && lItem1.name.indexOf("_txt") == lItem1.name.length - "_txt".length) lObj = com_isartdigital_utils_ui_UIBuilder.getTextFromJson(lItem1.name); else if(lItem1.name.indexOf("Button") != -1 && lItem1.name.indexOf("Button") == lItem1.name.length - "Button".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.btnPackage + "." + lItem1.keyframes[0].ref),[]); else if(lItem1.name.indexOf("_currency") != -1 && lItem1.name.indexOf("_currency") == lItem1.name.length - "_currency".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.currencyPackage + "." + lItem1.keyframes[0].ref),[]); else lObj = new com_isartdigital_utils_ui_UIAsset(lItem1.keyframes[0].ref);
 				lObj.name = lItem1.keyframes[0].ref;
 				if(Object.prototype.hasOwnProperty.call(lItem1.keyframes[0],"loc")) lObj.position.set(lItem1.keyframes[0].loc[0],lItem1.keyframes[0].loc[1]);
 				if(Object.prototype.hasOwnProperty.call(lItem1.keyframes[0],"scale")) lObj.scale.set(lItem1.keyframes[0].scale[0],lItem1.keyframes[0].scale[1]);
@@ -3411,6 +3442,13 @@ com_isartdigital_utils_ui_UIBuilder.build = function(pId) {
 		}
 	}
 	return lUIPos;
+};
+com_isartdigital_utils_ui_UIBuilder.getTextFromJson = function(pName) {
+	var lTextStyle = com_isartdigital_utils_ui_UIBuilder.textStyle.get(pName);
+	lTextStyle;
+	var lStyle = { align : "center"};
+	console.log(lStyle.wordWrapWidth + "css");
+	return new PIXI.Text(lTextStyle.text,lStyle);
 };
 com_isartdigital_utils_ui_UIBuilder.getUIPositionable = function(pObj,pPosition) {
 	var lOffset = new PIXI.Point(0,0);
@@ -4617,23 +4655,6 @@ haxe_ds_StringMap.prototype = {
 	,iterator: function() {
 		return new haxe_ds__$StringMap_StringMapIterator(this,this.arrayKeys());
 	}
-	,toString: function() {
-		var s = new StringBuf();
-		s.b += "{";
-		var keys = this.arrayKeys();
-		var _g1 = 0;
-		var _g = keys.length;
-		while(_g1 < _g) {
-			var i = _g1++;
-			var k = keys[i];
-			if(k == null) s.b += "null"; else s.b += "" + k;
-			s.b += " => ";
-			s.add(Std.string(__map_reserved[k] != null?this.getReserved(k):this.h[k]));
-			if(i < keys.length) s.b += ", ";
-		}
-		s.b += "}";
-		return s.b;
-	}
 	,__class__: haxe_ds_StringMap
 };
 var js__$Boot_HaxeError = function(val) {
@@ -5520,6 +5541,7 @@ com_isartdigital_builder_game_type_BuildingType.PYROTECHNICIAN = "pyrotechnician
 com_isartdigital_builder_game_type_BuildingType.HOUSE = "house";
 com_isartdigital_builder_game_type_BuildingType.MAIN_SQUARE = "mainSquare";
 com_isartdigital_builder_game_type_BuildingType.PARK = "park";
+com_isartdigital_builder_game_type_BuildingType.ALTAR = "altar";
 com_isartdigital_builder_game_type_BuildingType.STATUE = "statue";
 com_isartdigital_builder_game_type_BuildingType.BIG_FLOWER_POT = "bigFlowerPot";
 com_isartdigital_builder_game_type_BuildingType.FLOATING_FLOWER = "floatingFlower";
@@ -5538,6 +5560,8 @@ com_isartdigital_utils_Config.tileWidth = 152;
 com_isartdigital_utils_Config.tileHeight = 76;
 com_isartdigital_utils_Config._data = { };
 com_isartdigital_utils_Debug.QR_SIZE = 0.35;
+com_isartdigital_utils_Localization.LANG_EN = "en";
+com_isartdigital_utils_Localization.LANG_FR = "fr";
 com_isartdigital_utils_events_EventType.GAME_LOOP = "gameLoop";
 com_isartdigital_utils_events_EventType.RESIZE = "resize";
 com_isartdigital_utils_events_EventType.ADDED = "added";
@@ -5594,6 +5618,8 @@ com_isartdigital_utils_system_DeviceCapabilities.textureType = "";
 com_isartdigital_utils_system_DeviceCapabilities.screenRatio = 1;
 com_isartdigital_utils_ui_UIBuilder.TXT_SUFFIX = "_txt";
 com_isartdigital_utils_ui_UIBuilder.BTN_SUFFIX = "Button";
+com_isartdigital_utils_ui_UIBuilder.CURRENCY_SUFFIX = "_currency";
+com_isartdigital_utils_ui_UIBuilder.textStyle = new haxe_ds_StringMap();
 com_isartdigital_utils_ui_UIBuilder.uiPos = (function($this) {
 	var $r;
 	var _g = new haxe_ds_StringMap();

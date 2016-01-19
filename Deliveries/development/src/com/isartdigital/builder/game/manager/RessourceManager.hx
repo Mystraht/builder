@@ -1,4 +1,5 @@
 package com.isartdigital.builder.game.manager;
+import com.isartdigital.builder.ui.hud.SpiceCurrency;
 
 	
 /**
@@ -7,11 +8,6 @@ package com.isartdigital.builder.game.manager;
  */
 class RessourceManager extends Manager 
 {
-	
-	private var warehousesNb:Int = 1;
-	
-	//max stock per ressource
-	public var maxStock:Int;
 	
 	public var ressources:Map<Ressources,Int> = new Map<Ressources, Int>();
 	
@@ -39,9 +35,9 @@ class RessourceManager extends Manager
 	
 	public function start():Void {
 		ressources = [
-			Ressources.DIAMONDS => 0,
+			Ressources.SPICE => 0,
 			Ressources.GOLD => 0,
-			Ressources.WOOD => 0
+			Ressources.OFFERINGS => 0
 		];
 	}
 	
@@ -59,11 +55,7 @@ class RessourceManager extends Manager
 	 * @param	pNumber
 	 */
 	public function addRessources(pRessource:Ressources, pNumber:Int):Void {
-		if (ressources[pRessource] < countMaxStock(pRessource)) {
-			ressources[pRessource] += pNumber;
-		}else {
-			trace ("Nombre de ressources maximal atteint");
-		}
+		ressources[pRessource] += pNumber;
 	}
 	
 	/**
@@ -77,22 +69,13 @@ class RessourceManager extends Manager
 		}else {
 			trace ("Plus de ressources");
 		}
-	}
+	}	
 	
-	/**
-	 * Renvoie le nombre maximum de ressource capable d'être stocké pour pRessource
-	 * @param	pRessource
-	 */
-	private function countMaxStock(pRessource:Ressources):Int {
-		if (pRessource != Ressources.DIAMONDS) {
-			maxStock = 100 + (100 * warehousesNb);
-			return maxStock;
-		}else {
-			maxStock = -1;
-			return maxStock;
-		}
-	}
+	public var updateSpice:Int->Void;
 	
+	public function updateRessources() {
+		updateSpice(ressources[Ressources.SPICE]);
+	}
 	
 	/**
 	 * détruit l'instance unique et met sa référence interne à null

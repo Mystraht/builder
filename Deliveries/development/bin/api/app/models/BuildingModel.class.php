@@ -155,13 +155,7 @@ class BuildingModel extends ApplicationModel
 		return $result[0]['id'];
 	}
 	
-	/**
-	* changer le nom de la fonction ?
-	* trouver quelque chose de affordant
-	hadBuilding ?
-	*/
-	public static function getBuildings($buildingID, $userId) 
-	{
+	public static function hadBuilding($buildingID, $userId) {
 		$sql = "SELECT *
 				FROM building_users
 				WHERE building_type_id = ".$buildingID."
@@ -171,6 +165,8 @@ class BuildingModel extends ApplicationModel
 		
 		if (count($result) == 0)
 			return true;
+			
+		return false;
 	}
 	/*
 	 * Récupère le name d'un building

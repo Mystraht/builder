@@ -1,513 +1,205 @@
 {
  "textureGroups": [
   {
+   "scaleFactor": 1,
    "atlases": [
     {
      "textures": [
       {
-       "symbol": "HelpContent_txt",
+       "origin": [
+        440.35,
+        138.05
+       ],
        "rect": [
         1,
         1,
         881,
         277
        ],
-       "origin": [
-        440.35,
-        138.05
-       ]
+       "symbol": "HelpContent_txt"
       },
       {
-       "symbol": "HelpTitle_txt",
+       "origin": [
+        440.7,
+        63
+       ],
        "rect": [
         1,
         280,
         882,
         126
        ],
-       "origin": [
-        440.7,
-        63
-       ]
+       "symbol": "HelpTitle_txt"
       },
       {
-       "symbol": "ShopTitle_txt",
+       "origin": [
+        175.5,
+        50.5
+       ],
        "rect": [
         1,
         408,
-        785,
-        126
-       ],
-       "origin": [
-        392.05,
-        63
-       ]
-      },
-      {
-       "symbol": "TitleCardTitle_txt",
-       "rect": [
-        1,
-        536,
-        785,
-        126
-       ],
-       "origin": [
-        392.05,
-        63
-       ]
-      },
-      {
-       "symbol": "_standardButton_down",
-       "rect": [
-        1,
-        664,
         351,
         101
        ],
+       "symbol": "_standardButton_disable"
+      },
+      {
        "origin": [
         175.5,
         50.5
-       ]
-      },
-      {
-       "symbol": "_standardButton_disable",
+       ],
        "rect": [
         354,
-        664,
+        408,
         351,
         101
        ],
+       "symbol": "_standardButton_down"
+      },
+      {
        "origin": [
         175.5,
         50.5
-       ]
-      },
-      {
-       "symbol": "_play_over",
+       ],
        "rect": [
         1,
-        767,
+        511,
         351,
         101
        ],
+       "symbol": "_play_over"
+      },
+      {
        "origin": [
         175.5,
         50.5
-       ]
+       ],
+       "rect": [
+        354,
+        511,
+        351,
+        101
+       ],
+       "symbol": "_play_up"
       },
       {
-       "symbol": "_play_up",
+       "origin": [
+        158.9,
+        36.8
+       ],
        "rect": [
         1,
-        870,
-        351,
-        101
+        614,
+        318,
+        74
        ],
+       "symbol": "PlayButton_txt"
+      },
+      {
        "origin": [
-        175.5,
+        75.45,
         50.5
-       ]
-      },
-      {
-       "symbol": "PlayButton_txt",
-       "rect": [
-        354,
-        767,
-        318,
-        74
        ],
-       "origin": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "symbol": "ShopButton3_txt",
-       "rect": [
-        674,
-        767,
-        318,
-        74
-       ],
-       "origin": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "symbol": "ShopButton1_txt",
-       "rect": [
-        354,
-        843,
-        318,
-        74
-       ],
-       "origin": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "symbol": "ShopButton2_txt",
-       "rect": [
-        674,
-        843,
-        318,
-        74
-       ],
-       "origin": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "symbol": "ShopButton4_txt",
-       "rect": [
-        354,
-        919,
-        318,
-        74
-       ],
-       "origin": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "symbol": "CreditsButton_txt",
        "rect": [
         707,
-        664,
-        316,
-        51
-       ],
-       "origin": [
-        157.9,
-        25.2
-       ]
-      },
-      {
-       "symbol": "_back_up",
-       "rect": [
-        674,
-        919,
+        408,
         151,
         101
        ],
+       "symbol": "_back_up"
+      },
+      {
        "origin": [
         75.45,
         50.5
-       ]
-      },
-      {
-       "symbol": "_back_down",
+       ],
        "rect": [
-        827,
-        919,
+        860,
+        408,
         151,
         101
        ],
-       "origin": [
-        75.45,
-        50.5
-       ]
+       "symbol": "_back_down"
       },
       {
-       "symbol": "HelpBg",
-       "rect": [
-        1,
-        973,
-        50,
-        50
+       "origin": [
+        149.7,
+        18.2
        ],
+       "rect": [
+        321,
+        614,
+        366,
+        33
+       ],
+       "symbol": "Spice_txt"
+      },
+      {
        "origin": [
         0,
         0
-       ]
+       ],
+       "rect": [
+        689,
+        614,
+        196,
+        56
+       ],
+       "symbol": "SpiceCurrencyAsset"
       },
       {
-       "symbol": "TitleCardBg",
-       "rect": [
-        53,
-        973,
-        50,
-        50
-       ],
        "origin": [
         0,
         0
-       ]
-      },
-      {
-       "symbol": "ShopBg",
+       ],
        "rect": [
-        105,
-        973,
+        707,
+        511,
         50,
         50
        ],
-       "origin": [
-        0,
-        0
-       ]
+       "symbol": "HelpBg"
       }
      ],
      "file": "atlas0.png"
     }
-   ],
-   "scaleFactor": 1
+   ]
   }
  ],
+ "frameRate": 30,
  "movies": [
   {
-   "id": "BackButton",
    "layers": [
     {
      "keyframes": [
       {
+       "pivot": [
+        75.45,
+        50.5
+       ],
        "duration": 1,
+       "index": 0,
        "ref": "_back_up",
-       "index": 0,
-       "tweened": false,
+       "tweened": false
+      },
+      {
        "pivot": [
         75.45,
         50.5
-       ]
-      },
-      {
+       ],
        "duration": 1,
+       "index": 1,
        "ref": "_back_down",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        75.45,
-        50.5
-       ]
+       "tweened": false
       }
      ],
      "name": "Calque 1"
     }
-   ]
+   ],
+   "id": "BackButton"
   },
   {
-   "id": "CreditsButton",
-   "layers": [
-    {
-     "keyframes": [
-      {
-       "duration": 1,
-       "ref": "_play_up",
-       "index": 0,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_play_over",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_standardButton_down",
-       "index": 2,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      }
-     ],
-     "name": "Calque 1"
-    },
-    {
-     "keyframes": [
-      {
-       "duration": 3,
-       "ref": "CreditsButton_txt",
-       "index": 0,
-       "tweened": false,
-       "pivot": [
-        157.9,
-        25.2
-       ]
-      }
-     ],
-     "name": "_txt"
-    }
-   ]
-  },
-  {
-   "id": "Help",
-   "layers": [
-    {
-     "keyframes": [
-      {
-       "loc": [
-        -480,
-        -320
-       ],
-       "scale": [
-        19.2,
-        12.8002
-       ],
-       "duration": 1,
-       "ref": "HelpBg",
-       "index": 0,
-       "tweened": false
-      }
-     ],
-     "name": "HelpBg"
-    },
-    {
-     "keyframes": [
-      {
-       "duration": 1,
-       "ref": "BackButton",
-       "index": 0,
-       "loc": [
-        367.85,
-        245.6
-       ],
-       "tweened": false
-      }
-     ],
-     "name": "BackButton"
-    },
-    {
-     "keyframes": [
-      {
-       "loc": [
-        -0.35,
-        19.35
-       ],
-       "pivot": [
-        440.35,
-        138
-       ],
-       "duration": 1,
-       "ref": "HelpContent_txt",
-       "index": 0,
-       "tweened": false
-      }
-     ],
-     "name": "HelpContent_txt"
-    },
-    {
-     "keyframes": [
-      {
-       "loc": [
-        0,
-        -220.4
-       ],
-       "pivot": [
-        440.7,
-        62.95
-       ],
-       "duration": 1,
-       "ref": "HelpTitle_txt",
-       "index": 0,
-       "tweened": false
-      }
-     ],
-     "name": "HelpTitle_txt"
-    }
-   ]
-  },
-  {
-   "id": "PlayButton",
-   "layers": [
-    {
-     "keyframes": [
-      {
-       "duration": 1,
-       "ref": "_play_up",
-       "index": 0,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_play_over",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_standardButton_down",
-       "index": 2,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_standardButton_disable",
-       "index": 3,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      }
-     ],
-     "name": "standardButton"
-    },
-    {
-     "keyframes": [
-      {
-       "duration": 1,
-       "ref": "PlayButton_txt",
-       "index": 0,
-       "tweened": false,
-       "pivot": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "duration": 2,
-       "ref": "PlayButton_txt",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "PlayButton_txt",
-       "index": 3,
-       "tweened": false,
-       "pivot": [
-        158.9,
-        36.8
-       ]
-      }
-     ],
-     "name": "_txt"
-    }
-   ]
-  },
-  {
-   "id": "Shop",
    "layers": [
     {
      "keyframes": [
@@ -516,54 +208,70 @@
        "duration": 1
       }
      ],
-     "name": "Calque 1"
+     "name": "HelpTitle_txt"
     }
-   ]
+   ],
+   "id": "Help"
   },
   {
-   "id": "ShopButton1",
    "layers": [
     {
      "keyframes": [
       {
        "duration": 1,
-       "ref": "_play_up",
        "index": 0,
-       "tweened": false,
+       "ref": "SpiceCurrency",
+       "tweened": false
+      }
+     ],
+     "name": "TL_SpiceCurrency_currency"
+    }
+   ],
+   "id": "Hud"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
        "pivot": [
         175.5,
         50.5
-       ]
+       ],
+       "duration": 1,
+       "index": 0,
+       "ref": "_play_up",
+       "tweened": false
       },
       {
+       "pivot": [
+        175.5,
+        50.5
+       ],
        "duration": 1,
-       "ref": "_play_over",
        "index": 1,
-       "tweened": false,
+       "ref": "_play_over",
+       "tweened": false
+      },
+      {
        "pivot": [
         175.5,
         50.5
-       ]
-      },
-      {
+       ],
        "duration": 1,
-       "ref": "_standardButton_down",
        "index": 2,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
+       "ref": "_standardButton_down",
+       "tweened": false
       },
       {
-       "duration": 1,
-       "ref": "_standardButton_disable",
-       "index": 3,
-       "tweened": false,
        "pivot": [
         175.5,
         50.5
-       ]
+       ],
+       "duration": 1,
+       "index": 3,
+       "ref": "_standardButton_disable",
+       "tweened": false
       }
      ],
      "name": "standardButton"
@@ -571,386 +279,81 @@
     {
      "keyframes": [
       {
-       "loc": [
-        0,
-        -2.3
-       ],
        "pivot": [
         158.9,
         36.8
        ],
        "duration": 1,
-       "ref": "ShopButton1_txt",
        "index": 0,
+       "ref": "PlayButton_txt",
        "tweened": false
       },
       {
-       "duration": 2,
-       "ref": "PlayButton_txt",
-       "index": 1,
-       "tweened": false,
        "pivot": [
         158.9,
         36.8
-       ]
+       ],
+       "duration": 2,
+       "index": 1,
+       "ref": "PlayButton_txt",
+       "tweened": false
       },
       {
-       "duration": 1,
-       "ref": "PlayButton_txt",
-       "index": 3,
-       "tweened": false,
        "pivot": [
         158.9,
         36.8
-       ]
+       ],
+       "duration": 1,
+       "index": 3,
+       "ref": "PlayButton_txt",
+       "tweened": false
       }
      ],
      "name": "_txt"
     }
-   ]
+   ],
+   "id": "PlayButton"
   },
   {
-   "id": "ShopButton2",
    "layers": [
     {
      "keyframes": [
       {
        "duration": 1,
-       "ref": "_play_up",
        "index": 0,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_play_over",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_standardButton_down",
-       "index": 2,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_standardButton_disable",
-       "index": 3,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
+       "ref": "SpiceCurrencyAsset",
+       "tweened": false
       }
      ],
-     "name": "standardButton"
+     "name": "SpiceCurrencyAsset"
     },
     {
      "keyframes": [
       {
-       "loc": [
-        0,
-        1.6
-       ],
        "pivot": [
-        158.9,
-        36.8
+        149.7,
+        18.15
        ],
        "duration": 1,
-       "ref": "ShopButton2_txt",
-       "index": 0,
-       "tweened": false
-      },
-      {
-       "duration": 2,
-       "ref": "PlayButton_txt",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "PlayButton_txt",
-       "index": 3,
-       "tweened": false,
-       "pivot": [
-        158.9,
-        36.8
-       ]
-      }
-     ],
-     "name": "_txt"
-    }
-   ]
-  },
-  {
-   "id": "ShopButton3",
-   "layers": [
-    {
-     "keyframes": [
-      {
-       "duration": 1,
-       "ref": "_play_up",
-       "index": 0,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_play_over",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_standardButton_down",
-       "index": 2,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_standardButton_disable",
-       "index": 3,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      }
-     ],
-     "name": "standardButton"
-    },
-    {
-     "keyframes": [
-      {
-       "loc": [
-        -1.95,
-        0
-       ],
-       "pivot": [
-        158.9,
-        36.8
-       ],
-       "duration": 1,
-       "ref": "ShopButton3_txt",
-       "index": 0,
-       "tweened": false
-      },
-      {
-       "duration": 2,
-       "ref": "PlayButton_txt",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "PlayButton_txt",
-       "index": 3,
-       "tweened": false,
-       "pivot": [
-        158.9,
-        36.8
-       ]
-      }
-     ],
-     "name": "_txt"
-    }
-   ]
-  },
-  {
-   "id": "ShopButton4",
-   "layers": [
-    {
-     "keyframes": [
-      {
-       "duration": 1,
-       "ref": "_play_up",
-       "index": 0,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_play_over",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_standardButton_down",
-       "index": 2,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "_standardButton_disable",
-       "index": 3,
-       "tweened": false,
-       "pivot": [
-        175.5,
-        50.5
-       ]
-      }
-     ],
-     "name": "standardButton"
-    },
-    {
-     "keyframes": [
-      {
-       "loc": [
-        -1.95,
-        -2
-       ],
-       "pivot": [
-        158.9,
-        36.8
-       ],
-       "duration": 1,
-       "ref": "ShopButton4_txt",
-       "index": 0,
-       "tweened": false
-      },
-      {
-       "duration": 2,
-       "ref": "PlayButton_txt",
-       "index": 1,
-       "tweened": false,
-       "pivot": [
-        158.9,
-        36.8
-       ]
-      },
-      {
-       "duration": 1,
-       "ref": "PlayButton_txt",
-       "index": 3,
-       "tweened": false,
-       "pivot": [
-        158.9,
-        36.8
-       ]
-      }
-     ],
-     "name": "_txt"
-    }
-   ]
-  },
-  {
-   "id": "TitleCard",
-   "layers": [
-    {
-     "keyframes": [
-      {
-       "loc": [
-        -480,
-        -320
-       ],
+       "ref": "Spice_txt",
        "scale": [
-        19.2,
-        12.8002
+        0.3662,
+        1
        ],
-       "duration": 1,
-       "ref": "TitleCardBg",
-       "index": 0,
-       "tweened": false
-      }
-     ],
-     "name": "FW_TitleCardBg"
-    },
-    {
-     "keyframes": [
-      {
-       "duration": 1,
-       "ref": "PlayButton",
+       "tweened": false,
        "index": 0,
        "loc": [
-        0,
-        224.35
-       ],
-       "tweened": false
+        114,
+        30.8
+       ]
       }
      ],
-     "name": "B_PlayButton"
-    },
-    {
-     "keyframes": [
-      {
-       "duration": 1,
-       "ref": "CreditsButton",
-       "index": 0,
-       "loc": [
-        0,
-        106.1
-       ],
-       "tweened": false
-      }
-     ],
-     "name": "CreditsButton"
-    },
-    {
-     "keyframes": [
-      {
-       "loc": [
-        0,
-        -202.55
-       ],
-       "pivot": [
-        392.05,
-        62.95
-       ],
-       "duration": 1,
-       "ref": "TitleCardTitle_txt",
-       "index": 0,
-       "tweened": false
-      }
-     ],
-     "name": "TitleCardTitle_txt"
+     "name": "Spice_txt"
     }
-   ]
+   ],
+   "id": "SpiceCurrency"
   }
  ],
- "md5": "192924ca4f7c46453037c550db074dbb",
- "frameRate": 30,
+ "md5": "7086ad8d8a6d2f6de2630a3ade77311e",
  "isNamespaced": false
 }

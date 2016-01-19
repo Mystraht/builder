@@ -1,7 +1,7 @@
 {
 	"version":"0.1.0",
 	"debug":true,
-	"fps":true,
+	"fps":false,
 	"qrcode":true,
 	"language":"",
 	"languages":["en","fr"],

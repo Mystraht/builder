@@ -45,6 +45,7 @@ class Hud extends Screen
 	{
 		super();
 		_modal = false;
+		build();
 		
 		hudRessources = new Container();	
 
@@ -71,9 +72,8 @@ class Hud extends Screen
 	 * repositionne les éléments du Hud
 	 * @param	pEvent
 	 */
-	override private function onResize (pEvent:EventTarget=null): Void {
-		//repositionne l'élement de Hud concerné en haut à gauche
-		UIPosition.setPosition(hudRessources, UIPosition.TOP);
+	override private function onResize (pEvent:EventTarget = null): Void {
+		super.onResize();
 	}
 	
 	public function refreshHUD () : Void {

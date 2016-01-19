@@ -7,6 +7,7 @@ import com.isartdigital.utils.ui.UIPosition;
 import flump.json.FlumpJSON;
 import pixi.core.display.Container;
 import pixi.core.math.Point;
+import pixi.core.text.Text;
 import pixi.display.FlumpSprite;
 
 /**
@@ -32,9 +33,17 @@ class UIBuilder
 	private static inline var BTN_SUFFIX:String = "Button";
 	
 	/**
+	 * suffixe des Currencys
+	 */
+	private static inline var CURRENCY_SUFFIX:String = "_currency";
+	
+	/**
 	 * package des classes Button du projet
 	 */
 	private static var btnPackage:String;
+	private static var currencyPackage:String;
+	
+	private static var textStyle:Map<String, UITextStyle> = new Map<String, UITextStyle>();
 	
 	/**
 	 * wrapper vers UIPosition
@@ -56,14 +65,23 @@ class UIBuilder
 	
 	private function new() {}	
 	
+	public static function addTextStyle(pData:String) : Void
+	{
+		for (pName in Reflect.fields(pData))
+		{
+			textStyle.set(pName, Reflect.field(pData, pName));
+		}
+	}
+	
 	/**
 	 * Initialise le parseur
 	 * @param	pFile nom du fichier qui contient les données de mise en forme de l'UI
 	 * @param	pPackage nom du package des boutons
 	 */
-	public static function init(pFile:String,pPackage:String):Void {
+	public static function init(pFile:String,pPackage:String, pPackageCurrency:String):Void {
 		description = pFile;
 		btnPackage = pPackage;
+		currencyPackage = pPackageCurrency;
 	}
 	
 	/**
@@ -84,11 +102,12 @@ class UIBuilder
 		for (lMovie in lData.movies) {
 			if (lMovie.id == pId) {
 				for (lItem in lMovie.layers) {
-					if (lItem.name.indexOf(TXT_SUFFIX)==lItem.name.length-TXT_SUFFIX.length) {
-						//TODO: A vous de le coder pour remplacer le texte statique en un texte dynamique localisable
-						lObj = new UIAsset(lItem.keyframes[0].ref);
-					} else if (lItem.name.indexOf(BTN_SUFFIX)==lItem.name.length-BTN_SUFFIX.length) {	
+					if (lItem.name.indexOf(TXT_SUFFIX) != -1 && lItem.name.indexOf(TXT_SUFFIX)==lItem.name.length-TXT_SUFFIX.length) {
+						lObj = getTextFromJson(lItem.name);
+					} else if (lItem.name.indexOf(BTN_SUFFIX) != -1 && lItem.name.indexOf(BTN_SUFFIX)==lItem.name.length-BTN_SUFFIX.length) {	
 						lObj = Type.createInstance(Type.resolveClass(btnPackage+"." + lItem.keyframes[0].ref), []);
+					} else if (lItem.name.indexOf(CURRENCY_SUFFIX) != -1 && lItem.name.indexOf(CURRENCY_SUFFIX) == lItem.name.length - CURRENCY_SUFFIX.length) {
+						lObj = Type.createInstance(Type.resolveClass(currencyPackage +"."+lItem.keyframes[0].ref), []);
 					} else {
 						lObj = new UIAsset(lItem.keyframes[0].ref);
 					}
@@ -109,6 +128,17 @@ class UIBuilder
 		
 		return lUIPos;
 		
+	}
+	
+	private static function getTextFromJson(pName:String) : Text
+	{
+		//TO DO rajotuer les styles des textes
+		var lTextStyle:UITextStyle = textStyle.get(pName);
+		lTextStyle;
+		var lStyle:TextStyle = { align : "center" };
+		trace(lStyle.wordWrapWidth + "css");
+
+		return new Text(lTextStyle.text, lStyle);
 	}
 	
 	/**
