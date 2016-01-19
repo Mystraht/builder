@@ -114,7 +114,7 @@ class MapManager extends Manager
 		return true;
 	}
 	
-	
+
 	/**
 	 * Permet de savoir si un batiment est construisable à un endroit donnée
 	 * @param	Array des tiles concerné (Récupérable grâce à getTilesArray(pPosition:Point, pSize:SizeDef):Array<TileSavedDef>)
