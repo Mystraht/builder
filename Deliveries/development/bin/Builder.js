@@ -273,7 +273,7 @@ var com_isartdigital_builder_Main = function() {
 	EventEmitter.call(this);
 	if(js_Browser.getLocalStorage().getItem("token") == null) window.location.href = "../";
 	com_isartdigital_builder_api_Api.getInstance();
-	this.loadMePath();
+	this.loadUserInfos();
 	var lOptions = { };
 	lOptions.backgroundColor = 10066329;
 	com_isartdigital_utils_system_DeviceCapabilities.scaleViewport();
@@ -353,7 +353,7 @@ com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
 		window.requestAnimationFrame($bind(this,this.gameLoop));
 		lLoader.load();
 	}
-	,loadMePath: function() {
+	,loadUserInfos: function() {
 		com_isartdigital_builder_api_Api.user.getUserInfo($bind(this,this.cbLoadMe));
 	}
 	,cbLoadMe: function(pData) {
@@ -3482,7 +3482,7 @@ com_isartdigital_utils_ui_UIBuilder.build = function(pId) {
 	return lUIPos;
 };
 com_isartdigital_utils_ui_UIBuilder.getTextFromJson = function(pName) {
-	console.log("name text" + pName);
+	console.log("name text " + pName);
 	var lTextStyle = com_isartdigital_utils_ui_UIBuilder.textStyle.get(pName);
 	lTextStyle;
 	var lStyle = { align : "center"};
