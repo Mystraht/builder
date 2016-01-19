@@ -18,10 +18,10 @@ class SpiceCurrency extends UIComponent
 	{
 		super();
 		build();
-		//RessourceManager.getInstance().updateSpice = changeCount;
+		RessourceManager.getInstance().updateSpice = changeCount;
 	}
 	
-	public function changeCount(pNumber) {
+	public function changeCount(pNumber:Int) {
 		trace ("Number :" + pNumber);
 		cast(getChildByName("Spice_txt"), Text).text = cast (pNumber);
 	}

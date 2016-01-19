@@ -757,8 +757,8 @@ com_isartdigital_builder_game_GameManager.prototype = {
 		lCitizen.start();
 		com_isartdigital_builder_game_manager_ClippingManager.getInstance().addAllObjetInView();
 		com_isartdigital_builder_ui_hud_Hud.getInstance().refreshHUD();
-		console.log("snip");
-		com_isartdigital_builder_game_sprites_Building.list[0].callServerToDestroy();
+		com_isartdigital_builder_game_manager_RessourceManager.getInstance().start();
+		com_isartdigital_builder_game_manager_RessourceManager.getInstance().updateRessources();
 	}
 	,gameLoop: function(pEvent) {
 		this.screenRect = com_isartdigital_utils_system_DeviceCapabilities.getScreenRect(com_isartdigital_utils_game_GameStage.getInstance().getGameContainer());
@@ -1288,7 +1288,7 @@ com_isartdigital_builder_game_manager_RessourceManager.__super__ = com_isartdigi
 com_isartdigital_builder_game_manager_RessourceManager.prototype = $extend(com_isartdigital_builder_game_manager_Manager.prototype,{
 	start: function() {
 		var _g = new haxe_ds_EnumValueMap();
-		_g.set(com_isartdigital_builder_game_manager_Ressources.SPICE,0);
+		_g.set(com_isartdigital_builder_game_manager_Ressources.SPICE,15);
 		_g.set(com_isartdigital_builder_game_manager_Ressources.GOLD,0);
 		_g.set(com_isartdigital_builder_game_manager_Ressources.OFFERINGS,0);
 		this.ressources = _g;
@@ -1311,6 +1311,7 @@ com_isartdigital_builder_game_manager_RessourceManager.prototype = $extend(com_i
 		} else console.log("Plus de ressources");
 	}
 	,updateRessources: function() {
+		console.log(this.ressources.exists(com_isartdigital_builder_game_manager_Ressources.SPICE));
 		this.updateSpice(this.ressources.get(com_isartdigital_builder_game_manager_Ressources.SPICE));
 	}
 	,destroy: function() {
@@ -2181,6 +2182,7 @@ com_isartdigital_builder_ui_hud_Hud.prototype = $extend(com_isartdigital_utils_u
 var com_isartdigital_builder_ui_hud_SpiceCurrency = function() {
 	com_isartdigital_utils_ui_UIComponent.call(this);
 	this.build();
+	com_isartdigital_builder_game_manager_RessourceManager.getInstance().updateSpice = $bind(this,this.changeCount);
 };
 $hxClasses["com.isartdigital.builder.ui.hud.SpiceCurrency"] = com_isartdigital_builder_ui_hud_SpiceCurrency;
 com_isartdigital_builder_ui_hud_SpiceCurrency.__name__ = ["com","isartdigital","builder","ui","hud","SpiceCurrency"];

@@ -1,6 +1,7 @@
 package com.isartdigital.builder.game;
 
 import com.isartdigital.builder.api.Api;
+import com.isartdigital.builder.game.manager.RessourceManager;
 import com.isartdigital.builder.game.type.BuildingType;
 import com.isartdigital.builder.api.DataDef;
 import com.isartdigital.builder.game.def.BuildingDef;
@@ -155,6 +156,8 @@ class GameManager
 		ClippingManager.getInstance().addAllObjetInView();
 		
 		Hud.getInstance().refreshHUD();
+		RessourceManager.getInstance().start();
+		RessourceManager.getInstance().updateRessources();
 	}
 	
 	/**

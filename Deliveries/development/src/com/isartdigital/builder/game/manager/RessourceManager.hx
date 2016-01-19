@@ -35,7 +35,7 @@ class RessourceManager extends Manager
 	
 	public function start():Void {
 		ressources = [
-			Ressources.SPICE => 0,
+			Ressources.SPICE => 15,
 			Ressources.GOLD => 0,
 			Ressources.OFFERINGS => 0
 		];
@@ -74,7 +74,8 @@ class RessourceManager extends Manager
 	public var updateSpice:Int->Void;
 	
 	public function updateRessources() {
-		updateSpice(ressources[Ressources.SPICE]);
+		trace (ressources.exists(Ressources.SPICE));
+		updateSpice(ressources.get(Ressources.SPICE));
 	}
 	
 	/**
