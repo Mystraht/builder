@@ -1,8 +1,0 @@
-{
-	"motel" : 10,
-	"temple" : 20,
-	"rocket_factory" : {
-		"1" : 20,
-		"2" : 40
-	}
-}

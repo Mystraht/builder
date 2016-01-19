@@ -1,9 +1,0 @@
-result:false
-count:4
-pass:3
-fail:1
-error:0
-ignore:0
-time:0.018000125885009766
-
-# BuildingTest#should_set_tile_under_building_to_construcible_state_when_building_is_removed
