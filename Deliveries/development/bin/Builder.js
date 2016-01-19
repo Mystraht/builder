@@ -757,8 +757,6 @@ com_isartdigital_builder_game_GameManager.prototype = {
 		lCitizen.start();
 		com_isartdigital_builder_game_manager_ClippingManager.getInstance().addAllObjetInView();
 		com_isartdigital_builder_ui_hud_Hud.getInstance().refreshHUD();
-		console.log("snip");
-		com_isartdigital_builder_game_sprites_Building.list[0].callServerToDestroy();
 	}
 	,gameLoop: function(pEvent) {
 		this.screenRect = com_isartdigital_utils_system_DeviceCapabilities.getScreenRect(com_isartdigital_utils_game_GameStage.getInstance().getGameContainer());
