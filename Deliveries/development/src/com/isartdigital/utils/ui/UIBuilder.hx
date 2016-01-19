@@ -9,6 +9,7 @@ import pixi.core.display.Container;
 import pixi.core.math.Point;
 import pixi.core.text.Text;
 import pixi.display.FlumpSprite;
+import com.isartdigital.builder.ui.hud.GoldCurrency;
 
 /**
  * ...
@@ -107,6 +108,7 @@ class UIBuilder
 					} else if (lItem.name.indexOf(BTN_SUFFIX) != -1 && lItem.name.indexOf(BTN_SUFFIX)==lItem.name.length-BTN_SUFFIX.length) {	
 						lObj = Type.createInstance(Type.resolveClass(btnPackage+"." + lItem.keyframes[0].ref), []);
 					} else if (lItem.name.indexOf(CURRENCY_SUFFIX) != -1 && lItem.name.indexOf(CURRENCY_SUFFIX) == lItem.name.length - CURRENCY_SUFFIX.length) {
+						trace("currency found : " + lItem.keyframes[0].ref);
 						lObj = Type.createInstance(Type.resolveClass(currencyPackage +"."+lItem.keyframes[0].ref), []);
 					} else {
 						lObj = new UIAsset(lItem.keyframes[0].ref);
@@ -133,6 +135,7 @@ class UIBuilder
 	private static function getTextFromJson(pName:String) : Text
 	{
 		//TO DO rajotuer les styles des textes
+		trace("name text " + pName);
 		var lTextStyle:UITextStyle = textStyle.get(pName);
 		lTextStyle;
 		var lStyle:TextStyle = { align : "center" };
@@ -173,6 +176,5 @@ class UIBuilder
 		
 		return {item:pObj, align:pPosition, offsetX:lOffset.x, offsetY:lOffset.y, update:true};
 	}
-	
 }
 

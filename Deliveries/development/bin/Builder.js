@@ -303,6 +303,8 @@ com_isartdigital_builder_Main.importClasses = function() {
 	com_isartdigital_builder_ui_uimodule_BackButton;
 	com_isartdigital_builder_ui_uimodule_ShopButton1;
 	com_isartdigital_builder_ui_hud_SpiceCurrency;
+	com_isartdigital_builder_ui_hud_GoldCurrency;
+	com_isartdigital_builder_ui_hud_OfferingsCurrency;
 };
 com_isartdigital_builder_Main.__super__ = EventEmitter;
 com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
@@ -2131,6 +2133,29 @@ com_isartdigital_builder_ui_UIManager.prototype = {
 	}
 	,__class__: com_isartdigital_builder_ui_UIManager
 };
+var com_isartdigital_builder_ui_hud_CurrencyAsset = function() {
+	com_isartdigital_utils_ui_UIComponent.call(this);
+	this.build();
+};
+$hxClasses["com.isartdigital.builder.ui.hud.CurrencyAsset"] = com_isartdigital_builder_ui_hud_CurrencyAsset;
+com_isartdigital_builder_ui_hud_CurrencyAsset.__name__ = ["com","isartdigital","builder","ui","hud","CurrencyAsset"];
+com_isartdigital_builder_ui_hud_CurrencyAsset.__super__ = com_isartdigital_utils_ui_UIComponent;
+com_isartdigital_builder_ui_hud_CurrencyAsset.prototype = $extend(com_isartdigital_utils_ui_UIComponent.prototype,{
+	changeCount: function(pNumber) {
+		console.log("Number :" + pNumber);
+		(js_Boot.__cast(this.getChildByName("Spice_txt") , PIXI.Text)).text = pNumber;
+	}
+	,__class__: com_isartdigital_builder_ui_hud_CurrencyAsset
+});
+var com_isartdigital_builder_ui_hud_GoldCurrency = function() {
+	com_isartdigital_builder_ui_hud_CurrencyAsset.call(this);
+};
+$hxClasses["com.isartdigital.builder.ui.hud.GoldCurrency"] = com_isartdigital_builder_ui_hud_GoldCurrency;
+com_isartdigital_builder_ui_hud_GoldCurrency.__name__ = ["com","isartdigital","builder","ui","hud","GoldCurrency"];
+com_isartdigital_builder_ui_hud_GoldCurrency.__super__ = com_isartdigital_builder_ui_hud_CurrencyAsset;
+com_isartdigital_builder_ui_hud_GoldCurrency.prototype = $extend(com_isartdigital_builder_ui_hud_CurrencyAsset.prototype,{
+	__class__: com_isartdigital_builder_ui_hud_GoldCurrency
+});
 var com_isartdigital_builder_ui_hud_Hud = function() {
 	com_isartdigital_utils_ui_Screen.call(this);
 	this._modal = false;
@@ -2179,15 +2204,23 @@ com_isartdigital_builder_ui_hud_Hud.prototype = $extend(com_isartdigital_utils_u
 	}
 	,__class__: com_isartdigital_builder_ui_hud_Hud
 });
+var com_isartdigital_builder_ui_hud_OfferingsCurrency = function() {
+	com_isartdigital_builder_ui_hud_CurrencyAsset.call(this);
+};
+$hxClasses["com.isartdigital.builder.ui.hud.OfferingsCurrency"] = com_isartdigital_builder_ui_hud_OfferingsCurrency;
+com_isartdigital_builder_ui_hud_OfferingsCurrency.__name__ = ["com","isartdigital","builder","ui","hud","OfferingsCurrency"];
+com_isartdigital_builder_ui_hud_OfferingsCurrency.__super__ = com_isartdigital_builder_ui_hud_CurrencyAsset;
+com_isartdigital_builder_ui_hud_OfferingsCurrency.prototype = $extend(com_isartdigital_builder_ui_hud_CurrencyAsset.prototype,{
+	__class__: com_isartdigital_builder_ui_hud_OfferingsCurrency
+});
 var com_isartdigital_builder_ui_hud_SpiceCurrency = function() {
-	com_isartdigital_utils_ui_UIComponent.call(this);
-	this.build();
+	com_isartdigital_builder_ui_hud_CurrencyAsset.call(this);
 	com_isartdigital_builder_game_manager_RessourceManager.getInstance().updateSpice = $bind(this,this.changeCount);
 };
 $hxClasses["com.isartdigital.builder.ui.hud.SpiceCurrency"] = com_isartdigital_builder_ui_hud_SpiceCurrency;
 com_isartdigital_builder_ui_hud_SpiceCurrency.__name__ = ["com","isartdigital","builder","ui","hud","SpiceCurrency"];
-com_isartdigital_builder_ui_hud_SpiceCurrency.__super__ = com_isartdigital_utils_ui_UIComponent;
-com_isartdigital_builder_ui_hud_SpiceCurrency.prototype = $extend(com_isartdigital_utils_ui_UIComponent.prototype,{
+com_isartdigital_builder_ui_hud_SpiceCurrency.__super__ = com_isartdigital_builder_ui_hud_CurrencyAsset;
+com_isartdigital_builder_ui_hud_SpiceCurrency.prototype = $extend(com_isartdigital_builder_ui_hud_CurrencyAsset.prototype,{
 	changeCount: function(pNumber) {
 		console.log("Number :" + pNumber);
 		(js_Boot.__cast(this.getChildByName("Spice_txt") , PIXI.Text)).text = pNumber;
@@ -3428,7 +3461,10 @@ com_isartdigital_utils_ui_UIBuilder.build = function(pId) {
 			while(_g2 < _g3.length) {
 				var lItem1 = _g3[_g2];
 				++_g2;
-				if(lItem1.name.indexOf("_txt") != -1 && lItem1.name.indexOf("_txt") == lItem1.name.length - "_txt".length) lObj = com_isartdigital_utils_ui_UIBuilder.getTextFromJson(lItem1.name); else if(lItem1.name.indexOf("Button") != -1 && lItem1.name.indexOf("Button") == lItem1.name.length - "Button".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.btnPackage + "." + lItem1.keyframes[0].ref),[]); else if(lItem1.name.indexOf("_currency") != -1 && lItem1.name.indexOf("_currency") == lItem1.name.length - "_currency".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.currencyPackage + "." + lItem1.keyframes[0].ref),[]); else lObj = new com_isartdigital_utils_ui_UIAsset(lItem1.keyframes[0].ref);
+				if(lItem1.name.indexOf("_txt") != -1 && lItem1.name.indexOf("_txt") == lItem1.name.length - "_txt".length) lObj = com_isartdigital_utils_ui_UIBuilder.getTextFromJson(lItem1.name); else if(lItem1.name.indexOf("Button") != -1 && lItem1.name.indexOf("Button") == lItem1.name.length - "Button".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.btnPackage + "." + lItem1.keyframes[0].ref),[]); else if(lItem1.name.indexOf("_currency") != -1 && lItem1.name.indexOf("_currency") == lItem1.name.length - "_currency".length) {
+					console.log("currency found : " + lItem1.keyframes[0].ref);
+					lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.currencyPackage + "." + lItem1.keyframes[0].ref),[]);
+				} else lObj = new com_isartdigital_utils_ui_UIAsset(lItem1.keyframes[0].ref);
 				lObj.name = lItem1.keyframes[0].ref;
 				if(Object.prototype.hasOwnProperty.call(lItem1.keyframes[0],"loc")) lObj.position.set(lItem1.keyframes[0].loc[0],lItem1.keyframes[0].loc[1]);
 				if(Object.prototype.hasOwnProperty.call(lItem1.keyframes[0],"scale")) lObj.scale.set(lItem1.keyframes[0].scale[0],lItem1.keyframes[0].scale[1]);
@@ -3446,6 +3482,7 @@ com_isartdigital_utils_ui_UIBuilder.build = function(pId) {
 	return lUIPos;
 };
 com_isartdigital_utils_ui_UIBuilder.getTextFromJson = function(pName) {
+	console.log("name text" + pName);
 	var lTextStyle = com_isartdigital_utils_ui_UIBuilder.textStyle.get(pName);
 	lTextStyle;
 	var lStyle = { align : "center"};
