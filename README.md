@@ -2,6 +2,10 @@
 
 Rappel des commandes importante sur git :
 
+Pour récuperer le contenu d'une branch (equivalent de update) :
+
+* git pull origin *nom_de_la_branch*
+
 Pour envoyer votre travail sur une branche :
 
 * git add -A <- Permet d'ajouter tous vos fichier créé. Faites le systematiquement avant un commit histoire d'être sûr
@@ -12,4 +16,3 @@ Pour switcher de branch :
 * git br <- Liste les branch existante
 * git br nom_de_la_branch <- crée une branch qui n'existe pas (donc quand on commence une nouvelle tache) la branch doit toujours commencer par le nom de la tache (exemple : B-0027_create_lantern_class)
 * git co nom_de_la_branch <- permet de changer de branch. Vous devez commit votre travail sur la branche actuel pour pouvoir changer de branch
-
