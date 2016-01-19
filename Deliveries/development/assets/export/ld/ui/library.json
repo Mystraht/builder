@@ -1,126 +1,23 @@
 {
+ "isNamespaced": false,
  "textureGroups": [
   {
-   "scaleFactor": 1,
    "atlases": [
     {
+     "file": "atlas0.png",
      "textures": [
       {
        "origin": [
-        110.1,
-        34.5
+        0,
+        0
        ],
        "rect": [
         1,
         1,
-        221,
-        69
+        98,
+        28
        ],
-       "symbol": "HelpContent_txt"
-      },
-      {
-       "origin": [
-        110.2,
-        15.75
-       ],
-       "rect": [
-        1,
-        72,
-        221,
-        32
-       ],
-       "symbol": "HelpTitle_txt"
-      },
-      {
-       "origin": [
-        43.9,
-        12.6
-       ],
-       "rect": [
-        1,
-        106,
-        88,
-        26
-       ],
-       "symbol": "_standardButton_disable"
-      },
-      {
-       "origin": [
-        43.9,
-        12.6
-       ],
-       "rect": [
-        91,
-        106,
-        88,
-        26
-       ],
-       "symbol": "_standardButton_down"
-      },
-      {
-       "origin": [
-        43.9,
-        12.6
-       ],
-       "rect": [
-        1,
-        134,
-        88,
-        26
-       ],
-       "symbol": "_play_over"
-      },
-      {
-       "origin": [
-        43.9,
-        12.6
-       ],
-       "rect": [
-        91,
-        134,
-        88,
-        26
-       ],
-       "symbol": "_play_up"
-      },
-      {
-       "origin": [
-        39.7,
-        9.2
-       ],
-       "rect": [
-        1,
-        162,
-        80,
-        19
-       ],
-       "symbol": "PlayButton_txt"
-      },
-      {
-       "origin": [
-        18.85,
-        12.6
-       ],
-       "rect": [
-        181,
-        106,
-        38,
-        26
-       ],
-       "symbol": "_back_up"
-      },
-      {
-       "origin": [
-        18.85,
-        12.6
-       ],
-       "rect": [
-        181,
-        134,
-        38,
-        26
-       ],
-       "symbol": "_back_down"
+       "symbol": "SpiceCurrencyAsset"
       },
       {
        "origin": [
@@ -128,91 +25,20 @@
         4.55
        ],
        "rect": [
-        83,
-        162,
+        1,
+        31,
         92,
         9
        ],
        "symbol": "Spice_txt"
-      },
-      {
-       "origin": [
-        0,
-        0
-       ],
-       "rect": [
-        177,
-        162,
-        49,
-        14
-       ],
-       "symbol": "SpiceCurrencyAsset"
-      },
-      {
-       "origin": [
-        0,
-        0
-       ],
-       "rect": [
-        221,
-        106,
-        13,
-        13
-       ],
-       "symbol": "HelpBg"
       }
-     ],
-     "file": "atlas0.png"
+     ]
     }
-   ]
+   ],
+   "scaleFactor": 1
   }
  ],
- "frameRate": 30,
  "movies": [
-  {
-   "layers": [
-    {
-     "keyframes": [
-      {
-       "pivot": [
-        18.8625,
-        12.625
-       ],
-       "duration": 1,
-       "index": 0,
-       "ref": "_back_up",
-       "tweened": false
-      },
-      {
-       "pivot": [
-        18.8625,
-        12.625
-       ],
-       "duration": 1,
-       "index": 1,
-       "ref": "_back_down",
-       "tweened": false
-      }
-     ],
-     "name": "Calque 1"
-    }
-   ],
-   "id": "BackButton"
-  },
-  {
-   "layers": [
-    {
-     "keyframes": [
-      {
-       "index": 0,
-       "duration": 1
-      }
-     ],
-     "name": "HelpTitle_txt"
-    }
-   ],
-   "id": "Help"
-  },
   {
    "layers": [
     {
@@ -234,94 +60,17 @@
     {
      "keyframes": [
       {
-       "pivot": [
-        43.875,
-        12.625
+       "loc": [
+        49,
+        14
        ],
        "duration": 1,
-       "index": 0,
-       "ref": "_play_up",
-       "tweened": false
-      },
-      {
-       "pivot": [
-        43.875,
-        12.625
-       ],
-       "duration": 1,
-       "index": 1,
-       "ref": "_play_over",
-       "tweened": false
-      },
-      {
-       "pivot": [
-        43.875,
-        12.625
-       ],
-       "duration": 1,
-       "index": 2,
-       "ref": "_standardButton_down",
-       "tweened": false
-      },
-      {
-       "pivot": [
-        43.875,
-        12.625
-       ],
-       "duration": 1,
-       "index": 3,
-       "ref": "_standardButton_disable",
-       "tweened": false
-      }
-     ],
-     "name": "standardButton"
-    },
-    {
-     "keyframes": [
-      {
-       "pivot": [
-        39.725,
-        9.2
-       ],
-       "duration": 1,
-       "index": 0,
-       "ref": "PlayButton_txt",
-       "tweened": false
-      },
-      {
-       "pivot": [
-        39.725,
-        9.2
-       ],
-       "duration": 2,
-       "index": 1,
-       "ref": "PlayButton_txt",
-       "tweened": false
-      },
-      {
-       "pivot": [
-        39.725,
-        9.2
-       ],
-       "duration": 1,
-       "index": 3,
-       "ref": "PlayButton_txt",
-       "tweened": false
-      }
-     ],
-     "name": "_txt"
-    }
-   ],
-   "id": "PlayButton"
-  },
-  {
-   "layers": [
-    {
-     "keyframes": [
-      {
-       "duration": 1,
-       "index": 0,
        "ref": "SpiceCurrencyAsset",
+       "pivot": [
+        49,
+        14
+       ],
+       "index": 0,
        "tweened": false
       }
      ],
@@ -330,22 +79,22 @@
     {
      "keyframes": [
       {
-       "pivot": [
-        37.425,
-        4.5375
+       "loc": [
+        55.5,
+        14.7024
        ],
        "duration": 1,
        "ref": "Spice_txt",
        "scale": [
-        0.3662,
-        1
+        0.7329,
+        1.8058
        ],
-       "tweened": false,
+       "pivot": [
+        37.425,
+        4.5375
+       ],
        "index": 0,
-       "loc": [
-        28.5,
-        7.7
-       ]
+       "tweened": false
       }
      ],
      "name": "Spice_txt"
@@ -354,6 +103,6 @@
    "id": "SpiceCurrency"
   }
  ],
- "md5": "7086ad8d8a6d2f6de2630a3ade77311e",
- "isNamespaced": false
+ "md5": "ac82c7682a01861a9c0476023bfe5975",
+ "frameRate": 30
 }
