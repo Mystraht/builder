@@ -102,7 +102,7 @@ class Main extends EventEmitter
 		}
 		
 		Api.getInstance();
-		loadMePath();
+		loadUserInfos();
 		
 		var lOptions:RenderingOptions = {};
 		//lOptions.antialias = true;
@@ -181,7 +181,7 @@ class Main extends EventEmitter
 		
 		lLoader.once(LoadEventType.COMPLETE, loadAssets);
 		lLoader.load();
-	}	
+	}
 	
 	/**
 	 * lance le chargement principal
@@ -228,7 +228,7 @@ class Main extends EventEmitter
 	/**
 	 * Charge le /userInfos du jeu
 	 */
-	private function loadMePath():Void {
+	private function loadUserInfos():Void {
 		Api.user.getUserInfo(cbLoadMe);
 	}
 	
