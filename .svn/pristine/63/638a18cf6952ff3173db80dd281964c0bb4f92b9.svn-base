@@ -1,0 +1,30 @@
+<?php
+
+global $app;
+
+define("ENV", "production");
+//define("ENV", "development");
+
+require_once __DIR__ . '/vendor/autoload.php';
+$app = new Silex\Application();
+$app['debug'] = (ENV == "development");
+
+require_once __DIR__ . '/config/Database.class.php';
+$Database = new Database();
+$Database->register($app);
+
+require_once __DIR__ . '/config/routes.php';
+
+// http://stackoverflow.com/questions/15209511/best-approach-to-model-validation-in-php
+
+
+//Load jQuery library using plain JavaScript
+// (function(){
+//   var newscript = document.createElement('script');
+//      newscript.type = 'text/javascript';
+//      newscript.async = true;
+//      newscript.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js';
+//   (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);
+// })();
+
+// $.post('https://fbgame.isartdigital.com/2017_builder/builder2/api/index.php/v1/users/create?username=Bonjourtoi&password=123&password_conf=123', function (data) {console.log(data)} );

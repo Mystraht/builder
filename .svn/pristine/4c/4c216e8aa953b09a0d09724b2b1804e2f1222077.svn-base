@@ -1,0 +1,89 @@
+package ;
+
+import com.isartdigital.builder.game.def.TileSavedDef;
+import com.isartdigital.builder.game.GameManager;
+import com.isartdigital.builder.game.manager.MapManager;
+import com.isartdigital.builder.Main;
+import com.isartdigital.utils.Debug;
+import massive.munit.Assert;
+import massive.munit.async.AsyncFactory;
+import pixi.core.math.Point;
+
+
+class MapManagerTest 
+{
+	var globalMap:Map<String, Array<Dynamic>>;
+	
+	public function new() 
+	{
+		
+	}
+	
+	@BeforeClass
+	public function beforeClass():Void
+	{
+		var tile:TileSavedDef;
+		var lPosition:String;
+		globalMap = new Map<String, Array<Dynamic>> ();
+		
+		for (i in 0...20) {
+			for (j in 0...20) {
+				tile = {
+					x: i,
+					y: j,
+					isBuildable: true,
+					name: "0"
+				}
+				
+				lPosition = i + "," + j;
+				
+				if (!globalMap.exists(lPosition)) {
+					globalMap.set(lPosition, new Array<Dynamic>());
+				}
+				
+				globalMap.get(lPosition).push("");
+				globalMap.get(lPosition).push(tile);
+				globalMap.get(lPosition).push(123);
+			}
+		}
+		
+		globalMap.get("5,5")[1].isBuildable = false;
+	}
+	
+	@AfterClass
+	public function afterClass():Void
+	{
+	}
+	
+	@Before
+	public function setup():Void
+	{
+		
+	}
+	
+	@After
+	public function tearDown():Void
+	{
+	}
+	
+	@Test
+	public function should_return_true_if_building_is_contructible_or_false_if_it_is_not():Void
+	{
+		var lMapManager:MapManager = MapManager.getInstance();
+		lMapManager.globalMap = globalMap;
+		
+		var test1:Array<TileSavedDef> = lMapManager.getTilesArray(new Point(2, 2), {width: 1, height: 1});
+		var test2:Array<TileSavedDef> = lMapManager.getTilesArray(new Point(4, 4), {width: 3, height: 3});
+		var test3:Array<TileSavedDef> = lMapManager.getTilesArray(new Point(7, 7), {width: 2, height: 2});
+		var test4:Array<TileSavedDef> = lMapManager.getTilesArray(new Point(5, 5), {width: 1, height: 1});
+		var test5:Array<TileSavedDef> = lMapManager.getTilesArray(new Point(7, 7), {width: 3, height: 3});
+		var test6:Array<TileSavedDef> = lMapManager.getTilesArray(new Point(1, 1), {width: 3, height: 3}); // hors map
+		
+		Assert.isTrue(lMapManager.isBuildable(test1));
+		Assert.isTrue(lMapManager.isBuildable(test2));
+		Assert.isTrue(lMapManager.isBuildable(test3));
+		Assert.isFalse(lMapManager.isBuildable(test4));
+		Assert.isFalse(lMapManager.isBuildable(test5));
+		Assert.isFalse(lMapManager.isBuildable(test6));
+	}
+}

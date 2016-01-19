@@ -1,0 +1,434 @@
+<?php
+include_once('ApplicationController.class.php');
+include_once('BuildingsController.class.php');
+include_once('ResourcesController.class.php');
+include_once('LanternsController.class.php');
+
+class UsersController extends ApplicationController
+{
+    public function __construct()
+    {
+        
+    }
+
+    public function index($params)
+    {
+        $data = [];
+
+        $token = addslashes($params['token']);
+
+        if (!isset($params['friend_user_id'])) {
+            $userId = self::getUserIdByToken($params['token']);
+            if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+        } else {
+            $userId = $params['friend_user_id'];
+        }
+
+        $buildings = BuildingsController::getBuildings($userId);
+        $lanterns = LanternsController::getLanterns($userId);
+        $resources = ResourcesController::getResource($userId);
+        $parade = self::getParade($userId);
+        $dailyreward = self::getDailyreward($userId);
+        $experience = self::getExperience($userId);
+        $ftue = self::getFtue($userId);
+
+        $resources = json_decode($resources);
+
+        $data['buildings'] = $buildings;
+        $data['lanterns'] = $lanterns;
+        $data['resources'] = $resources->{'data'};
+        $data['parade'] = $parade;
+        $data['dailyreward'] = $dailyreward;
+        $data['experience'] = $experience;
+        $data['ftue_complet'] = $ftue;
+
+        if ($buildings == ERROR_BAD_TOKEN) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        return json_encode([
+            'data' => $data,
+            'error' => $error != '',
+            'errorCode' => -1,
+            'errorMessage' => $error
+        ]);
+    }
+
+    public function login($params)
+    {
+        $data = '';
+        $error = '';
+        $sql = "SELECT token FROM users WHERE username='" . addslashes($params['username']) . "' AND password='" . addslashes($params['password']) . "'";
+        $result = $GLOBALS['app']['db']->fetchAll($sql);
+
+        if(count($result) == 0) {
+            $error = "Le nom d'utilisateur et le mot de passe ne correspondent pas.";
+        } else {
+            $data = $result[0]['token'];
+        }
+
+        return json_encode([
+            'data' => $data,
+            'error' => $error != '',
+            'errorCode' => -1,
+            'errorMessage' => $error
+        ]);
+    }
+
+    public function create($params)
+    {
+        $date = date("Y-m-d H:i:s");
+        $token = bin2hex(openssl_random_pseudo_bytes(32));
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO users VALUES (NULL, ?, ?, ?, ?, ?, NULL, ?, ?, ?, ?, ?)');
+        $request->execute(array($date, $date, addslashes($params['username']), addslashes($params['password']), $params['email'], $token, 0, $date, false, $date));
+
+        $userId = $GLOBALS['app']['db']->lastInsertId();
+        $this->createUserResources($userId);
+        $this->createBasemap($userId);
+
+        return json_encode([
+            'data' => $token,
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    public function createFB($params)
+    {
+        $date = date("Y-m-d H:i:s");
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO users VALUES (NULL, ?, ?, NULL, NULL, ?, ?, ?, ?, ?, ?, ?)');
+        $request->execute(array($date, $date, addslashes($params['mail']), 1, addslashes($params['token']), 0, $date, false, $date));
+
+		$userId = $GLOBALS['app']['db']->lastInsertId();
+        $this->createUserResources($userId);
+        $this->createBasemap($userId);
+		
+        return json_encode([
+            'data' => addslashes($params['token']),
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+	
+	public function getGifts($params)
+	{
+		$userId = self::getUserIdByToken($params['token']);
+		if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad Token");
+	}
+	
+	public function createGifts ($params)
+	{
+		$userId = self::getUserIdByToken($params['token']);
+		if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad Token");
+		
+		if ($userId == $params['friend_user_id'])
+			return Utils::formatErrorMessage(ERROR_SAME_ID, "UserId et friend_user_id identiques");
+		
+		// TO DO vérifier que le friend_user_id n'a déjà offert un cadeau dans les dernière 24h
+		
+		$name = 'Fleur'; //TO DO get random gift from .json
+		
+		$date = date("Y-m-d H:i:s");
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO gift_users VALUES (NULL, ?, ?, ?, ?, ?)');
+        $request->execute(array($userId, $date, $date, $name, $params['friend_user_id']));
+		
+		return Utils::successMessage();
+	}
+	
+	public function buy($params)
+    {
+        $userId = self::getUserIdByToken($params['token']);
+		if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad Token");
+		 
+        $transactions = file_get_contents(__DIR__ . "./../../../assets/json/transactions.json", FILE_USE_INCLUDE_PATH);
+        $transactions = json_decode($transactions, true);
+        
+	    $transactionItem = $transactions[$params['name']];
+		if (!$transactionItem) return Utils::formatErrorMessage(ERROR_BAD_TRANSACTION_NAME, "The transaction name is incorrect");
+		
+		$resourcePrice = ResourcesController::getResourceIdByName($transactionItem['resource_price']);
+        $price = $transactionItem['price'];
+
+        $resourceProduct = ResourcesController::getResourceIdByName($transactionItem['resource_product']);
+        $product = $transactionItem['product'];
+		
+        if (ResourcesController::spendResource($resourcePrice, $price, $userId)) {
+			ResourcesController::addResource($resourceProduct, $product, $userId);
+			return ResourcesController::getResource($userId);
+		} else {
+			return Utils::formatErrorMessage(ERROR_NO_MONEY, "Not enough " . $transactionItem['resource_price']);
+		}
+       
+    }
+	
+    public function dailyreward($params) {
+        $userId = self::getUserIdByToken(addslashes($params['token']));
+        if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        $data = self::getDailyreward($userId);
+
+        return json_encode([
+            'data' => $data,
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    public static function getDailyreward($userId) {
+        $sql = "SELECT last_dailyreward_used_at FROM users WHERE id = '" . $userId . "'";
+        
+        $result = $GLOBALS['app']['db']->fetchAll($sql);
+        return $result[0]['last_dailyreward_used_at'];
+    }
+
+    public function dailyrewardUpdate($params) {
+        $userId = self::getUserIdByToken(addslashes($params['token']));
+        if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        $isDailyrewardAvailable = self::isDailyrewardAvailable($userId);
+
+        if (!$isDailyrewardAvailable) Utils::formatErrorMessage(ERROR_PARADE_ALREADY_LAUNCH, "Parade is already launched");
+        
+        $sql = "UPDATE users
+                SET last_dailyreward_used_at = NOW()
+                WHERE id = '" . $userId . "'";
+
+        // todo récuperation de la liste de cadeaux + generation
+        
+        $result = $GLOBALS['app']['db']->exec($sql);
+
+        return json_encode([
+            'data' => $data,
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    /**
+     * Est ce que le dailyreward est disponible ?
+     * Condition pour qu'il soit disponible : La date actuel doit être un nouveau jour
+     */
+    public static function isDailyrewardAvailable($userId) {
+        $sql = "SELECT last_dailyreward_used_at FROM users WHERE id = '" . $userId . "'";
+        
+        $result = $GLOBALS['app']['db']->fetchAll($sql);
+        $lastDailyrewardUsedAt = $result[0]['last_dailyreward_used_at'];
+
+        $lastDailyrewardUsedAt = new DateTime($lastDailyrewardUsedAt);
+        $now = new DateTime();
+
+        if ($lastDailyrewardUsedAt->format('d') != $now->format('d') || ($now->getTimestamp() - $lastDailyrewardUsedAt->getTimestamp()) >= 86400) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function parade($params) {
+        $userId = self::getUserIdByToken(addslashes($params['token']));
+        if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        $data = self::getParade($userId);
+
+        return json_encode([
+            'data' => $data,
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    public static function getParade($userId) {
+        $sql = "SELECT last_parade_at FROM users WHERE id = '" . $userId . "'";
+            
+        $result = $GLOBALS['app']['db']->fetchAll($sql);
+        return $result[0]['last_parade_at'];
+    }
+
+    public function paradeUpdate($params) {
+        $userId = self::getUserIdByToken(addslashes($params['token']));
+        if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        $params['hardPurchase'] = $params['hardPurchase'] == 'true';
+
+        $paradeSettings = file_get_contents(__DIR__ . "./../../../assets/json/paradeSettings.json", FILE_USE_INCLUDE_PATH);
+        $paradeSettings = json_decode($paradeSettings, true);
+
+        $lanterns = LanternsController::getLanterns($userId);
+        $maxBonus = $paradeSettings['generatedBonusCountPerLanterns'] * count($lanterns);
+        
+        if ($params['bonusHarvested'] > $maxBonus) return Utils::formatErrorMessage(ERROR_BONUS_SENT_TOO_BIG, "Bonus sent is too big");
+
+        $goldResourceId = ResourcesController::getResourceIdByName("gold");
+
+        if (!$params['hardPurchase']) {
+            $sql = "SELECT last_parade_at FROM users WHERE id = '" . $userId . "'";
+            
+            $result = $GLOBALS['app']['db']->fetchAll($sql);
+
+            $lastParadeAt = new DateTime($result[0]['last_parade_at']);
+            $now = new DateTime();
+
+            // Verification de si la parade n'a pas eu lieu aujourd'hui
+            if ($lastParadeAt->format('d') != $now->format('d') || ($now->getTimestamp() - $lastParadeAt->getTimestamp()) >= 86400) {
+                $sql = "UPDATE users
+                        SET last_parade_at = NOW()
+                        WHERE id = '" . $userId . "'";
+                
+                $result = $GLOBALS['app']['db']->exec($sql);
+                $goldGained = $this->convertBonusToGold($params['bonusHarvested'], $paradeSettings);
+                ResourcesController::addResource($goldResourceId, $goldGained, $userId);
+            } else {
+                return Utils::formatErrorMessage(ERROR_PARADE_ALREADY_LAUNCH, "Parade already launched today");
+            }
+        } else {
+            $resourceId = ResourcesController::getResourceIdByName("spice");
+            if (ResourcesController::spendResource($resourceId, $paradeSettings['paradeHardPrice'], $userId)) {
+                $goldGained = $this->convertBonusToGold($params['bonusHarvested'], $paradeSettings);
+                ResourcesController::addResource($goldResourceId, $goldGained, $userId);
+            } else {
+                return Utils::formatErrorMessage(ERROR_NO_MONEY, "Not enought spice");
+            }
+        }
+
+        return ResourcesController::getResource($userId);
+    }
+
+    /**
+     * Converti les bonus en gold
+     * @param bonusCount
+     * @param paradeSettings
+     */
+    private function convertBonusToGold($bonusCount, $paradeSettings) {
+        // TODO Récuperer $mainBuildingLevel depuis le niveau du mainbuilding
+
+        $mainBuildingLevel = 1;
+
+        $goldPerBonus = $paradeSettings['goldPerBonus'] + $paradeSettings['goldPerBonus'] * ($paradeSettings['goldMultiplierByMainBuilding'] * $mainBuildingLevel);
+        $goldIncremented = $paradeSettings['goldIncremented'] + $paradeSettings['goldIncremented'] * ($paradeSettings['goldMultiplierByMainBuilding'] * $mainBuildingLevel);
+        $gold = $goldPerBonus * $bonusCount;
+
+        $goldIncrementedTotal = 0;
+
+        for ($i=0; $i < $bonusCount; $i++) { 
+            $goldIncrementedTotal = ($i + 1) * $goldIncremented;
+        }
+
+        return $gold + $goldIncrementedTotal;
+    }
+
+    public function ftue($params) {
+        $userId = self::getUserIdByToken(addslashes($params['token']));
+        if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        $data = self::getFtue($userId);
+
+        return json_encode([
+            'data' => $data,
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    public static function getFtue($userId) {
+        $sql = "SELECT ftue_complet FROM users WHERE id = '" . $userId . "'";
+            
+        $result = $GLOBALS['app']['db']->fetchAll($sql);
+        return $result[0]['ftue_complet'];
+    }
+
+    public function ftueComplet($params) {
+        $userId = self::getUserIdByToken(addslashes($params['token']));
+        if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        $sql = "UPDATE users
+                SET ftue_complet=1
+                WHERE id = '" . $userId . "'";
+        
+        $result = $GLOBALS['app']['db']->exec($sql);
+        return Utils::successMessage();
+    }
+
+    public function experience($params) {
+        $userId = self::getUserIdByToken(addslashes($params['token']));
+        if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        $data = self::getExperience($userId);
+
+        return json_encode([
+            'data' => $data,
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    public static function getExperience($userId) {
+        $sql = "SELECT experience FROM users WHERE id = '" . $userId . "'";
+            
+        $result = $GLOBALS['app']['db']->fetchAll($sql);
+        return $result[0]['experience'];
+    }
+
+    public function destroy($params)
+    {
+        $userId = self::getUserIdByToken(addslashes($params['token']));
+
+        if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        $request = $GLOBALS['app']['db']->prepare('DELETE FROM users WHERE id="' . $userId . '";');
+        $request->execute();
+
+
+        return json_encode([
+            'data' => 'success',
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    private function createUserResources($userId)
+    {
+		$settingsResources = file_get_contents(__DIR__ . "./../../../assets/json/startResource.json", FILE_USE_INCLUDE_PATH);
+		$settingsResources = json_decode($settingsResources);
+
+        $date = date("Y-m-d H:i:s");
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO resource_users VALUES (NULL, ?, ?, ?, ?, ?)');
+        $request->execute(array($userId, $date, $date, 1, $settingsResources->{"gold"}));
+		$request->execute(array($userId, $date, $date, 2, $settingsResources->{"offering"}));
+		$request->execute(array($userId, $date, $date, 3, $settingsResources->{"spice"}));
+    }
+
+
+    /**
+     * Créer les batiments de bases pour un utilisateurs
+     */
+    private function createBasemap($userId) {
+        $date = date("Y-m-d H:i:s");
+        
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
+        $request->execute(array($userId));
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 48, 52, $date, 'A'));
+
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
+        $request->execute(array($userId));
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 48, 49, $date, 'A'));
+
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
+        $request->execute(array($userId));
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 50, 50, $date, 'A'));
+
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
+        $request->execute(array($userId));
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 50, 51, $date, 'A'));
+    }
+
+}

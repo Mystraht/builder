@@ -1,0 +1,11 @@
+package com.isartdigital.builder.game.def;
+
+/**
+ * @author Dorian
+ */
+
+typedef UserInfoDef =
+{
+	buildings:Dynamic;
+	resources:ResourceDef;
+}

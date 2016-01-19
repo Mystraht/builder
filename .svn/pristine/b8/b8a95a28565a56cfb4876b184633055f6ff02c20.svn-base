@@ -1,0 +1,58 @@
+package com.isartdigital.builder.api;
+import haxe.Http;
+import js.Browser;
+
+/**
+ * ...
+ * @author Flavien
+ */
+class User
+{
+	/**
+	 * instance unique de la classe Resources
+	 */
+	private static var instance: User;
+	
+	/**
+	 * Retourne l'instance unique de la classe, et la crée si elle n'existait pas au préalable
+	 * @return instance unique
+	 */
+	public static function getInstance (): User {
+		if (instance == null) instance = new User();
+		return instance;
+	}
+	
+	private var userPath:String = "/users";
+	private var createPath:String = "/create";
+	public  var userInfoPath:String = 'userInfos';
+	
+	public function new() 
+	{
+		
+	}
+	
+	public function create (pUserName:String, pUserPass:String, pUserPassConfirm:String, pCallBack:String->Void): Void {
+		//notre requete en ajax
+		var pathString:String = Api.formatPath(Api.domain + userPath + createPath, {
+			username: pUserName,
+			password: pUserPass,
+			password_conf: pUserPassConfirm
+		});
+		
+		var r = new Http(pathString);
+		
+		//r.onError = pCallBack('timeout');
+		
+		r.onData = pCallBack;// function(c) { setContent("main", c); }
+		r.request(true);
+		
+	}
+	
+	public function getUserInfo(pCallBack:String->Void):Void {
+		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userInfoPath, { token: Api.token }));
+		
+		request.onData = pCallBack;
+		request.request(false);
+	}
+	
+}

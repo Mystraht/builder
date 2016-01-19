@@ -1,0 +1,59 @@
+<?php
+include_once('ApplicationController.class.php');
+
+class ResourcesController extends ApplicationController
+{
+    public function __construct()
+    {
+        
+    }
+	
+	public function index($params) {
+		return $this->getResource($params);
+	}
+	
+	public function gold($params) {
+		return $this->getResource($params, 'gold');
+	}
+	
+	public function offering($params) {
+		return $this->getResource($params, 'offering');
+	}
+	
+	public function spice($params) {
+		return $this->getResource($params, 'spice');
+	}
+	
+	public function getResource($params, $resourceName = '')
+	{
+		$userId = $this->getUserIdByToken(addslashes($params['token']));
+		
+		if (!$userId) return Utils::formatErrorMessage("Bad token");		
+		
+		$data;
+        $error = '';
+        $sql = "SELECT r_t.name, r_u.count 
+				FROM resource_users AS r_u 
+				INNER JOIN resource_type AS r_t
+				ON r_t.id = r_u.resource_type_id
+				WHERE r_u.user_id = " . $userId;
+				
+		if ($resourceName != '') $sql .= " AND r_t.name = '" . $resourceName . "'";
+					
+        $result = $GLOBALS['app']['db']->fetchAll($sql);
+		
+		if (count($result) <= 0) $error = "Imposible de récupérer la ressource " . $resourceName . " pour le userId : " . $userId;
+		else {
+			for ($i = 0; $i < count($result); $i++) {
+				if ($resourceName == '') $data[$result[$i]['name']] = $result[$i]['count'];
+				else $data = $result[0]['count'];
+			}
+		}
+		
+		return json_encode([
+            'data' => $data,
+            'error' => $error != '',
+            'errorMessage' => $error
+        ]);
+	}
+}

@@ -1,0 +1,34 @@
+<?php
+include_once('ApplicationController.class.php');
+include_once('BuildingsController.class.php');
+include_once('ResourcesController.class.php');
+
+class UserInfosController extends ApplicationController
+{
+    public function __construct()
+    {
+        
+    }
+
+    public function index($params)
+    {
+        $data = [];
+
+        $token = addslashes($params['token']);
+
+        $buildings = BuildingsController::getBuildings($token);
+        $resources = ResourcesController::getResource($token);
+
+        $resources = json_decode($resources);
+
+        $data['buildings'] = $buildings;
+        $data['resources'] = $resources->{'data'};
+
+        return json_encode([
+            'data' => $data,
+            'error' => $error != '',
+            'errorCode' => -1,
+            'errorMessage' => $error
+        ]);
+    }
+}

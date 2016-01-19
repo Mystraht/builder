@@ -1,0 +1,501 @@
+{
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "origin": [
+        48.3,
+        90.85
+       ],
+       "rect": [
+        1,
+        1,
+        96,
+        91
+       ],
+       "symbol": "_building3_2x2"
+      },
+      {
+       "origin": [
+        48.2,
+        74.65
+       ],
+       "rect": [
+        99,
+        1,
+        96,
+        75
+       ],
+       "symbol": "_building1_2x2"
+      },
+      {
+       "origin": [
+        72.2,
+        70.25
+       ],
+       "rect": [
+        99,
+        78,
+        96,
+        71
+       ],
+       "symbol": "_building_3x1"
+      },
+      {
+       "origin": [
+        48.2,
+        68.1
+       ],
+       "rect": [
+        1,
+        94,
+        96,
+        69
+       ],
+       "symbol": "_building0_2x2"
+      },
+      {
+       "origin": [
+        48.25,
+        65.1
+       ],
+       "rect": [
+        99,
+        151,
+        72,
+        65
+       ],
+       "symbol": "_building_2x1"
+      },
+      {
+       "origin": [
+        24.1,
+        47.25
+       ],
+       "rect": [
+        173,
+        151,
+        48,
+        48
+       ],
+       "symbol": "_building_1x1"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        173,
+        201,
+        48,
+        24
+       ],
+       "symbol": "_ground0"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        1,
+        218,
+        48,
+        24
+       ],
+       "symbol": "_ground1"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        51,
+        218,
+        48,
+        24
+       ],
+       "symbol": "_ground2"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        101,
+        218,
+        48,
+        24
+       ],
+       "symbol": "_ground3"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        151,
+        227,
+        48,
+        24
+       ],
+       "symbol": "_ground4"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        201,
+        227,
+        48,
+        24
+       ],
+       "symbol": "_ground5"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        1,
+        165,
+        48,
+        24
+       ],
+       "symbol": "_ground6"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        1,
+        191,
+        48,
+        24
+       ],
+       "symbol": "_ground7"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        197,
+        1,
+        48,
+        24
+       ],
+       "symbol": "_ground8"
+      },
+      {
+       "origin": [
+        24,
+        12
+       ],
+       "rect": [
+        197,
+        27,
+        48,
+        24
+       ],
+       "symbol": "_ground9"
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ],
+ "movies": [
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "pivot": [
+        24.0875,
+        47.25
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "_building_1x1",
+       "loc": [
+        -0.0875,
+        -0.075
+       ]
+      }
+     ],
+     "name": "Calque 2"
+    }
+   ],
+   "id": "Building_1x1"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "pivot": [
+        48.25,
+        65.125
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "_building_2x1",
+       "loc": [
+        -0.2375,
+        0.125
+       ]
+      }
+     ],
+     "name": "Calque 3"
+    }
+   ],
+   "id": "Building_2x1"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "pivot": [
+        48.175,
+        68.0875
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "_building0_2x2",
+       "loc": [
+        -0.1,
+        -0.1
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        48.2,
+        74.65
+       ],
+       "tweened": false,
+       "index": 1,
+       "ref": "_building1_2x2",
+       "loc": [
+        -0.1,
+        -0.0375
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        48.325,
+        90.8625
+       ],
+       "tweened": false,
+       "index": 2,
+       "ref": "_building3_2x2",
+       "loc": [
+        -0.1,
+        -0.1625
+       ]
+      }
+     ],
+     "name": "Calque 3"
+    }
+   ],
+   "id": "Building_2x2"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "pivot": [
+        72.2125,
+        70.25
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "_building_3x1",
+       "loc": [
+        -0.0375,
+        -0.0375
+       ]
+      }
+     ],
+     "name": "Calque 2"
+    }
+   ],
+   "id": "Building_3x1"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "_ground0",
+       "loc": [
+        0,
+        12
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 1,
+       "ref": "_ground1",
+       "loc": [
+        0,
+        12
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 2,
+       "ref": "_ground2",
+       "loc": [
+        0,
+        12
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 3,
+       "ref": "_ground3",
+       "loc": [
+        0,
+        12
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 4,
+       "ref": "_ground4",
+       "loc": [
+        0,
+        12
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 5,
+       "ref": "_ground5",
+       "loc": [
+        0,
+        12
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 6,
+       "ref": "_ground6",
+       "loc": [
+        0,
+        12
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 7,
+       "ref": "_ground7",
+       "loc": [
+        0,
+        12
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 8,
+       "ref": "_ground8",
+       "loc": [
+        0,
+        12
+       ]
+      },
+      {
+       "duration": 1,
+       "pivot": [
+        24,
+        12
+       ],
+       "tweened": false,
+       "index": 9,
+       "ref": "_ground9",
+       "loc": [
+        0,
+        12
+       ]
+      }
+     ],
+     "name": "grounds"
+    }
+   ],
+   "id": "Ground"
+  }
+ ],
+ "md5": "ff2d52e937d932612098f046d770c600",
+ "frameRate": 30
+}

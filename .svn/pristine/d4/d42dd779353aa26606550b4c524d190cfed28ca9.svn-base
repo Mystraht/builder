@@ -1,0 +1,9 @@
+result:false
+count:1
+pass:0
+fail:1
+error:0
+ignore:0
+time:0.012000083923339844
+
+# MapManagerTest#should_return_true_if_building_is_contructible_or_false_if_it_is_not

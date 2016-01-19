@@ -1,0 +1,329 @@
+package com.isartdigital.builder.game.manager;
+import com.isartdigital.builder.game.def.TileSavedDef;
+import com.isartdigital.builder.game.sprites.Building;
+import com.isartdigital.builder.game.sprites.Tile.Tile;
+import com.isartdigital.utils.Config;
+import com.isartdigital.utils.Debug;
+import com.isartdigital.utils.game.GameObject;
+import com.isartdigital.utils.game.GameStage;
+import com.isartdigital.utils.game.iso.IsoManager;
+import com.isartdigital.utils.game.PoolableObject;
+import com.isartdigital.utils.system.DeviceCapabilities;
+import haxe.macro.Expr.Position;
+import pixi.core.display.DisplayObject;
+import pixi.core.math.Point;
+import pixi.core.math.shapes.Rectangle;
+
+
+/**
+ * ...
+ * @author Flavien
+ */
+class ClippingManager 
+{
+	static public inline var SAFE_ZONE:Int = 100;
+	
+	/**
+	 * instance unique de la classe ClipingManager
+	 */
+	private static var instance: ClippingManager;
+	
+	private var positionOffSet:Point = new Point();
+	private var positionCurrent:Point = new Point();
+	
+	private var clippingSize:Float = Config.tileHeight / 2;
+	
+	/**
+	 * Retourne l'instance unique de la classe, et la crée si elle n'existait pas au préalable
+	 * @return instance unique
+	 */
+	public static function getInstance (): ClippingManager {
+		if (instance == null) instance = new ClippingManager();
+		return instance;
+	}
+	
+	private var tileContainer:DisplayObject;
+	
+	private var sizeInTile:Point = new Point();
+	private var offSetClipping:Point = new Point( 5, 5);
+	
+	private var TOP_LEFT:Point = new Point();
+	private var TOP_RIGHT:Point = new Point();
+	private var BOTTOM_LEFT:Point = new Point();
+	private var BOTTOM_RIGHT:Point = new Point();
+	
+	
+	/**
+	 * constructeur privé pour éviter qu'une instance soit créée directement
+	 */
+	private function new() 
+	{
+		tileContainer = GameStage.getInstance().getTilesContainer();
+	}
+	
+	/**
+	 * Initialise le clipping
+	 */
+	public function start() : Void {
+		setScreenRectPosition(positionOffSet);
+		var lRect:Rectangle = GameManager.getInstance().screenRect;
+		sizeInTile.x = Math.ceil(lRect.width / Config.tileWidth);
+		sizeInTile.y = Math.ceil(lRect.height / Config.tileHeight);
+		
+		//set offset de clipping
+		sizeInTile.x += offSetClipping.x;
+		sizeInTile.y += offSetClipping.y;
+	}
+	
+	private function setScreenRectPosition(pPoint:Point) : Void {
+		pPoint.set(Math.round(GameManager.getInstance().screenRect.x), Math.round(GameManager.getInstance().screenRect.y));
+	}
+	
+	private function refreshCoord():Void {
+		var lRect:Rectangle = GameManager.getInstance().screenRect;
+		TOP_LEFT.set(Math.round(lRect.x - SAFE_ZONE), Math.round(lRect.y - SAFE_ZONE));
+		TOP_RIGHT.set(Math.round(lRect.x + lRect.width + SAFE_ZONE), Math.round(lRect.y - SAFE_ZONE));
+		BOTTOM_LEFT.set(Math.round(lRect.x - SAFE_ZONE), Math.round(lRect.y + lRect.height + SAFE_ZONE));
+		BOTTOM_RIGHT.set(Math.round(lRect.x + lRect.width + SAFE_ZONE), Math.round(lRect.y + lRect.height + SAFE_ZONE));			
+	}
+	
+	/**
+	 * Remove and Add object
+	 */
+	public function clipObject () : Void {
+		setScreenRectPosition(positionCurrent);
+		if (Math.abs(positionCurrent.x - positionOffSet.x) > clippingSize
+			|| Math.abs(positionCurrent.y - positionOffSet.y) > clippingSize)
+		{
+			//Debug.info("Clipping sur : " + sizeInTile.x * sizeInTile.y);
+			//Debug.info("Number of Tile : " + Tile.list.length);
+			
+			removeObject();	
+			
+			/*if (Math.abs(positionCurrent.x - positionOffSet.x) > clippingSize * 3
+				|| Math.abs(positionCurrent.y - positionOffSet.y) > clippingSize * 3)
+			{
+				displayAllTileInView();
+			}
+			else */
+			{
+				addObject();	
+			}
+			setScreenRectPosition(positionOffSet);
+		}
+	}
+	
+	private function getAddObject() : Array<TileSavedDef>
+	{
+		var lPoint:Point = new Point();
+		lPoint.set(positionCurrent.x - positionOffSet.x, positionCurrent.y - positionOffSet.y);
+		//Debug.info("Offset " + lPoint.x + "-" + lPoint.y);
+		var lArray:Array<TileSavedDef> = new Array<TileSavedDef> ();
+		
+		//update screen coord
+		refreshCoord();
+		
+		
+		if (lPoint.x <= 0 && lPoint.y <= 0) return getLeftTile().concat(getTopTiles());
+		if (lPoint.x >= 0 && lPoint.y <= 0) return getRightTiles().concat(getTopTiles());
+		if (lPoint.x >= 0 && lPoint.y >= 0) return getRightTiles().concat(getBottomTiles());
+		if (lPoint.x <= 0 && lPoint.y >= 0) return getLeftTile().concat(getBottomTiles());
+		
+		return lArray;
+	}
+	
+	/**
+	 * Affiche toutes les tiles dans l'écran
+	 */
+	public function displayAllTileInView () : Void
+	{
+		var lArray:Array<TileSavedDef> = getTileInView();
+		for (lTile in lArray) {
+				PoolableObject.add(lTile);	
+		}
+	}
+	
+	private function getTileInView() : Array<TileSavedDef>
+	{
+		var lArray:Array<TileSavedDef> = new Array<TileSavedDef> ();
+		var lRect:Rectangle = GameManager.getInstance().screenRect;
+		refreshCoord();
+
+		for (i in 0...cast(sizeInTile.y * 2)) {
+			
+			var lOffset:Float = (i % 2 == 0) ? Config.tileWidth / 2 : 0;
+			var lPosition:Point = IsoManager.isoViewToModel(new Point(BOTTOM_RIGHT.x - lOffset,BOTTOM_RIGHT.y - i * Config.tileHeight / 2));
+			
+		var posGridX:Int = getIndexForGrid(lPosition.x);
+		var posGridY:Int = getIndexForGrid(lPosition.y);
+		
+			for (i in 0...cast(sizeInTile.x)) {
+				lArray.push(MapManager.getInstance().tilesMap[posGridX][posGridY]);
+				posGridY++;
+				posGridX--;
+				if ( posGridX < 0 || posGridY < 0) {
+					trace("break");
+					break;				
+				}	
+			}
+		}
+		return lArray;
+	}
+	
+	private function shiftVertical (pPoint:Point) : Point
+	{
+		pPoint.x--;
+		pPoint.y--;
+		return pPoint;
+	}
+	
+	private function shiftHorizontal (pPoint:Point) : Point
+	{
+		pPoint.x--;
+		pPoint.y++;
+		return pPoint;
+	}
+	
+	private function getLeftTile() : Array<TileSavedDef>
+	{
+		var lArray:Array<TileSavedDef> = new Array<TileSavedDef>();
+		var lPosition:Point = IsoManager.isoViewToModel(BOTTOM_LEFT);
+		
+		for (i in 0...cast(sizeInTile.y)) {
+			if (MapManager.getInstance().getTileInMap(lPosition) != null)
+				lArray.push(MapManager.getInstance().getTileInMap(lPosition));
+			lPosition = shiftVertical(lPosition);
+		}
+		lPosition = IsoManager.isoViewToModel(BOTTOM_LEFT);
+		lPosition.x--;
+		for (i in 0...cast(sizeInTile.y)) {
+			if (MapManager.getInstance().getTileInMap(lPosition) != null)
+				lArray.push(MapManager.getInstance().getTileInMap(lPosition));
+			lPosition = shiftVertical(lPosition);
+		}
+		
+		return lArray;
+	}
+	
+	private function getTopTiles() : Array<TileSavedDef>
+	{
+		var lArray:Array<TileSavedDef> = new Array<TileSavedDef>();
+		var lPosition:Point = IsoManager.isoViewToModel(TOP_RIGHT);
+		
+		for (i in 0...cast(sizeInTile.x)) {
+			if (MapManager.getInstance().getTileInMap(lPosition) != null)
+				lArray.push(MapManager.getInstance().getTileInMap(lPosition));
+			lPosition = shiftHorizontal(lPosition);
+		}
+		
+		lPosition = IsoManager.isoViewToModel(TOP_RIGHT);
+		lPosition.x++;
+		
+		for (i in 0...cast(sizeInTile.x)) {
+			if (MapManager.getInstance().getTileInMap(lPosition) != null)
+				lArray.push(MapManager.getInstance().getTileInMap(lPosition));
+			lPosition = shiftHorizontal(lPosition);
+		}
+		
+		return lArray;
+	}
+	
+	private function getBottomTiles() : Array<TileSavedDef>
+	{
+		var lArray:Array<TileSavedDef> = new Array<TileSavedDef>();
+		var lPosition:Point = IsoManager.isoViewToModel(BOTTOM_RIGHT);
+		
+		for (i in 0...cast(sizeInTile.x)) {
+			if (MapManager.getInstance().getTileInMap(lPosition) != null)
+				lArray.push(MapManager.getInstance().getTileInMap(lPosition));
+			lPosition = shiftHorizontal(lPosition);
+		}
+		
+		lPosition = IsoManager.isoViewToModel(BOTTOM_RIGHT);
+		lPosition.x++;
+		
+		for (i in 0...cast(sizeInTile.x)) {
+			if (MapManager.getInstance().getTileInMap(lPosition) != null)
+				lArray.push(MapManager.getInstance().getTileInMap(lPosition));
+			lPosition = shiftHorizontal(lPosition);
+		}
+			
+		return lArray;
+	}
+	
+	private function getRightTiles() : Array<TileSavedDef>
+	{
+		var lArray:Array<TileSavedDef>= new Array<TileSavedDef>();
+		var lPosition:Point = IsoManager.isoViewToModel(BOTTOM_RIGHT);
+		
+		for (i in 0...cast(sizeInTile.y)) {
+			if (MapManager.getInstance().getTileInMap(lPosition) != null)
+				lArray.push(MapManager.getInstance().getTileInMap(lPosition));
+			lPosition = shiftVertical(lPosition);
+		}
+		lPosition = IsoManager.isoViewToModel(BOTTOM_RIGHT);
+		lPosition.x--;
+		for (i in 0...cast(sizeInTile.y)) {
+			if (MapManager.getInstance().getTileInMap(lPosition) != null)
+				lArray.push(MapManager.getInstance().getTileInMap(lPosition));
+			lPosition = shiftVertical(lPosition);
+		}
+		return lArray;
+	}
+	
+	/**
+	 * Retourne un index dans les limites d'une grille carré
+	 * @param	pNumber
+	 * @return
+	 */
+	private function getIndexForGrid (pNumber:Float) : Int
+	{
+		if (pNumber < 0) return 0;
+		if (pNumber >= MapManager.getInstance().tilesMap.length) return MapManager.getInstance().tilesMap.length - 1;
+		return Math.round(pNumber);
+	}
+	
+	private function removeObject() : Void {
+		var lRect:Rectangle = GameManager.getInstance().screenRect;
+		for (lTile in Tile.list) {
+			if (!objectIsIn(lRect, lTile)) lTile.remove();
+		}
+	}
+	
+	private function addObject () : Void {
+		var lRect:Rectangle = DeviceCapabilities.getScreenRect(tileContainer);
+		var lArray:Array<TileSavedDef> = getAddObject();
+		for (lTile in lArray) {
+				PoolableObject.add(lTile);	
+		}
+	}
+	
+	private function modelIsIn(pRect:Rectangle, pObject:TileSavedDef):Bool
+	{
+		var lPosition:Point = IsoManager.modelToIsoView(new Point(pObject.x, pObject.y));
+		if (pRect.x > lPosition.x + SAFE_ZONE) return false;
+		if (pRect.x + pRect.width < lPosition.x - SAFE_ZONE) return false;
+		if (pRect.y > lPosition.y + SAFE_ZONE) return false;
+		if (pRect.y + pRect.height < lPosition.y - SAFE_ZONE) return false;
+		
+		return true;
+	}
+	
+	private function objectIsIn(pRect:Rectangle, pObject:GameObject) : Bool
+	{
+		if (pRect.x > pObject.x + pObject.width + SAFE_ZONE * 2) return false;
+		if (pRect.x + pRect.width < pObject.x - SAFE_ZONE * 2) return false;
+		if (pRect.y > pObject.y + pObject.height + SAFE_ZONE * 2) return false;
+		if (pRect.y + pRect.height < pObject.y - SAFE_ZONE * 2) return false;
+		
+		return true;
+	}
+	
+	/**
+	 * détruit l'instance unique et met sa référence interne à null
+	 */
+	public function destroy (): Void {
+		instance = null;
+	}
+
+}

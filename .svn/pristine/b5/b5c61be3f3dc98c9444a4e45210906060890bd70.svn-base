@@ -1,0 +1,36 @@
+{
+	"_comment_global" : "Ce document liste tous les batiments ainsi que leurs configuration",
+	"_comment_fields" : "Les champs : 'production' et 'construction_time' sont mesurés en heures",
+	"_comment_fields_options" : "Si un batiments n'a pas besoin d'un champs, le champ ne doit pas être présent, (pas de valeurs null)",
+	"rocket_factory" : {
+		"1" : {
+				"resource_production" : "gold",
+				"production" : 100,
+				"capacity" : 1000,
+				"resource_price" : "gold",
+				"price" : 35,
+				"resource_upgrade" : "offering",
+				"upgrade_price" : 35,
+				"hard_price" : 10,
+				"contruction_time": 3
+			},
+		"2" : {
+				"resource_production" : "gold",
+				"production" : 200,
+				"capacity" : 2000,
+				"contruction_time": 5
+			}
+	},
+	"motel" : {
+		"resource_price" : "gold",
+		"price" : 35,
+		"hard_price" : 5,
+		"contruction_time": 2
+	},
+	"temple" : {
+		"resource_price" : "gold",
+		"price" : 35,
+		"hard_price" : 5,
+		"contruction_time": 1
+	}
+}

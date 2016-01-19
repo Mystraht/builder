@@ -1,0 +1,19 @@
+<?php
+include_once('ApplicationModel.class.php');
+
+class UserInfoModel extends ApplicationModel
+{
+
+    public function __construct()
+    {
+        
+    }
+
+    public function validate($params, $type) {
+        $errorMessage = '';
+
+        $errorMessage .= $this->isPresent($params, 'token', "Le token est absent\n");
+        
+        return $errorMessage;
+    }
+}

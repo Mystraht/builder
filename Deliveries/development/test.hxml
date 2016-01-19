@@ -1,0 +1,16 @@
+## JavaScript
+-main TestMain
+-lib munit
+-lib hamcrest
+-lib howlerjs
+-lib eventemitter3
+-lib Pathfinder
+-lib jsfps
+-lib pixi-flump-runtime
+-lib pixijs
+-lib dat.GUI
+-lib WebFont
+-cp src
+
+-cp test
+-js bin/js_test.js

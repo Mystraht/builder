@@ -1,0 +1,21 @@
+{"frames": {
+
+"Citizen.png":
+{
+	"frame": {"x":2,"y":2,"w":200,"h":383},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":383},
+	"sourceSize": {"w":200,"h":383},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "citizens.png",
+	"format": "RGBA8888",
+	"size": {"w":204,"h":387},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:68590269436f6ebae0559bdff211693f:44995df88bf24d3fe6d84defd5f87228:f3f510dc0ce36806a3e64ea882c243b5$"
+}
+}

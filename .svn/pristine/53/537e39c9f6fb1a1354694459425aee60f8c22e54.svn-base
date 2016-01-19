@@ -1,0 +1,12 @@
+{
+	"rocket_factory" : {
+		"1" : {
+			"production" : 100,
+			"capacity" : 1000
+			},
+		"2" : {
+			"production" : 200,
+			"capacity" : 2000
+			}
+	}
+}

@@ -1,0 +1,25 @@
+package com.isartdigital.utils.game;
+import pixi.core.math.Point;
+
+@:native("FindPath")
+/**
+ * ...
+ * @author Thorcal
+ */
+extern class FindPath
+{ 
+	
+	function new():Void;
+	/**
+     * trouve le chemin entre la position start et la position end
+     * @param  posXstart position X de départ
+     * @param  posYstart position Y de départ
+     * @param  posXend   position X d'arrivée
+     * @param  posYend   position Y d'arrivée
+     * @param  pGrid     grille du jeu
+     * @return tableau du chemin
+     */
+	 public function On (posXstart:Int, posYstart:Int, posXend:Int, posYend:Int, pGrid:Array<Array<Dynamic>>) : Array<Array<Int>>;
+	 public function EmptyCell (value:Dynamic):Bool;
+	
+}

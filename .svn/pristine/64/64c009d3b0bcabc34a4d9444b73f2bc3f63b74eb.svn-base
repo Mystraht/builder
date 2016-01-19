@@ -1,0 +1,26 @@
+package com.isartdigital.builder.game.sprites.buildings;
+
+import com.isartdigital.builder.game.def.BuildingDef;
+import com.isartdigital.builder.game.sprites.Building;
+
+/**
+ * ...
+ * @author Roman CHEVASSU
+ */
+class BuildingUpgradable extends Building
+{
+
+	public function new(pDefinition:BuildingDef) 
+	{
+		super(pDefinition);
+		
+	}
+	
+	/**
+	 * Upgrade un building
+	 */
+	public function upgradeBuilding():Void {
+		buildingLevel++;
+		cast(anim, FlumpMovie).gotoAndStop(buildingLevel);
+	}
+}

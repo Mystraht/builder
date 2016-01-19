@@ -1,0 +1,96 @@
+<?php
+include_once('ApplicationController.class.php');
+
+class UsersController extends ApplicationController
+{
+    public function __construct()
+    {
+        
+    }
+
+    public function index()
+    {
+        return 'hello world index';
+    }
+
+    public function login($params)
+    {
+        $data = '';
+        $error = '';
+        $sql = "SELECT token FROM users WHERE username='" . addslashes($params['username']) . "' AND password='" . addslashes($params['password']) . "'";
+        $result = $GLOBALS['app']['db']->fetchAll($sql);
+
+        if(count($result) == 0) {
+            $error = "Le nom d'utilisateur et le mot de passe ne correspondent pas.";
+        } else {
+            $data = $result[0]['token'];
+        }
+
+        return json_encode([
+            'data' => $data,
+            'error' => $error != '',
+            'errorCode' => -1,
+            'errorMessage' => $error
+        ]);
+    }
+
+    public function create($params)
+    {
+        $date = date("Y-m-d H:i:s");
+        $token = bin2hex(openssl_random_pseudo_bytes(32));
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO users VALUES (NULL, ?, ?, ?, ?, ?, NULL, ?)');
+        $request->execute(array($date, $date, addslashes($params['username']), addslashes($params['password']), $params['email'], $token));
+
+        $this->createUserResources($this->getUserIdByToken($token));
+
+        return json_encode([
+            'data' => $token,
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    public function createFB($params)
+    {
+        $date = date("Y-m-d H:i:s");
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO users VALUES (NULL, ?, ?, NULL, NULL, ?, ?, ?)');
+        $request->execute(array($date, $date, addslashes($params['mail']), 1, addslashes($params['token'])));
+
+		$this->createUserResources($this->getUserIdByToken(addslashes($params['token'])));
+		
+        return json_encode([
+            'data' => addslashes($params['token']),
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    public function destroy($params) {
+        $userId = $this->getUserIdByToken(addslashes($params['token']));
+
+        $request = $GLOBALS['app']['db']->prepare('DELETE FROM users WHERE id="' . $userId . '";');
+        $request->execute();
+
+        if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+        return json_encode([
+            'data' => 'success',
+            'error' => false,
+            'errorCode' => -1,
+            'errorMessage' => ''
+        ]);
+    }
+
+    private function createUserResources($userId) {
+		$settingsResources = file_get_contents("temp/startResource.json", FILE_USE_INCLUDE_PATH);
+		$settingsResources = json_decode($settingsResources);
+		
+        $date = date("Y-m-d H:i:s");
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO resource_users VALUES (NULL, ?, ?, ?, ?, ?)');
+        $request->execute(array($userId, $date, $date, 1, $settingsResources->{"gold"}));
+		$request->execute(array($userId, $date, $date, 2, $settingsResources->{"offering"}));
+		$request->execute(array($userId, $date, $date, 3, $settingsResources->{"spice"}));
+    }
+}

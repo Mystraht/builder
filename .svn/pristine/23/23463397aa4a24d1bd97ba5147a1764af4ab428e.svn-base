@@ -1,0 +1,39 @@
+<?php
+include_once('ApplicationController.class.php');
+
+class UsersController extends ApplicationController
+{
+    public function __construct()
+    {
+        
+    }
+
+    public function index()
+    {
+        return 'hello world index';
+    }
+
+    public function show()
+    {
+        return 'hello world show';
+    }
+
+    public function create($params)
+    {
+        $date = date("Y-m-d H:i:s");
+        $request = $GLOBALS['app']['db']->prepare('INSERT INTO users VALUES (NULL, ?, ?, ?, ?)');
+        $request->execute(array($params['username'], $params['password'], $date, $date));
+
+        return json_encode(['result' => 'success']);
+    }
+    
+    public function update()
+    {
+        return 'hello world update';
+    }
+
+    public function destroy()
+    {
+        return 'hello world destroy';
+    }
+}

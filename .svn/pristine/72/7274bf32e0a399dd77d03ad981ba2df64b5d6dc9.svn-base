@@ -1,0 +1,10 @@
+package com.isartdigital.utils.game;
+
+/**
+ * @author Dorian
+ */
+
+interface IPoolableObject 
+{
+  
+}

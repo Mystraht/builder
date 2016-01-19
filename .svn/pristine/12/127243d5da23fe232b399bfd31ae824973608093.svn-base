@@ -1,0 +1,32 @@
+package com.isartdigital.builder.game.sprites.buildings;
+
+import com.isartdigital.builder.game.def.BuildingDef;
+import com.isartdigital.builder.game.sprites.Building;
+
+/**
+ * ...
+ * @author Roman CHEVASSU
+ */
+class BuildingGamePlay extends Building
+{
+
+	public function new(pDefinition:BuildingDef) 
+	{
+		super(pDefinition);
+		onCreation();
+	}
+	
+	private function onCreation() {
+		
+	}
+	
+	private function onDestruction() {
+		
+	}
+	
+	override public function destroy():Void 
+	{
+		super.destroy();
+		onDestruction();
+	}
+}

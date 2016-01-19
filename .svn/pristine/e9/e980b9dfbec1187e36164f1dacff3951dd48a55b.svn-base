@@ -1,0 +1,28 @@
+package com.isartdigital.builder.game.factory;
+import com.isartdigital.builder.game.sprites.Building;
+	
+/**
+ * Class factory des buildings
+ * @author Dorian
+ */
+class BuildingFactory 
+{	
+	/**
+     * Class Constructor
+     * @return void
+     **/
+	private function new() 
+	{
+		
+	}
+	
+	public static function create (name:String): Building {
+		if (name == null) {
+			return null;
+		}
+		
+		
+		
+		return null;
+	}
+}

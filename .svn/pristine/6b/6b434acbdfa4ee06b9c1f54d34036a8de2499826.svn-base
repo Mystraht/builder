@@ -1,0 +1,28 @@
+<?php
+
+class UserModel extends ApplicationModel
+{
+
+    public function __construct()
+    {
+        
+    }
+
+    public function validate($params, $type) {
+        $errorMessage = '';
+        if ($type == 'create') {
+            $errorMessage .= $this->isPresent($params, 'username', 'Le nom d\'utilisateur n\'a pas été entré\n');
+            $errorMessage .= $this->isPresent($params, 'password', 'Le mot de passe est absent\n');
+            $errorMessage .= $this->isPresent($params, 'password_conf', 'Vous devez confirmaer le mot de passe\n');
+
+            if ($errorMessage) return $errorMessage;
+
+            $errorMessage .= ($params['password'] == $params['password_conf']) ? '' : 'Les mots de passes ne sont pas identique\n';
+            $errorMessage .= $this->length($params['username'], 3, 16, 'La taille de votre nom de compte est inccorect (3 caractère minimum, 16 maximum)\n');
+            $errorMessage .= $this->length($params['password'], 6, 1024, 'La taille de votre mot de passe est inccorect (6 caractère minimum)\n');
+            $errorMessage .= $this->isUnique('username', $params['username'], 'users', 'Ce nom d\'utilisateur indiqué existe déjà ! ');
+
+            return $errorMessage;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+<?php
+use Symfony\Component\HttpFoundation\Request;
+use Silex\Application;
+
+require_once __DIR__ . '/../app/controllers/ApplicationController.class.php';
+require_once __DIR__ . '/../app/controllers/WelcomeController.class.php';
+require_once __DIR__ . '/../app/controllers/UsersController.class.php';
+
+require_once __DIR__ . '/../app/models/ApplicationModel.class.php';
+require_once __DIR__ . '/../app/models/UsersModel.class.php';
+
+$basePath = '/v1';
+
+$WelcomeController = new WelcomeController();
+$UsersController = new UsersController();
+
+$ApplicationModel = new ApplicationModel();
+$UserModel = new UserModel();
+
+// Users
+$app->get($basePath . '/users', function (Request $request) use ($app, $UsersController) {
+    return $UsersController->index();
+});
+
+$app->get($basePath . '/users/{id}', function () use ($app, $UsersController) {
+    return $UsersController->show();
+});
+
+$app->post($basePath . '/users/create', function (Request $request) use ($app, $UsersController, $UserModel) {
+    $params = $request->query->all();
+    $errorMessage = $UserModel->validate($params, 'create');
+
+    if ($errorMessage) {
+        return json_encode([ 'error' => $errorMessage ]);
+    } else {
+        return $UsersController->create($params);
+    }
+});
+
+$app->patch($basePath . '/users/{id}', function () use ($app, $UsersController) {
+    return $UsersController->update();
+});
+
+$app->delete($basePath . '/users/{id}', function () use ($app, $UsersController) {
+    return $UsersController->destroy();
+});
+
+$app->run();
+
+// Faire une requête SQL :
+// SELECT :
+// $sql = "SELECT * FROM test";
+// $post = $app['db']->fetchAll($sql);
+//
+// UPDATE :
+// $request = $GLOBALS['app']['db']->prepare('UPDATE ...');
+// $request->execute(array(1, 2, 3));
+//
+// INSERT :
+// $date = date("Y-m-d H:i:s");
+// $request = $GLOBALS['app']['db']->prepare('INSERT INTO users VALUES (NULL, ?, ?, ?, ?)');
+// $request->execute(array($params['username'], $params['password'], $date, $date));
+//
+//
+// Recuperer les paramètres :
+// $params = $request->query->all(); // Get
+// $params = $request->request->all(); // Post
+
+//
+// echo $UserModel->isPresent(['test' => 1, 'test2' => 2], 'test', 'error error !!!');
+// echo $UserModel->length('bonjour', 3, 10, 'error error !!!');
+// echo $UserModel->isNumeric(123, 'error error !!!');
+// echo $UserModel->isString('lol', 'error error !!!');
+// echo $UserModel->isInclude('Bonjour, ceci est', 'ceci', 'error error !!!');
+// echo $UserModel->isExclude('Bonjour, ceci est', 'ok', 'error error !!!');

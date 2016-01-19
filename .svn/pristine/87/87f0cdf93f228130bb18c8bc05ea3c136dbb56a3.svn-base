@@ -1,0 +1,50 @@
+package com.isartdigital.builder.api;
+import haxe.Http;
+
+	
+/**
+ * ...
+ * @author Dorian
+ */
+class UserInfos 
+{
+	
+	/**
+	 * instance unique de la classe UserInfo
+	 */
+	private static var instance: UserInfos;
+	
+	public static var userInfoPath:String = 'userInfos';
+	
+	/**
+	 * Retourne l'instance unique de la classe, et la crée si elle n'existait pas au préalable
+	 * @return instance unique
+	 */
+	public static function getInstance (): UserInfos {
+		if (instance == null) instance = new UserInfos();
+		return instance;
+	}
+	
+	/**
+	 * constructeur privé pour éviter qu'une instance soit créée directement
+	 */
+	private function new() 
+	{
+		
+	}
+	
+	public function get(pCallBack:String->Void):Void {
+		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userInfoPath, { token: Api.token }));
+		
+		request.onData = pCallBack;
+		request.request(false);
+	}
+	
+	/**
+	 * détruit l'instance unique et met sa référence interne à null
+	 */
+	public function destroy (): Void {
+		instance = null;
+	}
+
+}
