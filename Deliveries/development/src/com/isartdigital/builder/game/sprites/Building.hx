@@ -8,6 +8,8 @@ import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.pooling.IPoolObject;
 import com.isartdigital.builder.game.utils.TypeDefUtils;
+import com.isartdigital.builder.ui.hud.BaseBuildingHUD;
+import com.isartdigital.builder.ui.UIManager;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.events.MouseEventType;
 import com.isartdigital.utils.game.BoxType;
@@ -17,6 +19,7 @@ import com.isartdigital.utils.game.iso.IsoManager;
 import com.isartdigital.utils.game.iso.IZSortable;
 import com.isartdigital.utils.game.StateGraphic;
 import com.isartdigital.utils.loader.GameLoader;
+import com.isartdigital.utils.ui.Screen;
 import eventemitter3.EventEmitter;
 import haxe.Json;
 import js.html.EventTarget;
@@ -141,7 +144,8 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	 * Commence le deplacement d'un batiment
 	 */
 	public function buildingClick (event:Dynamic) {
-		var lMapManager:MapManager = MapManager.getInstance();
+		trace("here is click");
+		/*var lMapManager:MapManager = MapManager.getInstance();
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
 		if (movingBuilding == this) {
@@ -151,7 +155,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 			movingBuilding = this;
 			tilesUnderBuilding = lMapManager.getTilesArray(initialeModelPosition, definition.size);
 			lMapManager.setTilesBuildable(tilesUnderBuilding, true);
-		}
+		}*/
 	}
 	
 	

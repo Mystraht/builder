@@ -298,13 +298,10 @@ com_isartdigital_builder_Main.getInstance = function() {
 	return com_isartdigital_builder_Main.instance;
 };
 com_isartdigital_builder_Main.importClasses = function() {
-	com_isartdigital_builder_ui_uimodule_PlayButton;
-	com_isartdigital_builder_ui_uimodule_CreditsButton;
-	com_isartdigital_builder_ui_uimodule_BackButton;
-	com_isartdigital_builder_ui_uimodule_ShopButton1;
 	com_isartdigital_builder_ui_hud_SpiceCurrency;
 	com_isartdigital_builder_ui_hud_GoldCurrency;
 	com_isartdigital_builder_ui_hud_OfferingsCurrency;
+	com_isartdigital_builder_ui_uimodule_MoveButton;
 };
 com_isartdigital_builder_Main.__super__ = EventEmitter;
 com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
@@ -391,7 +388,7 @@ com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
 		com_isartdigital_utils_game_factory_MovieClipAnimFactory.addTextures(com_isartdigital_utils_loader_GameLoader.getContent("assets.json"));
 		com_isartdigital_utils_game_factory_MovieClipAnimFactory.addTextures(com_isartdigital_utils_loader_GameLoader.getContent("bakckground.json"));
 		com_isartdigital_utils_game_StateGraphic.addBoxes(com_isartdigital_utils_loader_GameLoader.getContent(""));
-		com_isartdigital_utils_ui_UIBuilder.init("ui.json","com.isartdigital.builder.ui","com.isartdigital.builder.ui.hud");
+		com_isartdigital_utils_ui_UIBuilder.init("ui.json","com.isartdigital.builder.ui.uimodule","com.isartdigital.builder.ui.hud");
 		com_isartdigital_utils_ui_UIBuilder.addTextStyle(Reflect.field(pLoader.resources,"assets/hd/ui/textsUI.json").data);
 		console.log(JSON.stringify(com_isartdigital_utils_loader_GameLoader.getContent("en.json")));
 		console.log(Reflect.field(pLoader.resources,"assets/json/en.json").data);
@@ -1682,14 +1679,7 @@ com_isartdigital_builder_game_sprites_Building.prototype = $extend(com_isartdigi
 		(js_Boot.__cast(this.anim , pixi_display_FlumpMovie)).gotoAndStop(this.buildingLevel);
 	}
 	,buildingClick: function(event) {
-		var lMapManager = com_isartdigital_builder_game_manager_MapManager.getInstance();
-		var tilesUnderBuilding;
-		if(com_isartdigital_builder_game_sprites_Building.movingBuilding == this) this.buildingRequest(); else {
-			this.initialeModelPosition = this.toModel(true);
-			com_isartdigital_builder_game_sprites_Building.movingBuilding = this;
-			tilesUnderBuilding = lMapManager.getTilesArray(this.initialeModelPosition,this.definition.size);
-			lMapManager.setTilesBuildable(tilesUnderBuilding,true);
-		}
+		console.log("here is click");
 	}
 	,stopMoving: function() {
 		com_isartdigital_builder_game_sprites_Building.movingBuilding = null;
@@ -1973,9 +1963,21 @@ com_isartdigital_utils_ui_UIComponent.prototype = $extend(com_isartdigital_utils
 		var lClassName = Type.getClassName(js_Boot.getClass(this));
 		lClassName = lClassName.substring(lClassName.lastIndexOf(".") + 1);
 		var lItems = com_isartdigital_utils_ui_UIBuilder.build(lClassName);
+		this.addChildItems(lItems);
+	}
+	,addChildItems: function(pItems) {
 		var _g = 0;
-		while(_g < lItems.length) {
-			var lItem = lItems[_g];
+		while(_g < pItems.length) {
+			var lItem = pItems[_g];
+			++_g;
+			this.addChild(lItem.item);
+			if(lItem.align != "") this.positionables.push(lItem);
+		}
+	}
+	,addChildItem: function(pItems) {
+		var _g = 0;
+		while(_g < pItems.length) {
+			var lItem = pItems[_g];
 			++_g;
 			this.addChild(lItem.item);
 			if(lItem.align != "") this.positionables.push(lItem);
@@ -2133,6 +2135,19 @@ com_isartdigital_builder_ui_UIManager.prototype = {
 	}
 	,__class__: com_isartdigital_builder_ui_UIManager
 };
+var com_isartdigital_builder_ui_hud_BaseBuildingHUD = function() {
+	console.log("createtion");
+	com_isartdigital_utils_ui_UIComponent.call(this);
+	this.build();
+};
+$hxClasses["com.isartdigital.builder.ui.hud.BaseBuildingHUD"] = com_isartdigital_builder_ui_hud_BaseBuildingHUD;
+com_isartdigital_builder_ui_hud_BaseBuildingHUD.__name__ = ["com","isartdigital","builder","ui","hud","BaseBuildingHUD"];
+com_isartdigital_builder_ui_hud_BaseBuildingHUD.__super__ = com_isartdigital_utils_ui_UIComponent;
+com_isartdigital_builder_ui_hud_BaseBuildingHUD.prototype = $extend(com_isartdigital_utils_ui_UIComponent.prototype,{
+	onResize: function(pEvent) {
+	}
+	,__class__: com_isartdigital_builder_ui_hud_BaseBuildingHUD
+});
 var com_isartdigital_builder_ui_hud_CurrencyAsset = function() {
 	com_isartdigital_utils_ui_UIComponent.call(this);
 	this.build();
@@ -2347,52 +2362,21 @@ com_isartdigital_utils_ui_Button.prototype = $extend(com_isartdigital_utils_game
 	}
 	,__class__: com_isartdigital_utils_ui_Button
 });
-var com_isartdigital_builder_ui_uimodule_BackButton = function() {
-	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
-	com_isartdigital_utils_ui_Button.call(this);
-};
-$hxClasses["com.isartdigital.builder.ui.uimodule.BackButton"] = com_isartdigital_builder_ui_uimodule_BackButton;
-com_isartdigital_builder_ui_uimodule_BackButton.__name__ = ["com","isartdigital","builder","ui","uimodule","BackButton"];
-com_isartdigital_builder_ui_uimodule_BackButton.__super__ = com_isartdigital_utils_ui_Button;
-com_isartdigital_builder_ui_uimodule_BackButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
-	__class__: com_isartdigital_builder_ui_uimodule_BackButton
-});
-var com_isartdigital_builder_ui_uimodule_CreditsButton = function() {
-	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
-	com_isartdigital_utils_ui_Button.call(this);
-};
-$hxClasses["com.isartdigital.builder.ui.uimodule.CreditsButton"] = com_isartdigital_builder_ui_uimodule_CreditsButton;
-com_isartdigital_builder_ui_uimodule_CreditsButton.__name__ = ["com","isartdigital","builder","ui","uimodule","CreditsButton"];
-com_isartdigital_builder_ui_uimodule_CreditsButton.__super__ = com_isartdigital_utils_ui_Button;
-com_isartdigital_builder_ui_uimodule_CreditsButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
-	__class__: com_isartdigital_builder_ui_uimodule_CreditsButton
-});
-var com_isartdigital_builder_ui_uimodule_PlayButton = function() {
+var com_isartdigital_builder_ui_uimodule_MoveButton = function() {
 	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
 	com_isartdigital_utils_ui_Button.call(this);
 	this.interactive = true;
 	this.buttonMode = true;
 	this.once("click",$bind(this,this.onClick));
 };
-$hxClasses["com.isartdigital.builder.ui.uimodule.PlayButton"] = com_isartdigital_builder_ui_uimodule_PlayButton;
-com_isartdigital_builder_ui_uimodule_PlayButton.__name__ = ["com","isartdigital","builder","ui","uimodule","PlayButton"];
-com_isartdigital_builder_ui_uimodule_PlayButton.__super__ = com_isartdigital_utils_ui_Button;
-com_isartdigital_builder_ui_uimodule_PlayButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
+$hxClasses["com.isartdigital.builder.ui.uimodule.MoveButton"] = com_isartdigital_builder_ui_uimodule_MoveButton;
+com_isartdigital_builder_ui_uimodule_MoveButton.__name__ = ["com","isartdigital","builder","ui","uimodule","MoveButton"];
+com_isartdigital_builder_ui_uimodule_MoveButton.__super__ = com_isartdigital_utils_ui_Button;
+com_isartdigital_builder_ui_uimodule_MoveButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
 	onClick: function(pEvent) {
-		com_isartdigital_builder_ui_UIManager.getInstance().startGame();
-		com_isartdigital_builder_game_GameManager.getInstance().start();
+		console.log("ok");
 	}
-	,__class__: com_isartdigital_builder_ui_uimodule_PlayButton
-});
-var com_isartdigital_builder_ui_uimodule_ShopButton1 = function() {
-	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
-	com_isartdigital_utils_ui_Button.call(this);
-};
-$hxClasses["com.isartdigital.builder.ui.uimodule.ShopButton1"] = com_isartdigital_builder_ui_uimodule_ShopButton1;
-com_isartdigital_builder_ui_uimodule_ShopButton1.__name__ = ["com","isartdigital","builder","ui","uimodule","ShopButton1"];
-com_isartdigital_builder_ui_uimodule_ShopButton1.__super__ = com_isartdigital_utils_ui_Button;
-com_isartdigital_builder_ui_uimodule_ShopButton1.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
-	__class__: com_isartdigital_builder_ui_uimodule_ShopButton1
+	,__class__: com_isartdigital_builder_ui_uimodule_MoveButton
 });
 var com_isartdigital_utils_Config = function() { };
 $hxClasses["com.isartdigital.utils.Config"] = com_isartdigital_utils_Config;
@@ -3442,7 +3426,7 @@ com_isartdigital_utils_ui_UIBuilder.addTextStyle = function(pData) {
 com_isartdigital_utils_ui_UIBuilder.init = function(pFile,pPackage,pPackageCurrency) {
 	com_isartdigital_utils_ui_UIBuilder.description = pFile;
 	com_isartdigital_utils_ui_UIBuilder.btnPackage = pPackage;
-	com_isartdigital_utils_ui_UIBuilder.currencyPackage = pPackageCurrency;
+	com_isartdigital_utils_ui_UIBuilder.hudPackage = pPackageCurrency;
 };
 com_isartdigital_utils_ui_UIBuilder.build = function(pId) {
 	var lData = com_isartdigital_utils_loader_GameLoader.getContent(com_isartdigital_utils_ui_UIBuilder.description);
@@ -3461,10 +3445,7 @@ com_isartdigital_utils_ui_UIBuilder.build = function(pId) {
 			while(_g2 < _g3.length) {
 				var lItem1 = _g3[_g2];
 				++_g2;
-				if(lItem1.name.indexOf("_txt") != -1 && lItem1.name.indexOf("_txt") == lItem1.name.length - "_txt".length) lObj = com_isartdigital_utils_ui_UIBuilder.getTextFromJson(lItem1.name); else if(lItem1.name.indexOf("Button") != -1 && lItem1.name.indexOf("Button") == lItem1.name.length - "Button".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.btnPackage + "." + lItem1.keyframes[0].ref),[]); else if(lItem1.name.indexOf("_currency") != -1 && lItem1.name.indexOf("_currency") == lItem1.name.length - "_currency".length) {
-					console.log("currency found : " + lItem1.keyframes[0].ref);
-					lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.currencyPackage + "." + lItem1.keyframes[0].ref),[]);
-				} else lObj = new com_isartdigital_utils_ui_UIAsset(lItem1.keyframes[0].ref);
+				if(lItem1.name.indexOf("_txt") != -1 && lItem1.name.indexOf("_txt") == lItem1.name.length - "_txt".length) lObj = com_isartdigital_utils_ui_UIBuilder.getTextFromJson(lItem1.name); else if(lItem1.name.indexOf("Button") != -1 && lItem1.name.indexOf("Button") == lItem1.name.length - "Button".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.btnPackage + "." + lItem1.keyframes[0].ref),[]); else if(lItem1.name.indexOf("_currency") != -1 && lItem1.name.indexOf("_currency") == lItem1.name.length - "_currency".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.hudPackage + "." + lItem1.keyframes[0].ref),[]); else if(lItem1.name.indexOf("_bHud") != -1 && lItem1.name.indexOf("_bHud") == lItem1.name.length - "_bHud".length) lObj = Type.createInstance(Type.resolveClass(com_isartdigital_utils_ui_UIBuilder.hudPackage + "." + lItem1.keyframes[0].ref),[]); else lObj = new com_isartdigital_utils_ui_UIAsset(lItem1.keyframes[0].ref);
 				lObj.name = lItem1.keyframes[0].ref;
 				if(Object.prototype.hasOwnProperty.call(lItem1.keyframes[0],"loc")) lObj.position.set(lItem1.keyframes[0].loc[0],lItem1.keyframes[0].loc[1]);
 				if(Object.prototype.hasOwnProperty.call(lItem1.keyframes[0],"scale")) lObj.scale.set(lItem1.keyframes[0].scale[0],lItem1.keyframes[0].scale[1]);
@@ -3482,11 +3463,9 @@ com_isartdigital_utils_ui_UIBuilder.build = function(pId) {
 	return lUIPos;
 };
 com_isartdigital_utils_ui_UIBuilder.getTextFromJson = function(pName) {
-	console.log("name text " + pName);
 	var lTextStyle = com_isartdigital_utils_ui_UIBuilder.textStyle.get(pName);
 	lTextStyle;
 	var lStyle = { align : "center"};
-	console.log(lStyle.wordWrapWidth + "css");
 	return new PIXI.Text(lTextStyle.text,lStyle);
 };
 com_isartdigital_utils_ui_UIBuilder.getUIPositionable = function(pObj,pPosition) {
@@ -5658,6 +5637,7 @@ com_isartdigital_utils_system_DeviceCapabilities.screenRatio = 1;
 com_isartdigital_utils_ui_UIBuilder.TXT_SUFFIX = "_txt";
 com_isartdigital_utils_ui_UIBuilder.BTN_SUFFIX = "Button";
 com_isartdigital_utils_ui_UIBuilder.CURRENCY_SUFFIX = "_currency";
+com_isartdigital_utils_ui_UIBuilder.BUILDING_HUD_SUFFIX = "_bHud";
 com_isartdigital_utils_ui_UIBuilder.textStyle = new haxe_ds_StringMap();
 com_isartdigital_utils_ui_UIBuilder.uiPos = (function($this) {
 	var $r;

@@ -11,10 +11,7 @@ import com.isartdigital.builder.ui.hud.OfferingsCurrency;
 import com.isartdigital.builder.ui.hud.SpiceCurrency;
 import com.isartdigital.builder.ui.screens.TitleCard;
 import com.isartdigital.builder.ui.UIManager;
-import com.isartdigital.builder.ui.uimodule.BackButton;
-import com.isartdigital.builder.ui.uimodule.CreditsButton;
-import com.isartdigital.builder.ui.uimodule.PlayButton;
-import com.isartdigital.builder.ui.uimodule.ShopButton1;
+import com.isartdigital.builder.ui.uimodule.MoveButton;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
 import com.isartdigital.utils.events.EventType;
@@ -286,7 +283,7 @@ class Main extends EventEmitter
 		StateGraphic.addBoxes(GameLoader.getContent(""));
 		
 		//initialise le builder d'UI
-		UIBuilder.init("ui.json", "com.isartdigital.builder.ui", "com.isartdigital.builder.ui.hud");
+		UIBuilder.init("ui.json", "com.isartdigital.builder.ui.uimodule", "com.isartdigital.builder.ui.hud");
 		UIBuilder.addTextStyle(Reflect.field(pLoader.resources, "assets/hd/ui/textsUI.json").data);
 		
 		//Localization.getInstance().selectJson(Localization.LANG_EN, pLoader);
@@ -353,13 +350,10 @@ class Main extends EventEmitter
 	}
 	
 	private static function importClasses():Void {
-		PlayButton;
-		CreditsButton;
-		BackButton;
-		ShopButton1;
 		SpiceCurrency;
 		GoldCurrency;
 		OfferingsCurrency;
+		MoveButton;
 	}
 	
 	/**

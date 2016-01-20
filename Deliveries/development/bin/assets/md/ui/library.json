@@ -1,10 +1,11 @@
 {
  "isNamespaced": false,
+ "frameRate": 30,
  "textureGroups": [
   {
+   "scaleFactor": 1,
    "atlases": [
     {
-     "file": "atlas0.png",
      "textures": [
       {
        "origin": [
@@ -14,10 +15,10 @@
        "rect": [
         1,
         1,
-        196,
-        56
+        191,
+        193
        ],
-       "symbol": "OfferingsCurrencyAsset"
+       "symbol": "MoveButtonAsset"
       },
       {
        "origin": [
@@ -26,7 +27,7 @@
        ],
        "rect": [
         1,
-        59,
+        196,
         196,
         56
        ],
@@ -39,7 +40,20 @@
        ],
        "rect": [
         1,
-        117,
+        254,
+        196,
+        56
+       ],
+       "symbol": "OfferingsCurrencyAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        312,
         196,
         56
        ],
@@ -52,7 +66,7 @@
        ],
        "rect": [
         1,
-        175,
+        370,
         183,
         17
        ],
@@ -65,11 +79,11 @@
        ],
        "rect": [
         1,
-        194,
+        389,
         183,
         17
        ],
-       "symbol": "Offerings_txt"
+       "symbol": "Spice_txt"
       },
       {
        "origin": [
@@ -78,20 +92,45 @@
        ],
        "rect": [
         1,
-        213,
+        408,
         183,
         17
        ],
-       "symbol": "Spice_txt"
+       "symbol": "Offerings_txt"
       }
-     ]
+     ],
+     "file": "atlas0.png"
     }
-   ],
-   "scaleFactor": 1
+   ]
   }
  ],
  "movies": [
   {
+   "id": "BaseBuildingHUD",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        419.7,
+        586.75
+       ],
+       "duration": 1,
+       "ref": "MoveButton",
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        95.25,
+        96.25
+       ]
+      }
+     ],
+     "name": "D_MoveButton"
+    }
+   ]
+  },
+  {
+   "id": "GoldCurrency",
    "layers": [
     {
      "keyframes": [
@@ -103,11 +142,11 @@
        "duration": 1,
        "ref": "GoldCurrencyAsset",
        "tweened": false,
+       "index": 0,
        "pivot": [
         98,
         28
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "GoldCurrencyAsset"
@@ -119,26 +158,26 @@
         123.0036,
         27.9623
        ],
-       "duration": 1,
+       "pivot": [
+        91.325,
+        8.05
+       ],
        "ref": "Gold_txt",
        "scale": [
         0.721,
         1.8693
        ],
-       "tweened": false,
-       "pivot": [
-        91.325,
-        8.05
-       ],
-       "index": 0
+       "duration": 1,
+       "index": 0,
+       "tweened": false
       }
      ],
      "name": "Gold_txt"
     }
-   ],
-   "id": "GoldCurrency"
+   ]
   },
   {
+   "id": "Hud",
    "layers": [
     {
      "keyframes": [
@@ -161,14 +200,33 @@
        "duration": 1,
        "ref": "GoldCurrency",
        "tweened": false,
+       "index": 0,
        "pivot": [
         98,
         28
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "TL_GoldCurrency_currency"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        494.775,
+        581
+       ],
+       "duration": 1,
+       "ref": "BaseBuildingHUD",
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        419.7,
+        586.75
+       ]
+      }
+     ],
+     "name": "D_BaseBuildingHUD_bHud"
     },
     {
      "keyframes": [
@@ -180,19 +238,71 @@
        "duration": 1,
        "ref": "OfferingsCurrency",
        "tweened": false,
+       "index": 0,
        "pivot": [
         98,
         28
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "TL_OfferingsCurrency_currency"
     }
-   ],
-   "id": "Hud"
+   ]
   },
   {
+   "id": "MoveButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        95.25,
+        96.25
+       ],
+       "duration": 1,
+       "ref": "MoveButtonAsset",
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        95.25,
+        96.25
+       ]
+      },
+      {
+       "loc": [
+        95.25,
+        96.25
+       ],
+       "duration": 1,
+       "ref": "MoveButtonAsset",
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        95.25,
+        96.25
+       ]
+      },
+      {
+       "loc": [
+        95.25,
+        96.25
+       ],
+       "duration": 1,
+       "ref": "MoveButtonAsset",
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        95.25,
+        96.25
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "OfferingsCurrency",
    "layers": [
     {
      "keyframes": [
@@ -204,11 +314,11 @@
        "duration": 1,
        "ref": "OfferingsCurrencyAsset",
        "tweened": false,
+       "index": 0,
        "pivot": [
         98,
         28
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "OfferingsCurrencyAsset"
@@ -220,26 +330,26 @@
         124.1235,
         27.9968
        ],
-       "duration": 1,
+       "pivot": [
+        91.375,
+        8.05
+       ],
        "ref": "Offerings_txt",
        "scale": [
         0.7427,
         1.9317
        ],
-       "tweened": false,
-       "pivot": [
-        91.375,
-        8.05
-       ],
-       "index": 0
+       "duration": 1,
+       "index": 0,
+       "tweened": false
       }
      ],
      "name": "Offerings_txt"
     }
-   ],
-   "id": "OfferingsCurrency"
+   ]
   },
   {
+   "id": "SpiceCurrency",
    "layers": [
     {
      "keyframes": [
@@ -251,11 +361,11 @@
        "duration": 1,
        "ref": "SpiceCurrencyAsset",
        "tweened": false,
+       "index": 0,
        "pivot": [
         98,
         28
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "SpiceCurrencyAsset"
@@ -267,26 +377,24 @@
         111,
         29.4049
        ],
-       "duration": 1,
+       "pivot": [
+        74.85,
+        9.075
+       ],
        "ref": "Spice_txt",
        "scale": [
         0.7329,
         1.8058
        ],
-       "tweened": false,
-       "pivot": [
-        74.85,
-        9.075
-       ],
-       "index": 0
+       "duration": 1,
+       "index": 0,
+       "tweened": false
       }
      ],
      "name": "Spice_txt"
     }
-   ],
-   "id": "SpiceCurrency"
+   ]
   }
  ],
- "md5": "8452029702901d68a5e883a8d7a615a7",
- "frameRate": 30
+ "md5": "725768dbd0010deb3ff12de1b157fe24"
 }
