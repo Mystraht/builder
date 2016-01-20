@@ -7,6 +7,8 @@ import com.isartdigital.builder.game.def.UserInfoDef;
 import com.isartdigital.builder.game.manager.RessourceManager;
 import com.isartdigital.builder.game.manager.Ressources;
 import com.isartdigital.builder.ui.GraphicLoader;
+import com.isartdigital.builder.ui.hud.GoldCurrency;
+import com.isartdigital.builder.ui.hud.OfferingsCurrency;
 import com.isartdigital.builder.ui.hud.SpiceCurrency;
 import com.isartdigital.builder.ui.screens.TitleCard;
 import com.isartdigital.builder.ui.UIManager;
@@ -369,6 +371,8 @@ class Main extends EventEmitter
 		BackButton;
 		ShopButton1;
 		SpiceCurrency;
+		GoldCurrency;
+		OfferingsCurrency;
 	}
 	
 	/**

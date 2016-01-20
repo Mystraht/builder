@@ -17,6 +17,32 @@
         98,
         28
        ],
+       "symbol": "OfferingsCurrencyAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        31,
+        98,
+        28
+       ],
+       "symbol": "GoldCurrencyAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        61,
+        98,
+        28
+       ],
        "symbol": "SpiceCurrencyAsset"
       },
       {
@@ -26,7 +52,33 @@
        ],
        "rect": [
         1,
-        31,
+        91,
+        92,
+        9
+       ],
+       "symbol": "Gold_txt"
+      },
+      {
+       "origin": [
+        37.4,
+        4.55
+       ],
+       "rect": [
+        1,
+        102,
+        92,
+        9
+       ],
+       "symbol": "Offerings_txt"
+      },
+      {
+       "origin": [
+        37.4,
+        4.55
+       ],
+       "rect": [
+        1,
+        113,
         92,
         9
        ],
@@ -44,13 +96,98 @@
     {
      "keyframes": [
       {
+       "loc": [
+        49,
+        14
+       ],
+       "duration": 1,
+       "ref": "GoldCurrencyAsset",
+       "tweened": false,
+       "pivot": [
+        49,
+        14
+       ],
+       "index": 0
+      }
+     ],
+     "name": "GoldCurrencyAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        61.5018,
+        13.9811
+       ],
+       "duration": 1,
+       "ref": "Gold_txt",
+       "scale": [
+        0.721,
+        1.8693
+       ],
+       "tweened": false,
+       "pivot": [
+        45.6625,
+        4.025
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Gold_txt"
+    }
+   ],
+   "id": "GoldCurrency"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
        "duration": 1,
        "index": 0,
-       "ref": "SpiceCurrency",
-       "tweened": false
+       "ref": "SpiceCurrency"
       }
      ],
      "name": "TL_SpiceCurrency_currency"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        173.875,
+        14
+       ],
+       "duration": 1,
+       "ref": "GoldCurrency",
+       "tweened": false,
+       "pivot": [
+        49,
+        14
+       ],
+       "index": 0
+      }
+     ],
+     "name": "TL_GoldCurrency_currency"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        298.9875,
+        14
+       ],
+       "duration": 1,
+       "ref": "OfferingsCurrency",
+       "tweened": false,
+       "pivot": [
+        49,
+        14
+       ],
+       "index": 0
+      }
+     ],
+     "name": "TL_OfferingsCurrency_currency"
     }
    ],
    "id": "Hud"
@@ -65,13 +202,60 @@
         14
        ],
        "duration": 1,
-       "ref": "SpiceCurrencyAsset",
+       "ref": "OfferingsCurrencyAsset",
+       "tweened": false,
        "pivot": [
         49,
         14
        ],
-       "index": 0,
-       "tweened": false
+       "index": 0
+      }
+     ],
+     "name": "OfferingsCurrencyAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        62.0617,
+        13.9984
+       ],
+       "duration": 1,
+       "ref": "Offerings_txt",
+       "scale": [
+        0.7427,
+        1.9317
+       ],
+       "tweened": false,
+       "pivot": [
+        45.6875,
+        4.025
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Offerings_txt"
+    }
+   ],
+   "id": "OfferingsCurrency"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        49,
+        14
+       ],
+       "duration": 1,
+       "ref": "SpiceCurrencyAsset",
+       "tweened": false,
+       "pivot": [
+        49,
+        14
+       ],
+       "index": 0
       }
      ],
      "name": "SpiceCurrencyAsset"
@@ -89,12 +273,12 @@
         0.7329,
         1.8058
        ],
+       "tweened": false,
        "pivot": [
         37.425,
         4.5375
        ],
-       "index": 0,
-       "tweened": false
+       "index": 0
       }
      ],
      "name": "Spice_txt"
@@ -103,6 +287,6 @@
    "id": "SpiceCurrency"
   }
  ],
- "md5": "ac82c7682a01861a9c0476023bfe5975",
+ "md5": "8452029702901d68a5e883a8d7a615a7",
  "frameRate": 30
 }
