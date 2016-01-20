@@ -25,6 +25,5 @@ class MoveButton extends Button
 		
 		trace("ok");
 		
-	}
-	
+	}	
 }

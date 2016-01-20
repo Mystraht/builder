@@ -145,6 +145,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	 */
 	public function buildingClick (event:Dynamic) {
 		trace("here is click");
+		BaseBuildingHUD.getInstance().active();
 		/*var lMapManager:MapManager = MapManager.getInstance();
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		

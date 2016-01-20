@@ -1,11 +1,10 @@
 {
  "isNamespaced": false,
- "frameRate": 30,
  "textureGroups": [
   {
-   "scaleFactor": 1,
    "atlases": [
     {
+     "file": "atlas0.png",
      "textures": [
       {
        "origin": [
@@ -98,15 +97,14 @@
        ],
        "symbol": "Offerings_txt"
       }
-     ],
-     "file": "atlas0.png"
+     ]
     }
-   ]
+   ],
+   "scaleFactor": 1
   }
  ],
  "movies": [
   {
-   "id": "BaseBuildingHUD",
    "layers": [
     {
      "keyframes": [
@@ -118,19 +116,19 @@
        "duration": 1,
        "ref": "MoveButton",
        "tweened": false,
-       "index": 0,
        "pivot": [
         190.5,
         192.5
-       ]
+       ],
+       "index": 0
       }
      ],
      "name": "D_MoveButton"
     }
-   ]
+   ],
+   "id": "BaseBuildingHUD"
   },
   {
-   "id": "GoldCurrency",
    "layers": [
     {
      "keyframes": [
@@ -142,11 +140,11 @@
        "duration": 1,
        "ref": "GoldCurrencyAsset",
        "tweened": false,
-       "index": 0,
        "pivot": [
         196,
         56
-       ]
+       ],
+       "index": 0
       }
      ],
      "name": "GoldCurrencyAsset"
@@ -158,26 +156,26 @@
         246.0072,
         55.9245
        ],
-       "pivot": [
-        182.65,
-        16.1
-       ],
+       "duration": 1,
        "ref": "Gold_txt",
        "scale": [
         0.721,
         1.8693
        ],
-       "duration": 1,
-       "index": 0,
-       "tweened": false
+       "tweened": false,
+       "pivot": [
+        182.65,
+        16.1
+       ],
+       "index": 0
       }
      ],
      "name": "Gold_txt"
     }
-   ]
+   ],
+   "id": "GoldCurrency"
   },
   {
-   "id": "Hud",
    "layers": [
     {
      "keyframes": [
@@ -200,11 +198,11 @@
        "duration": 1,
        "ref": "GoldCurrency",
        "tweened": false,
-       "index": 0,
        "pivot": [
         196,
         56
-       ]
+       ],
+       "index": 0
       }
      ],
      "name": "TL_GoldCurrency_currency"
@@ -219,14 +217,14 @@
        "duration": 1,
        "ref": "BaseBuildingHUD",
        "tweened": false,
-       "index": 0,
        "pivot": [
         839.4,
         1173.5
-       ]
+       ],
+       "index": 0
       }
      ],
-     "name": "D_BaseBuildingHUD_bHud"
+     "name": "B_BaseBuildingHUD_bHud"
     },
     {
      "keyframes": [
@@ -238,19 +236,19 @@
        "duration": 1,
        "ref": "OfferingsCurrency",
        "tweened": false,
-       "index": 0,
        "pivot": [
         196,
         56
-       ]
+       ],
+       "index": 0
       }
      ],
      "name": "TL_OfferingsCurrency_currency"
     }
-   ]
+   ],
+   "id": "Hud"
   },
   {
-   "id": "MoveButton",
    "layers": [
     {
      "keyframes": [
@@ -262,11 +260,11 @@
        "duration": 1,
        "ref": "MoveButtonAsset",
        "tweened": false,
-       "index": 0,
        "pivot": [
         190.5,
         192.5
-       ]
+       ],
+       "index": 0
       },
       {
        "loc": [
@@ -276,11 +274,11 @@
        "duration": 1,
        "ref": "MoveButtonAsset",
        "tweened": false,
-       "index": 1,
        "pivot": [
         190.5,
         192.5
-       ]
+       ],
+       "index": 1
       },
       {
        "loc": [
@@ -290,19 +288,19 @@
        "duration": 1,
        "ref": "MoveButtonAsset",
        "tweened": false,
-       "index": 2,
        "pivot": [
         190.5,
         192.5
-       ]
+       ],
+       "index": 2
       }
      ],
      "name": "Calque 1"
     }
-   ]
+   ],
+   "id": "MoveButton"
   },
   {
-   "id": "OfferingsCurrency",
    "layers": [
     {
      "keyframes": [
@@ -314,11 +312,11 @@
        "duration": 1,
        "ref": "OfferingsCurrencyAsset",
        "tweened": false,
-       "index": 0,
        "pivot": [
         196,
         56
-       ]
+       ],
+       "index": 0
       }
      ],
      "name": "OfferingsCurrencyAsset"
@@ -330,26 +328,26 @@
         248.2469,
         55.9935
        ],
-       "pivot": [
-        182.75,
-        16.1
-       ],
+       "duration": 1,
        "ref": "Offerings_txt",
        "scale": [
         0.7427,
         1.9317
        ],
-       "duration": 1,
-       "index": 0,
-       "tweened": false
+       "tweened": false,
+       "pivot": [
+        182.75,
+        16.1
+       ],
+       "index": 0
       }
      ],
      "name": "Offerings_txt"
     }
-   ]
+   ],
+   "id": "OfferingsCurrency"
   },
   {
-   "id": "SpiceCurrency",
    "layers": [
     {
      "keyframes": [
@@ -361,11 +359,11 @@
        "duration": 1,
        "ref": "SpiceCurrencyAsset",
        "tweened": false,
-       "index": 0,
        "pivot": [
         196,
         56
-       ]
+       ],
+       "index": 0
       }
      ],
      "name": "SpiceCurrencyAsset"
@@ -377,24 +375,26 @@
         222,
         58.8097
        ],
-       "pivot": [
-        149.7,
-        18.15
-       ],
+       "duration": 1,
        "ref": "Spice_txt",
        "scale": [
         0.7329,
         1.8058
        ],
-       "duration": 1,
-       "index": 0,
-       "tweened": false
+       "tweened": false,
+       "pivot": [
+        149.7,
+        18.15
+       ],
+       "index": 0
       }
      ],
      "name": "Spice_txt"
     }
-   ]
+   ],
+   "id": "SpiceCurrency"
   }
  ],
- "md5": "725768dbd0010deb3ff12de1b157fe24"
+ "md5": "be5c527c611bf8e1a6743f2bae003c46",
+ "frameRate": 30
 }

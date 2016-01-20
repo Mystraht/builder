@@ -76,6 +76,11 @@ class Hud extends Screen
 		super.onResize();
 	}
 	
+	public function doAction () : Void
+	{
+		if (BaseBuildingHUD.getInstance().hadToMove) return;
+	}
+	
 	public function refreshHUD () : Void {
 		Api.resources.get(cb_resourceAll);
 	}

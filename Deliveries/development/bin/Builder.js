@@ -390,8 +390,8 @@ com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
 		com_isartdigital_utils_game_StateGraphic.addBoxes(com_isartdigital_utils_loader_GameLoader.getContent(""));
 		com_isartdigital_utils_ui_UIBuilder.init("ui.json","com.isartdigital.builder.ui.uimodule","com.isartdigital.builder.ui.hud");
 		com_isartdigital_utils_ui_UIBuilder.addTextStyle(Reflect.field(pLoader.resources,"assets/hd/ui/textsUI.json").data);
-		console.log(JSON.stringify(com_isartdigital_utils_loader_GameLoader.getContent("en.json")));
-		console.log(Reflect.field(pLoader.resources,"assets/json/en.json").data);
+		haxe_Log.trace(JSON.stringify(com_isartdigital_utils_loader_GameLoader.getContent("en.json")),{ fileName : "Main.hx", lineNumber : 290, className : "com.isartdigital.builder.Main", methodName : "onLoadComplete"});
+		haxe_Log.trace(Reflect.field(pLoader.resources,"assets/json/en.json").data,{ fileName : "Main.hx", lineNumber : 292, className : "com.isartdigital.builder.Main", methodName : "onLoadComplete"});
 		com_isartdigital_utils_Localization.getInstance().setDataLocalization(JSON.stringify(com_isartdigital_utils_loader_GameLoader.getContent("json/en.json")));
 		this.assetsLoaded = true;
 		this.tryToStartGame();
@@ -422,10 +422,10 @@ com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
 	,onFacebookLogin: function() {
 	}
 	,callBackApi: function(pData) {
-		if(pData == null) console.log("Erreur facebook API"); else if(pData.error != null) console.log(pData.error); else console.log(pData);
+		if(pData == null) haxe_Log.trace("Erreur facebook API",{ fileName : "Main.hx", lineNumber : 368, className : "com.isartdigital.builder.Main", methodName : "callBackApi"}); else if(pData.error != null) haxe_Log.trace(pData.error,{ fileName : "Main.hx", lineNumber : 369, className : "com.isartdigital.builder.Main", methodName : "callBackApi"}); else haxe_Log.trace(pData,{ fileName : "Main.hx", lineNumber : 370, className : "com.isartdigital.builder.Main", methodName : "callBackApi"});
 	}
 	,callBackUI: function(pData) {
-		if(pData == null) console.log("Erreur facebook API"); else if(pData.error_message != null) console.log(pData.error_message); else console.log(pData);
+		if(pData == null) haxe_Log.trace("Erreur facebook API",{ fileName : "Main.hx", lineNumber : 374, className : "com.isartdigital.builder.Main", methodName : "callBackUI"}); else if(pData.error_message != null) haxe_Log.trace(pData.error_message,{ fileName : "Main.hx", lineNumber : 375, className : "com.isartdigital.builder.Main", methodName : "callBackUI"}); else haxe_Log.trace(pData,{ fileName : "Main.hx", lineNumber : 376, className : "com.isartdigital.builder.Main", methodName : "callBackUI"});
 	}
 	,__class__: com_isartdigital_builder_Main
 });
@@ -720,7 +720,7 @@ com_isartdigital_builder_game_GameManager.prototype = {
 	,cb_createUser: function(pData) {
 		var lData = JSON.parse(pData);
 		if(lData.error) {
-			console.log(lData.errorMessage);
+			haxe_Log.trace(lData.errorMessage,{ fileName : "GameManager.hx", lineNumber : 90, className : "com.isartdigital.builder.game.GameManager", methodName : "cb_createUser"});
 			return;
 		}
 	}
@@ -730,7 +730,7 @@ com_isartdigital_builder_game_GameManager.prototype = {
 			com_isartdigital_utils_Debug.error(lData.errorMessage);
 			return;
 		}
-		console.log(lData.data);
+		haxe_Log.trace(lData.data,{ fileName : "GameManager.hx", lineNumber : 105, className : "com.isartdigital.builder.game.GameManager", methodName : "cb_resourceAll"});
 	}
 	,start: function() {
 		var lCamera = com_isartdigital_utils_game_Camera.getInstance();
@@ -1075,7 +1075,7 @@ com_isartdigital_builder_game_manager_MapManager.__super__ = com_isartdigital_bu
 com_isartdigital_builder_game_manager_MapManager.prototype = $extend(com_isartdigital_builder_game_manager_Manager.prototype,{
 	generateMap: function() {
 		var map;
-		console.log(com_isartdigital_builder_game_GameManager.getInstance().userInfo);
+		haxe_Log.trace(com_isartdigital_builder_game_GameManager.getInstance().userInfo,{ fileName : "MapManager.hx", lineNumber : 69, className : "com.isartdigital.builder.game.manager.MapManager", methodName : "generateMap"});
 		this.loadMap();
 	}
 	,saveMap: function() {
@@ -1244,7 +1244,7 @@ com_isartdigital_builder_game_manager_MapManager.prototype = $extend(com_isartdi
 	}
 	,displayTilePositionUnderMouse: function() {
 		var lPosition = com_isartdigital_utils_game_iso_IsoManager.isoViewToModel(com_isartdigital_builder_game_GameManager.getInstance().mousePosition);
-		if(Math.floor(Math.random() * 25) == 0) console.log("x : " + Math.ceil(lPosition.x) + " y : " + Math.ceil(lPosition.y));
+		if(Math.floor(Math.random() * 25) == 0) haxe_Log.trace("x : " + Math.ceil(lPosition.x) + " y : " + Math.ceil(lPosition.y),{ fileName : "MapManager.hx", lineNumber : 328, className : "com.isartdigital.builder.game.manager.MapManager", methodName : "displayTilePositionUnderMouse"});
 	}
 	,importBuildingsClass: function() {
 		com_isartdigital_builder_game_sprites_buildings_Motel;
@@ -1307,10 +1307,10 @@ com_isartdigital_builder_game_manager_RessourceManager.prototype = $extend(com_i
 			var v = this.ressources.get(_g) - pNumber;
 			this.ressources.set(_g,v);
 			v;
-		} else console.log("Plus de ressources");
+		} else haxe_Log.trace("Plus de ressources",{ fileName : "RessourceManager.hx", lineNumber : 70, className : "com.isartdigital.builder.game.manager.RessourceManager", methodName : "removeRessources"});
 	}
 	,updateRessources: function() {
-		console.log(this.ressources.exists(com_isartdigital_builder_game_manager_Ressources.SPICE));
+		haxe_Log.trace(this.ressources.exists(com_isartdigital_builder_game_manager_Ressources.SPICE),{ fileName : "RessourceManager.hx", lineNumber : 77, className : "com.isartdigital.builder.game.manager.RessourceManager", methodName : "updateRessources"});
 		this.updateSpice(this.ressources.get(com_isartdigital_builder_game_manager_Ressources.SPICE));
 	}
 	,destroy: function() {
@@ -1679,7 +1679,8 @@ com_isartdigital_builder_game_sprites_Building.prototype = $extend(com_isartdigi
 		(js_Boot.__cast(this.anim , pixi_display_FlumpMovie)).gotoAndStop(this.buildingLevel);
 	}
 	,buildingClick: function(event) {
-		console.log("here is click");
+		haxe_Log.trace("here is click",{ fileName : "Building.hx", lineNumber : 147, className : "com.isartdigital.builder.game.sprites.Building", methodName : "buildingClick"});
+		com_isartdigital_builder_ui_hud_BaseBuildingHUD.getInstance().active();
 	}
 	,stopMoving: function() {
 		com_isartdigital_builder_game_sprites_Building.movingBuilding = null;
@@ -1737,10 +1738,10 @@ com_isartdigital_builder_game_sprites_Building.prototype = $extend(com_isartdigi
 		}
 	}
 	,callServerToDestroy: function() {
-		console.log("callServerToDestroybefore");
+		haxe_Log.trace("callServerToDestroybefore",{ fileName : "Building.hx", lineNumber : 265, className : "com.isartdigital.builder.game.sprites.Building", methodName : "callServerToDestroy"});
 		var modelPosistion = this.toModel(true);
 		com_isartdigital_builder_api_Api.buildings.destroy(modelPosistion.x | 0,modelPosistion.y | 0,$bind(this,this.cbTryToDestroy));
-		console.log("callServerToDestroyafter");
+		haxe_Log.trace("callServerToDestroyafter",{ fileName : "Building.hx", lineNumber : 268, className : "com.isartdigital.builder.game.sprites.Building", methodName : "callServerToDestroy"});
 	}
 	,cbTryToDestroy: function(pResponse) {
 		var lResponse = JSON.parse(pResponse);
@@ -1900,7 +1901,7 @@ var com_isartdigital_builder_game_utils_TypeDefUtils = function() {
 $hxClasses["com.isartdigital.builder.game.utils.TypeDefUtils"] = com_isartdigital_builder_game_utils_TypeDefUtils;
 com_isartdigital_builder_game_utils_TypeDefUtils.__name__ = ["com","isartdigital","builder","game","utils","TypeDefUtils"];
 com_isartdigital_builder_game_utils_TypeDefUtils.getValue = function(pTypeDef) {
-	if(Object.prototype.hasOwnProperty.call(pTypeDef,"x")) console.log("he got");
+	if(Object.prototype.hasOwnProperty.call(pTypeDef,"x")) haxe_Log.trace("he got",{ fileName : "TypeDefUtils.hx", lineNumber : 26, className : "com.isartdigital.builder.game.utils.TypeDefUtils", methodName : "getValue"});
 	return null;
 };
 com_isartdigital_builder_game_utils_TypeDefUtils.compare = function(pType1,pType2) {
@@ -2136,15 +2137,47 @@ com_isartdigital_builder_ui_UIManager.prototype = {
 	,__class__: com_isartdigital_builder_ui_UIManager
 };
 var com_isartdigital_builder_ui_hud_BaseBuildingHUD = function() {
-	console.log("createtion");
+	this.elements = [];
+	this.hadToMove = false;
 	com_isartdigital_utils_ui_UIComponent.call(this);
 	this.build();
+	var _g = 0;
+	var _g1 = this.children;
+	while(_g < _g1.length) {
+		var lChild = _g1[_g];
+		++_g;
+		this.elements.push(lChild);
+	}
+	this.hideChild(true);
 };
 $hxClasses["com.isartdigital.builder.ui.hud.BaseBuildingHUD"] = com_isartdigital_builder_ui_hud_BaseBuildingHUD;
 com_isartdigital_builder_ui_hud_BaseBuildingHUD.__name__ = ["com","isartdigital","builder","ui","hud","BaseBuildingHUD"];
+com_isartdigital_builder_ui_hud_BaseBuildingHUD.getInstance = function() {
+	if(com_isartdigital_builder_ui_hud_BaseBuildingHUD._instance == null) com_isartdigital_builder_ui_hud_BaseBuildingHUD._instance = new com_isartdigital_builder_ui_hud_BaseBuildingHUD();
+	return com_isartdigital_builder_ui_hud_BaseBuildingHUD._instance;
+};
 com_isartdigital_builder_ui_hud_BaseBuildingHUD.__super__ = com_isartdigital_utils_ui_UIComponent;
 com_isartdigital_builder_ui_hud_BaseBuildingHUD.prototype = $extend(com_isartdigital_utils_ui_UIComponent.prototype,{
-	onResize: function(pEvent) {
+	hideChild: function(pHide,pFeedBack) {
+		var _g = 0;
+		var _g1 = this.elements;
+		while(_g < _g1.length) {
+			var lElement = _g1[_g];
+			++_g;
+			if(pHide) this.removeChild(lElement); else this.addChild(lElement);
+			haxe_Log.trace(this.children.length,{ fileName : "BaseBuildingHUD.hx", lineNumber : 50, className : "com.isartdigital.builder.ui.hud.BaseBuildingHUD", methodName : "hideChild"});
+		}
+	}
+	,active: function() {
+		haxe_Log.trace("try to active",{ fileName : "BaseBuildingHUD.hx", lineNumber : 59, className : "com.isartdigital.builder.ui.hud.BaseBuildingHUD", methodName : "active"});
+		this.hideChild(false);
+		var _g = 0;
+		var _g1 = this.elements;
+		while(_g < _g1.length) {
+			var lElement = _g1[_g];
+			++_g;
+			haxe_Log.trace(lElement.x,{ fileName : "BaseBuildingHUD.hx", lineNumber : 63, className : "com.isartdigital.builder.ui.hud.BaseBuildingHUD", methodName : "active", customParams : [lElement.y]});
+		}
 	}
 	,__class__: com_isartdigital_builder_ui_hud_BaseBuildingHUD
 });
@@ -2157,7 +2190,7 @@ com_isartdigital_builder_ui_hud_CurrencyAsset.__name__ = ["com","isartdigital","
 com_isartdigital_builder_ui_hud_CurrencyAsset.__super__ = com_isartdigital_utils_ui_UIComponent;
 com_isartdigital_builder_ui_hud_CurrencyAsset.prototype = $extend(com_isartdigital_utils_ui_UIComponent.prototype,{
 	changeCount: function(pNumber) {
-		console.log("Number :" + pNumber);
+		haxe_Log.trace("Number :" + pNumber,{ fileName : "CurrencyAsset.hx", lineNumber : 19, className : "com.isartdigital.builder.ui.hud.CurrencyAsset", methodName : "changeCount"});
 		(js_Boot.__cast(this.getChildByName("Spice_txt") , PIXI.Text)).text = pNumber;
 	}
 	,__class__: com_isartdigital_builder_ui_hud_CurrencyAsset
@@ -2200,6 +2233,9 @@ com_isartdigital_builder_ui_hud_Hud.prototype = $extend(com_isartdigital_utils_u
 	onResize: function(pEvent) {
 		com_isartdigital_utils_ui_Screen.prototype.onResize.call(this);
 	}
+	,doAction: function() {
+		if(com_isartdigital_builder_ui_hud_BaseBuildingHUD.getInstance().hadToMove) return;
+	}
 	,refreshHUD: function() {
 		com_isartdigital_builder_api_Api.resources.get($bind(this,this.cb_resourceAll));
 	}
@@ -2237,7 +2273,7 @@ com_isartdigital_builder_ui_hud_SpiceCurrency.__name__ = ["com","isartdigital","
 com_isartdigital_builder_ui_hud_SpiceCurrency.__super__ = com_isartdigital_builder_ui_hud_CurrencyAsset;
 com_isartdigital_builder_ui_hud_SpiceCurrency.prototype = $extend(com_isartdigital_builder_ui_hud_CurrencyAsset.prototype,{
 	changeCount: function(pNumber) {
-		console.log("Number :" + pNumber);
+		haxe_Log.trace("Number :" + pNumber,{ fileName : "SpiceCurrency.hx", lineNumber : 24, className : "com.isartdigital.builder.ui.hud.SpiceCurrency", methodName : "changeCount"});
 		(js_Boot.__cast(this.getChildByName("Spice_txt") , PIXI.Text)).text = pNumber;
 	}
 	,__class__: com_isartdigital_builder_ui_hud_SpiceCurrency
@@ -2270,7 +2306,7 @@ com_isartdigital_builder_ui_popin_Confirm.getInstance = function() {
 com_isartdigital_builder_ui_popin_Confirm.__super__ = com_isartdigital_utils_ui_Popin;
 com_isartdigital_builder_ui_popin_Confirm.prototype = $extend(com_isartdigital_utils_ui_Popin.prototype,{
 	test: function(pEvent) {
-		console.log(pEvent);
+		haxe_Log.trace(pEvent,{ fileName : "Confirm.hx", lineNumber : 56, className : "com.isartdigital.builder.ui.popin.Confirm", methodName : "test"});
 	}
 	,onClick: function(pEvent) {
 		com_isartdigital_utils_sounds_SoundManager.getSound("click").play();
@@ -2374,7 +2410,7 @@ com_isartdigital_builder_ui_uimodule_MoveButton.__name__ = ["com","isartdigital"
 com_isartdigital_builder_ui_uimodule_MoveButton.__super__ = com_isartdigital_utils_ui_Button;
 com_isartdigital_builder_ui_uimodule_MoveButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
 	onClick: function(pEvent) {
-		console.log("ok");
+		haxe_Log.trace("ok",{ fileName : "MoveButton.hx", lineNumber : 26, className : "com.isartdigital.builder.ui.uimodule.MoveButton", methodName : "onClick"});
 	}
 	,__class__: com_isartdigital_builder_ui_uimodule_MoveButton
 });
@@ -2507,8 +2543,8 @@ com_isartdigital_utils_Localization.prototype = {
 		this.json = com_isartdigital_utils_loader_GameLoader.getContent("json/localization/en.json");
 	}
 	,getText: function(pLabel) {
-		console.log(this.json);
-		console.log(Reflect.field(this.json,"label"));
+		haxe_Log.trace(this.json,{ fileName : "Localization.hx", lineNumber : 48, className : "com.isartdigital.utils.Localization", methodName : "getText"});
+		haxe_Log.trace(Reflect.field(this.json,"label"),{ fileName : "Localization.hx", lineNumber : 49, className : "com.isartdigital.utils.Localization", methodName : "getText"});
 	}
 	,setDataLocalization: function(pData) {
 		var _g = 0;
@@ -3224,7 +3260,7 @@ com_isartdigital_utils_loader_GameLoader.prototype = $extend(PIXI.loaders.Loader
 		this.add(lUrl);
 	}
 	,parseData: function(pResource,pNext) {
-		console.log(pResource.url + " loaded");
+		haxe_Log.trace(pResource.url + " loaded",{ fileName : "GameLoader.hx", lineNumber : 90, className : "com.isartdigital.utils.loader.GameLoader", methodName : "parseData"});
 		if(pResource.url.indexOf(".css") > 0) {
 			var lData = pResource.data.split(";");
 			var lFamilies = [];
@@ -4281,6 +4317,12 @@ haxe_Http.prototype = {
 	}
 	,__class__: haxe_Http
 };
+var haxe_Log = function() { };
+$hxClasses["haxe.Log"] = haxe_Log;
+haxe_Log.__name__ = ["haxe","Log"];
+haxe_Log.trace = function(v,infos) {
+	js_Boot.__trace(v,infos);
+};
 var haxe_Timer = function() { };
 $hxClasses["haxe.Timer"] = haxe_Timer;
 haxe_Timer.__name__ = ["haxe","Timer"];
@@ -4690,6 +4732,25 @@ js__$Boot_HaxeError.prototype = $extend(Error.prototype,{
 var js_Boot = function() { };
 $hxClasses["js.Boot"] = js_Boot;
 js_Boot.__name__ = ["js","Boot"];
+js_Boot.__unhtml = function(s) {
+	return s.split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;");
+};
+js_Boot.__trace = function(v,i) {
+	var msg;
+	if(i != null) msg = i.fileName + ":" + i.lineNumber + ": "; else msg = "";
+	msg += js_Boot.__string_rec(v,"");
+	if(i != null && i.customParams != null) {
+		var _g = 0;
+		var _g1 = i.customParams;
+		while(_g < _g1.length) {
+			var v1 = _g1[_g];
+			++_g;
+			msg += "," + js_Boot.__string_rec(v1,"");
+		}
+	}
+	var d;
+	if(typeof(document) != "undefined" && (d = document.getElementById("haxe:trace")) != null) d.innerHTML += js_Boot.__unhtml(msg) + "<br/>"; else if(typeof console != "undefined" && console.log != null) console.log(msg);
+};
 js_Boot.getClass = function(o) {
 	if((o instanceof Array) && o.__enum__ == null) return Array; else {
 		var cl = o.__class__;
@@ -5677,3 +5738,5 @@ pathfinder_Pathfinder._COST_DIAGIONAL = 14;
 pixi_display_FlumpResource.resources = new haxe_ds_StringMap();
 com_isartdigital_builder_Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});
+
+//# sourceMappingURL=Builder.js.map
