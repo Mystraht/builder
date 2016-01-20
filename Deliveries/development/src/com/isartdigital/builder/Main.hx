@@ -13,6 +13,9 @@ import com.isartdigital.builder.ui.uimodule.BackButton;
 import com.isartdigital.builder.ui.uimodule.CreditsButton;
 import com.isartdigital.builder.ui.uimodule.PlayButton;
 import com.isartdigital.builder.ui.uimodule.ShopButton1;
+import com.isartdigital.services.Ads;
+import com.isartdigital.services.Bank;
+import com.isartdigital.services.Wallet;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
 import com.isartdigital.utils.events.EventType;
@@ -229,11 +232,10 @@ class Main extends EventEmitter
 	 * Charge le /userInfos du jeu
 	 */
 	private function loadUserInfos():Void {
-		Api.user.getUserInfo(cbLoadMe);
+		Api.user.getUserInfo(cbSaveUserInfos);
 	}
 	
-	
-	private function cbLoadMe(pData:String):Void {
+	private function cbSaveUserInfos(pData:String):Void {
 		var lData:DataDef = cast(Json.parse(pData));
 		
 		if (lData.error) {
@@ -362,14 +364,29 @@ class Main extends EventEmitter
 	 * Fonction appellé quand la connection à facebook est réussi
 	 */
 	private function onFacebookLogin ():Void  {
-		//Facebook.api(Facebook.uid, { fields: "first_name,last_name,bio,email" }, callBackApi);
+		Facebook.api(Facebook.uid, { fields: "first_name,last_name,bio,email" }, callBackApi);
 		// Facebook.ui( { method: 'share', href: 'https://developers.facebook.com/docs/' }, callBackUI);
 	}
 	
 	private function callBackApi(pData:Dynamic):Void {
 		if (pData == null) trace("Erreur facebook API");
 		else if (pData.error != null) trace (pData.error);
-		else trace(pData);
+		else {
+			Ads.getImage(cbAds);
+			//Ads.getMovie(cbAds);
+			//Wallet.getMoney(pData.email, cbAds);
+			//Wallet.buy(pData.email, 10, cbAds);$
+			//Bank.deposit(50, cbAds);
+			//Bank.refund(50, cbAds);
+		};
+	}
+	
+	private function cbAds(pData:Dynamic):Void {
+		if (pData == null) trace("Erreur Ads API");
+		else if (pData.error != null) trace (pData.error);
+		else {
+			trace(pData);
+		};
 	}
 	
 	private function callBackUI(pData:Dynamic):Void {

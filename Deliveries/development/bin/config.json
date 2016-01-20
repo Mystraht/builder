@@ -1,6 +1,6 @@
 {
 	"version":"0.1.0",
-	"debug":true,
+	"debug":false,
 	"fps":false,
 	"qrcode":true,
 	"language":"",
@@ -16,7 +16,7 @@
 	"boxAlpha":0.5,
 	"animAlpha":1,
 	"texture":"hd",
-	
+	"ads": true,
 	"test":"test of a custom data"
 
 }

@@ -92,7 +92,7 @@ class Config
 		
 		
 		if (_data.version == null) _data.version = "0.0.0";
-		if (_data.language == null) _data.language = Browser.window.navigator.language.substr(0, 2);
+		if (_data.language == null || _data.language == "") _data.language = Browser.window.navigator.language.substr(0, 2);
 		if (_data.languages == []) _data.languages.push(_data.language);
 		if (_data.debug == null) _data.debug = false;
 		if (_data.fps == null) _data.fps = false;
@@ -104,7 +104,7 @@ class Config
 		if (_data.fontsPath == null) _data.fontsPath = "";
 		if (_data.soundsPath == null) _data.soundsPath = "";
 		if (_data.jsonPath == null) _data.jsonPath = "";
-			
+		
 	}
 	
 	private static function get_data ():Dynamic {
