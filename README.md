@@ -22,7 +22,7 @@ Il peut y avoir plusieurs cause d'un bug, dans ce cas, demandez moi.
 (Mais essayez quand même de lire le bug de façon à le résoudre ou même cherchez sur google)
 
 
-Rappel des commandes importante sur git :
+## Rappel des commandes importante sur git :
 
 Pour récuperer le contenu d'une branch (equivalent de update) :
 
