@@ -16,7 +16,7 @@
 	"boxAlpha":0.5,
 	"animAlpha":1,
 	"texture":"hd",
-	"ads": true,
+	"ads": false,
 	"test":"test of a custom data"
 
 }

@@ -3,6 +3,7 @@ package com.isartdigital.builder;
 import com.isartdigital.builder.api.Api;
 import com.isartdigital.builder.api.DataDef;
 import com.isartdigital.builder.api.Utils;
+import com.isartdigital.builder.game.def.UserInfoDef;
 import com.isartdigital.builder.game.manager.RessourceManager;
 import com.isartdigital.builder.game.manager.Ressources;
 import com.isartdigital.builder.ui.GraphicLoader;
@@ -232,32 +233,42 @@ class Main extends EventEmitter
 	 * Charge le /userInfos du jeu
 	 */
 	private function loadUserInfos():Void {
-		Api.user.getUserInfo(cbSaveUserInfos);
+		Api.user.getUserInfo(cbOnUserInfosReceipt);
 	}
 	
-	private function cbSaveUserInfos(pData:String):Void {
+	private function typeUserInfos(userInfos:Dynamic):UserInfoDef {
+		for (i in 0...userInfos.lanterns.length) {
+			userInfos.lanterns[i].x = Std.int(userInfos.lanterns[i].x);
+			userInfos.lanterns[i].y = Std.int(userInfos.lanterns[i].y);
+		}
+		
+		userInfos.dailyreward = Date.fromString(userInfos.dailyreward);
+		userInfos.experience = Std.int(userInfos.experience);
+		userInfos.ftue_complet = userInfos.ftue_complet == 1;
+		userInfos.parade = Date.fromString(userInfos.parade);
+		userInfos.resources.gold = Std.int(userInfos.resources.gold);
+		userInfos.resources.offering = Std.int(userInfos.resources.offering);
+		userInfos.resources.spice = Std.int(userInfos.resources.spice);
+		
+		return userInfos;
+	}
+	
+	private function saveUserInfos(userInfos:UserInfoDef): Void {
+		GameManager.getInstance().userInfo = userInfos;
+		userInfoLoaded = true;
+	}
+	
+	private function cbOnUserInfosReceipt(pData:String):Void {
 		var lData:DataDef = cast(Json.parse(pData));
+		var userInfos:UserInfoDef;
 		
 		if (lData.error) {
 			Utils.errorHandler(lData.errorCode, lData.errorMessage);
 			return;
 		}
 		
-		for (i in 0...lData.data.lanterns.length) {
-			lData.data.lanterns[i].x = Std.int(lData.data.lanterns[i].x);
-			lData.data.lanterns[i].y = Std.int(lData.data.lanterns[i].y);
-		}
-		
-		lData.data.dailyreward = Date.fromString(lData.data.dailyreward);
-		lData.data.experience = Std.int(lData.data.experience);
-		lData.data.ftue_complet = lData.data.ftue_complet == 1;
-		lData.data.parade = Date.fromString(lData.data.parade);
-		lData.data.resources.gold = Std.int(lData.data.resources.gold);
-		lData.data.resources.offering = Std.int(lData.data.resources.offering);
-		lData.data.resources.spice = Std.int(lData.data.resources.spice);
-		
-		GameManager.getInstance().userInfo = lData.data;
-		userInfoLoaded = true;
+		userInfos = typeUserInfos(lData.data);
+		saveUserInfos(userInfos);
 		tryToStartGame();
 	}
 	
