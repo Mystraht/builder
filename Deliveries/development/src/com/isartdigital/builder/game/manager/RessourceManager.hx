@@ -1,4 +1,6 @@
 package com.isartdigital.builder.game.manager;
+import com.isartdigital.builder.api.Api;
+import com.isartdigital.builder.api.Resources;
 import com.isartdigital.builder.ui.hud.SpiceCurrency;
 
 	
@@ -79,6 +81,7 @@ class RessourceManager extends Manager
 	public var updateOfferings:Int->Void;
 	
 	public function updateRessources() {
+		trace ("Gold:" + Api.resources.gold(function test(pString:String) { trace (pString); } ));
 		updateSpice(ressources.get(Ressources.SPICE));
 		updateGold(ressources.get(Ressources.GOLD));
 		updateOfferings(ressources.get(Ressources.OFFERINGS));

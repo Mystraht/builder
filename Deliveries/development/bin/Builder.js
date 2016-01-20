@@ -1311,6 +1311,14 @@ com_isartdigital_builder_game_manager_RessourceManager.prototype = $extend(com_i
 		} else console.log("Plus de ressources");
 	}
 	,updateRessources: function() {
+		console.log("Gold:" + Std.string(com_isartdigital_builder_api_Api.resources.gold((function($this) {
+			var $r;
+			var test = function(pString) {
+				console.log(pString);
+			};
+			$r = test;
+			return $r;
+		}(this)))));
 		this.updateSpice(this.ressources.get(com_isartdigital_builder_game_manager_Ressources.SPICE));
 		this.updateGold(this.ressources.get(com_isartdigital_builder_game_manager_Ressources.GOLD));
 		this.updateOfferings(this.ressources.get(com_isartdigital_builder_game_manager_Ressources.OFFERINGS));
