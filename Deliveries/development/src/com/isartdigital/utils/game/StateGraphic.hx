@@ -284,14 +284,14 @@ class StateGraphic extends StateMachine
 	 * met en pause l'anim
 	 */
 	public function pause ():Void {
-		if (anim != null) untyped anim.stop();
+		if (anim != null && untyped anim.stop!=null) untyped anim.stop();
 	}
 	
 	/**
 	 * relance l'anim
 	 */
 	public function resume ():Void {
-		if (anim != null) untyped anim.play();
+		if (anim != null  && untyped anim.play!=null) untyped anim.play();
 	}
 	
 	/**
@@ -318,9 +318,17 @@ class StateGraphic extends StateMachine
 	 * nettoyage et suppression de l'instance
 	 */
 	override public function destroy (): Void {
-		removeChild(box);
-		box.destroy();
-		box = null;
+		if (untyped anim.stop!=null) untyped anim.stop();
+		removeChild(anim);
+		anim.destroy();
+		
+		if (box != anim) {
+			removeChild(box);
+			box.destroy();
+			box = null;
+		}
+		anim = null;
+		
 		super.destroy();
 	}
 	

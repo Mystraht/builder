@@ -6,7 +6,7 @@ package com.isartdigital.builder.game.def;
 
 typedef ResourceDef =
 {
-	gold:Int;
-	offering:Int;
-	spice:Int;
+	var gold:Int;
+	var offering:Int;
+	var spice:Int;
 }

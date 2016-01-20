@@ -6,13 +6,13 @@ package com.isartdigital.builder.game.def;
 
 typedef UserInfoDef =
 {
-	buildings:Array<Dynamic>;
-	lanterns:Array<LanternDef>;
-	resources:ResourceDef;
-	gifts:Array<GiftDef>;
-	username:String;
-	parades:ParadeDef;
-	dailyreward:String;
-	experience:Int;
-	ftue_complet:Bool;
+	var buildings:Array<Dynamic>;
+	var lanterns:Array<LanternDef>;
+	var resources:ResourceDef;
+	var gifts:Array<GiftDef>;
+	var username:String;
+	var parades:ParadeDef;
+	var dailyreward:Date;
+	var experience:Int;
+	var ftue_complet:Bool;
 }

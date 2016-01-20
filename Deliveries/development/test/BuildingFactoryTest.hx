@@ -39,7 +39,7 @@ class BuildingFactoryTest
 	@Test
 	public function should_create_building():Void
 	{
-		var motel:Motel = cast(BuildingFactory.create("Motel"));
+		var motel:Motel = cast(BuildingFactory.createBuildingByName("Motel"));
 		var isMotelClassType:Bool = Std.is(motel, Motel);
 		
 		Assert.isTrue(isMotelClassType);
