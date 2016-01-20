@@ -58,6 +58,9 @@ class RessourceManager extends Manager
 		ressources[pRessource] += pNumber;
 	}
 	
+	//TO DO
+	//Faire un fonction avec parametre l'objet Ressources, et update avec cet objet la map ressources
+	
 	/**
 	 * Retire pNumber à pRessource
 	 * @param	pRessource
