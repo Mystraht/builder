@@ -1,5 +1,6 @@
 package com.isartdigital.utils.ui;
 
+import com.isartdigital.builder.ui.uimodule.MoveButton;
 import com.isartdigital.utils.game.GameStage;
 import com.isartdigital.utils.loader.GameLoader;
 import com.isartdigital.utils.system.DeviceCapabilities;
@@ -36,13 +37,18 @@ class UIBuilder
 	/**
 	 * suffixe des Currencys
 	 */
-	private static inline var CURRENCY_SUFFIX:String = "_currency";
+	private static inline var CURRENCY_SUFFIX:String = "_currency";	
+	
+	/**
+	 * suffixe des buildingHUD
+	 */
+	private static inline var BUILDING_HUD_SUFFIX:String = "_bHud";
 	
 	/**
 	 * package des classes Button du projet
 	 */
 	private static var btnPackage:String;
-	private static var currencyPackage:String;
+	private static var hudPackage:String;
 	
 	private static var textStyle:Map<String, UITextStyle> = new Map<String, UITextStyle>();
 	
@@ -82,7 +88,7 @@ class UIBuilder
 	public static function init(pFile:String,pPackage:String, pPackageCurrency:String):Void {
 		description = pFile;
 		btnPackage = pPackage;
-		currencyPackage = pPackageCurrency;
+		hudPackage = pPackageCurrency;
 	}
 	
 	/**
@@ -108,8 +114,9 @@ class UIBuilder
 					} else if (lItem.name.indexOf(BTN_SUFFIX) != -1 && lItem.name.indexOf(BTN_SUFFIX)==lItem.name.length-BTN_SUFFIX.length) {	
 						lObj = Type.createInstance(Type.resolveClass(btnPackage+"." + lItem.keyframes[0].ref), []);
 					} else if (lItem.name.indexOf(CURRENCY_SUFFIX) != -1 && lItem.name.indexOf(CURRENCY_SUFFIX) == lItem.name.length - CURRENCY_SUFFIX.length) {
-						trace("currency found : " + lItem.keyframes[0].ref);
-						lObj = Type.createInstance(Type.resolveClass(currencyPackage +"."+lItem.keyframes[0].ref), []);
+						lObj = Type.createInstance(Type.resolveClass(hudPackage +"."+lItem.keyframes[0].ref), []);
+					} else if (lItem.name.indexOf(BUILDING_HUD_SUFFIX) != -1 && lItem.name.indexOf(BUILDING_HUD_SUFFIX) == lItem.name.length - BUILDING_HUD_SUFFIX.length) {
+						lObj = Type.createInstance(Type.resolveClass(hudPackage +"."+lItem.keyframes[0].ref), []);
 					} else {
 						lObj = new UIAsset(lItem.keyframes[0].ref);
 					}
@@ -135,11 +142,11 @@ class UIBuilder
 	private static function getTextFromJson(pName:String) : Text
 	{
 		//TO DO rajotuer les styles des textes
-		trace("name text " + pName);
+		//trace("name text " + pName);
 		var lTextStyle:UITextStyle = textStyle.get(pName);
 		lTextStyle;
 		var lStyle:TextStyle = { align : "center" };
-		trace(lStyle.wordWrapWidth + "css");
+		//trace(lStyle.wordWrapWidth + "css");
 
 		return new Text(lTextStyle.text, lStyle);
 	}

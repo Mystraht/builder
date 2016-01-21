@@ -200,17 +200,17 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "ref": "_building_1x1",
-       "loc": [
-        -0.0875,
-        -0.075
-       ],
-       "tweened": false,
-       "index": 0,
        "pivot": [
         24.0875,
         47.25
+       ],
+       "duration": 1,
+       "ref": "_building_1x1",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -0.0875,
+        -0.075
        ]
       }
      ],
@@ -224,17 +224,17 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "ref": "_building_2x1",
-       "loc": [
-        -0.2375,
-        0.125
-       ],
-       "tweened": false,
-       "index": 0,
        "pivot": [
         48.25,
         65.125
+       ],
+       "duration": 1,
+       "ref": "_building_2x1",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -0.2375,
+        0.125
        ]
       }
      ],
@@ -248,45 +248,45 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "ref": "_building0_2x2",
-       "loc": [
-        -0.1,
-        -0.1
-       ],
-       "tweened": false,
-       "index": 0,
        "pivot": [
         48.175,
         68.0875
+       ],
+       "duration": 1,
+       "ref": "_building0_2x2",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -0.1,
+        -0.1
        ]
       },
       {
-       "duration": 1,
-       "ref": "_building1_2x2",
-       "loc": [
-        -0.1,
-        -0.0375
-       ],
-       "tweened": false,
-       "index": 1,
        "pivot": [
         48.2,
         74.65
+       ],
+       "duration": 1,
+       "ref": "_building1_2x2",
+       "tweened": false,
+       "index": 1,
+       "loc": [
+        -0.1,
+        -0.0375
        ]
       },
       {
-       "duration": 1,
-       "ref": "_building3_2x2",
-       "loc": [
-        -0.1,
-        -0.1625
-       ],
-       "tweened": false,
-       "index": 2,
        "pivot": [
         48.325,
         90.8625
+       ],
+       "duration": 1,
+       "ref": "_building3_2x2",
+       "tweened": false,
+       "index": 2,
+       "loc": [
+        -0.1,
+        -0.1625
        ]
       }
      ],
@@ -300,17 +300,17 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "ref": "_building_3x1",
-       "loc": [
-        -0.0375,
-        -0.0375
-       ],
-       "tweened": false,
-       "index": 0,
        "pivot": [
         72.2125,
         70.25
+       ],
+       "duration": 1,
+       "ref": "_building_3x1",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -0.0375,
+        -0.0375
        ]
       }
      ],
@@ -324,17 +324,17 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "ref": "_building_altar",
-       "loc": [
-        -0.2625,
-        -0.25
-       ],
-       "tweened": false,
-       "index": 0,
        "pivot": [
         33.75,
         64.75
+       ],
+       "duration": 1,
+       "ref": "_building_altar",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -0.2625,
+        -0.25
        ]
       }
      ],
@@ -348,17 +348,17 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "ref": "_building_gonzales",
-       "loc": [
-        -7.5,
-        -46.25
-       ],
-       "tweened": false,
-       "index": 0,
        "pivot": [
         38.125,
         45.75
+       ],
+       "duration": 1,
+       "ref": "_building_gonzales",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -7.5,
+        -46.25
        ]
       }
      ],
@@ -372,17 +372,17 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "ref": "_building_house",
-       "loc": [
-        -0.25,
-        -31.5
-       ],
-       "tweened": false,
-       "index": 0,
        "pivot": [
         33.5,
         31.375
+       ],
+       "duration": 1,
+       "ref": "_building_house",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -0.25,
+        -31.5
        ]
       }
      ],
@@ -396,45 +396,45 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "ref": "_building_pyrotechnician_1",
-       "loc": [
-        0,
-        -0.25
-       ],
-       "tweened": false,
-       "index": 0,
        "pivot": [
         43.875,
         98.25
+       ],
+       "duration": 1,
+       "ref": "_building_pyrotechnician_1",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        0,
+        -0.25
        ]
       },
       {
-       "duration": 1,
-       "ref": "_building_pyrotechnician_2",
-       "loc": [
-        -0.25,
-        -49.5
-       ],
-       "tweened": false,
-       "index": 1,
        "pivot": [
         43.625,
         49
-       ]
-      },
-      {
+       ],
        "duration": 1,
-       "ref": "_building_pyrotechnician_3",
+       "ref": "_building_pyrotechnician_2",
+       "tweened": false,
+       "index": 1,
        "loc": [
         -0.25,
         -49.5
-       ],
-       "tweened": false,
-       "index": 2,
+       ]
+      },
+      {
        "pivot": [
         43.375,
         49
+       ],
+       "duration": 1,
+       "ref": "_building_pyrotechnician_3",
+       "tweened": false,
+       "index": 2,
+       "loc": [
+        -0.25,
+        -49.5
        ]
       }
      ],
@@ -448,17 +448,17 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "ref": "_building_park",
-       "loc": [
-        -0.2375,
-        -26.75
-       ],
-       "tweened": false,
-       "index": 0,
        "pivot": [
         38.125,
         26.5
+       ],
+       "duration": 1,
+       "ref": "_building_park",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -0.2375,
+        -26.75
        ]
       }
      ],
@@ -472,14 +472,14 @@
     {
      "keyframes": [
       {
-       "duration": 1,
-       "index": 0,
-       "ref": "_ground0",
        "tweened": false,
        "pivot": [
         24,
         24
-       ]
+       ],
+       "duration": 1,
+       "index": 0,
+       "ref": "_ground0"
       }
      ],
      "name": "grounds"

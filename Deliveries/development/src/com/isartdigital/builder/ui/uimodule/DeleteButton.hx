@@ -5,16 +5,17 @@ import com.isartdigital.utils.ui.Button;
 
 /**
  * ...
- * @author Roman CHEVASSU
+ * @author Flavien
  */
-class ShopButton1 extends Button
+class DeleteButton extends Button
 {
 
 	public function new() 
 	{
 		factory = new FlumpMovieAnimFactory();
 		super();
-		
+		interactive = true;
+		buttonMode = true;
 	}
 	
 }

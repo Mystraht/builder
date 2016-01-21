@@ -5,16 +5,17 @@ import com.isartdigital.utils.ui.Button;
 
 /**
  * ...
- * @author Thorcal
+ * @author Flavien
  */
-class BackButton extends Button
+class UpgradeButton extends Button
 {
 
 	public function new() 
 	{
 		factory = new FlumpMovieAnimFactory();
 		super();
-		
+		interactive = true;
+		buttonMode = true;
 	}
 	
 }
