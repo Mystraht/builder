@@ -6,6 +6,6 @@ package com.isartdigital.builder.game.def;
 
 typedef GiftDef =
 {
-	name:String;
-	friend_users_id:Int;
+	var name:String;
+	var friend_users_id:Int;
 }

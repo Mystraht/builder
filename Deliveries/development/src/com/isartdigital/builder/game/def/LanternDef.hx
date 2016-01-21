@@ -6,6 +6,6 @@ package com.isartdigital.builder.game.def;
 
 typedef LanternDef =
 {
-	x:Int;
-	y:Int;
+	var x:Int;
+	var y:Int;
 }

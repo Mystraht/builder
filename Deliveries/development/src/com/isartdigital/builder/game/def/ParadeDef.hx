@@ -6,6 +6,6 @@ package com.isartdigital.builder.game.def;
 
 typedef ParadeDef =
 {
-	last_parade_at:String;
-	parade_count:Int;
+	var last_parade_at:String;
+	var parade_count:Int;
 }

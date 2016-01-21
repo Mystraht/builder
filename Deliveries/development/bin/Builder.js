@@ -127,7 +127,13 @@ var List = function() {
 $hxClasses["List"] = List;
 List.__name__ = ["List"];
 List.prototype = {
-	iterator: function() {
+	push: function(item) {
+		var x = [item,this.h];
+		this.h = x;
+		if(this.q == null) this.q = x;
+		this.length++;
+	}
+	,iterator: function() {
 		return new _$List_ListIterator(this.h);
 	}
 	,__class__: List
@@ -354,32 +360,40 @@ com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
 		lLoader.load();
 	}
 	,loadUserInfos: function() {
-		com_isartdigital_builder_api_Api.user.getUserInfo($bind(this,this.cbLoadMe));
+		com_isartdigital_builder_api_Api.user.getUserInfo($bind(this,this.cbOnUserInfosReceipt));
 	}
-	,cbLoadMe: function(pData) {
+	,typeUserInfos: function(userInfos) {
+		var _g1 = 0;
+		var _g = userInfos.lanterns.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			userInfos.lanterns[i].x = userInfos.lanterns[i].x | 0;
+			userInfos.lanterns[i].y = userInfos.lanterns[i].y | 0;
+		}
+		var s = userInfos.dailyreward;
+		userInfos.dailyreward = HxOverrides.strDate(s);
+		userInfos.experience = Std["int"](userInfos.experience);
+		userInfos.ftue_complet = userInfos.ftue_complet == 1;
+		var s1 = userInfos.parade;
+		userInfos.parade = HxOverrides.strDate(s1);
+		userInfos.resources.gold = Std["int"](userInfos.resources.gold);
+		userInfos.resources.offering = Std["int"](userInfos.resources.offering);
+		userInfos.resources.spice = Std["int"](userInfos.resources.spice);
+		return userInfos;
+	}
+	,saveUserInfos: function(userInfos) {
+		com_isartdigital_builder_game_GameManager.getInstance().userInfo = userInfos;
+		this.userInfoLoaded = true;
+	}
+	,cbOnUserInfosReceipt: function(pData) {
 		var lData = JSON.parse(pData);
+		var userInfos;
 		if(lData.error) {
 			com_isartdigital_builder_api_Utils.errorHandler(lData.errorCode,lData.errorMessage);
 			return;
 		}
-		var _g1 = 0;
-		var _g = lData.data.lanterns.length;
-		while(_g1 < _g) {
-			var i = _g1++;
-			lData.data.lanterns[i].x = lData.data.lanterns[i].x | 0;
-			lData.data.lanterns[i].y = lData.data.lanterns[i].y | 0;
-		}
-		var s = lData.data.dailyreward;
-		lData.data.dailyreward = HxOverrides.strDate(s);
-		lData.data.experience = Std["int"](lData.data.experience);
-		lData.data.ftue_complet = lData.data.ftue_complet == 1;
-		var s1 = lData.data.parade;
-		lData.data.parade = HxOverrides.strDate(s1);
-		lData.data.resources.gold = Std["int"](lData.data.resources.gold);
-		lData.data.resources.offering = Std["int"](lData.data.resources.offering);
-		lData.data.resources.spice = Std["int"](lData.data.resources.spice);
-		com_isartdigital_builder_game_GameManager.getInstance().userInfo = lData.data;
-		this.userInfoLoaded = true;
+		userInfos = this.typeUserInfos(lData.data);
+		this.saveUserInfos(userInfos);
 		this.tryToStartGame();
 	}
 	,onLoadProgress: function(pLoader) {
@@ -423,9 +437,13 @@ com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
 		com_isartdigital_builder_Main.instance = null;
 	}
 	,onFacebookLogin: function() {
+		com_isartdigital_utils_facebook_Facebook.api(com_isartdigital_utils_facebook_Facebook.uid,{ fields : "first_name,last_name,bio,email"},$bind(this,this.callBackApi));
 	}
 	,callBackApi: function(pData) {
-		if(pData == null) console.log("Erreur facebook API"); else if(pData.error != null) console.log(pData.error); else console.log(pData);
+		if(pData == null) console.log("Erreur facebook API"); else if(pData.error != null) console.log(pData.error); else com_isartdigital_services_Ads.getImage($bind(this,this.cbAds));
+	}
+	,cbAds: function(pData) {
+		if(pData == null) console.log("Erreur Ads API"); else if(pData.error != null) console.log(pData.error); else console.log(pData);
 	}
 	,callBackUI: function(pData) {
 		if(pData == null) console.log("Erreur facebook API"); else if(pData.error_message != null) console.log(pData.error_message); else console.log(pData);
@@ -1564,10 +1582,10 @@ com_isartdigital_utils_game_StateGraphic.prototype = $extend(com_isartdigital_ut
 		return com_isartdigital_utils_game_StateGraphic.boxesCache.get(this.assetName + "_" + pState);
 	}
 	,pause: function() {
-		if(this.anim != null) this.anim.stop();
+		if(this.anim != null && this.anim.stop != null) this.anim.stop();
 	}
 	,resume: function() {
-		if(this.anim != null) this.anim.play();
+		if(this.anim != null && this.anim.play != null) this.anim.play();
 	}
 	,get_hitBox: function() {
 		return this.box;
@@ -1576,9 +1594,15 @@ com_isartdigital_utils_game_StateGraphic.prototype = $extend(com_isartdigital_ut
 		return null;
 	}
 	,destroy: function() {
-		this.removeChild(this.box);
-		this.box.destroy();
-		this.box = null;
+		if(this.anim.stop != null) this.anim.stop();
+		this.removeChild(this.anim);
+		this.anim.destroy();
+		if(this.box != this.anim) {
+			this.removeChild(this.box);
+			this.box.destroy();
+			this.box = null;
+		}
+		this.anim = null;
 		com_isartdigital_utils_game_StateMachine.prototype.destroy.call(this);
 	}
 	,__class__: com_isartdigital_utils_game_StateGraphic
@@ -2438,6 +2462,23 @@ com_isartdigital_builder_ui_uimodule_MoveButton.prototype = $extend(com_isartdig
 	}
 	,__class__: com_isartdigital_builder_ui_uimodule_MoveButton
 });
+var com_isartdigital_builder_ui_uimodule_PlayButton = function() {
+	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
+	com_isartdigital_utils_ui_Button.call(this);
+	this.interactive = true;
+	this.buttonMode = true;
+	this.once("click",$bind(this,this.onClick));
+};
+$hxClasses["com.isartdigital.builder.ui.uimodule.PlayButton"] = com_isartdigital_builder_ui_uimodule_PlayButton;
+com_isartdigital_builder_ui_uimodule_PlayButton.__name__ = ["com","isartdigital","builder","ui","uimodule","PlayButton"];
+com_isartdigital_builder_ui_uimodule_PlayButton.__super__ = com_isartdigital_utils_ui_Button;
+com_isartdigital_builder_ui_uimodule_PlayButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
+	onClick: function(pEvent) {
+		com_isartdigital_builder_ui_UIManager.getInstance().startGame();
+		com_isartdigital_builder_game_GameManager.getInstance().start();
+	}
+	,__class__: com_isartdigital_builder_ui_uimodule_PlayButton
+});
 var com_isartdigital_builder_ui_uimodule_UpgradeButton = function() {
 	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
 	com_isartdigital_utils_ui_Button.call(this);
@@ -2450,6 +2491,370 @@ com_isartdigital_builder_ui_uimodule_UpgradeButton.__super__ = com_isartdigital_
 com_isartdigital_builder_ui_uimodule_UpgradeButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
 	__class__: com_isartdigital_builder_ui_uimodule_UpgradeButton
 });
+var com_isartdigital_services_Ads = function() { };
+$hxClasses["com.isartdigital.services.Ads"] = com_isartdigital_services_Ads;
+com_isartdigital_services_Ads.__name__ = ["com","isartdigital","services","Ads"];
+com_isartdigital_services_Ads.getImage = function(pCallback) {
+	if(com_isartdigital_services_Ads.current != null || com_isartdigital_utils_Config.get_data().ads != null && !com_isartdigital_utils_Config.get_data().ads) return false;
+	var lRequest = com_isartdigital_services_Ads.initService(pCallback);
+	lRequest.addParameter("ad","image");
+	lRequest.request(true);
+	return true;
+};
+com_isartdigital_services_Ads.getMovie = function(pCallback) {
+	if(com_isartdigital_services_Ads.current != null || com_isartdigital_utils_Config.get_data().ads != null && !com_isartdigital_utils_Config.get_data().ads) return false;
+	var lRequest = com_isartdigital_services_Ads.initService(pCallback);
+	lRequest.addParameter("ad","movie");
+	lRequest.request(true);
+	return true;
+};
+com_isartdigital_services_Ads.initService = function(pCallback) {
+	var lRequest = new com_isartdigital_services_HttpService(pCallback);
+	com_isartdigital_services_Ads.callback = pCallback;
+	lRequest.addParameter("type",com_isartdigital_utils_system_DeviceCapabilities.textureType);
+	lRequest.addParameter("lang",com_isartdigital_utils_Config.get_language());
+	lRequest.onData = com_isartdigital_services_Ads.onData;
+	return lRequest;
+};
+com_isartdigital_services_Ads.onData = function(pData) {
+	var lData = JSON.parse(pData);
+	if(lData.type == "movie") com_isartdigital_services_Ads.current = new com_isartdigital_services__$Ads_AdMovie(lData.url,lData.target); else com_isartdigital_services_Ads.current = new com_isartdigital_services__$Ads_AdImage(lData.url,lData.target);
+};
+com_isartdigital_services_Ads.onQuit = function(pClose) {
+	com_isartdigital_services_Ads.current.close();
+	com_isartdigital_services_Ads.current = null;
+	if(pClose == "close") com_isartdigital_services_Bank.ads("image"); else if(pClose == "click") com_isartdigital_services_Bank.ads("click"); else if(pClose == "end") com_isartdigital_services_Bank.ads("movie");
+	com_isartdigital_services_Ads.callback({ close : pClose});
+	com_isartdigital_services_Ads.callback = null;
+};
+var com_isartdigital_services__$Ads_Ad = function(pUrl,pTarget) {
+	com_isartdigital_utils_ui_Popin.call(this);
+	this.modalImage = "assets/black_bg.png";
+	this.url = pUrl;
+	this.target = pTarget;
+	this.btnQuit = new PIXI.Container();
+	this.addChild(this.btnQuit);
+	this.positionables.unshift({ item : this.btnQuit, align : Math.random() < 0.5?"topRight":"topLeft", offsetX : 80, offsetY : 80});
+	var lCircle = new PIXI.Graphics();
+	lCircle.lineStyle(4,0);
+	lCircle.beginFill(16777215);
+	lCircle.drawCircle(0,0,40);
+	lCircle.endFill();
+	this.btnQuit.addChild(lCircle);
+	this.txtQuit = new PIXI.Text("",{ font : "62px Arial", fill : "#000000", align : "center"});
+	this.txtQuit.anchor.set(0.5,0.5);
+	this.btnQuit.addChild(this.txtQuit);
+	this.btnQuit.interactive = true;
+	this.btnQuit.visible = false;
+	this.timerError = new haxe_Timer(15000);
+	this.timerError.run = $bind(this,this.onError);
+	this.x = com_isartdigital_utils_game_GameStage.getInstance().get_safeZone().width / 2;
+	this.y = com_isartdigital_utils_game_GameStage.getInstance().get_safeZone().height / 2;
+	com_isartdigital_utils_game_GameStage.getInstance().addChild(this);
+	this.open();
+};
+$hxClasses["com.isartdigital.services._Ads.Ad"] = com_isartdigital_services__$Ads_Ad;
+com_isartdigital_services__$Ads_Ad.__name__ = ["com","isartdigital","services","_Ads","Ad"];
+com_isartdigital_services__$Ads_Ad.__super__ = com_isartdigital_utils_ui_Popin;
+com_isartdigital_services__$Ads_Ad.prototype = $extend(com_isartdigital_utils_ui_Popin.prototype,{
+	onError: function() {
+		if(!this.btnQuit.visible) {
+			this.btnQuit.visible = true;
+			this.duration = 0;
+			this.onTimer();
+		}
+		this.timerError.stop();
+	}
+	,onTimer: function() {
+		if(this.duration <= 0) {
+			if(this.timer != null) this.timer.stop();
+			this.allowQuit();
+		} else this.txtQuit.text = Std.string(this.duration);
+		this.duration--;
+	}
+	,allowQuit: function() {
+		this.btnQuit.removeChild(this.txtQuit);
+		var lCross = new PIXI.Graphics();
+		lCross.lineStyle(8,0);
+		lCross.moveTo(-20,-20);
+		lCross.lineTo(20,20);
+		lCross.moveTo(-20,20);
+		lCross.lineTo(20,-20);
+		this.btnQuit.addChild(lCross);
+		this.btnQuit.buttonMode = true;
+		this.btnQuit.once("click",$bind(this,this.onQuit));
+		this.btnQuit.once("tap",$bind(this,this.onQuit));
+	}
+	,createContent: function() {
+	}
+	,onComplete: function(pEvent) {
+		this.createContent();
+		this.content.anchor.set(0.5,0.5);
+		this.content.scale.set(1 / com_isartdigital_utils_system_DeviceCapabilities.textureRatio,1 / com_isartdigital_utils_system_DeviceCapabilities.textureRatio);
+		this.addChildAt(this.content,0);
+		this.content.interactive = true;
+		this.content.buttonMode = true;
+		this.content.once("click",$bind(this,this.onOpen));
+		this.content.once("tap",$bind(this,this.onOpen));
+		this.timer = new haxe_Timer(1000);
+		if(Math.random() < 0.5) this.duration = 0; else this.duration = 5;
+		this.timer.run = $bind(this,this.onTimer);
+		this.onTimer();
+		this.btnQuit.visible = true;
+	}
+	,quit: function(pType) {
+		com_isartdigital_utils_game_GameStage.getInstance().removeChild(this);
+		com_isartdigital_services_Ads.onQuit(pType);
+	}
+	,onQuit: function(pEvent) {
+	}
+	,onOpen: function(pEvent) {
+		window.open(this.target + "?" + Type.getClassName(js_Boot.getClass(this)).split(".").pop());
+		this.quit("click");
+	}
+	,close: function() {
+		if(this.timer != null) this.timer.stop();
+		if(this.timerError != null) this.timerError.stop();
+		com_isartdigital_utils_ui_Popin.prototype.close.call(this);
+	}
+	,__class__: com_isartdigital_services__$Ads_Ad
+});
+var com_isartdigital_services__$Ads_AdImage = function(pUrl,pTarget) {
+	com_isartdigital_services__$Ads_Ad.call(this,pUrl,pTarget);
+	var lLoader = new PIXI.loaders.Loader();
+	lLoader.add(this.url);
+	lLoader.once("complete",$bind(this,this.onComplete));
+	lLoader.load();
+};
+$hxClasses["com.isartdigital.services._Ads.AdImage"] = com_isartdigital_services__$Ads_AdImage;
+com_isartdigital_services__$Ads_AdImage.__name__ = ["com","isartdigital","services","_Ads","AdImage"];
+com_isartdigital_services__$Ads_AdImage.__super__ = com_isartdigital_services__$Ads_Ad;
+com_isartdigital_services__$Ads_AdImage.prototype = $extend(com_isartdigital_services__$Ads_Ad.prototype,{
+	createContent: function() {
+		this.content = new PIXI.Sprite(PIXI.Texture.fromImage(this.url));
+	}
+	,onQuit: function(pEvent) {
+		this.quit("close");
+	}
+	,__class__: com_isartdigital_services__$Ads_AdImage
+});
+var com_isartdigital_services__$Ads_AdMovie = function(pUrl,pTarget) {
+	com_isartdigital_services__$Ads_Ad.call(this,pUrl,pTarget);
+	this.onComplete();
+};
+$hxClasses["com.isartdigital.services._Ads.AdMovie"] = com_isartdigital_services__$Ads_AdMovie;
+com_isartdigital_services__$Ads_AdMovie.__name__ = ["com","isartdigital","services","_Ads","AdMovie"];
+com_isartdigital_services__$Ads_AdMovie.__super__ = com_isartdigital_services__$Ads_Ad;
+com_isartdigital_services__$Ads_AdMovie.prototype = $extend(com_isartdigital_services__$Ads_Ad.prototype,{
+	onComplete: function(pEvent) {
+		com_isartdigital_services__$Ads_Ad.prototype.onComplete.call(this,pEvent);
+		if(com_isartdigital_utils_system_DeviceCapabilities.textureType == "md" || com_isartdigital_utils_system_DeviceCapabilities.textureType == "ld") {
+			this.content.scale.x *= 0.8;
+			this.content.scale.y *= 0.8;
+		}
+	}
+	,createContent: function() {
+		var texture = PIXI.Texture.fromVideoUrl(this.url);
+		var source = texture.baseTexture.source;
+		this.content = new PIXI.Sprite(texture);
+		(js_Boot.__cast(this.content.texture.baseTexture.source , HTMLVideoElement)).onended = $bind(this,this.onEnded);
+	}
+	,onQuit: function(pEvent) {
+		this.quit("cancel");
+	}
+	,onEnded: function() {
+		this.quit("end");
+	}
+	,close: function() {
+		if(this.content != null) {
+			(js_Boot.__cast(this.content.texture.baseTexture.source , HTMLVideoElement)).onended = null;
+			(js_Boot.__cast(this.content.texture.baseTexture.source , HTMLVideoElement)).pause();
+		}
+		com_isartdigital_services__$Ads_Ad.prototype.close.call(this);
+	}
+	,__class__: com_isartdigital_services__$Ads_AdMovie
+});
+var com_isartdigital_services_Bank = function() { };
+$hxClasses["com.isartdigital.services.Bank"] = com_isartdigital_services_Bank;
+com_isartdigital_services_Bank.__name__ = ["com","isartdigital","services","Bank"];
+com_isartdigital_services_Bank.deposit = function(pAmount,pCallback) {
+	com_isartdigital_services_Bank.initService("deposit",pAmount,pCallback);
+};
+com_isartdigital_services_Bank.refund = function(pAmount,pCallback) {
+	com_isartdigital_services_Bank.initService("refund",pAmount,pCallback);
+};
+com_isartdigital_services_Bank.ads = function(pType) {
+	com_isartdigital_services_Bank.initService("deposit",pType,null);
+};
+com_isartdigital_services_Bank.account = function(pCallback) {
+	var lRequest = new com_isartdigital_services_HttpService(pCallback);
+	lRequest.addParameter("account","");
+	lRequest.request(true);
+};
+com_isartdigital_services_Bank.initService = function(pService,pAmount,pCallback) {
+	var lRequest = new com_isartdigital_services_HttpService(pCallback);
+	if(pAmount <= 0) {
+		lRequest.onData(JSON.stringify({ error : "zero or negative value forbidden", code : 21}));
+		return;
+	}
+	lRequest.addParameter(pService,Std.string(pAmount));
+	lRequest.request(true);
+};
+var haxe_Http = function(url) {
+	this.url = url;
+	this.headers = new List();
+	this.params = new List();
+	this.async = true;
+};
+$hxClasses["haxe.Http"] = haxe_Http;
+haxe_Http.__name__ = ["haxe","Http"];
+haxe_Http.prototype = {
+	addParameter: function(param,value) {
+		this.params.push({ param : param, value : value});
+		return this;
+	}
+	,request: function(post) {
+		var me = this;
+		me.responseData = null;
+		var r = this.req = js_Browser.createXMLHttpRequest();
+		var onreadystatechange = function(_) {
+			if(r.readyState != 4) return;
+			var s;
+			try {
+				s = r.status;
+			} catch( e ) {
+				if (e instanceof js__$Boot_HaxeError) e = e.val;
+				s = null;
+			}
+			if(s != null) {
+				var protocol = window.location.protocol.toLowerCase();
+				var rlocalProtocol = new EReg("^(?:about|app|app-storage|.+-extension|file|res|widget):$","");
+				var isLocal = rlocalProtocol.match(protocol);
+				if(isLocal) if(r.responseText != null) s = 200; else s = 404;
+			}
+			if(s == undefined) s = null;
+			if(s != null) me.onStatus(s);
+			if(s != null && s >= 200 && s < 400) {
+				me.req = null;
+				me.onData(me.responseData = r.responseText);
+			} else if(s == null) {
+				me.req = null;
+				me.onError("Failed to connect or resolve host");
+			} else switch(s) {
+			case 12029:
+				me.req = null;
+				me.onError("Failed to connect to host");
+				break;
+			case 12007:
+				me.req = null;
+				me.onError("Unknown host");
+				break;
+			default:
+				me.req = null;
+				me.responseData = r.responseText;
+				me.onError("Http Error #" + r.status);
+			}
+		};
+		if(this.async) r.onreadystatechange = onreadystatechange;
+		var uri = this.postData;
+		if(uri != null) post = true; else {
+			var _g_head = this.params.h;
+			var _g_val = null;
+			while(_g_head != null) {
+				var p;
+				p = (function($this) {
+					var $r;
+					_g_val = _g_head[0];
+					_g_head = _g_head[1];
+					$r = _g_val;
+					return $r;
+				}(this));
+				if(uri == null) uri = ""; else uri += "&";
+				uri += encodeURIComponent(p.param) + "=" + encodeURIComponent(p.value);
+			}
+		}
+		try {
+			if(post) r.open("POST",this.url,this.async); else if(uri != null) {
+				var question = this.url.split("?").length <= 1;
+				r.open("GET",this.url + (question?"?":"&") + uri,this.async);
+				uri = null;
+			} else r.open("GET",this.url,this.async);
+		} catch( e1 ) {
+			if (e1 instanceof js__$Boot_HaxeError) e1 = e1.val;
+			me.req = null;
+			this.onError(e1.toString());
+			return;
+		}
+		if(!Lambda.exists(this.headers,function(h) {
+			return h.header == "Content-Type";
+		}) && post && this.postData == null) r.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		var _g_head1 = this.headers.h;
+		var _g_val1 = null;
+		while(_g_head1 != null) {
+			var h1;
+			h1 = (function($this) {
+				var $r;
+				_g_val1 = _g_head1[0];
+				_g_head1 = _g_head1[1];
+				$r = _g_val1;
+				return $r;
+			}(this));
+			r.setRequestHeader(h1.header,h1.value);
+		}
+		r.send(uri);
+		if(!this.async) onreadystatechange(null);
+	}
+	,onData: function(data) {
+	}
+	,onError: function(msg) {
+	}
+	,onStatus: function(status) {
+	}
+	,__class__: haxe_Http
+};
+var com_isartdigital_services_HttpService = function(pCallback) {
+	this.callback = pCallback;
+	haxe_Http.call(this,"https://fbgame.isartdigital.com/2017_builder/builder0/broadcast/");
+	if(this.callback != null) {
+		this.onData = $bind(this,this._onData);
+		this.onError = $bind(this,this._onError);
+	}
+	if(com_isartdigital_utils_Config.get_debug()) this.addParameter("debug","");
+};
+$hxClasses["com.isartdigital.services.HttpService"] = com_isartdigital_services_HttpService;
+com_isartdigital_services_HttpService.__name__ = ["com","isartdigital","services","HttpService"];
+com_isartdigital_services_HttpService.__super__ = haxe_Http;
+com_isartdigital_services_HttpService.prototype = $extend(haxe_Http.prototype,{
+	_onData: function(pData) {
+		this.callback(JSON.parse(pData));
+		this.callback = null;
+	}
+	,_onError: function(pError) {
+		console.log(pError);
+		this.callback = null;
+	}
+	,__class__: com_isartdigital_services_HttpService
+});
+var com_isartdigital_services_Wallet = function() { };
+$hxClasses["com.isartdigital.services.Wallet"] = com_isartdigital_services_Wallet;
+com_isartdigital_services_Wallet.__name__ = ["com","isartdigital","services","Wallet"];
+com_isartdigital_services_Wallet.getMoney = function(pMail,pCallback) {
+	com_isartdigital_services_Wallet.initService(pMail,pCallback).request(true);
+};
+com_isartdigital_services_Wallet.buy = function(pMail,pAmount,pCallback) {
+	var lRequest = com_isartdigital_services_Wallet.initService(pMail,pCallback);
+	if(pAmount <= 0) {
+		lRequest.onData(JSON.stringify({ error : "zero or negative value forbidden", code : 21}));
+		return;
+	}
+	lRequest.addParameter("buy",pAmount == null?"null":"" + pAmount);
+	lRequest.request(true);
+};
+com_isartdigital_services_Wallet.initService = function(pMail,pCallback) {
+	var lRequest = new com_isartdigital_services_HttpService(pCallback);
+	lRequest.addParameter("wallet",pMail);
+	return lRequest;
+};
 var com_isartdigital_utils_Config = function() { };
 $hxClasses["com.isartdigital.utils.Config"] = com_isartdigital_utils_Config;
 com_isartdigital_utils_Config.__name__ = ["com","isartdigital","utils","Config"];
@@ -2463,7 +2868,7 @@ com_isartdigital_utils_Config.init = function(pConfig) {
 		Reflect.setField(com_isartdigital_utils_Config._data,i,Reflect.field(pConfig,i));
 	}
 	if(com_isartdigital_utils_Config._data.version == null) com_isartdigital_utils_Config._data.version = "0.0.0";
-	if(com_isartdigital_utils_Config._data.language == null) {
+	if(com_isartdigital_utils_Config._data.language == null || com_isartdigital_utils_Config._data.language == "") {
 		var _this = window.navigator.language;
 		com_isartdigital_utils_Config._data.language = HxOverrides.substr(_this,0,2);
 	}
@@ -4245,119 +4650,26 @@ haxe_IMap.__name__ = ["haxe","IMap"];
 haxe_IMap.prototype = {
 	__class__: haxe_IMap
 };
-var haxe_Http = function(url) {
-	this.url = url;
-	this.headers = new List();
-	this.params = new List();
-	this.async = true;
+var haxe_Timer = function(time_ms) {
+	var me = this;
+	this.id = setInterval(function() {
+		me.run();
+	},time_ms);
 };
-$hxClasses["haxe.Http"] = haxe_Http;
-haxe_Http.__name__ = ["haxe","Http"];
-haxe_Http.prototype = {
-	request: function(post) {
-		var me = this;
-		me.responseData = null;
-		var r = this.req = js_Browser.createXMLHttpRequest();
-		var onreadystatechange = function(_) {
-			if(r.readyState != 4) return;
-			var s;
-			try {
-				s = r.status;
-			} catch( e ) {
-				if (e instanceof js__$Boot_HaxeError) e = e.val;
-				s = null;
-			}
-			if(s != null) {
-				var protocol = window.location.protocol.toLowerCase();
-				var rlocalProtocol = new EReg("^(?:about|app|app-storage|.+-extension|file|res|widget):$","");
-				var isLocal = rlocalProtocol.match(protocol);
-				if(isLocal) if(r.responseText != null) s = 200; else s = 404;
-			}
-			if(s == undefined) s = null;
-			if(s != null) me.onStatus(s);
-			if(s != null && s >= 200 && s < 400) {
-				me.req = null;
-				me.onData(me.responseData = r.responseText);
-			} else if(s == null) {
-				me.req = null;
-				me.onError("Failed to connect or resolve host");
-			} else switch(s) {
-			case 12029:
-				me.req = null;
-				me.onError("Failed to connect to host");
-				break;
-			case 12007:
-				me.req = null;
-				me.onError("Unknown host");
-				break;
-			default:
-				me.req = null;
-				me.responseData = r.responseText;
-				me.onError("Http Error #" + r.status);
-			}
-		};
-		if(this.async) r.onreadystatechange = onreadystatechange;
-		var uri = this.postData;
-		if(uri != null) post = true; else {
-			var _g_head = this.params.h;
-			var _g_val = null;
-			while(_g_head != null) {
-				var p;
-				p = (function($this) {
-					var $r;
-					_g_val = _g_head[0];
-					_g_head = _g_head[1];
-					$r = _g_val;
-					return $r;
-				}(this));
-				if(uri == null) uri = ""; else uri += "&";
-				uri += encodeURIComponent(p.param) + "=" + encodeURIComponent(p.value);
-			}
-		}
-		try {
-			if(post) r.open("POST",this.url,this.async); else if(uri != null) {
-				var question = this.url.split("?").length <= 1;
-				r.open("GET",this.url + (question?"?":"&") + uri,this.async);
-				uri = null;
-			} else r.open("GET",this.url,this.async);
-		} catch( e1 ) {
-			if (e1 instanceof js__$Boot_HaxeError) e1 = e1.val;
-			me.req = null;
-			this.onError(e1.toString());
-			return;
-		}
-		if(!Lambda.exists(this.headers,function(h) {
-			return h.header == "Content-Type";
-		}) && post && this.postData == null) r.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-		var _g_head1 = this.headers.h;
-		var _g_val1 = null;
-		while(_g_head1 != null) {
-			var h1;
-			h1 = (function($this) {
-				var $r;
-				_g_val1 = _g_head1[0];
-				_g_head1 = _g_head1[1];
-				$r = _g_val1;
-				return $r;
-			}(this));
-			r.setRequestHeader(h1.header,h1.value);
-		}
-		r.send(uri);
-		if(!this.async) onreadystatechange(null);
-	}
-	,onData: function(data) {
-	}
-	,onError: function(msg) {
-	}
-	,onStatus: function(status) {
-	}
-	,__class__: haxe_Http
-};
-var haxe_Timer = function() { };
 $hxClasses["haxe.Timer"] = haxe_Timer;
 haxe_Timer.__name__ = ["haxe","Timer"];
 haxe_Timer.stamp = function() {
 	return new Date().getTime() / 1000;
+};
+haxe_Timer.prototype = {
+	stop: function() {
+		if(this.id == null) return;
+		clearInterval(this.id);
+		this.id = null;
+	}
+	,run: function() {
+	}
+	,__class__: haxe_Timer
 };
 var haxe_ds_ArraySort = function() { };
 $hxClasses["haxe.ds.ArraySort"] = haxe_ds_ArraySort;
@@ -5646,6 +5958,15 @@ com_isartdigital_builder_game_utils_TypeDefUtils.buildingSavedDef = { name : nul
 com_isartdigital_utils_ui_Button.UP = 0;
 com_isartdigital_utils_ui_Button.OVER = 1;
 com_isartdigital_utils_ui_Button.DOWN = 2;
+com_isartdigital_services_Ads.TYPE_END = "end";
+com_isartdigital_services_Ads.TYPE_CANCEL = "cancel";
+com_isartdigital_services_Ads.TYPE_CLOSE = "close";
+com_isartdigital_services_Ads.TYPE_CLICK = "click";
+com_isartdigital_services_Ads.IMAGE = "image";
+com_isartdigital_services_Ads.MOVIE = "movie";
+com_isartdigital_services__$Ads_Ad.CROSS_SIZE = 20;
+com_isartdigital_services__$Ads_Ad.QUIT_SIZE = 40;
+com_isartdigital_services_HttpService.SERVICE_PATH = "https://fbgame.isartdigital.com/2017_builder/builder0/broadcast/";
 com_isartdigital_utils_Config.tileWidth = 152;
 com_isartdigital_utils_Config.tileHeight = 76;
 com_isartdigital_utils_Config._data = { };
