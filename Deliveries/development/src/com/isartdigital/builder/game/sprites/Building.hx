@@ -2,7 +2,7 @@ package com.isartdigital.builder.game.sprites;
 
 import com.isartdigital.builder.api.Api;
 import com.isartdigital.builder.api.DataDef;
-import com.isartdigital.builder.game.def.BuildingDef;
+import com.isartdigital.builder.game.def.buildings.BuildingDef;
 import com.isartdigital.builder.game.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
