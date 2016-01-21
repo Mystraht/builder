@@ -5656,3 +5656,5 @@ pathfinder_Pathfinder._COST_DIAGIONAL = 14;
 pixi_display_FlumpResource.resources = new haxe_ds_StringMap();
 com_isartdigital_builder_Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});
+
+//# sourceMappingURL=Builder.js.map
