@@ -1706,6 +1706,10 @@ com_isartdigital_builder_game_sprites_Building.prototype = $extend(com_isartdigi
 		(js_Boot.__cast(this.anim , pixi_display_FlumpMovie)).gotoAndStop(this.buildingLevel);
 	}
 	,buildingClick: function(event) {
+		com_isartdigital_builder_ui_hud_BaseBuildingHUD.getInstance().initHUD(function(p) {
+			console.log("OKLM POTPO");
+		},function(p1) {
+		});
 		var lMapManager = com_isartdigital_builder_game_manager_MapManager.getInstance();
 		var tilesUnderBuilding;
 		if(com_isartdigital_builder_game_sprites_Building.movingBuilding == this) this.buildingRequest(); else {
@@ -2170,7 +2174,6 @@ com_isartdigital_builder_ui_UIManager.prototype = {
 	,__class__: com_isartdigital_builder_ui_UIManager
 };
 var com_isartdigital_builder_ui_hud_BaseBuildingHUD = function() {
-	this.active = false;
 	this.elements = [];
 	this.hadToMove = false;
 	com_isartdigital_builder_ui_hud_BaseBuildingHUD._instance = this;
@@ -2183,7 +2186,7 @@ var com_isartdigital_builder_ui_hud_BaseBuildingHUD = function() {
 		++_g;
 		this.elements.push(lChild);
 	}
-	this.displayChild();
+	this.hideChild();
 };
 $hxClasses["com.isartdigital.builder.ui.hud.BaseBuildingHUD"] = com_isartdigital_builder_ui_hud_BaseBuildingHUD;
 com_isartdigital_builder_ui_hud_BaseBuildingHUD.__name__ = ["com","isartdigital","builder","ui","hud","BaseBuildingHUD"];
@@ -2193,18 +2196,42 @@ com_isartdigital_builder_ui_hud_BaseBuildingHUD.getInstance = function() {
 };
 com_isartdigital_builder_ui_hud_BaseBuildingHUD.__super__ = com_isartdigital_utils_ui_UIComponent;
 com_isartdigital_builder_ui_hud_BaseBuildingHUD.prototype = $extend(com_isartdigital_utils_ui_UIComponent.prototype,{
-	displayChild: function() {
+	hideChild: function() {
 		var _g = 0;
 		var _g1 = this.elements;
 		while(_g < _g1.length) {
 			var lElement = _g1[_g];
 			++_g;
-			if(this.active) this.addChild(lElement); else this.removeChild(lElement);
+			this.removeChild(lElement);
 		}
-		this.active = !this.active;
 	}
-	,initElements: function() {
-		this.displayChild();
+	,initHUD: function(pMove,pDelete,pUpgrading,pColor) {
+		var _g = 0;
+		var _g1 = this.elements;
+		while(_g < _g1.length) {
+			var lElement = _g1[_g];
+			++_g;
+			var lName = Type.getClassName(lElement == null?null:js_Boot.getClass(lElement));
+			if(this.isClassNameEqual(lName,com_isartdigital_builder_ui_hud_BaseBuildingHUD.BUTTON_MOVE_NAME,com_isartdigital_builder_ui_uimodule_MoveButton)) {
+				(js_Boot.__cast(lElement , com_isartdigital_builder_ui_uimodule_MoveButton)).setClickCallBack(pMove);
+				this.addChild(lElement);
+			} else if(this.isClassNameEqual(lName,com_isartdigital_builder_ui_hud_BaseBuildingHUD.BUTTON_DELETE_NAME,com_isartdigital_builder_ui_uimodule_DeleteButton)) {
+				(js_Boot.__cast(lElement , com_isartdigital_builder_ui_uimodule_DeleteButton)).setClickCallBack(pDelete);
+				this.addChild(lElement);
+			} else if(this.isClassNameEqual(lName,com_isartdigital_builder_ui_hud_BaseBuildingHUD.BUTTON_UPGRADABLE_NAME,com_isartdigital_builder_ui_uimodule_UpgradeButton) && pUpgrading != null) {
+				(js_Boot.__cast(lElement , com_isartdigital_builder_ui_uimodule_UpgradeButton)).setClickCallBack(pUpgrading);
+				this.addChild(lElement);
+			} else if(this.isClassNameEqual(lName,com_isartdigital_builder_ui_hud_BaseBuildingHUD.BUTTON_COLOR_NAME,com_isartdigital_builder_ui_uimodule_ColorButton) && pColor != null) {
+				(js_Boot.__cast(lElement , com_isartdigital_builder_ui_uimodule_MoveButton)).setClickCallBack(pColor);
+				this.addChild(lElement);
+			}
+		}
+	}
+	,isClassNameEqual: function(pName,pSuffix,pClass) {
+		return pName.length - pSuffix.length == Type.getClassName(pClass).length - pSuffix.length;
+	}
+	,closeHUD: function() {
+		this.hideChild();
 	}
 	,__class__: com_isartdigital_builder_ui_hud_BaseBuildingHUD
 });
@@ -2422,45 +2449,55 @@ com_isartdigital_utils_ui_Button.prototype = $extend(com_isartdigital_utils_game
 	}
 	,__class__: com_isartdigital_utils_ui_Button
 });
-var com_isartdigital_builder_ui_uimodule_ColorButton = function() {
-	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
+var com_isartdigital_builder_ui_uimodule_ButtonsBuilding = function() {
+	this.onClick = null;
 	com_isartdigital_utils_ui_Button.call(this);
 	this.interactive = true;
 	this.buttonMode = true;
+	this.click = $bind(this,this.baseOnClick);
+};
+$hxClasses["com.isartdigital.builder.ui.uimodule.ButtonsBuilding"] = com_isartdigital_builder_ui_uimodule_ButtonsBuilding;
+com_isartdigital_builder_ui_uimodule_ButtonsBuilding.__name__ = ["com","isartdigital","builder","ui","uimodule","ButtonsBuilding"];
+com_isartdigital_builder_ui_uimodule_ButtonsBuilding.__super__ = com_isartdigital_utils_ui_Button;
+com_isartdigital_builder_ui_uimodule_ButtonsBuilding.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
+	baseOnClick: function(pEvent) {
+		this.onClick(pEvent);
+	}
+	,setClickCallBack: function(pCallBack) {
+		this.removeListener("click",this.onClick);
+		this.onClick = pCallBack;
+	}
+	,__class__: com_isartdigital_builder_ui_uimodule_ButtonsBuilding
+});
+var com_isartdigital_builder_ui_uimodule_ColorButton = function() {
+	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
+	com_isartdigital_builder_ui_uimodule_ButtonsBuilding.call(this);
 };
 $hxClasses["com.isartdigital.builder.ui.uimodule.ColorButton"] = com_isartdigital_builder_ui_uimodule_ColorButton;
 com_isartdigital_builder_ui_uimodule_ColorButton.__name__ = ["com","isartdigital","builder","ui","uimodule","ColorButton"];
-com_isartdigital_builder_ui_uimodule_ColorButton.__super__ = com_isartdigital_utils_ui_Button;
-com_isartdigital_builder_ui_uimodule_ColorButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
+com_isartdigital_builder_ui_uimodule_ColorButton.__super__ = com_isartdigital_builder_ui_uimodule_ButtonsBuilding;
+com_isartdigital_builder_ui_uimodule_ColorButton.prototype = $extend(com_isartdigital_builder_ui_uimodule_ButtonsBuilding.prototype,{
 	__class__: com_isartdigital_builder_ui_uimodule_ColorButton
 });
 var com_isartdigital_builder_ui_uimodule_DeleteButton = function() {
 	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
-	com_isartdigital_utils_ui_Button.call(this);
-	this.interactive = true;
-	this.buttonMode = true;
+	com_isartdigital_builder_ui_uimodule_ButtonsBuilding.call(this);
 };
 $hxClasses["com.isartdigital.builder.ui.uimodule.DeleteButton"] = com_isartdigital_builder_ui_uimodule_DeleteButton;
 com_isartdigital_builder_ui_uimodule_DeleteButton.__name__ = ["com","isartdigital","builder","ui","uimodule","DeleteButton"];
-com_isartdigital_builder_ui_uimodule_DeleteButton.__super__ = com_isartdigital_utils_ui_Button;
-com_isartdigital_builder_ui_uimodule_DeleteButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
+com_isartdigital_builder_ui_uimodule_DeleteButton.__super__ = com_isartdigital_builder_ui_uimodule_ButtonsBuilding;
+com_isartdigital_builder_ui_uimodule_DeleteButton.prototype = $extend(com_isartdigital_builder_ui_uimodule_ButtonsBuilding.prototype,{
 	__class__: com_isartdigital_builder_ui_uimodule_DeleteButton
 });
 var com_isartdigital_builder_ui_uimodule_MoveButton = function() {
 	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
-	com_isartdigital_utils_ui_Button.call(this);
-	this.interactive = true;
-	this.buttonMode = true;
-	this.once("click",$bind(this,this.onClick));
+	com_isartdigital_builder_ui_uimodule_ButtonsBuilding.call(this);
 };
 $hxClasses["com.isartdigital.builder.ui.uimodule.MoveButton"] = com_isartdigital_builder_ui_uimodule_MoveButton;
 com_isartdigital_builder_ui_uimodule_MoveButton.__name__ = ["com","isartdigital","builder","ui","uimodule","MoveButton"];
-com_isartdigital_builder_ui_uimodule_MoveButton.__super__ = com_isartdigital_utils_ui_Button;
-com_isartdigital_builder_ui_uimodule_MoveButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
-	onClick: function(pEvent) {
-		console.log("ok");
-	}
-	,__class__: com_isartdigital_builder_ui_uimodule_MoveButton
+com_isartdigital_builder_ui_uimodule_MoveButton.__super__ = com_isartdigital_builder_ui_uimodule_ButtonsBuilding;
+com_isartdigital_builder_ui_uimodule_MoveButton.prototype = $extend(com_isartdigital_builder_ui_uimodule_ButtonsBuilding.prototype,{
+	__class__: com_isartdigital_builder_ui_uimodule_MoveButton
 });
 var com_isartdigital_builder_ui_uimodule_PlayButton = function() {
 	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
@@ -2481,14 +2518,12 @@ com_isartdigital_builder_ui_uimodule_PlayButton.prototype = $extend(com_isartdig
 });
 var com_isartdigital_builder_ui_uimodule_UpgradeButton = function() {
 	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
-	com_isartdigital_utils_ui_Button.call(this);
-	this.interactive = true;
-	this.buttonMode = true;
+	com_isartdigital_builder_ui_uimodule_ButtonsBuilding.call(this);
 };
 $hxClasses["com.isartdigital.builder.ui.uimodule.UpgradeButton"] = com_isartdigital_builder_ui_uimodule_UpgradeButton;
 com_isartdigital_builder_ui_uimodule_UpgradeButton.__name__ = ["com","isartdigital","builder","ui","uimodule","UpgradeButton"];
-com_isartdigital_builder_ui_uimodule_UpgradeButton.__super__ = com_isartdigital_utils_ui_Button;
-com_isartdigital_builder_ui_uimodule_UpgradeButton.prototype = $extend(com_isartdigital_utils_ui_Button.prototype,{
+com_isartdigital_builder_ui_uimodule_UpgradeButton.__super__ = com_isartdigital_builder_ui_uimodule_ButtonsBuilding;
+com_isartdigital_builder_ui_uimodule_UpgradeButton.prototype = $extend(com_isartdigital_builder_ui_uimodule_ButtonsBuilding.prototype,{
 	__class__: com_isartdigital_builder_ui_uimodule_UpgradeButton
 });
 var com_isartdigital_services_Ads = function() { };
@@ -5955,6 +5990,10 @@ com_isartdigital_builder_game_type_BuildingType.CANTINA = "cantina";
 com_isartdigital_builder_game_type_BuildingType.GIFTSHOP = "giftShop";
 com_isartdigital_builder_game_utils_TypeDefUtils.tileSavedDef = { x : null, y : null, isBuildable : null};
 com_isartdigital_builder_game_utils_TypeDefUtils.buildingSavedDef = { name : null, x : null, y : null, buildingLevel : null};
+com_isartdigital_builder_ui_hud_BaseBuildingHUD.BUTTON_DELETE_NAME = "DeleteButton";
+com_isartdigital_builder_ui_hud_BaseBuildingHUD.BUTTON_COLOR_NAME = "ColorButton";
+com_isartdigital_builder_ui_hud_BaseBuildingHUD.BUTTON_UPGRADABLE_NAME = "UpgradableButton";
+com_isartdigital_builder_ui_hud_BaseBuildingHUD.BUTTON_MOVE_NAME = "MoveButton";
 com_isartdigital_utils_ui_Button.UP = 0;
 com_isartdigital_utils_ui_Button.OVER = 1;
 com_isartdigital_utils_ui_Button.DOWN = 2;

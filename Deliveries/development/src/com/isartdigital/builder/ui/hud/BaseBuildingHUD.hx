@@ -1,4 +1,8 @@
 package com.isartdigital.builder.ui.hud;
+import com.isartdigital.builder.ui.uimodule.ColorButton;
+import com.isartdigital.builder.ui.uimodule.DeleteButton;
+import com.isartdigital.builder.ui.uimodule.MoveButton;
+import com.isartdigital.builder.ui.uimodule.UpgradeButton;
 import com.isartdigital.utils.game.StateGraphic;
 import com.isartdigital.utils.ui.Screen;
 import com.isartdigital.utils.ui.UIComponent;
@@ -23,7 +27,10 @@ class BaseBuildingHUD extends UIComponent
 	
 	private var elements:Array<StateGraphic> = new Array<StateGraphic> ();
 	
-	private var active:Bool = false;
+	private static var BUTTON_DELETE_NAME:String = "DeleteButton";
+	private static var BUTTON_COLOR_NAME:String = "ColorButton";
+	private static var BUTTON_UPGRADABLE_NAME:String = "UpgradableButton";
+	private static var BUTTON_MOVE_NAME:String = "MoveButton";
 	
 	public function new() 
 	{
@@ -35,24 +42,56 @@ class BaseBuildingHUD extends UIComponent
 			elements.push(cast(lChild));
 		}
 		
-		displayChild();
+		hideChild();
 	}
 	
 	
-	private function displayChild() : Void
+	private function hideChild() : Void
 	{
 		for (lElement in elements)
 		{
-			active ? addChild(lElement) : removeChild(lElement);
+			removeChild(lElement);
 		}
-		active = !active;
 	}
 	
 	/**
 	 * Active le BuildingHUD
 	 */
-	public function initElements () :Void 
+	public function initHUD (pMove:EventTarget->Void, pDelete:EventTarget->Void, ?pUpgrading:EventTarget->Void = null, ?pColor:EventTarget->Void = null) :Void 
+	{		
+		for (lElement in elements)
+		{
+			var lName = Type.getClassName(Type.getClass(lElement));
+			if (isClassNameEqual(lName, BUTTON_MOVE_NAME, MoveButton))
+			{
+				cast(lElement, MoveButton).setClickCallBack(pMove);
+				addChild(lElement);
+			} else if (isClassNameEqual(lName, BUTTON_DELETE_NAME, DeleteButton)) 
+			{
+				cast(lElement, DeleteButton).setClickCallBack(pDelete);
+				addChild(lElement);
+			} else if (isClassNameEqual(lName, BUTTON_UPGRADABLE_NAME, UpgradeButton)
+					&& pUpgrading != null) 
+			{
+				cast(lElement, UpgradeButton).setClickCallBack(pUpgrading);
+				addChild(lElement);
+			} else if (isClassNameEqual(lName, BUTTON_COLOR_NAME, ColorButton)
+					&& pColor != null)
+			{
+				cast(lElement, MoveButton).setClickCallBack(pColor);
+				addChild(lElement);
+			}
+		}		
+	}
+	
+	private function isClassNameEqual (pName:String, pSuffix:String, pClass:Class<Dynamic>) : Bool
 	{
-		displayChild();
+		return (pName.length - pSuffix.length 
+			== Type.getClassName(pClass).length - pSuffix.length);
+	}
+	
+	public function closeHUD():Void
+	{
+		hideChild();
 	}
 }
