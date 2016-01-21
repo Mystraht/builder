@@ -7,15 +7,13 @@ import com.isartdigital.utils.ui.Button;
  * ...
  * @author Flavien
  */
-class UpgradeButton extends Button
+class UpgradeButton extends ButtonsBuilding
 {
 
 	public function new() 
 	{
 		factory = new FlumpMovieAnimFactory();
 		super();
-		interactive = true;
-		buttonMode = true;
 	}
 	
 }

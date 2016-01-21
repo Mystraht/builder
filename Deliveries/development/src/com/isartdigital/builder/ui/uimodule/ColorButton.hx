@@ -7,15 +7,13 @@ import com.isartdigital.utils.ui.Button;
  * ...
  * @author Flavien
  */
-class ColorButton extends Button
+class ColorButton extends ButtonsBuilding
 {
 
 	public function new() 
 	{
 		factory = new FlumpMovieAnimFactory();
 		super();
-		interactive = true;
-		buttonMode = true;
 	}
 	
 }

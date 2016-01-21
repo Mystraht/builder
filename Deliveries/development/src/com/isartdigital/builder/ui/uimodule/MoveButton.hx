@@ -9,21 +9,12 @@ import pixi.interaction.EventTarget;
  * ...
  * @author Flavien
  */
-class MoveButton extends Button
+class MoveButton extends ButtonsBuilding
 {
 
 	public function new() 
 	{
 		factory = new FlumpMovieAnimFactory();
 		super();
-		interactive = true;
-		buttonMode = true;
-		once(MouseEventType.CLICK,onClick);
-	}
-	
-	private function onClick (pEvent:EventTarget): Void {
-		
-		trace("ok");
-		
 	}	
 }

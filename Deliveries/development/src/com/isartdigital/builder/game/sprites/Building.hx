@@ -22,12 +22,12 @@ import com.isartdigital.utils.loader.GameLoader;
 import com.isartdigital.utils.ui.Screen;
 import eventemitter3.EventEmitter;
 import haxe.Json;
-import js.html.EventTarget;
 import js.html.MouseEvent;
 import js.Lib;
 import pixi.core.math.Point;
 import pixi.display.FlumpMovie;
 import pixi.extras.MovieClip;
+import pixi.interaction.EventTarget;
 
 /**
  * ...
@@ -144,6 +144,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	 * Commence le deplacement d'un batiment
 	 */
 	public function buildingClick (event:Dynamic) {
+		BaseBuildingHUD.getInstance().initHUD(function (p:EventTarget):Void { trace("OKLM POTPO"); }, function (p:EventTarget):Void { } );
 		var lMapManager:MapManager = MapManager.getInstance();
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
