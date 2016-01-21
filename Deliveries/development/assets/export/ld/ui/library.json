@@ -25,12 +25,12 @@
         0
        ],
        "rect": [
+        99,
         1,
-        100,
-        98,
-        28
+        96,
+        97
        ],
-       "symbol": "GoldCurrencyAsset"
+       "symbol": "DeleteButtonAsset"
       },
       {
        "origin": [
@@ -39,7 +39,33 @@
        ],
        "rect": [
         1,
-        130,
+        100,
+        96,
+        97
+       ],
+       "symbol": "ColorButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        99,
+        100,
+        96,
+        97
+       ],
+       "symbol": "UpgradeButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        199,
         98,
         28
        ],
@@ -51,8 +77,8 @@
         0
        ],
        "rect": [
-        1,
-        160,
+        101,
+        199,
         98,
         28
        ],
@@ -60,12 +86,25 @@
       },
       {
        "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        229,
+        98,
+        28
+       ],
+       "symbol": "GoldCurrencyAsset"
+      },
+      {
+       "origin": [
         37.4,
         4.55
        ],
        "rect": [
-        1,
-        190,
+        101,
+        229,
         92,
         9
        ],
@@ -77,8 +116,8 @@
         4.55
        ],
        "rect": [
-        1,
-        201,
+        101,
+        240,
         92,
         9
        ],
@@ -90,8 +129,8 @@
         4.55
        ],
        "rect": [
-        1,
-        212,
+        101,
+        251,
         92,
         9
        ],
@@ -109,21 +148,78 @@
     {
      "keyframes": [
       {
-       "loc": [
-        209.85,
-        293.375
-       ],
-       "duration": 1,
-       "ref": "MoveButton",
-       "tweened": false,
        "pivot": [
         47.625,
         48.125
        ],
-       "index": 0
+       "duration": 1,
+       "ref": "MoveButton",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        209.85,
+        293.375
+       ]
       }
      ],
      "name": "D_MoveButton"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "DeleteButton",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        305.1,
+        293.375
+       ]
+      }
+     ],
+     "name": "D_DeleteButton"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "UpgradeButton",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        19.35,
+        293.375
+       ]
+      }
+     ],
+     "name": "D_UpgradeButton"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "ColorButton",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        114.6,
+        293.375
+       ]
+      }
+     ],
+     "name": "D_ColorButton"
     }
    ],
    "id": "BaseBuildingHUD"
@@ -133,18 +229,122 @@
     {
      "keyframes": [
       {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "ColorButtonAsset",
+       "tweened": false,
+       "index": 0,
        "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "ColorButtonAsset",
+       "tweened": false,
+       "index": 1,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "ColorButtonAsset",
+       "tweened": false,
+       "index": 2,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "ColorButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "DeleteButtonAsset",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "DeleteButtonAsset",
+       "tweened": false,
+       "index": 1,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "DeleteButtonAsset",
+       "tweened": false,
+       "index": 2,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "DeleteButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
         49,
         14
        ],
        "duration": 1,
        "ref": "GoldCurrencyAsset",
        "tweened": false,
-       "pivot": [
+       "index": 0,
+       "loc": [
         49,
         14
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "GoldCurrencyAsset"
@@ -152,9 +352,9 @@
     {
      "keyframes": [
       {
-       "loc": [
-        61.5018,
-        13.9811
+       "pivot": [
+        45.6625,
+        4.025
        ],
        "duration": 1,
        "ref": "Gold_txt",
@@ -163,11 +363,11 @@
         1.8693
        ],
        "tweened": false,
-       "pivot": [
-        45.6625,
-        4.025
-       ],
-       "index": 0
+       "index": 0,
+       "loc": [
+        61.5018,
+        13.9811
+       ]
       }
      ],
      "name": "Gold_txt"
@@ -191,18 +391,18 @@
     {
      "keyframes": [
       {
-       "loc": [
-        173.875,
+       "pivot": [
+        49,
         14
        ],
        "duration": 1,
        "ref": "GoldCurrency",
        "tweened": false,
-       "pivot": [
-        49,
+       "index": 0,
+       "loc": [
+        173.875,
         14
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "TL_GoldCurrency_currency"
@@ -210,18 +410,18 @@
     {
      "keyframes": [
       {
-       "loc": [
-        247.3875,
-        290.5
-       ],
-       "duration": 1,
-       "ref": "BaseBuildingHUD",
-       "tweened": false,
        "pivot": [
         209.85,
         293.375
        ],
-       "index": 0
+       "duration": 1,
+       "ref": "BaseBuildingHUD",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        304.6125,
+        290.5
+       ]
       }
      ],
      "name": "B_BaseBuildingHUD_bHud"
@@ -229,18 +429,18 @@
     {
      "keyframes": [
       {
-       "loc": [
-        298.9875,
+       "pivot": [
+        49,
         14
        ],
        "duration": 1,
        "ref": "OfferingsCurrency",
        "tweened": false,
-       "pivot": [
-        49,
+       "index": 0,
+       "loc": [
+        298.9875,
         14
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "TL_OfferingsCurrency_currency"
@@ -253,46 +453,46 @@
     {
      "keyframes": [
       {
-       "loc": [
+       "pivot": [
         47.625,
         48.125
        ],
        "duration": 1,
        "ref": "MoveButtonAsset",
        "tweened": false,
-       "pivot": [
+       "index": 0,
+       "loc": [
         47.625,
         48.125
-       ],
-       "index": 0
+       ]
       },
       {
-       "loc": [
+       "pivot": [
         47.625,
         48.125
        ],
        "duration": 1,
        "ref": "MoveButtonAsset",
        "tweened": false,
-       "pivot": [
+       "index": 1,
+       "loc": [
         47.625,
         48.125
-       ],
-       "index": 1
+       ]
       },
       {
-       "loc": [
+       "pivot": [
         47.625,
         48.125
        ],
        "duration": 1,
        "ref": "MoveButtonAsset",
        "tweened": false,
-       "pivot": [
+       "index": 2,
+       "loc": [
         47.625,
         48.125
-       ],
-       "index": 2
+       ]
       }
      ],
      "name": "Calque 1"
@@ -305,18 +505,18 @@
     {
      "keyframes": [
       {
-       "loc": [
+       "pivot": [
         49,
         14
        ],
        "duration": 1,
        "ref": "OfferingsCurrencyAsset",
        "tweened": false,
-       "pivot": [
+       "index": 0,
+       "loc": [
         49,
         14
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "OfferingsCurrencyAsset"
@@ -324,9 +524,9 @@
     {
      "keyframes": [
       {
-       "loc": [
-        62.0617,
-        13.9984
+       "pivot": [
+        45.6875,
+        4.025
        ],
        "duration": 1,
        "ref": "Offerings_txt",
@@ -335,11 +535,11 @@
         1.9317
        ],
        "tweened": false,
-       "pivot": [
-        45.6875,
-        4.025
-       ],
-       "index": 0
+       "index": 0,
+       "loc": [
+        62.0617,
+        13.9984
+       ]
       }
      ],
      "name": "Offerings_txt"
@@ -352,18 +552,18 @@
     {
      "keyframes": [
       {
-       "loc": [
+       "pivot": [
         49,
         14
        ],
        "duration": 1,
        "ref": "SpiceCurrencyAsset",
        "tweened": false,
-       "pivot": [
+       "index": 0,
+       "loc": [
         49,
         14
-       ],
-       "index": 0
+       ]
       }
      ],
      "name": "SpiceCurrencyAsset"
@@ -371,9 +571,9 @@
     {
      "keyframes": [
       {
-       "loc": [
-        55.5,
-        14.7024
+       "pivot": [
+        37.425,
+        4.5375
        ],
        "duration": 1,
        "ref": "Spice_txt",
@@ -382,19 +582,71 @@
         1.8058
        ],
        "tweened": false,
-       "pivot": [
-        37.425,
-        4.5375
-       ],
-       "index": 0
+       "index": 0,
+       "loc": [
+        55.5,
+        14.7024
+       ]
       }
      ],
      "name": "Spice_txt"
     }
    ],
    "id": "SpiceCurrency"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "UpgradeButtonAsset",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "UpgradeButtonAsset",
+       "tweened": false,
+       "index": 1,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "UpgradeButtonAsset",
+       "tweened": false,
+       "index": 2,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "UpgradeButton"
   }
  ],
- "md5": "be5c527c611bf8e1a6743f2bae003c46",
+ "md5": "261fa1ac296eb51cf4a7d18848943ff9",
  "frameRate": 30
 }

@@ -144,9 +144,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	 * Commence le deplacement d'un batiment
 	 */
 	public function buildingClick (event:Dynamic) {
-		trace("here is click");
-		BaseBuildingHUD.getInstance().active();
-		/*var lMapManager:MapManager = MapManager.getInstance();
+		var lMapManager:MapManager = MapManager.getInstance();
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
 		if (movingBuilding == this) {
@@ -156,7 +154,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 			movingBuilding = this;
 			tilesUnderBuilding = lMapManager.getTilesArray(initialeModelPosition, definition.size);
 			lMapManager.setTilesBuildable(tilesUnderBuilding, true);
-		}*/
+		}
 	}
 	
 	

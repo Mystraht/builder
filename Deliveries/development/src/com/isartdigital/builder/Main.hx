@@ -11,7 +11,10 @@ import com.isartdigital.builder.ui.hud.OfferingsCurrency;
 import com.isartdigital.builder.ui.hud.SpiceCurrency;
 import com.isartdigital.builder.ui.screens.TitleCard;
 import com.isartdigital.builder.ui.UIManager;
+import com.isartdigital.builder.ui.uimodule.ColorButton;
+import com.isartdigital.builder.ui.uimodule.DeleteButton;
 import com.isartdigital.builder.ui.uimodule.MoveButton;
+import com.isartdigital.builder.ui.uimodule.UpgradeButton;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
 import com.isartdigital.utils.events.EventType;
@@ -354,6 +357,9 @@ class Main extends EventEmitter
 		GoldCurrency;
 		OfferingsCurrency;
 		MoveButton;
+		UpgradeButton;
+		DeleteButton;
+		ColorButton;
 	}
 	
 	/**

@@ -1,11 +1,10 @@
 {
  "isNamespaced": false,
- "frameRate": 30,
  "textureGroups": [
   {
-   "scaleFactor": 1,
    "atlases": [
     {
+     "file": "atlas0.png",
      "textures": [
       {
        "origin": [
@@ -189,305 +188,306 @@
        ],
        "symbol": "_ground0"
       }
-     ],
-     "file": "atlas0.png"
+     ]
     }
-   ]
+   ],
+   "scaleFactor": 1
   }
  ],
  "movies": [
   {
-   "id": "Building_1x1",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.0875,
-        -0.075
+       "pivot": [
+        24.0875,
+        47.25
        ],
        "duration": 1,
        "ref": "_building_1x1",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        24.0875,
-        47.25
+       "loc": [
+        -0.0875,
+        -0.075
        ]
       }
      ],
      "name": "Calque 2"
     }
-   ]
+   ],
+   "id": "Building_1x1"
   },
   {
-   "id": "Building_2x1",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.2375,
-        0.125
+       "pivot": [
+        48.25,
+        65.125
        ],
        "duration": 1,
        "ref": "_building_2x1",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        48.25,
-        65.125
+       "loc": [
+        -0.2375,
+        0.125
        ]
       }
      ],
      "name": "Calque 3"
     }
-   ]
+   ],
+   "id": "Building_2x1"
   },
   {
-   "id": "Building_2x2",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.1,
-        -0.1
+       "pivot": [
+        48.175,
+        68.0875
        ],
        "duration": 1,
        "ref": "_building0_2x2",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        48.175,
-        68.0875
+       "loc": [
+        -0.1,
+        -0.1
        ]
       },
       {
-       "loc": [
-        -0.1,
-        -0.0375
+       "pivot": [
+        48.2,
+        74.65
        ],
        "duration": 1,
        "ref": "_building1_2x2",
        "tweened": false,
        "index": 1,
-       "pivot": [
-        48.2,
-        74.65
+       "loc": [
+        -0.1,
+        -0.0375
        ]
       },
       {
-       "loc": [
-        -0.1,
-        -0.1625
+       "pivot": [
+        48.325,
+        90.8625
        ],
        "duration": 1,
        "ref": "_building3_2x2",
        "tweened": false,
        "index": 2,
-       "pivot": [
-        48.325,
-        90.8625
+       "loc": [
+        -0.1,
+        -0.1625
        ]
       }
      ],
      "name": "Calque 3"
     }
-   ]
+   ],
+   "id": "Building_2x2"
   },
   {
-   "id": "Building_3x1",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.0375,
-        -0.0375
+       "pivot": [
+        72.2125,
+        70.25
        ],
        "duration": 1,
        "ref": "_building_3x1",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        72.2125,
-        70.25
+       "loc": [
+        -0.0375,
+        -0.0375
        ]
       }
      ],
      "name": "Calque 2"
     }
-   ]
+   ],
+   "id": "Building_3x1"
   },
   {
-   "id": "Building_Altar",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.2625,
-        -0.25
+       "pivot": [
+        33.75,
+        64.75
        ],
        "duration": 1,
        "ref": "_building_altar",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        33.75,
-        64.75
+       "loc": [
+        -0.2625,
+        -0.25
        ]
       }
      ],
      "name": "Calque 1"
     }
-   ]
+   ],
+   "id": "Building_Altar"
   },
   {
-   "id": "Building_Gonzales",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -7.5,
-        -46.25
+       "pivot": [
+        38.125,
+        45.75
        ],
        "duration": 1,
        "ref": "_building_gonzales",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        38.125,
-        45.75
+       "loc": [
+        -7.5,
+        -46.25
        ]
       }
      ],
      "name": "Calque 1"
     }
-   ]
+   ],
+   "id": "Building_Gonzales"
   },
   {
-   "id": "Building_House",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.25,
-        -31.5
+       "pivot": [
+        33.5,
+        31.375
        ],
        "duration": 1,
        "ref": "_building_house",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        33.5,
-        31.375
+       "loc": [
+        -0.25,
+        -31.5
        ]
       }
      ],
      "name": "Calque 1"
     }
-   ]
+   ],
+   "id": "Building_House"
   },
   {
-   "id": "Building_Pyrotechnician",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        0,
-        -0.25
+       "pivot": [
+        43.875,
+        98.25
        ],
        "duration": 1,
        "ref": "_building_pyrotechnician_1",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        43.875,
-        98.25
+       "loc": [
+        0,
+        -0.25
        ]
       },
       {
-       "loc": [
-        -0.25,
-        -49.5
+       "pivot": [
+        43.625,
+        49
        ],
        "duration": 1,
        "ref": "_building_pyrotechnician_2",
        "tweened": false,
        "index": 1,
-       "pivot": [
-        43.625,
-        49
-       ]
-      },
-      {
        "loc": [
         -0.25,
         -49.5
+       ]
+      },
+      {
+       "pivot": [
+        43.375,
+        49
        ],
        "duration": 1,
        "ref": "_building_pyrotechnician_3",
        "tweened": false,
        "index": 2,
-       "pivot": [
-        43.375,
-        49
+       "loc": [
+        -0.25,
+        -49.5
        ]
       }
      ],
      "name": "Calque 1"
     }
-   ]
+   ],
+   "id": "Building_Pyrotechnician"
   },
   {
-   "id": "Building_park",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.2375,
-        -26.75
+       "pivot": [
+        38.125,
+        26.5
        ],
        "duration": 1,
        "ref": "_building_park",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        38.125,
-        26.5
+       "loc": [
+        -0.2375,
+        -26.75
        ]
       }
      ],
      "name": "Calque 1"
     }
-   ]
+   ],
+   "id": "Building_park"
   },
   {
-   "id": "Ground",
    "layers": [
     {
      "keyframes": [
       {
        "tweened": false,
-       "duration": 1,
-       "index": 0,
        "pivot": [
         24,
         24
        ],
+       "duration": 1,
+       "index": 0,
        "ref": "_ground0"
       }
      ],
      "name": "grounds"
     }
-   ]
+   ],
+   "id": "Ground"
   }
  ],
- "md5": "374b81513421489200a6aef0db117f63"
+ "md5": "374b81513421489200a6aef0db117f63",
+ "frameRate": 30
 }

@@ -23,8 +23,11 @@ class BaseBuildingHUD extends UIComponent
 	
 	private var elements:Array<StateGraphic> = new Array<StateGraphic> ();
 	
+	private var active:Bool = false;
+	
 	public function new() 
 	{
+		_instance = this;
 		super();
 		build();
 		
@@ -32,35 +35,24 @@ class BaseBuildingHUD extends UIComponent
 			elements.push(cast(lChild));
 		}
 		
-		hideChild(true);
+		displayChild();
 	}
 	
 	
-	private function hideChild(pHide:Bool, ?pFeedBack:Bool) : Void
-	{/*
-		if (pFeedBack)
-		{
-			return;
-		}*/
-
+	private function displayChild() : Void
+	{
 		for (lElement in elements)
 		{
-			pHide ? removeChild(lElement) : addChild(lElement);
-			//pHide ? removeChild(lElement) : addChild(lElement);
-			trace(children.length);
+			active ? addChild(lElement) : removeChild(lElement);
 		}
+		active = !active;
 	}
 	
 	/**
 	 * Active le BuildingHUD
 	 */
-	public function active () :Void 
+	public function initElements () :Void 
 	{
-		trace("try to active");
-		hideChild(false);
-		for (lElement in elements)
-		{
-			trace(lElement.x, lElement.y);
-		}
+		displayChild();
 	}
 }
