@@ -6,8 +6,7 @@ package com.isartdigital.builder.game.def.buildings.BuildingDef;
 /**
  * @author Dorian
  */
-typedef BuildingDef =
+typedef RecoltableBuildingDef =
 {
-	>UpgradableBuildingDef,
 	var lastRecolted :String
 }

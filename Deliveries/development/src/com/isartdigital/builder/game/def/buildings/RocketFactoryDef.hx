@@ -7,5 +7,7 @@ package com.isartdigital.builder.game.def.buildings.BuildingDef;
  */
 typedef RocketFactoryDef =
 {
+	> BuildingDef,
+	> UpgradableBuildingDef,
 	> RecoltableBuildingDef
 }

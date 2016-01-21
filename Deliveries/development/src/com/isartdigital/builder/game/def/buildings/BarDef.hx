@@ -5,5 +5,7 @@ package com.isartdigital.builder.game.def.buildings;
  */
 typedef BarDef =
 {
+	> BuildingDef,
+	> UpgradableBuildingDef, 
 	> RecoltableBuildingDef
 }

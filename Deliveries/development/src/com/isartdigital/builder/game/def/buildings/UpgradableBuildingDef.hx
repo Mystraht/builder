@@ -8,6 +8,5 @@ package com.isartdigital.builder.game.def.buildings.BuildingDef;
  */
 typedef UpgradableBuildingDef =
 {
-	>BuildingDef,
 	var lvl : Int;
 }

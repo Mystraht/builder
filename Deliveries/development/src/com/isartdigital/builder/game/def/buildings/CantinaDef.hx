@@ -7,5 +7,7 @@ package com.isartdigital.builder.game.def.buildings.BuildingDef;
  */
 typedef CantinaDef =
 {
+	> BuildingDef,
+	> UpgradableBuildingDef,
 	> RecoltableBuildingDef
 }
