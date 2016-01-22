@@ -1,5 +1,5 @@
-package com.isartdigital.builder.game.def.buildings;
-
+package com.isartdigital.builder.game.sprites.buildings.def;
+import com.isartdigital.builder.game.def.SizeDef;
 
 /**
  * @author Dorian

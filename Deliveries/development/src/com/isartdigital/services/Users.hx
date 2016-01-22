@@ -16,13 +16,13 @@ class Users
 	}
 	
 	
-	function set_infos(infosSource:Dynamic) {
-		var infosSource:UserInfoDef = typeUserInfos(infosSource);
-		return infosSourceTyped;
+	static function set_infos(infosSource:Dynamic) {
+		var infosSourceTyped:UserInfoDef = typeUserInfos(infosSource);
+		return infos = infosSourceTyped;
 	}
 	
 	
-	private function typeUserInfos(userInfos:Dynamic):UserInfoDef {
+	private static function typeUserInfos(userInfos:Dynamic):UserInfoDef {
 		for (i in 0...userInfos.lanterns.length) {
 			userInfos.lanterns[i].x = Std.int(userInfos.lanterns[i].x);
 			userInfos.lanterns[i].y = Std.int(userInfos.lanterns[i].y);
@@ -37,11 +37,5 @@ class Users
 		userInfos.resources.spice = Std.int(userInfos.resources.spice);
 		
 		return userInfos;
-	}
-	
-	
-	private function saveUserInfos(userInfos:UserInfoDef): Void {
-		GameManager.getInstance().userInfo = userInfos;
-		userInfoLoaded = true;
 	}
 }

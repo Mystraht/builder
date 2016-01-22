@@ -1,4 +1,4 @@
-package com.isartdigital.builder.game.def.buildings;
+package com.isartdigital.builder.game.sprites.buildings.def;
 
 /**
  * @author Roman

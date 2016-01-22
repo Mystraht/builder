@@ -1,5 +1,5 @@
 package com.isartdigital.builder.game.utils;
-import com.isartdigital.builder.game.def.BuildingSavedDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 
 /**

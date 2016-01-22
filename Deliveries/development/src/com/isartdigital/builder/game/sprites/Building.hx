@@ -2,8 +2,8 @@ package com.isartdigital.builder.game.sprites;
 
 import com.isartdigital.builder.api.Api;
 import com.isartdigital.builder.api.DataDef;
-import com.isartdigital.builder.game.def.buildings.BuildingDef;
-import com.isartdigital.builder.game.def.BuildingSavedDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.pooling.IPoolObject;

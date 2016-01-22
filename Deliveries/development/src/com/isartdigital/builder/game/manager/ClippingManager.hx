@@ -1,5 +1,5 @@
 package com.isartdigital.builder.game.manager;
-import com.isartdigital.builder.game.def.buildings.BuildingDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
 import com.isartdigital.builder.game.def.PointDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.pooling.IPoolObject;
