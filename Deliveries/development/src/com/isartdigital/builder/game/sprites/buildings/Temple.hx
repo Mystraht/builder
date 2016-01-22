@@ -1,5 +1,5 @@
 package com.isartdigital.builder.game.sprites.buildings;
-import com.isartdigital.builder.game.def.BuildingDef;
+import com.isartdigital.builder.game.def.buildings.BuildingDef;
 
 /**
  * ...

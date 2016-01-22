@@ -1,4 +1,4 @@
-package com.isartdigital.builder.game.def;
+package com.isartdigital.builder.game.def.buildings;
 
 
 /**
