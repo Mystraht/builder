@@ -4,7 +4,7 @@ package com.isartdigital.builder.game.sprites.buildings;
  * ...
  * @author Dorian MILLIERE
  */
-class BuildingCollectable
+class CollectableComponent
 {
 
 	public function new() 

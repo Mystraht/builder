@@ -8,11 +8,10 @@ import com.isartdigital.builder.game.sprites.buildings.Building;
  * @author Dorian
  */
 class Casino extends Building
-{
-
+{	
 	public function new() 
 	{
-		super();	
+		super();
 	}
 	
 }

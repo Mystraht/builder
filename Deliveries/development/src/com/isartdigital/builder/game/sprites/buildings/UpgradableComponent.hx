@@ -4,7 +4,7 @@ package com.isartdigital.builder.game.sprites.buildings;
  * ...
  * @author Dorian MILLIERE
  */
-class BuildingUpgradable
+class UpgradableComponent
 {
 
 	public function new() 

@@ -1,9 +1,9 @@
 package ;
 
-import com.isartdigital.builder.game.def.BuildingSavedDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
-import com.isartdigital.builder.game.sprites.Building;
+import com.isartdigital.builder.game.sprites.buildings.Building;
 import com.isartdigital.utils.game.factory.FlumpMovieAnimFactory;
 import com.isartdigital.utils.game.StateGraphic;
 import com.isartdigital.utils.loader.GameLoader;
