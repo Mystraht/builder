@@ -10,7 +10,7 @@ import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.ClippingManager;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.pooling.PoolObject;
-import com.isartdigital.builder.game.sprites.Building;
+import com.isartdigital.builder.game.sprites.buildings.Building;
 import com.isartdigital.builder.game.sprites.Citizen;
 import com.isartdigital.builder.game.sprites.SpriteObject;
 import com.isartdigital.builder.game.sprites.Tile;

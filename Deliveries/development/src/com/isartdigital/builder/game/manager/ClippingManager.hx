@@ -4,7 +4,7 @@ import com.isartdigital.builder.game.def.PointDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.pooling.IPoolObject;
 import com.isartdigital.builder.game.pooling.PoolObject;
-import com.isartdigital.builder.game.sprites.Building;
+import com.isartdigital.builder.game.sprites.buildings.Building;
 import com.isartdigital.builder.game.sprites.Tile;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
