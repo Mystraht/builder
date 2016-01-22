@@ -51,8 +51,6 @@ class GameManager
 	 */
 	private static var instance: GameManager;
 	
-	public var userInfo:Dynamic; // TODO : Match pour userInfoDef
-	
 	public var mousePosition:Point = new Point( -1, -1);
 	
 	public var screenRect:Rectangle;

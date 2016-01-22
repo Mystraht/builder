@@ -10,7 +10,6 @@ import pixi.core.display.Container;
 import pixi.core.math.Point;
 import pixi.core.text.Text;
 import pixi.display.FlumpSprite;
-import com.isartdigital.builder.ui.hud.GoldCurrency;
 
 /**
  * ...
