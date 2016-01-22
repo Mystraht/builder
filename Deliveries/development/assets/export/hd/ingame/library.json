@@ -1,11 +1,10 @@
 {
  "isNamespaced": false,
- "frameRate": 30,
  "textureGroups": [
   {
-   "scaleFactor": 1,
    "atlases": [
     {
+     "file": "atlas0.png",
      "textures": [
       {
        "origin": [
@@ -22,16 +21,68 @@
       },
       {
        "origin": [
-        192.8,
-        298.6
+        175.5,
+        393
        ],
        "rect": [
         387,
         1,
+        349,
+        392
+       ],
+       "symbol": "_building_pyrotechnician_1"
+      },
+      {
+       "origin": [
+        176.5,
+        393
+       ],
+       "rect": [
+        1,
+        366,
+        349,
+        392
+       ],
+       "symbol": "_building_pyrotechnician_2"
+      },
+      {
+       "origin": [
+        175.5,
+        393
+       ],
+       "rect": [
+        352,
+        395,
+        349,
+        392
+       ],
+       "symbol": "_building_pyrotechnician_3"
+      },
+      {
+       "origin": [
+        192.8,
+        298.6
+       ],
+       "rect": [
+        1,
+        789,
         384,
         298
        ],
        "symbol": "_building1_2x2"
+      },
+      {
+       "origin": [
+        181.5,
+        367
+       ],
+       "rect": [
+        703,
+        395,
+        305,
+        366
+       ],
+       "symbol": "_building_gonzales"
       },
       {
        "origin": [
@@ -40,7 +91,7 @@
        ],
        "rect": [
         387,
-        301,
+        789,
         384,
         281
        ],
@@ -52,8 +103,8 @@
         272.35
        ],
        "rect": [
-        1,
-        366,
+        387,
+        1072,
         384,
         273
        ],
@@ -65,8 +116,8 @@
         260.5
        ],
        "rect": [
-        387,
-        584,
+        1,
+        1089,
         288,
         259
        ],
@@ -74,12 +125,51 @@
       },
       {
        "origin": [
+        135,
+        259
+       ],
+       "rect": [
+        738,
+        1,
+        270,
+        258
+       ],
+       "symbol": "_building_altar"
+      },
+      {
+       "origin": [
+        134.95,
+        251.5
+       ],
+       "rect": [
+        291,
+        1347,
+        268,
+        251
+       ],
+       "symbol": "_building_house"
+      },
+      {
+       "origin": [
+        153.5,
+        213
+       ],
+       "rect": [
+        561,
+        1347,
+        305,
+        212
+       ],
+       "symbol": "_building_park"
+      },
+      {
+       "origin": [
         96.35,
         189
        ],
        "rect": [
-        1,
-        641,
+        773,
+        763,
         192,
         189
        ],
@@ -91,371 +181,313 @@
         96
        ],
        "rect": [
-        1,
-        832,
+        738,
+        261,
         192,
         96
        ],
        "symbol": "_ground0"
-      },
-      {
-       "origin": [
-        96,
-        96
-       ],
-       "rect": [
-        195,
-        845,
-        192,
-        96
-       ],
-       "symbol": "_ground1"
-      },
-      {
-       "origin": [
-        96,
-        96
-       ],
-       "rect": [
-        389,
-        845,
-        192,
-        96
-       ],
-       "symbol": "_ground2"
-      },
-      {
-       "origin": [
-        96,
-        96
-       ],
-       "rect": [
-        583,
-        845,
-        192,
-        96
-       ],
-       "symbol": "_ground3"
-      },
-      {
-       "origin": [
-        96,
-        96
-       ],
-       "rect": [
-        677,
-        584,
-        192,
-        96
-       ],
-       "symbol": "_ground4"
-      },
-      {
-       "origin": [
-        96,
-        96
-       ],
-       "rect": [
-        677,
-        682,
-        192,
-        96
-       ],
-       "symbol": "_ground5"
-      },
-      {
-       "origin": [
-        96,
-        96
-       ],
-       "rect": [
-        777,
-        780,
-        192,
-        96
-       ],
-       "symbol": "_ground6"
-      },
-      {
-       "origin": [
-        96,
-        96
-       ],
-       "rect": [
-        777,
-        878,
-        192,
-        96
-       ],
-       "symbol": "_ground7"
-      },
-      {
-       "origin": [
-        96,
-        96
-       ],
-       "rect": [
-        773,
-        1,
-        192,
-        96
-       ],
-       "symbol": "_ground8"
-      },
-      {
-       "origin": [
-        96,
-        96
-       ],
-       "rect": [
-        773,
-        99,
-        192,
-        96
-       ],
-       "symbol": "_ground9"
       }
-     ],
-     "file": "atlas0.png"
+     ]
     }
-   ]
+   ],
+   "scaleFactor": 1
   }
  ],
  "movies": [
   {
-   "id": "Building_1x1",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.35,
-        -0.3
+       "pivot": [
+        96.35,
+        189
        ],
        "duration": 1,
        "ref": "_building_1x1",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        96.35,
-        189
+       "loc": [
+        -0.35,
+        -0.3
        ]
       }
      ],
      "name": "Calque 2"
     }
-   ]
+   ],
+   "id": "Building_1x1"
   },
   {
-   "id": "Building_2x1",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.95,
-        0.5
+       "pivot": [
+        193,
+        260.5
        ],
        "duration": 1,
        "ref": "_building_2x1",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        193,
-        260.5
+       "loc": [
+        -0.95,
+        0.5
        ]
       }
      ],
      "name": "Calque 3"
     }
-   ]
+   ],
+   "id": "Building_2x1"
   },
   {
-   "id": "Building_2x2",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.4,
-        -0.4
+       "pivot": [
+        192.7,
+        272.35
        ],
        "duration": 1,
        "ref": "_building0_2x2",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        192.7,
-        272.35
+       "loc": [
+        -0.4,
+        -0.4
        ]
       },
       {
-       "loc": [
-        -0.4,
-        -0.15
+       "pivot": [
+        192.8,
+        298.6
        ],
        "duration": 1,
        "ref": "_building1_2x2",
        "tweened": false,
        "index": 1,
-       "pivot": [
-        192.8,
-        298.6
+       "loc": [
+        -0.4,
+        -0.15
        ]
       },
       {
-       "loc": [
-        -0.4,
-        -0.65
+       "pivot": [
+        193.3,
+        363.45
        ],
        "duration": 1,
        "ref": "_building3_2x2",
        "tweened": false,
        "index": 2,
-       "pivot": [
-        193.3,
-        363.45
+       "loc": [
+        -0.4,
+        -0.65
        ]
       }
      ],
      "name": "Calque 3"
     }
-   ]
+   ],
+   "id": "Building_2x2"
   },
   {
-   "id": "Building_3x1",
    "layers": [
     {
      "keyframes": [
       {
-       "loc": [
-        -0.15,
-        -0.15
+       "pivot": [
+        288.85,
+        281
        ],
        "duration": 1,
        "ref": "_building_3x1",
        "tweened": false,
        "index": 0,
-       "pivot": [
-        288.85,
-        281
+       "loc": [
+        -0.15,
+        -0.15
        ]
       }
      ],
      "name": "Calque 2"
     }
-   ]
+   ],
+   "id": "Building_3x1"
   },
   {
-   "id": "Ground",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        135,
+        259
+       ],
+       "duration": 1,
+       "ref": "_building_altar",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -1.05,
+        -1
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "Building_Altar"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        152.5,
+        183
+       ],
+       "duration": 1,
+       "ref": "_building_gonzales",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -30,
+        -185
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "Building_Gonzales"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        134,
+        125.5
+       ],
+       "duration": 1,
+       "ref": "_building_house",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -1,
+        -126
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "Building_House"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        175.5,
+        393
+       ],
+       "duration": 1,
+       "ref": "_building_pyrotechnician_1",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        0,
+        -1
+       ]
+      },
+      {
+       "pivot": [
+        174.5,
+        196
+       ],
+       "duration": 1,
+       "ref": "_building_pyrotechnician_2",
+       "tweened": false,
+       "index": 1,
+       "loc": [
+        -1,
+        -198
+       ]
+      },
+      {
+       "pivot": [
+        173.5,
+        196
+       ],
+       "duration": 1,
+       "ref": "_building_pyrotechnician_3",
+       "tweened": false,
+       "index": 2,
+       "loc": [
+        -1,
+        -198
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "Building_Pyrotechnician"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        152.5,
+        106
+       ],
+       "duration": 1,
+       "ref": "_building_park",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        -0.95,
+        -107
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "Building_park"
+  },
+  {
    "layers": [
     {
      "keyframes": [
       {
        "tweened": false,
+       "pivot": [
+        96,
+        96
+       ],
        "duration": 1,
        "index": 0,
-       "pivot": [
-        96,
-        96
-       ],
        "ref": "_ground0"
-      },
-      {
-       "tweened": false,
-       "duration": 1,
-       "index": 1,
-       "pivot": [
-        96,
-        96
-       ],
-       "ref": "_ground1"
-      },
-      {
-       "tweened": false,
-       "duration": 1,
-       "index": 2,
-       "pivot": [
-        96,
-        96
-       ],
-       "ref": "_ground2"
-      },
-      {
-       "tweened": false,
-       "duration": 1,
-       "index": 3,
-       "pivot": [
-        96,
-        96
-       ],
-       "ref": "_ground3"
-      },
-      {
-       "tweened": false,
-       "duration": 1,
-       "index": 4,
-       "pivot": [
-        96,
-        96
-       ],
-       "ref": "_ground4"
-      },
-      {
-       "tweened": false,
-       "duration": 1,
-       "index": 5,
-       "pivot": [
-        96,
-        96
-       ],
-       "ref": "_ground5"
-      },
-      {
-       "tweened": false,
-       "duration": 1,
-       "index": 6,
-       "pivot": [
-        96,
-        96
-       ],
-       "ref": "_ground6"
-      },
-      {
-       "tweened": false,
-       "duration": 1,
-       "index": 7,
-       "pivot": [
-        96,
-        96
-       ],
-       "ref": "_ground7"
-      },
-      {
-       "tweened": false,
-       "duration": 1,
-       "index": 8,
-       "pivot": [
-        96,
-        96
-       ],
-       "ref": "_ground8"
-      },
-      {
-       "tweened": false,
-       "duration": 1,
-       "index": 9,
-       "pivot": [
-        96,
-        96
-       ],
-       "ref": "_ground9"
       }
      ],
      "name": "grounds"
     }
-   ]
+   ],
+   "id": "Ground"
   }
  ],
- "md5": "7dba6aaf683cf83a0225e7573e8c6b16"
+ "md5": "374b81513421489200a6aef0db117f63",
+ "frameRate": 30
 }

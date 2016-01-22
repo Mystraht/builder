@@ -43,7 +43,20 @@ class UIComponent extends GameObject
 		
 		var lItems:Array<UIPositionable> = UIBuilder.build(lClassName);
 		
-		for (lItem in lItems) {
+		addChildItems(lItems);
+	}
+	
+	private function addChildItems (pItems:Array<UIPositionable>) : Void
+	{
+		for (lItem in pItems) {
+			addChild(lItem.item);
+			if (lItem.align != "") positionables.push(lItem);
+		}
+	}
+	
+	private function addChildItem (pItems:Array<UIPositionable>) : Void
+	{
+		for (lItem in pItems) {
 			addChild(lItem.item);
 			if (lItem.align != "") positionables.push(lItem);
 		}

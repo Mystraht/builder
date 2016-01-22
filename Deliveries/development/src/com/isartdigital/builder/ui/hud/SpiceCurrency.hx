@@ -11,17 +11,16 @@ import pixi.core.text.Text;
  * ...
  * @author Flavien
  */
-class SpiceCurrency extends UIComponent
+class SpiceCurrency extends CurrencyAsset
 {
 
 	public function new() 
 	{
 		super();
-		build();
-		//RessourceManager.getInstance().updateSpice = changeCount;
+		RessourceManager.getInstance().updateSpice = changeCount;
 	}
 	
-	public function changeCount(pNumber) {
+	override public function changeCount(pNumber:Int) {
 		trace ("Number :" + pNumber);
 		cast(getChildByName("Spice_txt"), Text).text = cast (pNumber);
 	}

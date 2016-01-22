@@ -17,7 +17,7 @@ class BuildingFactory
 		
 	}
 	
-	public static function create (name:String): Building {
+	public static function createBuildingByName (name:String): Building {
 		if (name == null) {
 			return null;
 		}

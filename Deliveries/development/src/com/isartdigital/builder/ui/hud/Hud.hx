@@ -75,6 +75,11 @@ class Hud extends Screen
 	override private function onResize (pEvent:EventTarget = null): Void {
 		super.onResize();
 	}
+	/*
+	public function doAction () : Void
+	{
+		if (BaseBuildingHUD.getInstance().hadToMove) return;
+	}*/
 	
 	public function refreshHUD () : Void {
 		Api.resources.get(cb_resourceAll);

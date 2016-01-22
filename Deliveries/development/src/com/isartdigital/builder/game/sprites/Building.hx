@@ -8,6 +8,8 @@ import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.pooling.IPoolObject;
 import com.isartdigital.builder.game.utils.TypeDefUtils;
+import com.isartdigital.builder.ui.hud.BaseBuildingHUD;
+import com.isartdigital.builder.ui.UIManager;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.events.MouseEventType;
 import com.isartdigital.utils.game.BoxType;
@@ -17,14 +19,15 @@ import com.isartdigital.utils.game.iso.IsoManager;
 import com.isartdigital.utils.game.iso.IZSortable;
 import com.isartdigital.utils.game.StateGraphic;
 import com.isartdigital.utils.loader.GameLoader;
+import com.isartdigital.utils.ui.Screen;
 import eventemitter3.EventEmitter;
 import haxe.Json;
-import js.html.EventTarget;
 import js.html.MouseEvent;
 import js.Lib;
 import pixi.core.math.Point;
 import pixi.display.FlumpMovie;
 import pixi.extras.MovieClip;
+import pixi.interaction.EventTarget;
 
 /**
  * ...
@@ -141,6 +144,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	 * Commence le deplacement d'un batiment
 	 */
 	public function buildingClick (event:Dynamic) {
+		BaseBuildingHUD.getInstance().initHUD(function (p:EventTarget):Void { trace("OKLM POTPO"); }, function (p:EventTarget):Void { } );
 		var lMapManager:MapManager = MapManager.getInstance();
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
