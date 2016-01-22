@@ -12,8 +12,7 @@ class Casino extends Building
 
 	public function new() 
 	{
-		super();
-		
+		super();	
 	}
 	
 }
