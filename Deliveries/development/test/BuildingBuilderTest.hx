@@ -1,7 +1,7 @@
 package ;
 
 import com.isartdigital.builder.game.sprites.buildings.BuildingBuilder;
-import com.isartdigital.builder.game.sprites.buildings.Motel;
+import com.isartdigital.builder.game.sprites.buildings.childrens.Motel;
 import massive.munit.util.Timer;
 import massive.munit.Assert;
 import massive.munit.async.AsyncFactory;

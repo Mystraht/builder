@@ -1,6 +1,10 @@
 package com.isartdigital.builder.game.sprites.buildings;
 import com.isartdigital.builder.game.sprites.buildings.Building;
-import com.isartdigital.builder.game.sprites.buildings.Motel;
+import com.isartdigital.builder.game.sprites.buildings.component.CollectableComponent;
+import com.isartdigital.builder.game.sprites.buildings.component.ICollectableComponent;
+import com.isartdigital.builder.game.sprites.buildings.component.IUpgradableComponent;
+import com.isartdigital.builder.game.sprites.buildings.component.UpgradableComponent;
+import com.isartdigital.builder.game.sprites.buildings.childrens.Motel;
 	
 /**
  * Class factory des buildings

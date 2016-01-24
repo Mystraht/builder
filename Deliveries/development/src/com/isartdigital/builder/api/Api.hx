@@ -10,7 +10,7 @@ import js.html.CreateFileOptions;
  */
 class Api 
 {	
-	//public static var domain:String = "https://fbgame.isartdigital.com/2017_builder/builder2/api/index.php/v1";
+	//public static var domain:String = "https://fbgame.isartdigital.com/2017_builder/builder2/";
 	public static var domain:String = "https://localhostbuilder.com/";
 	
 	public static var pathApi:String = "api/v1/";
