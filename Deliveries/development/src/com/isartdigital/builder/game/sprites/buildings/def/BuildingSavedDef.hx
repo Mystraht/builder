@@ -1,4 +1,4 @@
-package com.isartdigital.builder.game.def;
+package com.isartdigital.builder.game.sprites.buildings.def;
 import pixi.core.math.Point;
 
 /**

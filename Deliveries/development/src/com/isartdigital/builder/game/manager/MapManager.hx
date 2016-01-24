@@ -1,19 +1,20 @@
 package com.isartdigital.builder.game.manager;
 import com.isartdigital.builder.api.Api;
-import com.isartdigital.builder.game.def.buildings.BuildingDef;
-import com.isartdigital.builder.game.def.BuildingSavedDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.MapSavedDef;
 import com.isartdigital.builder.game.def.PointDef;
 import com.isartdigital.builder.game.def.SizeDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.pooling.PoolObject;
-import com.isartdigital.builder.game.sprites.Building;
+import com.isartdigital.builder.game.sprites.buildings.Building;
 import com.isartdigital.builder.game.sprites.buildings.Casino;
 import com.isartdigital.builder.game.sprites.buildings.Motel;
 import com.isartdigital.builder.game.sprites.buildings.RocketFactory;
 import com.isartdigital.builder.game.sprites.buildings.Temple;
 import com.isartdigital.builder.game.sprites.Tile;
 import com.isartdigital.builder.game.utils.TypeDefUtils;
+import com.isartdigital.services.Users;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
 import com.isartdigital.utils.game.GameObject;
@@ -66,7 +67,6 @@ class MapManager extends Manager
 	public function generateMap():Void {
 		var map:MapSavedDef;
 		
-		trace(GameManager.getInstance().userInfo);
 		
 		// Récupère les données dans le localstorage OU le json de base si il trouve rien
 		/*if (isSaveAvailable()) {
@@ -224,7 +224,7 @@ class MapManager extends Manager
 	private function loadMap():Bool {
 		// Remplissage des tiles de la map dans le containeur de tiles
 		var map:MapSavedDef = {
-			buildings: GameManager.getInstance().userInfo.buildings
+			buildings: Users.infos.buildings
 		}
 		
 		var tilePosition:String;

@@ -1,7 +1,7 @@
 import massive.munit.TestSuite;
 
 import ApiTest;
-import BuildingFactoryTest;
+import BuildingBuilderTest;
 import BuildingTest;
 import MapManagerTest;
 
@@ -18,7 +18,7 @@ class TestSuite extends massive.munit.TestSuite
 		super();
 
 		add(ApiTest);
-		add(BuildingFactoryTest);
+		add(BuildingBuilderTest);
 		add(BuildingTest);
 		add(MapManagerTest);
 	}

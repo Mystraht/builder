@@ -1,11 +1,11 @@
 package ;
 
-import com.isartdigital.builder.game.def.BuildingSavedDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.MapSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.GameManager;
 import com.isartdigital.builder.game.manager.MapManager;
-import com.isartdigital.builder.game.sprites.Building;
+import com.isartdigital.builder.game.sprites.buildings.Building;
 import com.isartdigital.builder.Main;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;

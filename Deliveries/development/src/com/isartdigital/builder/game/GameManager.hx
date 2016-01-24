@@ -4,13 +4,13 @@ import com.isartdigital.builder.api.Api;
 import com.isartdigital.builder.game.manager.RessourceManager;
 import com.isartdigital.builder.game.type.BuildingType;
 import com.isartdigital.builder.api.DataDef;
-import com.isartdigital.builder.game.def.buildings.BuildingDef;
-import com.isartdigital.builder.game.def.BuildingSavedDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.ClippingManager;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.pooling.PoolObject;
-import com.isartdigital.builder.game.sprites.Building;
+import com.isartdigital.builder.game.sprites.buildings.Building;
 import com.isartdigital.builder.game.sprites.Citizen;
 import com.isartdigital.builder.game.sprites.SpriteObject;
 import com.isartdigital.builder.game.sprites.Tile;
@@ -50,8 +50,6 @@ class GameManager
 	 * instance unique de la classe GameManager
 	 */
 	private static var instance: GameManager;
-	
-	public var userInfo:Dynamic; // TODO : Match pour userInfoDef
 	
 	public var mousePosition:Point = new Point( -1, -1);
 	
@@ -147,10 +145,11 @@ class GameManager
 		//initialise le clipping
 		ClippingManager.getInstance().setOn(MapManager.getInstance().globalMap, [cast(Tile.list), cast(Building.list)], new Point(Config.tileWidth / 2, Config.tileHeight / 2), lTypeDefArray, [Tile, Building], get_ScreenRect);
 		
+		/*
 		var lCitizen:Citizen = new Citizen();
 		GameStage.getInstance().getGameContainer().addChild(lCitizen);
 		
-		lCitizen.start();
+		lCitizen.start();*/
 		
 		//Localization.getInstance().getText("title_screen_play");
 		ClippingManager.getInstance().addAllObjetInView();

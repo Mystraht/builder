@@ -1,16 +1,16 @@
 package com.isartdigital.builder.game.sprites.buildings;
-import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
 
 /**
  * ...
- * @author Dorian
+ * @author Flavien
  */
-class Temple extends Building
+class House extends Building
 {
 
 	public function new() 
 	{
 		super();
+		
 	}
 	
 }
