@@ -425,7 +425,7 @@ class UsersController extends ApplicationController
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_pyrotechnician VALUES (NULL, ?, ?, ?)');
 		$request->execute(array($userId, $lvl, $date));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 2, $GLOBALS['app']['db']->lastInsertId(), 1, 0, $date, 'A'));
+		$request->execute(array($userId, $date, $date, 2, $GLOBALS['app']['db']->lastInsertId(), 45, 42, $date, 'A'));
 		
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_bar VALUES (NULL, ?, ?, ?)');
 		$request->execute(array($userId, $lvl, $date));
@@ -435,7 +435,7 @@ class UsersController extends ApplicationController
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_brothel VALUES (NULL, ?)');
 		$request->execute(array($userId));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 5, $GLOBALS['app']['db']->lastInsertId(), 3, 0, $date, 'A'));
+		$request->execute(array($userId, $date, $date, 5, $GLOBALS['app']['db']->lastInsertId(), 45, 50, $date, 'A'));
 		
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_rocket_factory VALUES (NULL, ?, ?, ?)');
 		$request->execute(array($userId, $lvl, $date));
@@ -445,7 +445,7 @@ class UsersController extends ApplicationController
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_house VALUES (NULL, ?)');
 		$request->execute(array($userId));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 7, $GLOBALS['app']['db']->lastInsertId(), 5, 0, $date, 'A'));
+		$request->execute(array($userId, $date, $date, 7, $GLOBALS['app']['db']->lastInsertId(), 50, 55, $date, 'A'));
 		
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_main_square VALUES (NULL, ?)');
 		$request->execute(array($userId));
@@ -455,7 +455,7 @@ class UsersController extends ApplicationController
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_park VALUES (NULL, ?)');
 		$request->execute(array($userId));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 9, $GLOBALS['app']['db']->lastInsertId(), 7, 0, $date, 'A'));
+		$request->execute(array($userId, $date, $date, 9, $GLOBALS['app']['db']->lastInsertId(), 58, 58, $date, 'A'));
 		
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_statue VALUES (NULL, ?)');
 		$request->execute(array($userId));

@@ -145,10 +145,11 @@ class GameManager
 		//initialise le clipping
 		ClippingManager.getInstance().setOn(MapManager.getInstance().globalMap, [cast(Tile.list), cast(Building.list)], new Point(Config.tileWidth / 2, Config.tileHeight / 2), lTypeDefArray, [Tile, Building], get_ScreenRect);
 		
+		/*
 		var lCitizen:Citizen = new Citizen();
 		GameStage.getInstance().getGameContainer().addChild(lCitizen);
 		
-		lCitizen.start();
+		lCitizen.start();*/
 		
 		//Localization.getInstance().getText("title_screen_play");
 		ClippingManager.getInstance().addAllObjetInView();
