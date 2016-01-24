@@ -47,8 +47,8 @@ class BuildingBuilderTest
 	
 	@Test public function should_add_collectable_and_upgradable_components_to_motel():Void {
 		var motel:Motel = cast(BuildingBuilder.createBuildingByName("Motel"));
-		
-		untyped Assert.isTrue(motel.buildingCollectable != null);
-		untyped Assert.isTrue(motel.buildingUpgradable != null);
+
+		untyped Assert.isTrue(motel.collectableComponent != null);
+		untyped Assert.isTrue(motel.upgradableComponent != null);
 	}
 }

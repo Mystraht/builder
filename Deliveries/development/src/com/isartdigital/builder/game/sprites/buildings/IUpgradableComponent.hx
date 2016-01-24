@@ -6,5 +6,5 @@ package com.isartdigital.builder.game.sprites.buildings;
 
 interface IUpgradableComponent 
 {
-  
+	public function setUpgradableComponent(upgradableComponent:UpgradableComponent):Void;
 }

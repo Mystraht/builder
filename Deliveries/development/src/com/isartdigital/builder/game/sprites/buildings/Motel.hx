@@ -8,20 +8,27 @@ import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
  */
 class Motel extends Building implements ICollectableComponent implements IUpgradableComponent
 {
-	private var collectableComponent(null, set):CollectableComponent;
-	private var upgradableComponent(null, set):UpgradableComponent;
+	private var collectableComponent:CollectableComponent;
+	private var upgradableComponent:UpgradableComponent;
 	
-	public function new() 
+	public function new()
 	{
 		super();
 	}
 	
-	function set_collectableComponent(collectableComponent:CollectableComponent) {
-		return this.collectableComponent = collectableComponent;
+	public function setCollectableComponent(collectableComponent:CollectableComponent):Void {
+		this.collectableComponent = collectableComponent;
 	}
 	
-	function set_upgradableComponent(upgradableComponent:UpgradableComponent) {
-		return this.upgradableComponent = upgradableComponent;
+	public function setUpgradableComponent(upgradableComponent:UpgradableComponent):Void {
+		this.upgradableComponent = upgradableComponent;
 	}
 	
+	public function collect():Void {
+		collectableComponent.collect();
+	}
+	
+	public function upgrade():Void {
+		upgradableComponent.upgrade();
+	}
 }

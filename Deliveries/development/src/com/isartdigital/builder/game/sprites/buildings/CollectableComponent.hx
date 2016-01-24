@@ -6,12 +6,12 @@ package com.isartdigital.builder.game.sprites.buildings;
  */
 class CollectableComponent
 {
-
+	public var lastRecoltAt:Date;
+	
 	public function new() 
 	{
 		
 	}
-	
 	
 	public function collect():Void {
 		trace('collecté');

@@ -437,11 +437,6 @@ class UsersController extends ApplicationController
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
 		$request->execute(array($userId, $date, $date, 5, $GLOBALS['app']['db']->lastInsertId(), 3, 0, $date, 'A'));
 		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_rocket_factory VALUES (NULL, ?, ?, ?)');
-		$request->execute(array($userId, $lvl, $date));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 6, $GLOBALS['app']['db']->lastInsertId(), 4, 0, $date, 'A'));
-		
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_house VALUES (NULL, ?)');
 		$request->execute(array($userId));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');

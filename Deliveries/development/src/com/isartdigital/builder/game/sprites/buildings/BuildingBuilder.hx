@@ -20,24 +20,25 @@ class BuildingBuilder
 	public static function createBuildingByName (name:String): Building {
 		if (name == null) {
 			return null;
-		
 		}
+		
 		if (name == "Motel") {
 			var motel:Motel = new Motel();
-			addBuildingCollectableComponentInto(motel);
-			addBuildingUpgradableComponentInto(motel);
-			return cast (new Motel());
+			addCollectableComponentInto(motel);
+			addUpgradableComponentInto(motel);
+			return cast motel;
 		}
-		
 		
 		return null;
 	}
 	
-	private static function addBuildingCollectableComponentInto(building:ICollectableComponent):Void {
-		
+	private static function addCollectableComponentInto(building:ICollectableComponent):Void {
+		var collectableComponent:CollectableComponent = new CollectableComponent();
+		building.setCollectableComponent(collectableComponent);
 	}
 	
-	private static function addBuildingUpgradableComponentInto(building:IUpgradableComponent):Void {
-		
+	private static function addUpgradableComponentInto(building:IUpgradableComponent):Void {
+		var upgradableComponent:UpgradableComponent = new UpgradableComponent();
+		building.setUpgradableComponent(upgradableComponent);
 	}
 }
