@@ -420,7 +420,7 @@ class UsersController extends ApplicationController
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_temple VALUES (NULL, ?, ?)');
 		$request->execute(array($userId, $pinataReady));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 1, $GLOBALS['app']['db']->lastInsertId(), 0, 0, $date, 'A'));
+		$request->execute(array($userId, $date, $date, 1, $GLOBALS['app']['db']->lastInsertId(), 5, 5, $date, 'A'));
 		
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_pyrotechnician VALUES (NULL, ?, ?, ?)');
 		$request->execute(array($userId, $lvl, $date));
@@ -497,25 +497,15 @@ class UsersController extends ApplicationController
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
 		$request->execute(array($userId, $date, $date, 17, $GLOBALS['app']['db']->lastInsertId(), 15, 0, $date, 'A'));
 		
+		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_altar VALUES (NULL, ?)');
+		$request->execute(array($userId));
+		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+		$request->execute(array($userId, $date, $date, 18, $GLOBALS['app']['db']->lastInsertId(), 60, 52, $date, 'A'));
+		
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
 		$request->execute(array($userId));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
 		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 48, 52, $date, 'A'));
-
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 48, 49, $date, 'A'));
-
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 50, 50, $date, 'A'));
-
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 50, 51, $date, 'A'));
 	}
 
 }
