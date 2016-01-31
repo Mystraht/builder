@@ -67,52 +67,8 @@ class MapManager extends Manager
 	public function generateMap():Void {
 		var map:MapSavedDef;
 		
-		// Récupère les données dans le localstorage OU le json de base si il trouve rien
-		/*if (isSaveAvailable()) {
-			map = cast (Json.parse(Browser.getLocalStorage().getItem("save")));
-		} else {
-			map = cast (GameLoader.getContent("json/basemap.json"));
-		}*/
-		
-		
 		loadMap();
-		//saveMap();
-	}
-	
-	
-	/**
-	 * Sauvegarde la map en cours
-	 * @return Success ou fail
-	 * DEPRECATED
-	 * TODO : A supprimer ainsi que les appel à cette fonction quand la relation front-back sera terminé
-	 * pour le chargement de la map.
-	 */
-	public function saveMap():Bool {
-		var mapToSave:MapSavedDef = {
-			buildings: new Array()
-		};
-		
-		var building:Building;
-		var buildingSaved:BuildingSavedDef;
-		
-		for (i in 0...Building.list.length) {
-			buildingSaved = TypeDefUtils.buildingSavedDef;
-			building = Building.list[i];
-			
-			buildingSaved.name = building.definition.name;
-			buildingSaved.buildingLevel = building.buildingLevel;
-			
-			buildingSaved.x = Std.int(building.toModel(true).x);
-			buildingSaved.y = Std.int(building.toModel(true).y);
-			
-			mapToSave.buildings.push(buildingSaved);
-		}
-		
-		Browser.getLocalStorage().setItem("save", Json.stringify(mapToSave));
-		
-		return true;
-	}
-	
+	}	
 
 	/**
 	 * Permet de savoir si un batiment est construisable à un endroit donnée
@@ -233,19 +189,18 @@ class MapManager extends Manager
 	 * @param	typeDef de l'element à enlever
 	 * @return Renvoi l'element enlevé
 	 */
-	public function removeTypeDefElementFromGlobalMapAt(position:Point, element:Dynamic):Dynamic {
+	public function removeElementByTypeDefFromGlobalMapAt(position:Point, typeDef:Dynamic):Dynamic {
 		var elements:Array<Dynamic> = globalMap[Std.int(position.x)][Std.int(position.y)];
 		var elementRemoved:Dynamic;
 		
 		for (i in 0...elements.length) {
-			if (TypeDefUtils.compare(elements[i], element)) {
+			if (TypeDefUtils.compare(elements[i], typeDef)) {
 				elementRemoved = elements.splice(i, 1);
 				return elementRemoved[0];
 			}
 		}
 		
 		throw 'typedef was not found in elements array';
-		return null;
 	}
 	
 	
@@ -316,19 +271,6 @@ class MapManager extends Manager
 		}
 		
 		return getElementByTypeDefInArray(elements, TypeDefUtils.tileSavedDef);
-	}
-	
-	
-	/**
-	 * Demande si une sauvegarde est disponible ou non
-	 * @return
-	 */
-	private function isSaveAvailable():Bool {
-		var lSaveAvailable:Bool = true;	
-		if (Browser.getLocalStorage().getItem("save") == null) {
-			lSaveAvailable = false;
-		}
-		return lSaveAvailable;
 	}
 	
 	

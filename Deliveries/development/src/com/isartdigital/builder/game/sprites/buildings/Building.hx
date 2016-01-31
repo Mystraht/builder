@@ -212,9 +212,9 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 			buildingConstructor.construct();
 			initialeModelPosition.set(buildingPosition.x, buildingPosition.y);
 			cancelMoving();
-			mapManager.saveMap();
 		}
 	}
+	
 	
 	/**
 	 * Annule le deplacement du batiment actuellement en train de bouger et le remet à sa position initiale

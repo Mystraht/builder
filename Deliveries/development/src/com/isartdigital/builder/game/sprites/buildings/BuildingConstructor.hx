@@ -51,7 +51,7 @@ class BuildingConstructor
 	private function updateBuildingInGlobalMap():Void {
 		var buildingRemoved:BuildingSavedDef = TypeDefUtils.buildingSavedDef;
 		
-		buildingRemoved = mapManager.removeTypeDefElementFromGlobalMapAt(initialeModelPosition, TypeDefUtils.buildingSavedDef);
+		buildingRemoved = mapManager.removeElementByTypeDefFromGlobalMapAt(initialeModelPosition, TypeDefUtils.buildingSavedDef);
 		mapManager.addElementInGlobalMapAt(destinationPosition, buildingRemoved);
 	}
 }
