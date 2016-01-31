@@ -31,9 +31,6 @@ class BuildingBuilder
 		
 		if (name == "Motel") {
 			building = cast new Motel();
-			trace('cc');
-			trace(building.initialeModelPosition);
-			trace('cc');
 			addCollectableComponentInto(cast(building, Motel));
 			addUpgradableComponentInto(cast(building, Motel));
 			return cast building;

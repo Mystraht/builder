@@ -10,5 +10,6 @@ typedef BuildingSavedDef =
 	var name:String;
 	var x:Int;
 	var y:Int;
+	var color:String;
 	var buildingLevel:Int;
 }

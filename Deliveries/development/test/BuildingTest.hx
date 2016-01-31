@@ -77,6 +77,7 @@ class BuildingTest
 			name: 'rocketfactory',
 			x: 5,
 			y: 5,
+			color: "A",
 			buildingLevel: 0
 		}
 		

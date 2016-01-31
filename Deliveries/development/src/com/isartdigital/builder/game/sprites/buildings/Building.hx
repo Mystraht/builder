@@ -48,13 +48,10 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	public var rowMax:UInt;
 	
 	private var initialeModelPosition:Point = new Point(0, 0);
-	
-	private var buildingConstructor:BuildingConstructor;
-	
+
 	public function new()
 	{
 		super();
-		buildingConstructor = new BuildingConstructor(this, initialeModelPosition);
 		
 		factory = new FlumpMovieAnimFactory();
 		boxType = BoxType.NONE;
@@ -207,8 +204,12 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	private function buildingRequest():Void {
 		var buildingPosition:Point = getBuildingPositionByCursor();
 		var mapManager:MapManager = MapManager.getInstance();
-		if (buildingConstructor.isConstructibleAtPosition(buildingPosition.x, buildingPosition.y)) {
-			buildingConstructor.constructAtPosition(buildingPosition.x, buildingPosition.y);
+		var buildingConstructor:BuildingConstructor = new BuildingConstructor(this, initialeModelPosition);
+		
+		buildingConstructor.setDestination(buildingPosition.x, buildingPosition.y);
+		
+		if (buildingConstructor.isConstructible()) {
+			buildingConstructor.construct();
 			initialeModelPosition.set(buildingPosition.x, buildingPosition.y);
 			cancelMoving();
 			mapManager.saveMap();

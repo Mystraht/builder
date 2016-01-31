@@ -96,7 +96,7 @@ class MapManager extends Manager
 		var buildingSaved:BuildingSavedDef;
 		
 		for (i in 0...Building.list.length) {
-			buildingSaved = { name:null, buildingLevel:null, x:null, y:null };
+			buildingSaved = TypeDefUtils.buildingSavedDef;
 			building = Building.list[i];
 			
 			buildingSaved.name = building.definition.name;
@@ -213,6 +213,39 @@ class MapManager extends Manager
 			}
 		}
 		return false;
+	}
+	
+	
+	/**
+	 * Ajoute un element dans la globalMap grâce à sa position
+	 * @param	position dans la map
+	 * @param	element à ajouter
+	 */
+	public function addElementInGlobalMapAt(position:Point, element:Dynamic):Void {
+		var elements:Array<Dynamic> = globalMap[Std.int(position.x)][Std.int(position.y)];
+		elements.push(element);
+	}
+	
+	
+	/**
+	 * Enlève un element de la map grâce à sa position et return l'element enlevé
+	 * @param	position dans la map de l'element à enlever
+	 * @param	typeDef de l'element à enlever
+	 * @return Renvoi l'element enlevé
+	 */
+	public function removeTypeDefElementFromGlobalMapAt(position:Point, element:Dynamic):Dynamic {
+		var elements:Array<Dynamic> = globalMap[Std.int(position.x)][Std.int(position.y)];
+		var elementRemoved:Dynamic;
+		
+		for (i in 0...elements.length) {
+			if (TypeDefUtils.compare(elements[i], element)) {
+				elementRemoved = elements.splice(i, 1);
+				return elementRemoved[0];
+			}
+		}
+		
+		throw 'typedef was not found in elements array';
+		return null;
 	}
 	
 	

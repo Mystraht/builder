@@ -138,7 +138,7 @@ class GameManager
 		//new clipping
 		var lTypeDefArray:Array<Dynamic> = new Array<Dynamic> ();
 		var ltd:TileSavedDef = {x:null, y:null, isBuildable:null};
-		var lbd:BuildingSavedDef = {x:null, y:null , name:null, buildingLevel:null};
+		var lbd:BuildingSavedDef = TypeDefUtils.buildingSavedDef;
 		lTypeDefArray.push(ltd);
 		lTypeDefArray.push(lbd);
 			

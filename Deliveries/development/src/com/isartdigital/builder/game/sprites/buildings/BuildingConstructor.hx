@@ -3,6 +3,7 @@ import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.utils.TypeDefUtils;
+import js.Lib;
 import pixi.core.math.Point;
 
 /**
@@ -11,63 +12,46 @@ import pixi.core.math.Point;
  */
 class BuildingConstructor
 {
+	private var mapManager:MapManager;
 	private var building:Building;
 	private var initialeModelPosition:Point;
+	private var destinationPosition:Point;
 	
 	public function new(building:Building, initialeModelPosition:Point) 
 	{
+		mapManager = MapManager.getInstance();
 		this.building = building;
 		this.initialeModelPosition = initialeModelPosition;
+		destinationPosition = new Point();
 	}
 	
-	/**
-	 * Essaye de construire le building en dessous de la souris
-	 * Ne ce construit pas si la construction n'est pas possible
-	 */
-	public function constructAtPosition(x:Float, y:Float):Void {
-		var buildingPosition:Point = new Point(x, y);
-		var lMapManager:MapManager = MapManager.getInstance();
-		var tilesOrigin:Array<TileSavedDef>;
-		var tilesDest:Array<TileSavedDef>;
-		var isBuildable:Bool;
-		var elementsAtBuildingInitialePosition:Array<Dynamic>;
-		var elementsAtBuildingPosition:Array<Dynamic>;
-		var buildingSavedDef:BuildingSavedDef = TypeDefUtils.buildingSavedDef;
-		
-		buildingPosition.x = Math.round(buildingPosition.x);
-		buildingPosition.y = Math.round(buildingPosition.y);
-		
-		tilesDest = lMapManager.getTilesArray(buildingPosition, building.definition.size);
-		
-		tilesOrigin = lMapManager.getTilesArray(initialeModelPosition, building.definition.size);
-		
-		lMapManager.setTilesBuildable(tilesOrigin, true);
-		lMapManager.setTilesBuildable(tilesDest, false);
-		
-		elementsAtBuildingInitialePosition = lMapManager.globalMap[Std.int(initialeModelPosition.x)][Std.int(initialeModelPosition.y)];
-		elementsAtBuildingPosition = lMapManager.globalMap[Std.int(buildingPosition.x)][Std.int(buildingPosition.y)];
-		
-		for (i in 0...elementsAtBuildingInitialePosition.length) {
-			if (TypeDefUtils.compare(elementsAtBuildingInitialePosition[i], TypeDefUtils.buildingSavedDef)) {
-				buildingSavedDef = elementsAtBuildingInitialePosition[i];
-				elementsAtBuildingInitialePosition.splice(i, 1);
-			}
-		}
-		
-		elementsAtBuildingPosition.push(buildingSavedDef);
-		
+	public function construct():Void {		
+		updateTilesBuildableInGlobalMap();
+		updateBuildingInGlobalMap();
 	}
 	
-	public function isConstructibleAtPosition(x:Float, y:Float):Bool {
-		var buildingPosition:Point = new Point(x, y);
-		var lMapManager:MapManager = MapManager.getInstance();
-		var tilesDest:Array<TileSavedDef>;
+	public function isConstructible():Bool {
+		var tilesDest:Array<TileSavedDef> = mapManager.getTilesArray(destinationPosition, building.definition.size);
+		return mapManager.isBuildable(tilesDest);
+	}
+	
+	public function setDestination(x:Float, y:Float):Void {
+		destinationPosition.x = Math.round(x);
+		destinationPosition.y = Math.round(y);
+	}
+	
+	private function updateTilesBuildableInGlobalMap():Void {
+		var tilesOrigin:Array<TileSavedDef> = mapManager.getTilesArray(initialeModelPosition, building.definition.size);
+		var tilesDest:Array<TileSavedDef> = mapManager.getTilesArray(destinationPosition, building.definition.size);
 		
-		buildingPosition.x = Math.round(buildingPosition.x);
-		buildingPosition.y = Math.round(buildingPosition.y);
+		mapManager.setTilesBuildable(tilesOrigin, true);
+		mapManager.setTilesBuildable(tilesDest, false);
+	}
+	
+	private function updateBuildingInGlobalMap():Void {
+		var buildingRemoved:BuildingSavedDef = TypeDefUtils.buildingSavedDef;
 		
-		tilesDest = lMapManager.getTilesArray(buildingPosition, building.definition.size);
-		
-		return lMapManager.isBuildable(tilesDest);
+		buildingRemoved = mapManager.removeTypeDefElementFromGlobalMapAt(initialeModelPosition, TypeDefUtils.buildingSavedDef);
+		mapManager.addElementInGlobalMapAt(destinationPosition, buildingRemoved);
 	}
 }

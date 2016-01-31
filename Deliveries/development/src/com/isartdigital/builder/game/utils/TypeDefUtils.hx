@@ -9,7 +9,7 @@ import com.isartdigital.builder.game.def.TileSavedDef;
 class TypeDefUtils
 {
 	public static var tileSavedDef:TileSavedDef = { x:null, y:null, isBuildable:null };
-	public static var buildingSavedDef:BuildingSavedDef = { name: null, x:null, y:null, buildingLevel:null };
+	public static var buildingSavedDef:BuildingSavedDef = { name: null, x:null, y:null, color: null, buildingLevel:null };
 	
 	public function new() 
 	{
