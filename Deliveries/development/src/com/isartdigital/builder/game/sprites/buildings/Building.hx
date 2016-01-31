@@ -36,9 +36,8 @@ import pixi.interaction.EventTarget;
 class Building extends SpriteObject implements IZSortable implements IPoolObject
 {
 	public static var list:Array<Building> = new Array();
-	public static var movingBuilding:Building;
 	
-	private var initialeModelPosition:Point = new Point(0, 0);
+	public static var movingBuilding:Building;
 	
 	public var definition:BuildingDef;
 	public var buildingLevel:Int = 0;
@@ -48,13 +47,19 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	public var rowMin:UInt;
 	public var rowMax:UInt;
 	
+	private var initialeModelPosition:Point = new Point(0, 0);
+	
+	private var buildingConstructor:BuildingConstructor;
+	
 	public function new()
 	{
 		super();
+		buildingConstructor = new BuildingConstructor(this, initialeModelPosition);
+		
 		factory = new FlumpMovieAnimFactory();
 		boxType = BoxType.NONE;
 		
-		interactive = true;		
+		interactive = true;
 	}
 	
 	override public function init(pDefinition:Dynamic):Void 
@@ -199,48 +204,14 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	}
 	
 	
-	/**
-	 * Essaye de construire le building en dessous de la souris
-	 * Ne ce construit pas si la construction n'est pas possible
-	 */
 	private function buildingRequest():Void {
-		var lMapManager:MapManager = MapManager.getInstance();
 		var buildingPosition:Point = getBuildingPositionByCursor();
-		var tilesOrigin:Array<TileSavedDef>;
-		var tilesDest:Array<TileSavedDef>;
-		var isBuildable:Bool;
-		var elementsAtBuildingInitialePosition:Array<Dynamic>;
-		var elementsAtBuildingPosition:Array<Dynamic>;
-		var buildingSavedDef:BuildingSavedDef = TypeDefUtils.buildingSavedDef;
-		
-		buildingPosition.x = Math.round(buildingPosition.x);
-		buildingPosition.y = Math.round(buildingPosition.y);
-		
-		tilesDest = lMapManager.getTilesArray(buildingPosition, definition.size);
-		
-		isBuildable = lMapManager.isBuildable(tilesDest); // test si c'est buildable
-		
-		if (isBuildable) {
-			tilesOrigin = lMapManager.getTilesArray(initialeModelPosition, definition.size);
-			
-			lMapManager.setTilesBuildable(tilesOrigin, true);
-			lMapManager.setTilesBuildable(tilesDest, false);
-			
-			elementsAtBuildingInitialePosition = lMapManager.globalMap[Std.int(initialeModelPosition.x)][Std.int(initialeModelPosition.y)];
-			elementsAtBuildingPosition = lMapManager.globalMap[Std.int(buildingPosition.x)][Std.int(buildingPosition.y)];
-			
-			for (i in 0...elementsAtBuildingInitialePosition.length) {
-				if (TypeDefUtils.compare(elementsAtBuildingInitialePosition[i], TypeDefUtils.buildingSavedDef)) {
-					buildingSavedDef = elementsAtBuildingInitialePosition[i];
-					elementsAtBuildingInitialePosition.splice(i, 1);
-				}
-			}
-			
-			elementsAtBuildingPosition.push(buildingSavedDef);
-			
-			initialeModelPosition = buildingPosition;
+		var mapManager:MapManager = MapManager.getInstance();
+		if (buildingConstructor.isConstructibleAtPosition(buildingPosition.x, buildingPosition.y)) {
+			buildingConstructor.constructAtPosition(buildingPosition.x, buildingPosition.y);
+			initialeModelPosition.set(buildingPosition.x, buildingPosition.y);
 			cancelMoving();
-			lMapManager.saveMap();
+			mapManager.saveMap();
 		}
 	}
 	
@@ -261,10 +232,8 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	}
 	
 	public function callServerToDestroy():Void {
-		trace('callServerToDestroybefore');
 		var modelPosistion:Point = toModel(true);
 		Api.buildings.destroy(Std.int(modelPosistion.x), Std.int(modelPosistion.y), cbTryToDestroy );
-		trace('callServerToDestroyafter');
 	}
 	
 	private function cbTryToDestroy(pResponse:String): Void {

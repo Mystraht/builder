@@ -506,6 +506,16 @@ class UsersController extends ApplicationController
 		$request->execute(array($userId));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
 		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 48, 52, $date, 'A'));
+
+		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
+		$request->execute(array($userId));
+		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 50, 52, $date, 'A'));
+
+		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
+		$request->execute(array($userId));
+		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 52, 52, $date, 'A'));
 	}
 
 }

@@ -67,7 +67,6 @@ class MapManager extends Manager
 	public function generateMap():Void {
 		var map:MapSavedDef;
 		
-		
 		// Récupère les données dans le localstorage OU le json de base si il trouve rien
 		/*if (isSaveAvailable()) {
 			map = cast (Json.parse(Browser.getLocalStorage().getItem("save")));

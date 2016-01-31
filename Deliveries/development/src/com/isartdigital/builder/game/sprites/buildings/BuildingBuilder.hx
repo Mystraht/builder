@@ -5,6 +5,7 @@ import com.isartdigital.builder.game.sprites.buildings.component.ICollectableCom
 import com.isartdigital.builder.game.sprites.buildings.component.IUpgradableComponent;
 import com.isartdigital.builder.game.sprites.buildings.component.UpgradableComponent;
 import com.isartdigital.builder.game.sprites.buildings.childrens.Motel;
+import pixi.core.math.Point;
 	
 /**
  * Class factory des buildings
@@ -22,15 +23,20 @@ class BuildingBuilder
 	}
 	
 	public static function createBuildingByName (name:String): Building {
+		var building:Building;
+		
 		if (name == null) {
 			return null;
 		}
 		
 		if (name == "Motel") {
-			var motel:Motel = new Motel();
-			addCollectableComponentInto(motel);
-			addUpgradableComponentInto(motel);
-			return cast motel;
+			building = cast new Motel();
+			trace('cc');
+			trace(building.initialeModelPosition);
+			trace('cc');
+			addCollectableComponentInto(cast(building, Motel));
+			addUpgradableComponentInto(cast(building, Motel));
+			return cast building;
 		}
 		
 		return null;
