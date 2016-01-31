@@ -61,7 +61,8 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	
 	override public function init(pDefinition:Dynamic):Void 
 	{
-		var buildingPosition:Point = IsoManager.modelToIsoView(new Point(pDefinition.x, pDefinition.y));
+		var buildingModelPosition:Point = new Point(pDefinition.x, pDefinition.y);
+		var buildingIsoPosition:Point = IsoManager.modelToIsoView(new Point(pDefinition.x, pDefinition.y));
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
 		list.push(this);
@@ -72,14 +73,15 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		rowMin = Math.floor(toModel().x);
 		rowMax = Math.floor(toModel().x) + definition.size.width;
 		
-		x = buildingPosition.x;
-		y = buildingPosition.y;
+		x = buildingIsoPosition.x;
+		y = buildingIsoPosition.y;
 		buildingLevel = pDefinition.buildingLevel;
 		
 		assetName = definition.spriteName;
 		
-		tilesUnderBuilding = MapManager.getInstance().getTilesArray(new Point(pDefinition.x, pDefinition.y), definition.size);
+		tilesUnderBuilding = MapManager.getInstance().getTilesArray(buildingModelPosition, definition.size);
 		MapManager.getInstance().setTilesBuildable(tilesUnderBuilding, false);
+		MapManager.getInstance().addElementInGlobalMapAt(buildingModelPosition, TypeDefUtils.buildingSavedDef);
 		
 		addToStage();
 	}
@@ -203,13 +205,12 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	
 	private function buildingRequest():Void {
 		var buildingPosition:Point = getBuildingPositionByCursor();
-		var mapManager:MapManager = MapManager.getInstance();
-		var buildingConstructor:BuildingConstructor = new BuildingConstructor(this, initialeModelPosition);
+		var buildingMover:BuildingMover = new BuildingMover(this, initialeModelPosition);
 		
-		buildingConstructor.setDestination(buildingPosition.x, buildingPosition.y);
+		buildingMover.setDestination(buildingPosition.x, buildingPosition.y);
 		
-		if (buildingConstructor.isConstructible()) {
-			buildingConstructor.construct();
+		if (buildingMover.canMove()) {
+			buildingMover.move();
 			initialeModelPosition.set(buildingPosition.x, buildingPosition.y);
 			cancelMoving();
 		}

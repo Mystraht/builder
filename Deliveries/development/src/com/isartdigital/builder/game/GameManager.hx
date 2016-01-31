@@ -1,18 +1,13 @@
 package com.isartdigital.builder.game;
 
-import com.isartdigital.builder.api.Api;
-import com.isartdigital.builder.game.manager.RessourceManager;
-import com.isartdigital.builder.game.type.BuildingType;
 import com.isartdigital.builder.api.DataDef;
-import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
-import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.ClippingManager;
 import com.isartdigital.builder.game.manager.MapManager;
-import com.isartdigital.builder.game.pooling.PoolObject;
+import com.isartdigital.builder.game.manager.RessourceManager;
 import com.isartdigital.builder.game.sprites.buildings.Building;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.sprites.Citizen;
-import com.isartdigital.builder.game.sprites.SpriteObject;
 import com.isartdigital.builder.game.sprites.Tile;
 import com.isartdigital.builder.game.utils.TypeDefUtils;
 import com.isartdigital.builder.ui.CheatPanel;
@@ -22,14 +17,10 @@ import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
 import com.isartdigital.utils.events.EventType;
 import com.isartdigital.utils.events.MouseEventType;
-import com.isartdigital.utils.facebook.Facebook;
 import com.isartdigital.utils.game.Camera;
-import com.isartdigital.utils.game.CollisionManager;
 import com.isartdigital.utils.game.GameStage;
 import com.isartdigital.utils.game.iso.IsoManager;
 import com.isartdigital.utils.game.IStateMachine;
-import com.isartdigital.utils.loader.GameLoader;
-import com.isartdigital.utils.Localization;
 import com.isartdigital.utils.system.DeviceCapabilities;
 import haxe.Json;
 import js.Browser;
@@ -37,7 +28,6 @@ import js.html.MouseEvent;
 import pixi.core.math.Point;
 import pixi.core.math.shapes.Rectangle;
 import pixi.interaction.EventTarget;
-import pixi.interaction.InteractionManager;
 
 /**
  * Manager (Singleton) en charge de gérer le déroulement d'une partie
