@@ -14,7 +14,7 @@ class HttpService extends Http
 	
 	private static inline var SERVICE_PATH:String = "https://fbgame.isartdigital.com/2017_builder/builder0/broadcast/";
 	
-	public function new(pCallback:Dynamic->Void) 
+	public function new(pCallback:Dynamic->Void=null) 
 	{
 		callback = pCallback;
 		super(SERVICE_PATH);

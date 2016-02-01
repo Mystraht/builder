@@ -56,7 +56,7 @@ class Ads
 	 */
 	private static inline var MOVIE:String = "movie";	
 	
-	private static var current:Popin;
+	private static var current:Ad;
 	
 	private static var callback:Dynamic->Void;	
 
@@ -66,14 +66,20 @@ class Ads
 	 * @return true si la demande d'affichage est acceptée, sinon false (quand une autre pub est en cours)
 	 */
 	public static function getImage (pCallback:Dynamic->Void): Bool {
+		return askForImage(pCallback);
+	}
+	
+	private static function askForImage (pCallback:Dynamic->Void,pVideo:String=""):Bool {
 		if (current!=null || (Config.data.ads!=null && !Config.data.ads)) return false;
 		
 		var lRequest:HttpService = initService(pCallback);
 		lRequest.addParameter("ad", IMAGE);
+		if (pVideo!="") lRequest.addParameter("movie", pVideo);
 		lRequest.request(true);
 		
 		return true;
 	}
+	
 	
 	/**
 	 * Demande l'affichage d'un publicité vidéo
@@ -102,25 +108,33 @@ class Ads
 	private static function onData (pData:String): Void {
 		var lData:Dynamic = Json.parse(pData);
 		
-		if (lData.type == MOVIE) current=new AdMovie(lData.url,lData.target);
-		else current=new AdImage(lData.url,lData.target);
+		if (lData.type == MOVIE) current=new AdMovie(lData.id,lData.url,lData.target);
+		else current=new AdImage(lData.id,lData.url,lData.target);
 	}
 	
 	private static function onQuit (pClose:String):Void {
+		var lId:String = current.id;
 		current.close();
 		current = null;
 		
-		if (pClose == TYPE_CLOSE) untyped Bank.ads(IMAGE);
-		else if (pClose == TYPE_CLICK) untyped Bank.ads(TYPE_CLICK);
-		else if (pClose == TYPE_END) untyped Bank.ads(MOVIE);
+		if (pClose == TYPE_END) askForImage(callback, lId);
+		else {
+			if (pClose == TYPE_CLOSE || pClose == TYPE_CLICK) {
+				var lRequest:HttpService = new HttpService();			
+				lRequest.addParameter("close", pClose == TYPE_CLICK ? TYPE_CLICK : IMAGE);
+				lRequest.request(true);
+			}
+			callback({close:pClose});
+			callback = null;
+		}
 		
-		callback({close:pClose});
-		callback = null;
 	}
+
 }
 
 private class Ad extends Popin {
 	
+	public var id:String;
 	private var url:String;
 	private var target:String;
 	private var content:Sprite;
@@ -133,10 +147,11 @@ private class Ad extends Popin {
 	private static inline var CROSS_SIZE:Int = 20;
 	private static inline var QUIT_SIZE:Int = 40;	
 	
-	public function new (pUrl:String,pTarget:String) {
+	public function new (pId:String,pUrl:String,pTarget:String) {
 		super();
 		modalImage = "assets/black_bg.png";
 		
+		id = pId;
 		url = pUrl;
 		target = pTarget;
 		
@@ -210,10 +225,6 @@ private class Ad extends Popin {
 		content.anchor.set(0.5, 0.5);
 		content.scale.set(1 /DeviceCapabilities.textureRatio , 1 / DeviceCapabilities.textureRatio);
 		addChildAt(content, 0);
-		content.interactive = true;
-		content.buttonMode = true;
-		content.once(MouseEventType.CLICK, onOpen);
-		content.once(TouchEventType.TAP, onOpen);
 		
 		timer = new Timer(1000);
 		duration = Math.random() < 0.5 ? 0 : 5;
@@ -230,11 +241,6 @@ private class Ad extends Popin {
 	private function onQuit (pEvent:EventTarget):Void {
 	}
 	
-	private function onOpen (pEvent:EventTarget):Void {
-		Browser.window.open(target+"?"+Type.getClassName(Type.getClass(this)).split(".").pop());
-		quit(Ads.TYPE_CLICK);
-	}
-	
 	override public function close (): Void {
 		if (timer!=null) timer.stop();
 		if (timerError!=null) timerError.stop();
@@ -243,8 +249,8 @@ private class Ad extends Popin {
 }
 
 private class AdImage extends Ad {
-	public function new (pUrl:String,pTarget:String) {
-		super(pUrl, pTarget);
+	public function new (pId:String,pUrl:String,pTarget:String) {
+		super(pId,pUrl, pTarget);
 		
 		var lLoader:Loader = new Loader();
 		lLoader.add(url);
@@ -252,10 +258,23 @@ private class AdImage extends Ad {
 		lLoader.load();
 	}
 	
+	override private function onComplete (?pEvent:Loader = null):Void {
+		super.onComplete(pEvent);
+		content.interactive = true;
+		content.buttonMode = true;
+		content.once(MouseEventType.CLICK, onOpen);
+		content.once(TouchEventType.TAP, onOpen);
+	}
+	
 	override private function createContent ():Void {
 		content = new Sprite(Texture.fromImage(url));
 	}
-		
+	
+	private function onOpen (pEvent:EventTarget):Void {
+		Browser.window.open(target+"?"+Type.getClassName(Type.getClass(this)).split(".").pop());
+		quit(Ads.TYPE_CLICK);
+	}
+	
 	override private function onQuit (pEvent:EventTarget):Void {
 		quit (Ads.TYPE_CLOSE);
 	}
@@ -263,8 +282,8 @@ private class AdImage extends Ad {
 
 private class AdMovie extends Ad {
 	
-	public function new (pUrl:String,pTarget:String) {
-		super(pUrl, pTarget);
+	public function new (pId:String,pUrl:String,pTarget:String) {
+		super(pId,pUrl, pTarget);
 		onComplete();
 	}
 	
