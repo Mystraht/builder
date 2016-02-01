@@ -1,7 +1,11 @@
 package com.isartdigital.builder.game.manager;
 import com.isartdigital.builder.api.Api;
+import com.isartdigital.builder.api.DataDef;
 import com.isartdigital.builder.api.Resources;
+import com.isartdigital.builder.api.Utils;
+import com.isartdigital.builder.game.def.ResourceDef;
 import com.isartdigital.builder.ui.hud.SpiceCurrency;
+import haxe.Json;
 
 	
 /**
@@ -81,10 +85,22 @@ class RessourceManager extends Manager
 	public var updateOfferings:Int->Void;
 	
 	public function updateRessources() {
-		trace ("Gold:" + Api.resources.gold(function test(pString:String) { trace (pString); } ));
-		updateSpice(ressources.get(Ressources.SPICE));
-		updateGold(ressources.get(Ressources.GOLD));
-		updateOfferings(ressources.get(Ressources.OFFERINGS));
+		Api.resources.get(cbOnResourcesCall);
+	
+	}
+	
+	
+	private function cbOnResourcesCall(pData:String):Void {
+		var lData:DataDef = cast(Json.parse(pData));
+		
+		if (lData.error) {
+			Utils.errorHandler(lData.errorCode, lData.errorMessage);
+			return;
+		}
+		var lResource:ResourceDef = cast(lData.data);
+		//updateGold(lResource.gold);
+		updateSpice(lResource.spice);
+		//updateOfferings(lResource.offering);
 	}
 	
 	/**

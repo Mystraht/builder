@@ -1311,17 +1311,16 @@ com_isartdigital_builder_game_manager_RessourceManager.prototype = $extend(com_i
 		} else console.log("Plus de ressources");
 	}
 	,updateRessources: function() {
-		console.log("Gold:" + Std.string(com_isartdigital_builder_api_Api.resources.gold((function($this) {
-			var $r;
-			var test = function(pString) {
-				console.log(pString);
-			};
-			$r = test;
-			return $r;
-		}(this)))));
-		this.updateSpice(this.ressources.get(com_isartdigital_builder_game_manager_Ressources.SPICE));
-		this.updateGold(this.ressources.get(com_isartdigital_builder_game_manager_Ressources.GOLD));
-		this.updateOfferings(this.ressources.get(com_isartdigital_builder_game_manager_Ressources.OFFERINGS));
+		com_isartdigital_builder_api_Api.resources.get($bind(this,this.cbOnResourcesCall));
+	}
+	,cbOnResourcesCall: function(pData) {
+		var lData = JSON.parse(pData);
+		if(lData.error) {
+			com_isartdigital_builder_api_Utils.errorHandler(lData.errorCode,lData.errorMessage);
+			return;
+		}
+		var lResource = lData.data;
+		this.updateSpice(lResource.spice);
 	}
 	,destroy: function() {
 		com_isartdigital_builder_game_manager_RessourceManager.instance = null;
@@ -5669,3 +5668,5 @@ pathfinder_Pathfinder._COST_DIAGIONAL = 14;
 pixi_display_FlumpResource.resources = new haxe_ds_StringMap();
 com_isartdigital_builder_Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});
+
+//# sourceMappingURL=Builder.js.map
