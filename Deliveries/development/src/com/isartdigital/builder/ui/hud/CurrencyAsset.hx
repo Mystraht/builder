@@ -17,7 +17,6 @@ class CurrencyAsset extends UIComponent
 	
 	public function changeCount(pNumber:Int) {
 		trace ("Number :" + pNumber);
-		cast(getChildByName("Spice_txt"), Text).text = cast (pNumber);
 	}
 	
 }
