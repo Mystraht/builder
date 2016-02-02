@@ -21,7 +21,7 @@ class SpiceCurrency extends CurrencyAsset
 	}
 	
 	override public function changeCount(pNumber:Int) {
-		trace ("Number :" + pNumber);
+		super.changeCount(pNumber);
 		cast(getChildByName("Spice_txt"), Text).text = cast (pNumber);
 	}
 }

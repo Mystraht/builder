@@ -82,11 +82,7 @@ class RessourceManager extends Manager
 	
 	public var updateSpice:Int->Void;
 	public var updateGold:Int->Void;
-<<<<<<< HEAD
 	public var updateOfferings:Int->Void;
-=======
-	public var updateOffering:Int->Void;
->>>>>>> master
 	
 	public function updateRessources() {
 		Api.resources.get(cbOnResourcesCall);
@@ -102,9 +98,9 @@ class RessourceManager extends Manager
 			return;
 		}
 		var lResource:ResourceDef = cast(lData.data);
-		//updateGold(lResource.gold);
+		updateGold(lResource.gold);
 		updateSpice(lResource.spice);
-		//updateOfferings(lResource.offering);
+		updateOfferings(lResource.offering);
 	}
 	
 	/**

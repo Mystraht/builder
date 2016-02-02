@@ -15,9 +15,8 @@ class CurrencyAsset extends UIComponent
 		build();
 	}
 	
-	public function changeCount(pNumber:Int, pName:String) {
+	public function changeCount(pNumber:Int) {
 		trace ("Number :" + pNumber);
-		cast(getChildByName(pName), Text).text = cast (pNumber);
 	}
 	
 }
