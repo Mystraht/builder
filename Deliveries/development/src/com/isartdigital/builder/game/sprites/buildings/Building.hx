@@ -153,7 +153,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
 		if (movingBuilding == this) {
-			buildingRequest();
+			constructRequest();
 		} else {
 			positionBeforeStartMoving = toModel(true);
 			movingBuilding = this;
@@ -203,13 +203,13 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	}
 	
 	
-	private function buildingRequest():Void {
+	private function constructRequest():Void {
 		var destination:Point = getBuildingPositionByCursor();
 		var buildingMover:BuildingMover = new BuildingMover(this, positionBeforeStartMoving);
 		
 		buildingMover.setDestination(destination.x, destination.y);
 		
-		if (buildingMover.canMove()) {
+		if (buildingMover.tilesAtDestinationIsBuildable()) {
 			buildingMover.move();
 			setPositionBeforeStartMovingWith(destination);
 			cancelMoving();

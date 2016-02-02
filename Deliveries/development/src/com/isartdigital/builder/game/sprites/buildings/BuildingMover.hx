@@ -25,13 +25,12 @@ class BuildingMover
 		destinationPosition = new Point();
 	}
 	
-	public function move():Void {		
-		setOriginTilesToConstructibleInGlobalMap();
-		setDestinationTilesToNotConstructibleInGlobalMap();
-		updateGlobalMap();
+	public function move():Void {
+		updateTilesBuildableState();
+		updateBuildingReferencePositionInGlobalMap();
 	}
 	
-	public function canMove():Bool {
+	public function tilesAtDestinationIsBuildable():Bool {
 		var tilesDest:Array<TileSavedDef> = mapManager.getTilesArray(destinationPosition, building.definition.size);
 		return mapManager.isBuildable(tilesDest);
 	}
@@ -39,6 +38,17 @@ class BuildingMover
 	public function setDestination(x:Float, y:Float):Void {
 		destinationPosition.x = Math.round(x);
 		destinationPosition.y = Math.round(y);
+	}
+	
+	private function updateTilesBuildableState():Void {
+		setOriginTilesToConstructibleInGlobalMap();
+		setDestinationTilesToNotConstructibleInGlobalMap();
+	}
+	
+	private function updateBuildingReferencePositionInGlobalMap():Void {
+		var building:Dynamic = getBuildingFromGlobalMap();
+		mapManager.removeElementByTypeDefFromGlobalMapAt(positionBeforeStartMoving, TypeDefUtils.buildingSavedDef);
+		mapManager.addElementInGlobalMapAt(destinationPosition, building);
 	}
 	
 	private function setOriginTilesToConstructibleInGlobalMap():Void {
@@ -51,9 +61,7 @@ class BuildingMover
 		mapManager.setTilesBuildable(tilesDest, false);
 	}
 	
-	private function updateGlobalMap():Void {
-		var buildingRemoved:BuildingSavedDef = TypeDefUtils.buildingSavedDef;
-		buildingRemoved = mapManager.removeElementByTypeDefFromGlobalMapAt(positionBeforeStartMoving, TypeDefUtils.buildingSavedDef);
-		mapManager.addElementInGlobalMapAt(destinationPosition, buildingRemoved);
+	private function getBuildingFromGlobalMap():Dynamic {
+		return mapManager.getElementInGlobalMapAt(positionBeforeStartMoving, TypeDefUtils.buildingSavedDef);
 	}
 }

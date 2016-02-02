@@ -114,7 +114,7 @@ class BuildingMoverTest
 		
 		globalMap[10][10][1].isBuildable = false;
 		
-		Assert.isFalse(buildingMover.canMove());
+		Assert.isFalse(buildingMover.tilesAtDestinationIsBuildable());
 	}
 	
 	@Test
@@ -123,7 +123,7 @@ class BuildingMoverTest
 		
 		buildingMover.setDestination(10, 10);
 		
-		Assert.isTrue(buildingMover.canMove());
+		Assert.isTrue(buildingMover.tilesAtDestinationIsBuildable());
 	}
 	
 	@Test

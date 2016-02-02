@@ -173,6 +173,23 @@ class MapManager extends Manager
 	
 	
 	/**
+	 * Récupère un element dans la global map à une position grâce à un typedef
+	 * @param	position de l'element
+	 * @param	element à récuperer
+	 */
+	public function getElementInGlobalMapAt(position:Point, typeDef:Dynamic):Dynamic {
+		var elements:Array<Dynamic> = globalMap[Std.int(position.x)][Std.int(position.y)];
+		
+		for (i in 0...elements.length) {
+			if (TypeDefUtils.compare(elements[i], typeDef)) {
+				return elements[i];
+			}
+		}
+		
+		throw 'typedef was not found in elements array';
+	}
+	
+	/**
 	 * Ajoute un element dans la globalMap grâce à sa position
 	 * @param	position dans la map
 	 * @param	element à ajouter
