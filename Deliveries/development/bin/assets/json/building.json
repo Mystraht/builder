@@ -38,7 +38,7 @@
   {
 	 "name":"altar",
 	 "spriteName":"Building_Altar",
-	 "className":"decoration.altar",
+	 "className":"decoration.Altar",
 	 "size":{
 		"width":2,
 		"height":2
@@ -92,7 +92,7 @@
   {
 	 "name":"mainsquare",
 	 "spriteName":"Building_MainSquare",
-	 "className":"mainsquare",
+	 "className":"MainSquare",
 	 "size":{
 		"width":4,
 		"height":4
@@ -110,7 +110,7 @@
   {
 	 "name":"bigflowerpot",
 	 "spriteName":"Building_BigFlowerPot",
-	 "className":"decoration.bigflowerpot",
+	 "className":"decoration.BigFlowerPot",
 	 "size":{
 		"width":1,
 		"height":1
@@ -119,7 +119,7 @@
   {
 	 "name":"floatingflower",
 	 "spriteName":"Building_FloatingFlower",
-	 "className":"decoration.floatingflower",
+	 "className":"decoration.FloatingFlower",
 	 "size":{
 		"width":2,
 		"height":1
@@ -128,7 +128,7 @@
   {
 	 "name":"giftshop",
 	 "spriteName":"Building_GiftShop",
-	 "className":"giftshop",
+	 "className":"GiftShop",
 	 "size":{
 		"width":3,
 		"height":2
@@ -146,7 +146,7 @@
   {
 	 "name":"church",
 	 "spriteName":"Building_Church",
-	 "className":"church",
+	 "className":"Church",
 	 "size":{
 		"width":2,
 		"height":3
@@ -155,7 +155,7 @@
   {
 	 "name":"cantina",
 	 "spriteName":"Building_Cantina",
-	 "className":"cantina",
+	 "className":"Cantina",
 	 "size":{
 		"width":3,
 		"height":3
@@ -164,7 +164,7 @@
   {
 	 "name":"harbor",
 	 "spriteName":"Building_Harbor",
-	 "className":"decoration.harbor",
+	 "className":"decoration.Harbor",
 	 "size":{
 		"width":2,
 		"height":2
