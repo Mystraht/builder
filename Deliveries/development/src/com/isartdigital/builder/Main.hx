@@ -105,6 +105,9 @@ class Main extends EventEmitter
 	private function new () {
 		super();
 		
+		// Forcer la connexion sur un compte
+		
+		
 		if (Browser.getLocalStorage().getItem('token') == null) {
 			Browser.location.href = '../';
 		}
@@ -309,6 +312,7 @@ class Main extends EventEmitter
 		//UIManager.getInstance().openScreen(TitleCard.getInstance());
 		UIManager.getInstance().startGame();
 		GameManager.getInstance().start();
+		Ads.getImage(cbAds);
 	}
 	
 	/**
@@ -359,7 +363,7 @@ class Main extends EventEmitter
 	 * Fonction appellé quand la connection à facebook est réussi
 	 */
 	private function onFacebookLogin ():Void  {
-		Facebook.api(Facebook.uid, { fields: "first_name,last_name,bio,email" }, callBackApi);
+		//Facebook.api(Facebook.uid, { fields: "first_name,last_name,bio,email" }, callBackApi);
 		// Facebook.ui( { method: 'share', href: 'https://developers.facebook.com/docs/' }, callBackUI);
 	}
 	
@@ -367,7 +371,7 @@ class Main extends EventEmitter
 		if (pData == null) trace("Erreur facebook API");
 		else if (pData.error != null) trace (pData.error);
 		else {
-			Ads.getImage(cbAds);
+			//Ads.getImage(cbAds);
 			//Ads.getMovie(cbAds);
 			//Wallet.getMoney(pData.email, cbAds);
 			//Wallet.buy(pData.email, 10, cbAds);$
