@@ -1,6 +1,6 @@
 package com.isartdigital.builder.game.manager;
 import com.isartdigital.builder.api.Api;
-import com.isartdigital.builder.game.def.BuildingDef;
+import com.isartdigital.builder.game.def.buildings.BuildingDef;
 import com.isartdigital.builder.game.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.MapSavedDef;
 import com.isartdigital.builder.game.def.PointDef;

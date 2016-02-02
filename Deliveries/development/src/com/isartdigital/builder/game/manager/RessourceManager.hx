@@ -82,7 +82,11 @@ class RessourceManager extends Manager
 	
 	public var updateSpice:Int->Void;
 	public var updateGold:Int->Void;
+<<<<<<< HEAD
 	public var updateOfferings:Int->Void;
+=======
+	public var updateOffering:Int->Void;
+>>>>>>> master
 	
 	public function updateRessources() {
 		Api.resources.get(cbOnResourcesCall);

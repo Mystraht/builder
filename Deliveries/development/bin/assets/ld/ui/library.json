@@ -1,139 +1,23 @@
 {
+ "isNamespaced": false,
  "textureGroups": [
   {
-   "scaleFactor": 1,
    "atlases": [
     {
+     "file": "atlas0.png",
      "textures": [
       {
        "origin": [
-        110.1,
-        34.5
+        0,
+        0
        ],
        "rect": [
         1,
         1,
-        221,
-        69
+        96,
+        97
        ],
-       "symbol": "HelpContent_txt"
-      },
-      {
-       "origin": [
-        110.2,
-        15.75
-       ],
-       "rect": [
-        1,
-        72,
-        221,
-        32
-       ],
-       "symbol": "HelpTitle_txt"
-      },
-      {
-       "origin": [
-        43.9,
-        12.6
-       ],
-       "rect": [
-        1,
-        106,
-        88,
-        26
-       ],
-       "symbol": "_standardButton_disable"
-      },
-      {
-       "origin": [
-        43.9,
-        12.6
-       ],
-       "rect": [
-        91,
-        106,
-        88,
-        26
-       ],
-       "symbol": "_standardButton_down"
-      },
-      {
-       "origin": [
-        43.9,
-        12.6
-       ],
-       "rect": [
-        1,
-        134,
-        88,
-        26
-       ],
-       "symbol": "_play_over"
-      },
-      {
-       "origin": [
-        43.9,
-        12.6
-       ],
-       "rect": [
-        91,
-        134,
-        88,
-        26
-       ],
-       "symbol": "_play_up"
-      },
-      {
-       "origin": [
-        39.7,
-        9.2
-       ],
-       "rect": [
-        1,
-        162,
-        80,
-        19
-       ],
-       "symbol": "PlayButton_txt"
-      },
-      {
-       "origin": [
-        18.85,
-        12.6
-       ],
-       "rect": [
-        181,
-        106,
-        38,
-        26
-       ],
-       "symbol": "_back_up"
-      },
-      {
-       "origin": [
-        18.85,
-        12.6
-       ],
-       "rect": [
-        181,
-        134,
-        38,
-        26
-       ],
-       "symbol": "_back_down"
-      },
-      {
-       "origin": [
-        37.4,
-        4.55
-       ],
-       "rect": [
-        83,
-        162,
-        92,
-        9
-       ],
-       "symbol": "Spice_txt"
+       "symbol": "MoveButtonAsset"
       },
       {
        "origin": [
@@ -141,10 +25,62 @@
         0
        ],
        "rect": [
-        177,
-        162,
-        49,
-        14
+        99,
+        1,
+        96,
+        97
+       ],
+       "symbol": "DeleteButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        100,
+        96,
+        97
+       ],
+       "symbol": "ColorButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        99,
+        100,
+        96,
+        97
+       ],
+       "symbol": "UpgradeButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        199,
+        98,
+        28
+       ],
+       "symbol": "OfferingsCurrencyAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        101,
+        199,
+        98,
+        28
        ],
        "symbol": "SpiceCurrencyAsset"
       },
@@ -154,20 +90,58 @@
         0
        ],
        "rect": [
-        221,
-        106,
-        13,
-        13
+        1,
+        229,
+        98,
+        28
        ],
-       "symbol": "HelpBg"
+       "symbol": "GoldCurrencyAsset"
+      },
+      {
+       "origin": [
+        37.4,
+        4.55
+       ],
+       "rect": [
+        101,
+        229,
+        92,
+        9
+       ],
+       "symbol": "Gold_txt"
+      },
+      {
+       "origin": [
+        37.4,
+        4.55
+       ],
+       "rect": [
+        101,
+        240,
+        92,
+        9
+       ],
+       "symbol": "Spice_txt"
+      },
+      {
+       "origin": [
+        37.4,
+        4.55
+       ],
+       "rect": [
+        101,
+        251,
+        92,
+        9
+       ],
+       "symbol": "Offerings_txt"
       }
-     ],
-     "file": "atlas0.png"
+     ]
     }
-   ]
+   ],
+   "scaleFactor": 1
   }
  ],
- "frameRate": 30,
  "movies": [
   {
    "layers": [
@@ -175,56 +149,301 @@
      "keyframes": [
       {
        "pivot": [
-        18.8625,
-        12.625
+        47.625,
+        48.125
        ],
        "duration": 1,
+       "ref": "MoveButton",
+       "tweened": false,
        "index": 0,
-       "ref": "_back_up",
-       "tweened": false
+       "loc": [
+        209.85,
+        293.375
+       ]
+      }
+     ],
+     "name": "D_MoveButton"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "DeleteButton",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        305.1,
+        293.375
+       ]
+      }
+     ],
+     "name": "D_DeleteButton"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "UpgradeButton",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        19.35,
+        293.375
+       ]
+      }
+     ],
+     "name": "D_UpgradeButton"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "ColorButton",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        114.6,
+        293.375
+       ]
+      }
+     ],
+     "name": "D_ColorButton"
+    }
+   ],
+   "id": "BaseBuildingHUD"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "ColorButtonAsset",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        47.625,
+        48.125
+       ]
       },
       {
        "pivot": [
-        18.8625,
-        12.625
+        47.625,
+        48.125
        ],
        "duration": 1,
+       "ref": "ColorButtonAsset",
+       "tweened": false,
        "index": 1,
-       "ref": "_back_down",
-       "tweened": false
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "ColorButtonAsset",
+       "tweened": false,
+       "index": 2,
+       "loc": [
+        47.625,
+        48.125
+       ]
       }
      ],
      "name": "Calque 1"
     }
    ],
-   "id": "BackButton"
+   "id": "ColorButton"
   },
   {
    "layers": [
     {
      "keyframes": [
       {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "DeleteButtonAsset",
+       "tweened": false,
        "index": 0,
-       "duration": 1
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "DeleteButtonAsset",
+       "tweened": false,
+       "index": 1,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "DeleteButtonAsset",
+       "tweened": false,
+       "index": 2,
+       "loc": [
+        47.625,
+        48.125
+       ]
       }
      ],
-     "name": "HelpTitle_txt"
+     "name": "Calque 1"
     }
    ],
-   "id": "Help"
+   "id": "DeleteButton"
   },
   {
    "layers": [
     {
      "keyframes": [
       {
+       "pivot": [
+        49,
+        14
+       ],
+       "duration": 1,
+       "ref": "GoldCurrencyAsset",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        49,
+        14
+       ]
+      }
+     ],
+     "name": "GoldCurrencyAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        45.6625,
+        4.025
+       ],
+       "duration": 1,
+       "ref": "Gold_txt",
+       "scale": [
+        0.721,
+        1.8693
+       ],
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        61.5018,
+        13.9811
+       ]
+      }
+     ],
+     "name": "Gold_txt"
+    }
+   ],
+   "id": "GoldCurrency"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
        "duration": 1,
        "index": 0,
-       "ref": "SpiceCurrency",
-       "tweened": false
+       "ref": "SpiceCurrency"
       }
      ],
      "name": "TL_SpiceCurrency_currency"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        49,
+        14
+       ],
+       "duration": 1,
+       "ref": "GoldCurrency",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        173.875,
+        14
+       ]
+      }
+     ],
+     "name": "TL_GoldCurrency_currency"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        209.85,
+        293.375
+       ],
+       "duration": 1,
+       "ref": "BaseBuildingHUD",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        304.6125,
+        290.5
+       ]
+      }
+     ],
+     "name": "B_BaseBuildingHUD_bHud"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        49,
+        14
+       ],
+       "duration": 1,
+       "ref": "OfferingsCurrency",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        298.9875,
+        14
+       ]
+      }
+     ],
+     "name": "TL_OfferingsCurrency_currency"
     }
    ],
    "id": "Hud"
@@ -235,94 +454,116 @@
      "keyframes": [
       {
        "pivot": [
-        43.875,
-        12.625
+        47.625,
+        48.125
        ],
        "duration": 1,
+       "ref": "MoveButtonAsset",
+       "tweened": false,
        "index": 0,
-       "ref": "_play_up",
-       "tweened": false
+       "loc": [
+        47.625,
+        48.125
+       ]
       },
       {
        "pivot": [
-        43.875,
-        12.625
+        47.625,
+        48.125
        ],
        "duration": 1,
+       "ref": "MoveButtonAsset",
+       "tweened": false,
        "index": 1,
-       "ref": "_play_over",
-       "tweened": false
+       "loc": [
+        47.625,
+        48.125
+       ]
       },
       {
        "pivot": [
-        43.875,
-        12.625
+        47.625,
+        48.125
        ],
        "duration": 1,
+       "ref": "MoveButtonAsset",
+       "tweened": false,
        "index": 2,
-       "ref": "_standardButton_down",
-       "tweened": false
-      },
-      {
-       "pivot": [
-        43.875,
-        12.625
-       ],
-       "duration": 1,
-       "index": 3,
-       "ref": "_standardButton_disable",
-       "tweened": false
+       "loc": [
+        47.625,
+        48.125
+       ]
       }
      ],
-     "name": "standardButton"
-    },
-    {
-     "keyframes": [
-      {
-       "pivot": [
-        39.725,
-        9.2
-       ],
-       "duration": 1,
-       "index": 0,
-       "ref": "PlayButton_txt",
-       "tweened": false
-      },
-      {
-       "pivot": [
-        39.725,
-        9.2
-       ],
-       "duration": 2,
-       "index": 1,
-       "ref": "PlayButton_txt",
-       "tweened": false
-      },
-      {
-       "pivot": [
-        39.725,
-        9.2
-       ],
-       "duration": 1,
-       "index": 3,
-       "ref": "PlayButton_txt",
-       "tweened": false
-      }
-     ],
-     "name": "_txt"
+     "name": "Calque 1"
     }
    ],
-   "id": "PlayButton"
+   "id": "MoveButton"
   },
   {
    "layers": [
     {
      "keyframes": [
       {
+       "pivot": [
+        49,
+        14
+       ],
        "duration": 1,
+       "ref": "OfferingsCurrencyAsset",
+       "tweened": false,
        "index": 0,
+       "loc": [
+        49,
+        14
+       ]
+      }
+     ],
+     "name": "OfferingsCurrencyAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        45.6875,
+        4.025
+       ],
+       "duration": 1,
+       "ref": "Offerings_txt",
+       "scale": [
+        0.7427,
+        1.9317
+       ],
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        62.0617,
+        13.9984
+       ]
+      }
+     ],
+     "name": "Offerings_txt"
+    }
+   ],
+   "id": "OfferingsCurrency"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        49,
+        14
+       ],
+       "duration": 1,
        "ref": "SpiceCurrencyAsset",
-       "tweened": false
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        49,
+        14
+       ]
       }
      ],
      "name": "SpiceCurrencyAsset"
@@ -337,14 +578,14 @@
        "duration": 1,
        "ref": "Spice_txt",
        "scale": [
-        0.3662,
-        1
+        0.7329,
+        1.8058
        ],
        "tweened": false,
        "index": 0,
        "loc": [
-        28.5,
-        7.7
+        55.5,
+        14.7024
        ]
       }
      ],
@@ -352,8 +593,60 @@
     }
    ],
    "id": "SpiceCurrency"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "UpgradeButtonAsset",
+       "tweened": false,
+       "index": 0,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "UpgradeButtonAsset",
+       "tweened": false,
+       "index": 1,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      },
+      {
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "ref": "UpgradeButtonAsset",
+       "tweened": false,
+       "index": 2,
+       "loc": [
+        47.625,
+        48.125
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "UpgradeButton"
   }
  ],
- "md5": "7086ad8d8a6d2f6de2630a3ade77311e",
- "isNamespaced": false
+ "md5": "261fa1ac296eb51cf4a7d18848943ff9",
+ "frameRate": 30
 }
