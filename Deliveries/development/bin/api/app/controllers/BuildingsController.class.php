@@ -60,13 +60,13 @@ class BuildingsController extends ApplicationController
 		$buildingSettings = json_decode($buildingSettings, true);
 		
 		if (!isset($buildingSettings[$buildingName][$buildingDetails['lvl']])) {
-			return Utils::formatErrorMessage(ERROR_NO_MONEY, "Ce batiment ne peux pas être upgrade");
+			return Utils::formatErrorMessage(ERROR_NO_MONEY, "Ce batiment ne peux pas être upgrade : Pas de type upgradable");
 		}
 
 		$buildingDefinition = $buildingSettings[$buildingName][$buildingDetails['lvl']];
 		
 		if (!array_key_exists("lvl", $buildingDetails) || !array_key_exists("upgrade_price", $buildingDefinition))
-			return Utils::formatErrorMessage(ERROR_BUILDING, "Ce batiment ne peux pas être upgrade");
+			return Utils::formatErrorMessage(ERROR_BUILDING, "Ce batiment ne peux pas être upgrade : Niveau maximal atteint");
 		
 		$resourceId = ResourcesController::getResourceIdByName($buildingDefinition["resource_upgrade"]);
 		
