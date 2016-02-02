@@ -180,9 +180,9 @@ CREATE TABLE IF NOT EXISTS building_cantina
 
 CREATE TABLE IF NOT EXISTS building_gift_shop
 (
-	id int NOT NULL AUTO_INCREMENT,
-	user_id int NOT NULL,
-	UNIQUE (id)
+    id int NOT NULL AUTO_INCREMENT,
+    user_id int NOT NULL,
+    UNIQUE (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*building_{building_name}
@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS gift_users
     created_at datetime NOT NULL,
     updated_at datetime NOT NULL,
     name varchar(255) NOT NULL,
-	is_collected boolean NOT NULL,
+    is_collected boolean NOT NULL,
     author_users_id int NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id),

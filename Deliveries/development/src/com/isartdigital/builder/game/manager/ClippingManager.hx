@@ -1,10 +1,15 @@
 package com.isartdigital.builder.game.manager;
-import com.isartdigital.builder.game.def.buildings.BuildingDef;
+import com.isartdigital.builder.game.sprites.buildings.childrens.Altar;
+import com.isartdigital.builder.game.sprites.buildings.childrens.Brothel;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
 import com.isartdigital.builder.game.def.PointDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.pooling.IPoolObject;
 import com.isartdigital.builder.game.pooling.PoolObject;
-import com.isartdigital.builder.game.sprites.Building;
+import com.isartdigital.builder.game.sprites.buildings.Building;
+import com.isartdigital.builder.game.sprites.buildings.childrens.House;
+import com.isartdigital.builder.game.sprites.buildings.childrens.decoration.Park;
+import com.isartdigital.builder.game.sprites.buildings.childrens.Pyrotechnician;
 import com.isartdigital.builder.game.sprites.Tile;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
@@ -140,8 +145,10 @@ class ClippingManager
 				if (Reflect.hasField(lModel, "buildingLevel"))//si c'est un batiments...
 				{
 					if (modelExist(cast(Building.list), lModel)) continue;
+					
+					trace("model name " + lModel.name);
 					var buildingDef:BuildingDef = Building.getBuildingDefByName(lModel.name);
-					var lObj:IPoolObject = PoolObject.create(Type.resolveClass("com.isartdigital.builder.game.sprites.buildings." + buildingDef.className));
+					var lObj:IPoolObject = PoolObject.create(Type.resolveClass("com.isartdigital.builder.game.sprites.buildings.childrens." + buildingDef.className));
 					lObj.init(lModel);
 				} else 
 				{

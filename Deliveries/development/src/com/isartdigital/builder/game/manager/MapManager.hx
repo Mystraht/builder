@@ -1,19 +1,20 @@
 package com.isartdigital.builder.game.manager;
 import com.isartdigital.builder.api.Api;
-import com.isartdigital.builder.game.def.buildings.BuildingDef;
-import com.isartdigital.builder.game.def.BuildingSavedDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.MapSavedDef;
 import com.isartdigital.builder.game.def.PointDef;
 import com.isartdigital.builder.game.def.SizeDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.pooling.PoolObject;
-import com.isartdigital.builder.game.sprites.Building;
-import com.isartdigital.builder.game.sprites.buildings.Casino;
-import com.isartdigital.builder.game.sprites.buildings.Motel;
-import com.isartdigital.builder.game.sprites.buildings.RocketFactory;
-import com.isartdigital.builder.game.sprites.buildings.Temple;
+import com.isartdigital.builder.game.sprites.buildings.Building;
+import com.isartdigital.builder.game.sprites.buildings.childrens.Casino;
+import com.isartdigital.builder.game.sprites.buildings.childrens.Motel;
+import com.isartdigital.builder.game.sprites.buildings.childrens.RocketFactory;
+import com.isartdigital.builder.game.sprites.buildings.childrens.Temple;
 import com.isartdigital.builder.game.sprites.Tile;
 import com.isartdigital.builder.game.utils.TypeDefUtils;
+import com.isartdigital.services.Users;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
 import com.isartdigital.utils.game.GameObject;
@@ -66,54 +67,8 @@ class MapManager extends Manager
 	public function generateMap():Void {
 		var map:MapSavedDef;
 		
-		trace(GameManager.getInstance().userInfo);
-		
-		// Récupère les données dans le localstorage OU le json de base si il trouve rien
-		/*if (isSaveAvailable()) {
-			map = cast (Json.parse(Browser.getLocalStorage().getItem("save")));
-		} else {
-			map = cast (GameLoader.getContent("json/basemap.json"));
-		}*/
-		
-		
 		loadMap();
-		//saveMap();
-	}
-	
-	
-	/**
-	 * Sauvegarde la map en cours
-	 * @return Success ou fail
-	 * DEPRECATED
-	 * TODO : A supprimer ainsi que les appel à cette fonction quand la relation front-back sera terminé
-	 * pour le chargement de la map.
-	 */
-	public function saveMap():Bool {
-		var mapToSave:MapSavedDef = {
-			buildings: new Array()
-		};
-		
-		var building:Building;
-		var buildingSaved:BuildingSavedDef;
-		
-		for (i in 0...Building.list.length) {
-			buildingSaved = { name:null, buildingLevel:null, x:null, y:null };
-			building = Building.list[i];
-			
-			buildingSaved.name = building.definition.name;
-			buildingSaved.buildingLevel = building.buildingLevel;
-			
-			buildingSaved.x = Std.int(building.toModel(true).x);
-			buildingSaved.y = Std.int(building.toModel(true).y);
-			
-			mapToSave.buildings.push(buildingSaved);
-		}
-		
-		Browser.getLocalStorage().setItem("save", Json.stringify(mapToSave));
-		
-		return true;
-	}
-	
+	}	
 
 	/**
 	 * Permet de savoir si un batiment est construisable à un endroit donnée
@@ -218,13 +173,45 @@ class MapManager extends Manager
 	
 	
 	/**
+	 * Ajoute un element dans la globalMap grâce à sa position
+	 * @param	position dans la map
+	 * @param	element à ajouter
+	 */
+	public function addElementInGlobalMapAt(position:Point, element:Dynamic):Void {
+		var elements:Array<Dynamic> = globalMap[Std.int(position.x)][Std.int(position.y)];
+		elements.push(element);
+	}
+	
+	
+	/**
+	 * Enlève un element de la map grâce à sa position et return l'element enlevé
+	 * @param	position dans la map de l'element à enlever
+	 * @param	typeDef de l'element à enlever
+	 * @return Renvoi l'element enlevé
+	 */
+	public function removeElementByTypeDefFromGlobalMapAt(position:Point, typeDef:Dynamic):Dynamic {
+		var elements:Array<Dynamic> = globalMap[Std.int(position.x)][Std.int(position.y)];
+		var elementRemoved:Dynamic;
+		
+		for (i in 0...elements.length) {
+			if (TypeDefUtils.compare(elements[i], typeDef)) {
+				elementRemoved = elements.splice(i, 1);
+				return elementRemoved[0];
+			}
+		}
+		
+		throw 'typedef was not found in elements array';
+	}
+	
+	
+	/**
 	 * Charge la map sauvegardé
 	 * @return Si le chargement de la map a réussi ou non
 	 */
 	private function loadMap():Bool {
 		// Remplissage des tiles de la map dans le containeur de tiles
 		var map:MapSavedDef = {
-			buildings: GameManager.getInstance().userInfo.buildings
+			buildings: Users.infos.buildings
 		}
 		
 		var tilePosition:String;
@@ -284,19 +271,6 @@ class MapManager extends Manager
 		}
 		
 		return getElementByTypeDefInArray(elements, TypeDefUtils.tileSavedDef);
-	}
-	
-	
-	/**
-	 * Demande si une sauvegarde est disponible ou non
-	 * @return
-	 */
-	private function isSaveAvailable():Bool {
-		var lSaveAvailable:Bool = true;	
-		if (Browser.getLocalStorage().getItem("save") == null) {
-			lSaveAvailable = false;
-		}
-		return lSaveAvailable;
 	}
 	
 	

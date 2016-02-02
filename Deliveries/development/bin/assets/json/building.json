@@ -34,5 +34,50 @@
 		"width":2,
 		"height":2
 	 }
+  },
+  {
+	 "name":"altar",
+	 "spriteName":"Building_Altar",
+	 "className":"Altar",
+	 "size":{
+		"width":2,
+		"height":2
+	 }
+  },
+  {
+	 "name":"brothel",
+	 "spriteName":"Building_Gonzales",
+	 "className":"Brothel",
+	 "size":{
+		"width":2,
+		"height":2
+	 }
+  },
+  {
+	 "name":"house",
+	 "spriteName":"Building_House",
+	 "className":"House",
+	 "size":{
+		"width":2,
+		"height":2
+	 }
+  },
+  {
+	 "name":"pyrotechnician",
+	 "spriteName":"Building_Pyrotechnician",
+	 "className":"Pyrotechnician",
+	 "size":{
+		"width":2,
+		"height":2
+	 }
+  },
+  {
+	 "name":"park",
+	 "spriteName":"Building_park",
+	 "className":"Park",
+	 "size":{
+		"width":2,
+		"height":2
+	 }
   }
 ]

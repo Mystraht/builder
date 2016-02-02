@@ -6,8 +6,8 @@ package com.isartdigital.builder.game.def;
 
 typedef ShopItemDef =
 {
-	ressource_price:String;
-	price:Int;
-	resource_product:String;
-	product:Int;
+	var ressource_price:String;
+	var price:Int;
+	var resource_product:String;
+	var product:Int;
 }

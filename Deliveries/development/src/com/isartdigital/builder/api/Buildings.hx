@@ -13,7 +13,7 @@ class Buildings
 	 * instance unique de la classe Buildings
 	 */
 	private static var instance: Buildings;
-		
+	
 	private var buildingsPath:String = "buildings";
 	private var createPath:String = "/create";
 	private var upgradePath:String = "/upgrade";

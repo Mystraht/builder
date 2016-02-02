@@ -1,11 +1,11 @@
 package ;
 
-import com.isartdigital.builder.game.def.BuildingSavedDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.MapSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.GameManager;
 import com.isartdigital.builder.game.manager.MapManager;
-import com.isartdigital.builder.game.sprites.Building;
+import com.isartdigital.builder.game.sprites.buildings.Building;
 import com.isartdigital.builder.Main;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
@@ -128,48 +128,5 @@ class MapManagerTest
 		Assert.isTrue(globalMap[2][3][1].isBuildable);
 		Assert.isTrue(globalMap[3][3][1].isBuildable);
 		Assert.isTrue(globalMap[4][3][1].isBuildable);
-	}
-	
-	@Test
-	public function should_save_building_in_localStorage():Void {
-		Browser.getLocalStorage().setItem("save", '');
-		var lMapManager:MapManager = MapManager.getInstance();
-		
-		lMapManager.globalMap = globalMap;
-		
-		var buildingDefinition:BuildingSavedDef = {
-			name: 'rocketfactory',
-			x: 5,
-			y: 5,
-			buildingLevel: 5
-		}
-		
-		untyped GameLoader.getContent = function () {
-			return [
-				{
-					"name":"rocketfactory",
-					"spriteName":"Building_3x1",
-					"className":"RocketFactory",
-					"size":{
-						"width":3,
-						"height":1
-					}
-				}
-			];
-		}
-		
-		var building:Building = new Building();
-		
-		untyped building.addToStage = function () { };
-		building.init(buildingDefinition);
-		
-		MapManager.getInstance().saveMap();
-		
-		var save:MapSavedDef = cast(Json.parse(Browser.getLocalStorage().getItem("save")));
-		
-		Assert.isTrue(save.buildings[0].name == 'rocketfactory');
-		Assert.isTrue(save.buildings[0].x == 5);
-		Assert.isTrue(save.buildings[0].y == 5);
-		Assert.isTrue(save.buildings[0].buildingLevel == 5);
 	}
 }

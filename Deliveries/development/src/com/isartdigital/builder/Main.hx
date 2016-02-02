@@ -19,6 +19,7 @@ import com.isartdigital.builder.ui.uimodule.UpgradeButton;
 import com.isartdigital.builder.ui.uimodule.PlayButton;
 import com.isartdigital.services.Ads;
 import com.isartdigital.services.Bank;
+import com.isartdigital.services.Users;
 import com.isartdigital.services.Wallet;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.Debug;
@@ -242,28 +243,6 @@ class Main extends EventEmitter
 		Api.user.getUserInfo(cbOnUserInfosReceipt);
 	}
 	
-	private function typeUserInfos(userInfos:Dynamic):UserInfoDef {
-		for (i in 0...userInfos.lanterns.length) {
-			userInfos.lanterns[i].x = Std.int(userInfos.lanterns[i].x);
-			userInfos.lanterns[i].y = Std.int(userInfos.lanterns[i].y);
-		}
-		
-		userInfos.dailyreward = Date.fromString(userInfos.dailyreward);
-		userInfos.experience = Std.int(userInfos.experience);
-		userInfos.ftue_complet = userInfos.ftue_complet == 1;
-		userInfos.parade = Date.fromString(userInfos.parade);
-		userInfos.resources.gold = Std.int(userInfos.resources.gold);
-		userInfos.resources.offering = Std.int(userInfos.resources.offering);
-		userInfos.resources.spice = Std.int(userInfos.resources.spice);
-		
-		return userInfos;
-	}
-	
-	private function saveUserInfos(userInfos:UserInfoDef): Void {
-		GameManager.getInstance().userInfo = userInfos;
-		userInfoLoaded = true;
-	}
-	
 	private function cbOnUserInfosReceipt(pData:String):Void {
 		var lData:DataDef = cast(Json.parse(pData));
 		var userInfos:UserInfoDef;
@@ -273,8 +252,8 @@ class Main extends EventEmitter
 			return;
 		}
 		
-		userInfos = typeUserInfos(lData.data);
-		saveUserInfos(userInfos);
+		Users.infos = lData.data;
+		userInfoLoaded = true;
 		tryToStartGame();
 	}
 	

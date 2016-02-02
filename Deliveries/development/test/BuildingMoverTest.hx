@@ -17,7 +17,7 @@ import pixi.core.display.Container;
 import pixi.display.FlumpMovie;
 
 
-class BuildingTest 
+class BuildingMoverTest 
 {
 	var globalMap:Map<Int, Map<Int, Array<Dynamic>>>;
 	var building:Building;
@@ -105,11 +105,54 @@ class BuildingTest
 	{
 	}
 	
+
 	@Test
-	public function should_set_tile_under_building_to_not_constructible_state_when_building_is_created():Void
-	{
-		Assert.isFalse(globalMap[3][5][1].isBuildable);
-		Assert.isFalse(globalMap[4][5][1].isBuildable);
-		Assert.isFalse(globalMap[5][5][1].isBuildable);
+	public function should_not_move_building_when_destination_tiles_is_not_constructible():Void {
+		var buildingMover:BuildingMover = new BuildingMover(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		
+		globalMap[10][10][1].isBuildable = false;
+		
+		Assert.isFalse(buildingMover.canMove());
+	}
+	
+	@Test
+	public function should_move_building_when_destination_tiles_is_constructible():Void {
+		var buildingMover:BuildingMover = new BuildingMover(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		
+		Assert.isTrue(buildingMover.canMove());
+	}
+	
+	@Test
+	public function should_set_tile_to_unconstructible_when_building_is_moved():Void {
+		var buildingMover:BuildingMover = new BuildingMover(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		buildingMover.move();
+		
+		Assert.isFalse(globalMap[10][10][1].isBuildable);
+	}
+	
+	@Test
+	public function should_remove_building_from_original_position_in_global_map_when_building_is_moved():Void {
+		var buildingMover:BuildingMover = new BuildingMover(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		buildingMover.move();
+
+		Assert.isTrue(globalMap[5][5].length == 3);
+	}
+	
+	@Test
+	public function should_add_building_to_destination_position_in_global_map_when_building_is_moved():Void {
+		var buildingMover:BuildingMover = new BuildingMover(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		buildingMover.move();
+
+		Assert.isTrue(globalMap[10][10].length == 4);
 	}
 }
