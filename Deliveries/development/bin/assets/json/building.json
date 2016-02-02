@@ -74,7 +74,7 @@
   {
 	 "name":"park",
 	 "spriteName":"Building_park",
-	 "className":"Park",
+	 "className":"decoration.Park",
 	 "size":{
 		"width":2,
 		"height":2

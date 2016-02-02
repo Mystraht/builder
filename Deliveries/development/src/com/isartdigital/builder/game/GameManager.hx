@@ -162,7 +162,8 @@ class GameManager
 		Camera.getInstance().move();
 		
 		ClippingManager.getInstance().manage();
-	
+		
+		
 		
 		doActions(cast Building.list);
 		
