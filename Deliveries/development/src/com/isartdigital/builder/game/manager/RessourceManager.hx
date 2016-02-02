@@ -72,6 +72,8 @@ class RessourceManager extends Manager
 	}	
 	
 	public var updateSpice:Int->Void;
+	public var updateGold:Int->Void;
+	public var updateOffering:Int->Void;
 	
 	public function updateRessources() {
 		trace (ressources.exists(Ressources.SPICE));
