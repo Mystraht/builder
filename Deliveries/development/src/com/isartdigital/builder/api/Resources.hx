@@ -1,5 +1,7 @@
 package com.isartdigital.builder.api;
+import com.isartdigital.builder.game.def.ResourceDef;
 import haxe.Http;
+import haxe.Json;
 import js.Browser;
 
 	
@@ -46,6 +48,7 @@ class Resources
 		request.request(false);
 		
 	}
+	
 	
 	public function gold (pCallBack:String->Void) {
 		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + resourcesPath + goldPath, { token: Api.token } ));
