@@ -1340,6 +1340,9 @@ com_isartdigital_builder_game_manager_RessourceManager.prototype = $extend(com_i
 			return;
 		}
 		var lResource = lData.data;
+		this.updateAllRessources(lResource);
+	}
+	,updateAllRessources: function(lResource) {
 		this.updateGold(lResource.gold);
 		this.updateSpice(lResource.spice);
 		this.updateOfferings(lResource.offering);

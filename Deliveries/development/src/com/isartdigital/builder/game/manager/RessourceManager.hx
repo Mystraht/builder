@@ -86,7 +86,6 @@ class RessourceManager extends Manager
 	
 	public function updateRessources() {
 		Api.resources.get(cbOnResourcesCall);
-	
 	}
 	
 	
@@ -98,6 +97,10 @@ class RessourceManager extends Manager
 			return;
 		}
 		var lResource:ResourceDef = cast(lData.data);
+		updateAllRessources(lResource);
+	}
+	
+	public function updateAllRessources(lResource:ResourceDef) {
 		updateGold(lResource.gold);
 		updateSpice(lResource.spice);
 		updateOfferings(lResource.offering);
