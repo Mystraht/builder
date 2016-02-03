@@ -1,5 +1,5 @@
 version=2.1.2
-src=test
+src=src/com/isartdigital/test
 bin=bin
 report=report
 hxml=test.hxml
