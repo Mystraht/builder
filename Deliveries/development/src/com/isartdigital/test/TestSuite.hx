@@ -2,6 +2,7 @@ import massive.munit.TestSuite;
 
 import ApiTest;
 import BuildingBuilderTest;
+import BuildingDefinitionTest;
 import BuildingMoverTest;
 import BuildingTest;
 import MapManagerTest;
@@ -20,6 +21,7 @@ class TestSuite extends massive.munit.TestSuite
 
 		add(ApiTest);
 		add(BuildingBuilderTest);
+		add(BuildingDefinitionTest);
 		add(BuildingMoverTest);
 		add(BuildingTest);
 		add(MapManagerTest);

@@ -66,7 +66,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
 		list.push(this);
-		definition = getBuildingDefByName(pDefinition.name);
+		definition = BuildingDefinition.getByName(pDefinition.name);
 			
 		colMin = Math.floor(toModel().y);
 		colMax = Math.floor(toModel().y) + definition.size.height;
@@ -115,23 +115,6 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		if (movingBuilding == this) {
 			moveBuildingToCursor();
 		}
-	}
-	
-	
-	/**
-	 * Permet de récuperer le contenu de definiton d'un building (building.json) grâce à son nom
-	 * @param	pName
-	 */
-	public static function getBuildingDefByName(pName:String):BuildingDef {
-		var buildingsDef:Array<BuildingDef> = cast(GameLoader.getContent("json/building.json"));
-
-		for (i in 0...buildingsDef.length) {
-			if (buildingsDef[i].name == pName) {
-				return buildingsDef[i];
-			}
-		}
-		
-		return null;
 	}
 	
 	

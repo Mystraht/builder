@@ -105,9 +105,6 @@ class Main extends EventEmitter
 	private function new () {
 		super();
 		
-		// Forcer la connexion sur un compte
-		
-		
 		if (Browser.getLocalStorage().getItem('token') == null) {
 			Browser.location.href = '../';
 		}

@@ -1,4 +1,5 @@
 package com.isartdigital.builder.game.manager;
+import com.isartdigital.builder.game.sprites.buildings.BuildingDefinition;
 import com.isartdigital.builder.game.sprites.buildings.childrens.Altar;
 import com.isartdigital.builder.game.sprites.buildings.childrens.Brothel;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
@@ -147,7 +148,7 @@ class ClippingManager
 					if (modelExist(cast(Building.list), lModel)) continue;
 					
 					trace("model name " + lModel.name);
-					var buildingDef:BuildingDef = Building.getBuildingDefByName(lModel.name);
+					var buildingDef:BuildingDef = BuildingDefinition.getByName(lModel.name);
 					var lObj:IPoolObject = PoolObject.create(Type.resolveClass("com.isartdigital.builder.game.sprites.buildings.childrens." + buildingDef.className));
 					lObj.init(lModel);
 				} else 

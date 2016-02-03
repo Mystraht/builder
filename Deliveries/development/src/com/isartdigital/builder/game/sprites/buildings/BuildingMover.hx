@@ -25,9 +25,9 @@ class BuildingMover
 		destinationPosition = new Point();
 	}
 	
-	public function move():Void {
-		updateTilesBuildableState();
-		updateBuildingReferencePositionInGlobalMap();
+	public function setDestination(x:Float, y:Float):Void {
+		destinationPosition.x = Math.round(x);
+		destinationPosition.y = Math.round(y);
 	}
 	
 	public function tilesAtDestinationIsBuildable():Bool {
@@ -35,9 +35,9 @@ class BuildingMover
 		return mapManager.isBuildable(tilesDest);
 	}
 	
-	public function setDestination(x:Float, y:Float):Void {
-		destinationPosition.x = Math.round(x);
-		destinationPosition.y = Math.round(y);
+	public function move():Void {
+		updateTilesBuildableState();
+		updateBuildingReferencePositionInGlobalMap();
 	}
 	
 	private function updateTilesBuildableState():Void {

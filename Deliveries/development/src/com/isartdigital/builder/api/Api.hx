@@ -10,8 +10,9 @@ import js.html.CreateFileOptions;
  */
 class Api 
 {	
-	//public static var domain:String = "https://fbgame.isartdigital.com/2017_builder/builder2/";
-	public static var domain:String = "https://localhostbuilder.com/";
+	public static var domain:String;
+	public static var domainProd:String = "https://fbgame.isartdigital.com/2017_builder/builder2/";
+	public static var domainDev:String = "https://localhostbuilder.com/";
 	
 	public static var pathApi:String = "api/v1/";
 	
@@ -43,6 +44,8 @@ class Api
 	private function new() 
 	{
 		instance = this;
+		
+		domain = domainDev;
 		
 		token = Browser.getLocalStorage().getItem("token");
 		
