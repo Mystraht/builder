@@ -1,10 +1,11 @@
-package ;
+package game.sprites.buildings ;
 
 import com.isartdigital.builder.game.GameManager;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.sprites.buildings.Building;
 import com.isartdigital.builder.game.sprites.buildings.BuildingMover;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
+import com.isartdigital.utils.Config;
 import com.isartdigital.utils.loader.GameLoader;
 import massive.munit.util.Timer;
 import massive.munit.Assert;
@@ -68,41 +69,14 @@ class BuildingMoverTest
 	}
 	
 	@Test
-	public function should_set_correct_destination():Void
-	{
-		var buildingMover:BuildingMover;
-		var destination:Point;
+	public function should_move_building_under_mouse():Void {
+		var buildingMover:BuildingMover = new BuildingMover(building);
 		
-		GameManager.getInstance().mousePosition = new Point(150, 150);
+		GameManager.getInstance().mousePosition = new Point(10, 750);
 		
-		buildingMover = new BuildingMover(building);
-		buildingMover.setDestination(new Point(5, 7));
+		buildingMover.moveUnderMouse();
 		
-		destination = buildingMover.getDestination();
-		
-		Assert.isTrue(destination.x == 5);
-		Assert.isTrue(destination.y == 7);
-	}
-	
-	@Test
-	public function should_throw_error_if_no_destination_setted():Void {
-		var buildingMover:BuildingMover;
-		var thereIsError:Bool;
-		
-		buildingMover = new BuildingMover(building);
-		
-		try {
-			buildingMover.getDestination();
-			thereIsError = false;
-		} catch (e:String) {
-			thereIsError = true;
-		}
-		
-		Assert.isTrue(thereIsError);
-	}
-	
-	@Test
-	public function should_move_building_at_correct_destination():Void {
-		
+		Assert.isTrue(building.position.x == Config.tileWidth * 11);
+		Assert.isTrue(building.position.y == Config.tileWidth * 10);
 	}
 }

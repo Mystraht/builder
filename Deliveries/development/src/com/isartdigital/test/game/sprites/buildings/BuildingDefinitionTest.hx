@@ -1,4 +1,4 @@
-package ;
+package game.sprites.buildings ;
 
 import com.isartdigital.builder.game.sprites.buildings.BuildingDefinition;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;

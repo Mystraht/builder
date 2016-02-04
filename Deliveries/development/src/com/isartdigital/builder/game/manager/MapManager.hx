@@ -316,6 +316,7 @@ class MapManager extends Manager
 	public function displayTilePositionUnderMouse() {
 		var lPosition:Point = IsoManager.isoViewToModel(GameManager.getInstance().mousePosition);
 		
+		if (Math.floor(Math.random() * 25) == 0) trace("mouse" + GameManager.getInstance().mousePosition);
 		if (Math.floor(Math.random() * 25) == 0) trace("x : " + Math.ceil(lPosition.x) + " y : " + Math.ceil(lPosition.y));
 	}
 	

@@ -1,11 +1,11 @@
 import massive.munit.TestSuite;
 
-import ApiTest;
-import BuildingBuilderTest;
-import BuildingConstructorTest;
-import BuildingDefinitionTest;
-import BuildingMoverTest;
-import BuildingTest;
+import api.ApiTest;
+import game.sprites.buildings.BuildingBuilderTest;
+import game.sprites.buildings.BuildingConstructorTest;
+import game.sprites.buildings.BuildingDefinitionTest;
+import game.sprites.buildings.BuildingMoverTest;
+import game.sprites.buildings.BuildingTest;
 import MapManagerTest;
 
 /**
@@ -20,12 +20,12 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
-		add(ApiTest);
-		add(BuildingBuilderTest);
-		add(BuildingConstructorTest);
-		add(BuildingDefinitionTest);
-		add(BuildingMoverTest);
-		add(BuildingTest);
+		add(api.ApiTest);
+		add(game.sprites.buildings.BuildingBuilderTest);
+		add(game.sprites.buildings.BuildingConstructorTest);
+		add(game.sprites.buildings.BuildingDefinitionTest);
+		add(game.sprites.buildings.BuildingMoverTest);
+		add(game.sprites.buildings.BuildingTest);
 		add(MapManagerTest);
 	}
 }
