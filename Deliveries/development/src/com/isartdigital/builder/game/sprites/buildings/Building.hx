@@ -188,12 +188,12 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	
 	private function constructRequest():Void {
 		var destination:Point = getBuildingPositionByCursor();
-		var buildingMover:BuildingConstructer = new BuildingConstructer(this, positionBeforeConstruct);
+		var buildingConstructor:BuildingConstructor = new BuildingConstructor(this, positionBeforeConstruct);
 		
-		buildingMover.setDestination(destination.x, destination.y);
+		buildingConstructor.setDestination(destination.x, destination.y);
 		
-		if (buildingMover.tilesAtDestinationIsBuildable()) {
-			buildingMover.construct();
+		if (buildingConstructor.tilesAtDestinationIsBuildable()) {
+			buildingConstructor.construct();
 			setPositionBeforeConstructWith(destination);
 			cancelMoving();
 		}

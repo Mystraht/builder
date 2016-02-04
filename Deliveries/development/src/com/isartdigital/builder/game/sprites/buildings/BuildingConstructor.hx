@@ -10,7 +10,7 @@ import pixi.core.math.Point;
  * ...
  * @author Dorian
  */
-class BuildingConstructer
+class BuildingConstructor
 {
 	private var mapManager:MapManager;
 	private var building:Building;

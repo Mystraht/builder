@@ -1,7 +1,7 @@
 package ;
 
-import com.isartdigital.builder.game.sprites.buildings.BuildingConstructer;
-import com.isartdigital.builder.game.sprites.buildings.BuildingConstructer;
+import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
+import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;

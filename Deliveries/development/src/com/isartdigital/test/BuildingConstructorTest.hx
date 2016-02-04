@@ -1,7 +1,7 @@
 package ;
 
-import com.isartdigital.builder.game.sprites.buildings.BuildingConstructer;
-import com.isartdigital.builder.game.sprites.buildings.BuildingConstructer;
+import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
+import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
@@ -17,7 +17,7 @@ import pixi.core.display.Container;
 import pixi.display.FlumpMovie;
 
 
-class BuildingConstructerTest 
+class BuildingConstructorTest 
 {
 	var globalMap:Map<Int, Map<Int, Array<Dynamic>>>;
 	var building:Building;
@@ -108,7 +108,7 @@ class BuildingConstructerTest
 
 	@Test
 	public function should_not_move_building_when_destination_tiles_is_not_constructible():Void {
-		var buildingMover:BuildingConstructer = new BuildingConstructer(building, new Point(5, 5));
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
 		
 		buildingMover.setDestination(10, 10);
 		
@@ -119,7 +119,7 @@ class BuildingConstructerTest
 	
 	@Test
 	public function should_move_building_when_destination_tiles_is_constructible():Void {
-		var buildingMover:BuildingConstructer = new BuildingConstructer(building, new Point(5, 5));
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
 		
 		buildingMover.setDestination(10, 10);
 		
@@ -128,7 +128,7 @@ class BuildingConstructerTest
 	
 	@Test
 	public function should_set_tile_to_unconstructible_when_building_is_moved():Void {
-		var buildingMover:BuildingConstructer = new BuildingConstructer(building, new Point(5, 5));
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
 		
 		buildingMover.setDestination(10, 10);
 		buildingMover.construct();
@@ -138,7 +138,7 @@ class BuildingConstructerTest
 	
 	@Test
 	public function should_remove_building_from_original_position_in_global_map_when_building_is_moved():Void {
-		var buildingMover:BuildingConstructer = new BuildingConstructer(building, new Point(5, 5));
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
 		
 		buildingMover.setDestination(10, 10);
 		buildingMover.construct();
@@ -148,7 +148,7 @@ class BuildingConstructerTest
 	
 	@Test
 	public function should_add_building_to_destination_position_in_global_map_when_building_is_moved():Void {
-		var buildingMover:BuildingConstructer = new BuildingConstructer(building, new Point(5, 5));
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
 		
 		buildingMover.setDestination(10, 10);
 		buildingMover.construct();
