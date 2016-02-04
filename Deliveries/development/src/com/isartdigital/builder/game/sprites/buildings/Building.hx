@@ -47,7 +47,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	public var rowMin:UInt;
 	public var rowMax:UInt;
 	
-	private var positionBeforeStartMoving:Point = new Point(0, 0);
+	private var positionBeforeConstruct:Point = new Point(0, 0);
 
 	public function new()
 	{
@@ -138,9 +138,9 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		if (movingBuilding == this) {
 			constructRequest();
 		} else {
-			positionBeforeStartMoving = toModel(true);
+			positionBeforeConstruct = toModel(true);
 			movingBuilding = this;
-			tilesUnderBuilding = lMapManager.getTilesArray(positionBeforeStartMoving, definition.size);
+			tilesUnderBuilding = lMapManager.getTilesArray(positionBeforeConstruct, definition.size);
 			lMapManager.setTilesBuildable(tilesUnderBuilding, true);
 		}
 	}
@@ -188,19 +188,19 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	
 	private function constructRequest():Void {
 		var destination:Point = getBuildingPositionByCursor();
-		var buildingMover:BuildingMover = new BuildingMover(this, positionBeforeStartMoving);
+		var buildingMover:BuildingConstructer = new BuildingConstructer(this, positionBeforeConstruct);
 		
 		buildingMover.setDestination(destination.x, destination.y);
 		
 		if (buildingMover.tilesAtDestinationIsBuildable()) {
-			buildingMover.move();
-			setPositionBeforeStartMovingWith(destination);
+			buildingMover.construct();
+			setPositionBeforeConstructWith(destination);
 			cancelMoving();
 		}
 	}
 	
-	private function setPositionBeforeStartMovingWith(newPosition:Point):Void {
-		positionBeforeStartMoving.set(newPosition.x, newPosition.y);
+	private function setPositionBeforeConstructWith(newPosition:Point):Void {
+		positionBeforeConstruct.set(newPosition.x, newPosition.y);
 	}
 	
 	
@@ -212,10 +212,10 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
 		if (movingBuilding != null) {
-			tilesUnderBuilding = lMapManager.getTilesArray(movingBuilding.positionBeforeStartMoving, movingBuilding.definition.size);
+			tilesUnderBuilding = lMapManager.getTilesArray(movingBuilding.positionBeforeConstruct, movingBuilding.definition.size);
 			lMapManager.setTilesBuildable(tilesUnderBuilding, false);
 			
-			movingBuilding.position = IsoManager.modelToIsoView(movingBuilding.positionBeforeStartMoving);
+			movingBuilding.position = IsoManager.modelToIsoView(movingBuilding.positionBeforeConstruct);
 			movingBuilding = null;
 		}
 	}

@@ -10,18 +10,18 @@ import pixi.core.math.Point;
  * ...
  * @author Dorian
  */
-class BuildingMover
+class BuildingConstructer
 {
 	private var mapManager:MapManager;
 	private var building:Building;
-	private var positionBeforeStartMoving:Point;
+	private var positionBeforeConstruct:Point;
 	private var destinationPosition:Point;
 	
-	public function new(building:Building, positionBeforeStartMoving:Point) 
+	public function new(building:Building, positionBeforeConstruct:Point) 
 	{
 		mapManager = MapManager.getInstance();
 		this.building = building;
-		this.positionBeforeStartMoving = positionBeforeStartMoving;
+		this.positionBeforeConstruct = positionBeforeConstruct;
 		destinationPosition = new Point();
 	}
 	
@@ -35,7 +35,7 @@ class BuildingMover
 		return mapManager.isBuildable(tilesDest);
 	}
 	
-	public function move():Void {
+	public function construct():Void {
 		updateTilesBuildableState();
 		updateBuildingReferencePositionInGlobalMap();
 	}
@@ -47,12 +47,12 @@ class BuildingMover
 	
 	private function updateBuildingReferencePositionInGlobalMap():Void {
 		var building:Dynamic = getBuildingFromGlobalMap();
-		mapManager.removeElementByTypeDefFromGlobalMapAt(positionBeforeStartMoving, TypeDefUtils.buildingSavedDef);
+		mapManager.removeElementByTypeDefFromGlobalMapAt(positionBeforeConstruct, TypeDefUtils.buildingSavedDef);
 		mapManager.addElementInGlobalMapAt(destinationPosition, building);
 	}
 	
 	private function setOriginTilesToConstructibleInGlobalMap():Void {
-		var tilesOrigin:Array<TileSavedDef> = mapManager.getTilesArray(positionBeforeStartMoving, building.definition.size);
+		var tilesOrigin:Array<TileSavedDef> = mapManager.getTilesArray(positionBeforeConstruct, building.definition.size);
 		mapManager.setTilesBuildable(tilesOrigin, true);
 	}
 	
@@ -62,6 +62,6 @@ class BuildingMover
 	}
 	
 	private function getBuildingFromGlobalMap():Dynamic {
-		return mapManager.getElementInGlobalMapAt(positionBeforeStartMoving, TypeDefUtils.buildingSavedDef);
+		return mapManager.getElementInGlobalMapAt(positionBeforeConstruct, TypeDefUtils.buildingSavedDef);
 	}
 }
