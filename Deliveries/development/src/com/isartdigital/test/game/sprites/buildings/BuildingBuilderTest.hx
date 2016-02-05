@@ -1,4 +1,4 @@
-package ;
+package game.sprites.buildings ;
 
 import com.isartdigital.builder.game.sprites.buildings.BuildingBuilder;
 import com.isartdigital.builder.game.sprites.buildings.childrens.Motel;

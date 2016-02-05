@@ -4,6 +4,7 @@ import com.isartdigital.builder.api.Api;
 import com.isartdigital.builder.api.DataDef;
 import com.isartdigital.builder.api.Utils;
 import com.isartdigital.builder.game.def.UserInfoDef;
+import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.manager.RessourceManager;
 import com.isartdigital.builder.game.manager.Ressources;
 import com.isartdigital.builder.ui.GraphicLoader;
@@ -104,9 +105,6 @@ class Main extends EventEmitter
 	 */
 	private function new () {
 		super();
-		
-		// Forcer la connexion sur un compte
-		
 		
 		if (Browser.getLocalStorage().getItem('token') == null) {
 			Browser.location.href = '../';

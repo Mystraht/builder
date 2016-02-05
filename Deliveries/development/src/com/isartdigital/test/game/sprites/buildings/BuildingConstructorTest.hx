@@ -1,7 +1,7 @@
-package ;
+package game.sprites.buildings ;
 
-import com.isartdigital.builder.game.sprites.buildings.BuildingMover;
-import com.isartdigital.builder.game.sprites.buildings.BuildingMover;
+import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
+import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
@@ -17,7 +17,7 @@ import pixi.core.display.Container;
 import pixi.display.FlumpMovie;
 
 
-class BuildingTest 
+class BuildingConstructorTest 
 {
 	var globalMap:Map<Int, Map<Int, Array<Dynamic>>>;
 	var building:Building;
@@ -105,11 +105,54 @@ class BuildingTest
 	{
 	}
 	
+
 	@Test
-	public function should_set_tile_under_building_to_not_constructible_state_when_building_is_created():Void
-	{
-		Assert.isFalse(globalMap[3][5][1].isBuildable);
-		Assert.isFalse(globalMap[4][5][1].isBuildable);
-		Assert.isFalse(globalMap[5][5][1].isBuildable);
+	public function should_not_move_building_when_destination_tiles_is_not_constructible():Void {
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		
+		globalMap[10][10][1].isBuildable = false;
+		
+		Assert.isFalse(buildingMover.tilesAtDestinationIsBuildable());
+	}
+	
+	@Test
+	public function should_move_building_when_destination_tiles_is_constructible():Void {
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		
+		Assert.isTrue(buildingMover.tilesAtDestinationIsBuildable());
+	}
+	
+	@Test
+	public function should_set_tile_to_unconstructible_when_building_is_moved():Void {
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		buildingMover.construct();
+		
+		Assert.isFalse(globalMap[10][10][1].isBuildable);
+	}
+	
+	@Test
+	public function should_remove_building_from_original_position_in_global_map_when_building_is_moved():Void {
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		buildingMover.construct();
+
+		Assert.isTrue(globalMap[5][5].length == 3);
+	}
+	
+	@Test
+	public function should_add_building_to_destination_position_in_global_map_when_building_is_moved():Void {
+		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
+		
+		buildingMover.setDestination(10, 10);
+		buildingMover.construct();
+
+		Assert.isTrue(globalMap[10][10].length == 4);
 	}
 }
