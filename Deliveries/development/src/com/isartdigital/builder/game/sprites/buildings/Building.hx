@@ -215,6 +215,5 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		super.destroy();
 		GameStage.getInstance().getBuildingsContainer().removeChild(this);
 		list.splice(list.indexOf(this), 1);
-	}
-	
+	}	
 }

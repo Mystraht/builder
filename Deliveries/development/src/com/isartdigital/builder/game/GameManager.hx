@@ -170,6 +170,7 @@ class GameManager
 		// Pour le debug :
 		// MapManager.getInstance().displayTilePositionUnderMouse();
 		// moveCitizen();
+		
 	}
 	
 	

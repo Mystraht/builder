@@ -3,7 +3,7 @@ import pathfinder.IMap;
 
 /**
  * ...
- * @author Thorcal
+ * @author Thorcal	
  */
 class Maps implements IMap
 {
