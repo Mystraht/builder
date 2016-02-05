@@ -7,6 +7,8 @@ import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.pooling.IPoolObject;
+import com.isartdigital.builder.game.sprites.buildings.utils.BuildingDefinition;
+import com.isartdigital.builder.game.sprites.buildings.utils.BuildingPosition;
 import com.isartdigital.builder.game.utils.TypeDefUtils;
 import com.isartdigital.builder.ui.hud.BaseBuildingHUD;
 import com.isartdigital.builder.ui.UIManager;
@@ -112,9 +114,14 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	override function doActionNormal():Void {
 		super.doActionNormal();
 		var buildingMover:BuildingMover;
+		var buildingPosition:BuildingPosition;
+		var positionOnCursor:Point;
 		
 		if (movingBuilding == this) {
 			buildingMover = new BuildingMover(this);
+			buildingPosition = new BuildingPosition(this);
+			positionOnCursor = buildingPosition.getPositionOnCursor();
+			buildingMover.setMousePosition(positionOnCursor);
 			buildingMover.moveUnderMouse();
 		}
 	}
@@ -158,8 +165,8 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	
 	private function constructRequest():Void {
 		var buildingPosition:BuildingPosition = new BuildingPosition(this);
-		var destination:Point = buildingPosition.getPositionOnCursor();
 		var buildingConstructor:BuildingConstructor = new BuildingConstructor(this, positionBeforeConstruct);
+		var destination:Point = buildingPosition.getPositionOnCursor();
 		
 		buildingConstructor.setDestination(destination.x, destination.y);
 		

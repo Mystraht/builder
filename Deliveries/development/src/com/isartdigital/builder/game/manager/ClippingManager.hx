@@ -1,5 +1,5 @@
 package com.isartdigital.builder.game.manager;
-import com.isartdigital.builder.game.sprites.buildings.BuildingDefinition;
+import com.isartdigital.builder.game.sprites.buildings.utils.BuildingDefinition;
 import com.isartdigital.builder.game.sprites.buildings.childrens.Altar;
 import com.isartdigital.builder.game.sprites.buildings.childrens.Brothel;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;

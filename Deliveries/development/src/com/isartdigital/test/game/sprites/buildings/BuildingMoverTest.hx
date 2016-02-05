@@ -4,6 +4,7 @@ import com.isartdigital.builder.game.GameManager;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.sprites.buildings.Building;
 import com.isartdigital.builder.game.sprites.buildings.BuildingMover;
+import com.isartdigital.builder.game.sprites.buildings.utils.BuildingPosition;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.utils.Config;
 import com.isartdigital.utils.loader.GameLoader;
@@ -71,12 +72,14 @@ class BuildingMoverTest
 	@Test
 	public function should_move_building_under_mouse():Void {
 		var buildingMover:BuildingMover = new BuildingMover(building);
+		var buildingPosition:BuildingPosition = new BuildingPosition(building);
 		
 		GameManager.getInstance().mousePosition = new Point(10, 750);
 		
+		buildingMover.setMousePosition(buildingPosition.getPositionOnCursor());
 		buildingMover.moveUnderMouse();
 		
-		Assert.isTrue(building.position.x == Config.tileWidth * 11);
-		Assert.isTrue(building.position.y == Config.tileWidth * 10);
+		Assert.isTrue(building.position.x == 76);
+		Assert.isTrue(building.position.y == 798);
 	}
 }

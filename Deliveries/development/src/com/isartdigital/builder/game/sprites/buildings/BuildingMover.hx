@@ -12,6 +12,7 @@ class BuildingMover
 {
 	private var building:Building;
 	private var definition:BuildingDef;
+	private var mousePosition:Point;
 	
 	public function new(building:Building) 
 	{
@@ -20,12 +21,24 @@ class BuildingMover
 	}
 	
 	public function moveUnderMouse():Void {
-		var buildingPosition:BuildingPosition = new BuildingPosition(building);
-		var centerOfBuildingModel:Point = buildingPosition.getPositionOnCursor();
+		var centerOfBuildingModel:Point;
 		
+		if (mousePosition == null) {
+			mousePositionNullException();
+		}
+		
+		centerOfBuildingModel = mousePosition;
 		centerOfBuildingModel.x = Math.round(centerOfBuildingModel.x);
 		centerOfBuildingModel.y = Math.round(centerOfBuildingModel.y);
 		
 		building.position = IsoManager.modelToIsoView(centerOfBuildingModel);
+	}
+	
+	public function setMousePosition(mousePosition:Point):Void {
+		this.mousePosition = mousePosition;
+	}
+	
+	private function mousePositionNullException() {
+		throw 'Mouse position must be setted';
 	}
 }
