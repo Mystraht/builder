@@ -430,6 +430,7 @@ com_isartdigital_builder_Main.prototype = $extend(EventEmitter.prototype,{
 });
 var com_isartdigital_builder_api_Api = function() {
 	com_isartdigital_builder_api_Api.instance = this;
+	com_isartdigital_builder_api_Api.domain = com_isartdigital_builder_api_Api.domainDev;
 	com_isartdigital_builder_api_Api.token = js_Browser.getLocalStorage().getItem("token");
 	com_isartdigital_builder_api_Api.user = com_isartdigital_builder_api_User.getInstance();
 	com_isartdigital_builder_api_Api.resources = com_isartdigital_builder_api_Resources.getInstance();
@@ -848,7 +849,7 @@ com_isartdigital_builder_game_manager_ClippingManager.prototype = {
 			while(--i >= 0) if(Object.prototype.hasOwnProperty.call(lModel,"buildingLevel")) {
 				if(this.modelExist(com_isartdigital_builder_game_sprites_buildings_Building.list,lModel)) continue;
 				console.log("model name " + Std.string(lModel.name));
-				var buildingDef = com_isartdigital_builder_game_sprites_buildings_Building.getBuildingDefByName(lModel.name);
+				var buildingDef = com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.getByName(lModel.name);
 				var lObj = com_isartdigital_builder_game_pooling_PoolObject.create(Type.resolveClass("com.isartdigital.builder.game.sprites.buildings.childrens." + buildingDef.className));
 				lObj.init(lModel);
 			} else {
@@ -1149,6 +1150,18 @@ com_isartdigital_builder_game_manager_MapManager.prototype = $extend(com_isartdi
 		}
 		return false;
 	}
+	,getElementInGlobalMapAt: function(position,typeDef) {
+		var elements;
+		var this1 = this.globalMap.h[position.x | 0];
+		elements = this1.get(position.y | 0);
+		var _g1 = 0;
+		var _g = elements.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			if(com_isartdigital_builder_game_utils_TypeDefUtils.compare(elements[i],typeDef)) return elements[i];
+		}
+		throw new js__$Boot_HaxeError("typedef was not found in elements array");
+	}
 	,addElementInGlobalMapAt: function(position,element) {
 		var elements;
 		var this1 = this.globalMap.h[position.x | 0];
@@ -1238,6 +1251,7 @@ com_isartdigital_builder_game_manager_MapManager.prototype = $extend(com_isartdi
 	}
 	,displayTilePositionUnderMouse: function() {
 		var lPosition = com_isartdigital_utils_game_iso_IsoManager.isoViewToModel(com_isartdigital_builder_game_GameManager.getInstance().mousePosition);
+		if(Math.floor(Math.random() * 25) == 0) console.log("mouse" + Std.string(com_isartdigital_builder_game_GameManager.getInstance().mousePosition));
 		if(Math.floor(Math.random() * 25) == 0) console.log("x : " + Math.ceil(lPosition.x) + " y : " + Math.ceil(lPosition.y));
 	}
 	,importBuildingsClass: function() {
@@ -1721,7 +1735,7 @@ com_isartdigital_utils_game_iso_IZSortable.prototype = {
 	__class__: com_isartdigital_utils_game_iso_IZSortable
 };
 var com_isartdigital_builder_game_sprites_buildings_Building = function() {
-	this.positionBeforeStartMoving = new PIXI.Point(0,0);
+	this.positionBeforeConstruct = new PIXI.Point(0,0);
 	this.buildingLevel = 0;
 	com_isartdigital_builder_game_sprites_SpriteObject.call(this);
 	this.factory = new com_isartdigital_utils_game_factory_FlumpMovieAnimFactory();
@@ -1731,23 +1745,13 @@ var com_isartdigital_builder_game_sprites_buildings_Building = function() {
 $hxClasses["com.isartdigital.builder.game.sprites.buildings.Building"] = com_isartdigital_builder_game_sprites_buildings_Building;
 com_isartdigital_builder_game_sprites_buildings_Building.__name__ = ["com","isartdigital","builder","game","sprites","buildings","Building"];
 com_isartdigital_builder_game_sprites_buildings_Building.__interfaces__ = [com_isartdigital_builder_game_pooling_IPoolObject,com_isartdigital_utils_game_iso_IZSortable];
-com_isartdigital_builder_game_sprites_buildings_Building.getBuildingDefByName = function(pName) {
-	var buildingsDef = com_isartdigital_utils_loader_GameLoader.getContent("json/building.json");
-	var _g1 = 0;
-	var _g = buildingsDef.length;
-	while(_g1 < _g) {
-		var i = _g1++;
-		if(buildingsDef[i].name == pName) return buildingsDef[i];
-	}
-	return null;
-};
 com_isartdigital_builder_game_sprites_buildings_Building.cancelMoving = function() {
 	var lMapManager = com_isartdigital_builder_game_manager_MapManager.getInstance();
 	var tilesUnderBuilding;
 	if(com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding != null) {
-		tilesUnderBuilding = lMapManager.getTilesArray(com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding.positionBeforeStartMoving,com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding.definition.size);
+		tilesUnderBuilding = lMapManager.getTilesArray(com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding.positionBeforeConstruct,com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding.definition.size);
 		lMapManager.setTilesBuildable(tilesUnderBuilding,false);
-		com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding.position = com_isartdigital_utils_game_iso_IsoManager.modelToIsoView(com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding.positionBeforeStartMoving);
+		com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding.position = com_isartdigital_utils_game_iso_IsoManager.modelToIsoView(com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding.positionBeforeConstruct);
 		com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding = null;
 	}
 };
@@ -1758,7 +1762,7 @@ com_isartdigital_builder_game_sprites_buildings_Building.prototype = $extend(com
 		var buildingIsoPosition = com_isartdigital_utils_game_iso_IsoManager.modelToIsoView(new PIXI.Point(pDefinition.x,pDefinition.y));
 		var tilesUnderBuilding;
 		com_isartdigital_builder_game_sprites_buildings_Building.list.push(this);
-		this.definition = com_isartdigital_builder_game_sprites_buildings_Building.getBuildingDefByName(pDefinition.name);
+		this.definition = com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.getByName(pDefinition.name);
 		this.colMin = Math.floor(this.toModel().y);
 		this.colMax = Math.floor(this.toModel().y) + this.definition.size.height;
 		this.rowMin = Math.floor(this.toModel().x);
@@ -1790,7 +1794,16 @@ com_isartdigital_builder_game_sprites_buildings_Building.prototype = $extend(com
 	}
 	,doActionNormal: function() {
 		com_isartdigital_builder_game_sprites_SpriteObject.prototype.doActionNormal.call(this);
-		if(com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding == this) this.moveBuildingToCursor();
+		var buildingMover;
+		var buildingPosition;
+		var positionOnCursor;
+		if(com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding == this) {
+			buildingMover = new com_isartdigital_builder_game_sprites_buildings_BuildingMover(this);
+			buildingPosition = new com_isartdigital_builder_game_sprites_buildings_utils_BuildingPosition(this);
+			positionOnCursor = buildingPosition.getPositionOnCursor();
+			buildingMover.setMousePosition(positionOnCursor);
+			buildingMover.moveUnderMouse();
+		}
 	}
 	,upgradeBuilding: function() {
 		this.buildingLevel++;
@@ -1803,44 +1816,29 @@ com_isartdigital_builder_game_sprites_buildings_Building.prototype = $extend(com
 		});
 		var lMapManager = com_isartdigital_builder_game_manager_MapManager.getInstance();
 		var tilesUnderBuilding;
-		if(com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding == this) this.buildingRequest(); else {
-			this.positionBeforeStartMoving = this.toModel(true);
+		if(com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding == this) this.constructRequest(); else {
+			this.positionBeforeConstruct = this.toModel(true);
 			com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding = this;
-			tilesUnderBuilding = lMapManager.getTilesArray(this.positionBeforeStartMoving,this.definition.size);
+			tilesUnderBuilding = lMapManager.getTilesArray(this.positionBeforeConstruct,this.definition.size);
 			lMapManager.setTilesBuildable(tilesUnderBuilding,true);
 		}
 	}
 	,stopMoving: function() {
 		com_isartdigital_builder_game_sprites_buildings_Building.movingBuilding = null;
 	}
-	,moveBuildingToCursor: function() {
-		var centerOfBuildingModel = this.getBuildingPositionByCursor();
-		centerOfBuildingModel.x = Math.round(centerOfBuildingModel.x);
-		centerOfBuildingModel.y = Math.round(centerOfBuildingModel.y);
-		this.position = com_isartdigital_utils_game_iso_IsoManager.modelToIsoView(centerOfBuildingModel);
-	}
-	,getBuildingPositionByCursor: function() {
-		var mousePosition = com_isartdigital_builder_game_GameManager.getInstance().mousePosition;
-		var buildingOffset = new PIXI.Point(0,0);
-		var centerOfBuilding = new PIXI.Point(0,0);
-		buildingOffset.x = (this.definition.size.width - this.definition.size.height) / 2 * (_$UInt_UInt_$Impl_$.toFloat(com_isartdigital_utils_Config.tileWidth) / _$UInt_UInt_$Impl_$.toFloat(2));
-		buildingOffset.y = (this.definition.size.width + this.definition.size.height) / 2 * (_$UInt_UInt_$Impl_$.toFloat(com_isartdigital_utils_Config.tileHeight) / _$UInt_UInt_$Impl_$.toFloat(2));
-		centerOfBuilding.x = mousePosition.x + buildingOffset.x;
-		centerOfBuilding.y = mousePosition.y + buildingOffset.y;
-		return com_isartdigital_utils_game_iso_IsoManager.isoViewToModel(centerOfBuilding);
-	}
-	,buildingRequest: function() {
-		var destination = this.getBuildingPositionByCursor();
-		var buildingMover = new com_isartdigital_builder_game_sprites_buildings_BuildingMover(this,this.positionBeforeStartMoving);
-		buildingMover.setDestination(destination.x,destination.y);
-		if(buildingMover.canMove()) {
-			buildingMover.move();
-			this.setPositionBeforeStartMovingWith(destination);
+	,constructRequest: function() {
+		var buildingPosition = new com_isartdigital_builder_game_sprites_buildings_utils_BuildingPosition(this);
+		var buildingConstructor = new com_isartdigital_builder_game_sprites_buildings_BuildingConstructor(this,this.positionBeforeConstruct);
+		var destination = buildingPosition.getPositionOnCursor();
+		buildingConstructor.setDestination(destination.x,destination.y);
+		if(buildingConstructor.tilesAtDestinationIsBuildable()) {
+			buildingConstructor.construct();
+			this.setPositionBeforeConstructWith(destination);
 			com_isartdigital_builder_game_sprites_buildings_Building.cancelMoving();
 		}
 	}
-	,setPositionBeforeStartMovingWith: function(newPosition) {
-		this.positionBeforeStartMoving.set(newPosition.x,newPosition.y);
+	,setPositionBeforeConstructWith: function(newPosition) {
+		this.positionBeforeConstruct.set(newPosition.x,newPosition.y);
 	}
 	,callServerToDestroy: function() {
 		var modelPosistion = this.toModel(true);
@@ -1857,40 +1855,69 @@ com_isartdigital_builder_game_sprites_buildings_Building.prototype = $extend(com
 	}
 	,__class__: com_isartdigital_builder_game_sprites_buildings_Building
 });
-var com_isartdigital_builder_game_sprites_buildings_BuildingMover = function(building,positionBeforeStartMoving) {
+var com_isartdigital_builder_game_sprites_buildings_BuildingConstructor = function(building,positionBeforeConstruct) {
 	this.mapManager = com_isartdigital_builder_game_manager_MapManager.getInstance();
 	this.building = building;
-	this.positionBeforeStartMoving = positionBeforeStartMoving;
+	this.positionBeforeConstruct = positionBeforeConstruct;
 	this.destinationPosition = new PIXI.Point();
 };
-$hxClasses["com.isartdigital.builder.game.sprites.buildings.BuildingMover"] = com_isartdigital_builder_game_sprites_buildings_BuildingMover;
-com_isartdigital_builder_game_sprites_buildings_BuildingMover.__name__ = ["com","isartdigital","builder","game","sprites","buildings","BuildingMover"];
-com_isartdigital_builder_game_sprites_buildings_BuildingMover.prototype = {
-	move: function() {
-		this.setOriginTilesToConstructibleInGlobalMap();
-		this.setDestinationTilesToNotConstructibleInGlobalMap();
-		this.updateGlobalMap();
-	}
-	,canMove: function() {
-		var tilesDest = this.mapManager.getTilesArray(this.destinationPosition,this.building.definition.size);
-		return this.mapManager.isBuildable(tilesDest);
-	}
-	,setDestination: function(x,y) {
+$hxClasses["com.isartdigital.builder.game.sprites.buildings.BuildingConstructor"] = com_isartdigital_builder_game_sprites_buildings_BuildingConstructor;
+com_isartdigital_builder_game_sprites_buildings_BuildingConstructor.__name__ = ["com","isartdigital","builder","game","sprites","buildings","BuildingConstructor"];
+com_isartdigital_builder_game_sprites_buildings_BuildingConstructor.prototype = {
+	setDestination: function(x,y) {
 		this.destinationPosition.x = Math.round(x);
 		this.destinationPosition.y = Math.round(y);
 	}
+	,tilesAtDestinationIsBuildable: function() {
+		var tilesDest = this.mapManager.getTilesArray(this.destinationPosition,this.building.definition.size);
+		return this.mapManager.isBuildable(tilesDest);
+	}
+	,construct: function() {
+		this.updateTilesBuildableState();
+		this.updateBuildingReferencePositionInGlobalMap();
+	}
+	,updateTilesBuildableState: function() {
+		this.setOriginTilesToConstructibleInGlobalMap();
+		this.setDestinationTilesToNotConstructibleInGlobalMap();
+	}
+	,updateBuildingReferencePositionInGlobalMap: function() {
+		var building = this.getBuildingFromGlobalMap();
+		this.mapManager.removeElementByTypeDefFromGlobalMapAt(this.positionBeforeConstruct,com_isartdigital_builder_game_utils_TypeDefUtils.buildingSavedDef);
+		this.mapManager.addElementInGlobalMapAt(this.destinationPosition,building);
+	}
 	,setOriginTilesToConstructibleInGlobalMap: function() {
-		var tilesOrigin = this.mapManager.getTilesArray(this.positionBeforeStartMoving,this.building.definition.size);
+		var tilesOrigin = this.mapManager.getTilesArray(this.positionBeforeConstruct,this.building.definition.size);
 		this.mapManager.setTilesBuildable(tilesOrigin,true);
 	}
 	,setDestinationTilesToNotConstructibleInGlobalMap: function() {
 		var tilesDest = this.mapManager.getTilesArray(this.destinationPosition,this.building.definition.size);
 		this.mapManager.setTilesBuildable(tilesDest,false);
 	}
-	,updateGlobalMap: function() {
-		var buildingRemoved = com_isartdigital_builder_game_utils_TypeDefUtils.buildingSavedDef;
-		buildingRemoved = this.mapManager.removeElementByTypeDefFromGlobalMapAt(this.positionBeforeStartMoving,com_isartdigital_builder_game_utils_TypeDefUtils.buildingSavedDef);
-		this.mapManager.addElementInGlobalMapAt(this.destinationPosition,buildingRemoved);
+	,getBuildingFromGlobalMap: function() {
+		return this.mapManager.getElementInGlobalMapAt(this.positionBeforeConstruct,com_isartdigital_builder_game_utils_TypeDefUtils.buildingSavedDef);
+	}
+	,__class__: com_isartdigital_builder_game_sprites_buildings_BuildingConstructor
+};
+var com_isartdigital_builder_game_sprites_buildings_BuildingMover = function(building) {
+	this.building = building;
+	this.definition = building.definition;
+};
+$hxClasses["com.isartdigital.builder.game.sprites.buildings.BuildingMover"] = com_isartdigital_builder_game_sprites_buildings_BuildingMover;
+com_isartdigital_builder_game_sprites_buildings_BuildingMover.__name__ = ["com","isartdigital","builder","game","sprites","buildings","BuildingMover"];
+com_isartdigital_builder_game_sprites_buildings_BuildingMover.prototype = {
+	moveUnderMouse: function() {
+		var centerOfBuildingModel;
+		if(this.mousePosition == null) this.mousePositionNullException();
+		centerOfBuildingModel = this.mousePosition;
+		centerOfBuildingModel.x = Math.round(centerOfBuildingModel.x);
+		centerOfBuildingModel.y = Math.round(centerOfBuildingModel.y);
+		this.building.position = com_isartdigital_utils_game_iso_IsoManager.modelToIsoView(centerOfBuildingModel);
+	}
+	,setMousePosition: function(mousePosition) {
+		this.mousePosition = mousePosition;
+	}
+	,mousePositionNullException: function() {
+		throw new js__$Boot_HaxeError("Mouse position must be setted");
 	}
 	,__class__: com_isartdigital_builder_game_sprites_buildings_BuildingMover
 };
@@ -2019,6 +2046,61 @@ com_isartdigital_builder_game_sprites_buildings_component_UpgradableComponent.pr
 	upgrade: function() {
 	}
 	,__class__: com_isartdigital_builder_game_sprites_buildings_component_UpgradableComponent
+};
+var com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition = function() {
+};
+$hxClasses["com.isartdigital.builder.game.sprites.buildings.utils.BuildingDefinition"] = com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition;
+com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.__name__ = ["com","isartdigital","builder","game","sprites","buildings","utils","BuildingDefinition"];
+com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.getByName = function(name) {
+	var buildingDefinitions;
+	com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.setDefinitionName(name);
+	buildingDefinitions = com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.getTypedBuildingDefinitions();
+	return com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.getBuildingDefinitionInto(buildingDefinitions);
+};
+com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.setDefinitionName = function(pDefinitionName) {
+	com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.definitionName = pDefinitionName;
+};
+com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.getTypedBuildingDefinitions = function() {
+	return com_isartdigital_utils_loader_GameLoader.getContent("json/building.json");
+};
+com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.getBuildingDefinitionInto = function(buildingDefinitions) {
+	var _g1 = 0;
+	var _g = buildingDefinitions.length;
+	while(_g1 < _g) {
+		var i = _g1++;
+		if(buildingDefinitions[i].name == com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.definitionName) return buildingDefinitions[i];
+	}
+	throw new js__$Boot_HaxeError("Definition not found in json");
+};
+com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.prototype = {
+	__class__: com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition
+};
+var com_isartdigital_builder_game_sprites_buildings_utils_BuildingPosition = function(building) {
+	this.building = building;
+	this.definition = building.definition;
+};
+$hxClasses["com.isartdigital.builder.game.sprites.buildings.utils.BuildingPosition"] = com_isartdigital_builder_game_sprites_buildings_utils_BuildingPosition;
+com_isartdigital_builder_game_sprites_buildings_utils_BuildingPosition.__name__ = ["com","isartdigital","builder","game","sprites","buildings","utils","BuildingPosition"];
+com_isartdigital_builder_game_sprites_buildings_utils_BuildingPosition.prototype = {
+	getPositionOnCursor: function() {
+		var buildingOffset = this.getBuildingOffset();
+		var centerOfBuilding = this.getMousePositionWith(buildingOffset);
+		return com_isartdigital_utils_game_iso_IsoManager.isoViewToModel(centerOfBuilding);
+	}
+	,getBuildingOffset: function() {
+		var buildingOffset = new PIXI.Point();
+		buildingOffset.x = (this.definition.size.width - this.definition.size.height) / 2 * (_$UInt_UInt_$Impl_$.toFloat(com_isartdigital_utils_Config.tileWidth) / _$UInt_UInt_$Impl_$.toFloat(2));
+		buildingOffset.y = (this.definition.size.width + this.definition.size.height) / 2 * (_$UInt_UInt_$Impl_$.toFloat(com_isartdigital_utils_Config.tileHeight) / _$UInt_UInt_$Impl_$.toFloat(2));
+		return buildingOffset;
+	}
+	,getMousePositionWith: function(buildingOffset) {
+		var centerOfBuilding = new PIXI.Point();
+		var mousePosition = com_isartdigital_builder_game_GameManager.getInstance().mousePosition;
+		centerOfBuilding.x = mousePosition.x + buildingOffset.x;
+		centerOfBuilding.y = mousePosition.y + buildingOffset.y;
+		return centerOfBuilding;
+	}
+	,__class__: com_isartdigital_builder_game_sprites_buildings_utils_BuildingPosition
 };
 var com_isartdigital_builder_game_utils_TypeDefUtils = function() {
 };
@@ -6085,7 +6167,8 @@ var Class = $hxClasses.Class = { __name__ : ["Class"]};
 var Enum = { };
 var __map_reserved = {}
 com_isartdigital_builder_Main.CONFIG_PATH = "config.json";
-com_isartdigital_builder_api_Api.domain = "https://localhostbuilder.com/";
+com_isartdigital_builder_api_Api.domainProd = "https://fbgame.isartdigital.com/2017_builder/builder2/";
+com_isartdigital_builder_api_Api.domainDev = "https://localhostbuilder.com/";
 com_isartdigital_builder_api_Api.pathApi = "api/v1/";
 com_isartdigital_builder_game_manager_ClippingManager.SAFE_MARGE_VIEW = 100;
 com_isartdigital_builder_game_manager_ClippingManager.SAFE_MARGE_MODEL = 0;
@@ -6097,6 +6180,7 @@ com_isartdigital_utils_game_StateGraphic.boxAlpha = 0;
 com_isartdigital_builder_game_sprites_Citizen.list = [];
 com_isartdigital_builder_game_sprites_Tile.list = [];
 com_isartdigital_builder_game_sprites_buildings_Building.list = [];
+com_isartdigital_builder_game_sprites_buildings_utils_BuildingDefinition.BUILDING_JSON_PATH = "json/building.json";
 com_isartdigital_builder_game_utils_TypeDefUtils.tileSavedDef = { x : null, y : null, isBuildable : null};
 com_isartdigital_builder_game_utils_TypeDefUtils.buildingSavedDef = { name : null, x : null, y : null, color : null, buildingLevel : null};
 com_isartdigital_builder_ui_hud_BaseBuildingHUD.BUTTON_DELETE_NAME = "DeleteButton";

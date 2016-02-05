@@ -1412,7 +1412,7 @@
 	</class>
 	<class path="com.isartdigital.builder.Main" params="" file="src/com/isartdigital/builder/Main.hx">
 		<extends path="eventemitter3.EventEmitter"/>
-		<CONFIG_PATH get="inline" set="null" line="59" static="1">
+		<CONFIG_PATH get="inline" set="null" line="60" static="1">
 			<c path="String"/>
 			<haxe_doc>* chemin vers le fichier de configuration</haxe_doc>
 		</CONFIG_PATH>
@@ -1420,16 +1420,16 @@
 			<c path="com.isartdigital.builder.Main"/>
 			<haxe_doc>* instance unique de la classe Main</haxe_doc>
 		</instance>
-		<main set="method" line="89" static="1">
+		<main set="method" line="90" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* initialisation générale</haxe_doc>
 		</main>
-		<getInstance public="1" set="method" line="97" static="1">
+		<getInstance public="1" set="method" line="98" static="1">
 			<f a=""><c path="com.isartdigital.builder.Main"/></f>
 			<haxe_doc>* Retourne l'instance unique de la classe, et la crée si elle n'existait pas au préalable
 	 * @return instance unique</haxe_doc>
 		</getInstance>
-		<importClasses set="method" line="352" static="1"><f a=""><x path="Void"/></f></importClasses>
+		<importClasses set="method" line="350" static="1"><f a=""><x path="Void"/></f></importClasses>
 		<increase><x path="Bool"/></increase>
 		<userInfoLoaded>
 			<x path="Bool"/>
@@ -1447,7 +1447,7 @@
 			<c path="pixi.core.display.Container"/>
 			<haxe_doc>* Element racine de la displayList</haxe_doc>
 		</stage>
-		<preloadAssets set="method" line="151">
+		<preloadAssets set="method" line="149">
 			<f a="pLoader">
 				<c path="pixi.loaders.Loader"/>
 				<x path="Void"/>
@@ -1455,22 +1455,22 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>* charge les assets graphiques du preloader principal</haxe_doc>
 		</preloadAssets>
-		<loadAssets set="method" line="200">
+		<loadAssets set="method" line="198">
 			<f a="pLoader">
 				<c path="com.isartdigital.utils.loader.GameLoader"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>* lance le chargement principal</haxe_doc>
 		</loadAssets>
-		<loadUserInfos set="method" line="242">
+		<loadUserInfos set="method" line="240">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Charge le /userInfos du jeu</haxe_doc>
 		</loadUserInfos>
-		<cbOnUserInfosReceipt set="method" line="246"><f a="pData">
+		<cbOnUserInfosReceipt set="method" line="244"><f a="pData">
 	<c path="String"/>
 	<x path="Void"/>
 </f></cbOnUserInfosReceipt>
-		<onLoadProgress set="method" line="264">
+		<onLoadProgress set="method" line="262">
 			<f a="pLoader">
 				<c path="com.isartdigital.utils.loader.GameLoader"/>
 				<x path="Void"/>
@@ -1478,7 +1478,7 @@
 			<haxe_doc>* transmet les paramètres de chargement au préchargeur graphique
 	 * @param	pEvent evenement de chargement</haxe_doc>
 		</onLoadProgress>
-		<onLoadComplete set="method" line="272">
+		<onLoadComplete set="method" line="270">
 			<f a="pLoader">
 				<c path="com.isartdigital.utils.loader.GameLoader"/>
 				<x path="Void"/>
@@ -1486,19 +1486,19 @@
 			<haxe_doc>* initialisation du jeu
 	 * @param	pEvent evenement de chargement</haxe_doc>
 		</onLoadComplete>
-		<tryToStartGame set="method" line="301">
+		<tryToStartGame set="method" line="299">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Essaye de charger le jeu (Si les conditions necessaires sont valide)</haxe_doc>
 		</tryToStartGame>
-		<startGame set="method" line="310">
+		<startGame set="method" line="308">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Démarre le jeu</haxe_doc>
 		</startGame>
-		<gameLoop set="method" line="321">
+		<gameLoop set="method" line="319">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* game loop</haxe_doc>
 		</gameLoop>
-		<resize public="1" set="method" line="332">
+		<resize public="1" set="method" line="330">
 			<f a="?pEvent">
 				<t path="pixi.interaction.EventTarget"/>
 				<x path="Void"/>
@@ -1506,31 +1506,31 @@
 			<haxe_doc>* Ecouteur du redimensionnement
 	 * @param	pEvent evenement de redimensionnement</haxe_doc>
 		</resize>
-		<render set="method" line="340">
+		<render set="method" line="338">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* fait le rendu de l'écran</haxe_doc>
 		</render>
-		<destroy public="1" set="method" line="347">
+		<destroy public="1" set="method" line="345">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* détruit l'instance unique et met sa référence interne à null</haxe_doc>
 		</destroy>
-		<onFacebookLogin set="method" line="365">
+		<onFacebookLogin set="method" line="363">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Fonction appellé quand la connection à facebook est réussi</haxe_doc>
 		</onFacebookLogin>
-		<callBackApi set="method" line="370"><f a="pData">
+		<callBackApi set="method" line="368"><f a="pData">
 	<d/>
 	<x path="Void"/>
 </f></callBackApi>
-		<cbAds set="method" line="383"><f a="pData">
+		<cbAds set="method" line="381"><f a="pData">
 	<d/>
 	<x path="Void"/>
 </f></cbAds>
-		<callBackUI set="method" line="391"><f a="pData">
+		<callBackUI set="method" line="389"><f a="pData">
 	<d/>
 	<x path="Void"/>
 </f></callBackUI>
-		<new set="method" line="105">
+		<new set="method" line="106">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>* création du jeu et lancement du chargement du fichier de configuration</haxe_doc>
@@ -1540,8 +1540,10 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="com.isartdigital.builder.api.Api" params="" file="src/com/isartdigital/builder/api/Api.hx">
-		<domain public="1" line="14" static="1"><c path="String"/></domain>
-		<pathApi public="1" line="16" static="1"><c path="String"/></pathApi>
+		<domain public="1" static="1"><c path="String"/></domain>
+		<domainProd public="1" line="14" static="1"><c path="String"/></domainProd>
+		<domainDev public="1" line="15" static="1"><c path="String"/></domainDev>
+		<pathApi public="1" line="17" static="1"><c path="String"/></pathApi>
 		<token public="1" static="1"><c path="String"/></token>
 		<user public="1" static="1"><c path="com.isartdigital.builder.api.User"/></user>
 		<gifts public="1" static="1"><c path="com.isartdigital.builder.api.Gifts"/></gifts>
@@ -1552,12 +1554,12 @@
 			<c path="com.isartdigital.builder.api.Api"/>
 			<haxe_doc>* instance unique de la classe Resources</haxe_doc>
 		</instance>
-		<getInstance public="1" set="method" line="35" static="1">
+		<getInstance public="1" set="method" line="36" static="1">
 			<f a=""><c path="com.isartdigital.builder.api.Api"/></f>
 			<haxe_doc>* Retourne l'instance unique de la classe, et la crée si elle n'existait pas au préalable
 	 * @return instance unique</haxe_doc>
 		</getInstance>
-		<formatPath public="1" set="method" line="61" static="1">
+		<formatPath public="1" set="method" line="64" static="1">
 			<f a="path:params">
 				<c path="String"/>
 				<d/>
@@ -1567,7 +1569,7 @@
 	 * @param	path Adresse du lien
 	 * @param	params Paramètre GET à passer</haxe_doc>
 		</formatPath>
-		<new set="method" line="43">
+		<new set="method" line="44">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* constructeur privé pour éviter qu'une instance soit créée directement</haxe_doc>
 		</new>
@@ -2080,10 +2082,10 @@
 		<haxe_doc>* @author Dorian</haxe_doc>
 	</typedef>
 	<class path="com.isartdigital.builder.game.manager.ClippingManager" params="" file="src/com/isartdigital/builder/game/manager/ClippingManager.hx">
-		<Instance line="28" static="1"><c path="com.isartdigital.builder.game.manager.ClippingManager"/></Instance>
-		<SAFE_MARGE_VIEW get="inline" set="null" line="30" static="1"><x path="Float"/></SAFE_MARGE_VIEW>
-		<SAFE_MARGE_MODEL line="31" static="1"><x path="Float"/></SAFE_MARGE_MODEL>
-		<getInstance public="1" set="method" line="50" static="1">
+		<Instance line="29" static="1"><c path="com.isartdigital.builder.game.manager.ClippingManager"/></Instance>
+		<SAFE_MARGE_VIEW get="inline" set="null" line="31" static="1"><x path="Float"/></SAFE_MARGE_VIEW>
+		<SAFE_MARGE_MODEL line="32" static="1"><x path="Float"/></SAFE_MARGE_MODEL>
+		<getInstance public="1" set="method" line="51" static="1">
 			<f a=""><c path="com.isartdigital.builder.game.manager.ClippingManager"/></f>
 			<haxe_doc>* Retourne l'instance unique de la classe, et la crée si elle n'existait pas au préalable
 	 * @return instance unique</haxe_doc>
@@ -2110,7 +2112,7 @@
 		<BOTTOM_LEFT><c path="pixi.core.math.Point"/></BOTTOM_LEFT>
 		<BOTTOM_RIGHT><c path="pixi.core.math.Point"/></BOTTOM_RIGHT>
 		<BOTTOM_RIGHT_RIGHT><c path="pixi.core.math.Point"/></BOTTOM_RIGHT_RIGHT>
-		<setOn public="1" set="method" line="80">
+		<setOn public="1" set="method" line="81">
 			<f a="pMapModel:pListView:pDelta:pDef:pBuilding:pScreeRectRef">
 				<x path="Map">
 					<x path="Int"/>
@@ -2134,23 +2136,23 @@
 	 * @param	pBuilding Class de sortie qui implémente le pooling
 	 * @param	pScreeRectRef getter du carré de référence</haxe_doc>
 		</setOn>
-		<manage public="1" set="method" line="105">
+		<manage public="1" set="method" line="106">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Fais le taff</haxe_doc>
 		</manage>
-		<addAllObjetInView public="1" set="method" line="121"><f a=""><x path="Void"/></f></addAllObjetInView>
-		<addObject set="method" line="126"><f a=""><x path="Void"/></f></addObject>
-		<createObjFromModel set="method" line="138"><f a="pArray">
+		<addAllObjetInView public="1" set="method" line="122"><f a=""><x path="Void"/></f></addAllObjetInView>
+		<addObject set="method" line="127"><f a=""><x path="Void"/></f></addObject>
+		<createObjFromModel set="method" line="139"><f a="pArray">
 	<c path="Array"><d/></c>
 	<x path="Void"/>
 </f></createObjFromModel>
-		<modelExist set="method" line="163"><f a="pList:pModel">
+		<modelExist set="method" line="164"><f a="pList:pModel">
 	<c path="Array"><c path="com.isartdigital.builder.game.pooling.IPoolObject"/></c>
 	<d/>
 	<x path="Bool"/>
 </f></modelExist>
-		<getAllRow set="method" line="174"><f a=""><c path="Array"><d/></c></f></getAllRow>
-		<getObjInPosition set="method" line="192"><f a="pMap:pPosition">
+		<getAllRow set="method" line="175"><f a=""><c path="Array"><d/></c></f></getAllRow>
+		<getObjInPosition set="method" line="193"><f a="pMap:pPosition">
 	<x path="Map">
 		<x path="Int"/>
 		<x path="Map">
@@ -2161,40 +2163,40 @@
 	<c path="pixi.core.math.Point"/>
 	<c path="Array"><d/></c>
 </f></getObjInPosition>
-		<getLeftCol set="method" line="205"><f a=""><c path="Array"><d/></c></f></getLeftCol>
-		<getRightCol set="method" line="227"><f a=""><c path="Array"><d/></c></f></getRightCol>
-		<getDownRow set="method" line="246"><f a=""><c path="Array"><d/></c></f></getDownRow>
-		<getUpRow set="method" line="269"><f a=""><c path="Array"><d/></c></f></getUpRow>
-		<shiftHorizontal set="method" line="288"><f a="pPoint">
+		<getLeftCol set="method" line="206"><f a=""><c path="Array"><d/></c></f></getLeftCol>
+		<getRightCol set="method" line="228"><f a=""><c path="Array"><d/></c></f></getRightCol>
+		<getDownRow set="method" line="247"><f a=""><c path="Array"><d/></c></f></getDownRow>
+		<getUpRow set="method" line="270"><f a=""><c path="Array"><d/></c></f></getUpRow>
+		<shiftHorizontal set="method" line="289"><f a="pPoint">
 	<c path="pixi.core.math.Point"/>
 	<x path="Void"/>
 </f></shiftHorizontal>
-		<shiftVertical set="method" line="294"><f a="pPoint">
+		<shiftVertical set="method" line="295"><f a="pPoint">
 	<c path="pixi.core.math.Point"/>
 	<x path="Void"/>
 </f></shiftVertical>
-		<setScreenRectModel set="method" line="300"><f a=""><x path="Void"/></f></setScreenRectModel>
-		<removeObject set="method" line="324"><f a=""><x path="Void"/></f></removeObject>
-		<removeInList set="method" line="332"><f a="pList">
+		<setScreenRectModel set="method" line="301"><f a=""><x path="Void"/></f></setScreenRectModel>
+		<removeObject set="method" line="325"><f a=""><x path="Void"/></f></removeObject>
+		<removeInList set="method" line="333"><f a="pList">
 	<c path="Array"><c path="com.isartdigital.builder.game.pooling.IPoolObject"/></c>
 	<x path="Void"/>
 </f></removeInList>
-		<rectIsInRect set="method" line="342"><f a="pBase:pRect">
+		<rectIsInRect set="method" line="343"><f a="pBase:pRect">
 	<c path="pixi.core.math.shapes.Rectangle"/>
 	<c path="pixi.core.math.shapes.Rectangle"/>
 	<x path="Bool"/>
 </f></rectIsInRect>
-		<distBetween set="method" line="362"><f a="pPointA:pPointB">
+		<distBetween set="method" line="363"><f a="pPointA:pPointB">
 	<c path="pixi.core.math.Point"/>
 	<c path="pixi.core.math.Point"/>
 	<x path="Float"/>
 </f></distBetween>
-		<hadToManage set="method" line="371">
+		<hadToManage set="method" line="372">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>* Renvoie true si le dernier manage était assez loin
 	 * @return</haxe_doc>
 		</hadToManage>
-		<new set="method" line="66"><f a=""><x path="Void"/></f></new>
+		<new set="method" line="67"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>* Système de clipping d'objets
  * @author Flavien</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
@@ -2305,7 +2307,17 @@
 	 * @param	y
 	 * @return boolean</haxe_doc>
 		</isElementAtPositionInMap>
-		<addElementInGlobalMapAt public="1" set="method" line="180">
+		<getElementInGlobalMapAt public="1" set="method" line="180">
+			<f a="position:typeDef">
+				<c path="pixi.core.math.Point"/>
+				<d/>
+				<d/>
+			</f>
+			<haxe_doc>* Récupère un element dans la global map à une position grâce à un typedef
+	 * @param	position de l'element
+	 * @param	element à récuperer</haxe_doc>
+		</getElementInGlobalMapAt>
+		<addElementInGlobalMapAt public="1" set="method" line="197">
 			<f a="position:element">
 				<c path="pixi.core.math.Point"/>
 				<d/>
@@ -2315,7 +2327,7 @@
 	 * @param	position dans la map
 	 * @param	element à ajouter</haxe_doc>
 		</addElementInGlobalMapAt>
-		<removeElementByTypeDefFromGlobalMapAt public="1" set="method" line="192">
+		<removeElementByTypeDefFromGlobalMapAt public="1" set="method" line="209">
 			<f a="position:typeDef">
 				<c path="pixi.core.math.Point"/>
 				<d/>
@@ -2326,12 +2338,12 @@
 	 * @param	typeDef de l'element à enlever
 	 * @return Renvoi l'element enlevé</haxe_doc>
 		</removeElementByTypeDefFromGlobalMapAt>
-		<loadMap set="method" line="211">
+		<loadMap set="method" line="228">
 			<f a=""><x path="Bool"/></f>
 			<haxe_doc>* Charge la map sauvegardé
 	 * @return Si le chargement de la map a réussi ou non</haxe_doc>
 		</loadMap>
-		<getTileAtPosition set="method" line="266">
+		<getTileAtPosition set="method" line="283">
 			<f a="x:y">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2341,7 +2353,7 @@
 	 * @param pPosition - Position de la grille
 	 * @return Tile récupéré</haxe_doc>
 		</getTileAtPosition>
-		<isInsideGrid set="method" line="281">
+		<isInsideGrid set="method" line="298">
 			<f a="pX:pY">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2350,12 +2362,12 @@
 			<haxe_doc>* Indique si la position est hors de la grille ou à l'interieur
 	 * @return</haxe_doc>
 		</isInsideGrid>
-		<displayTilePositionUnderMouse public="1" set="method" line="299">
+		<displayTilePositionUnderMouse public="1" set="method" line="316">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* /!\ fonction de debuggage
 	 * Affiche la position de la tile sous la souris</haxe_doc>
 		</displayTilePositionUnderMouse>
-		<importBuildingsClass set="method" line="310">
+		<importBuildingsClass set="method" line="328">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Hack pour forcer l'exportation des class.
 	 * Mettre ici toutes les class non importer sinon cause le bug suivant : Uncaught TypeError: cl is not a function</haxe_doc>
@@ -3766,17 +3778,9 @@
 		<extends path="com.isartdigital.builder.game.sprites.SpriteObject"/>
 		<implements path="com.isartdigital.builder.game.pooling.IPoolObject"/>
 		<implements path="com.isartdigital.utils.game.iso.IZSortable"/>
-		<list public="1" line="38" static="1"><c path="Array"><c path="com.isartdigital.builder.game.sprites.buildings.Building"/></c></list>
+		<list public="1" line="40" static="1"><c path="Array"><c path="com.isartdigital.builder.game.sprites.buildings.Building"/></c></list>
 		<movingBuilding public="1" static="1"><c path="com.isartdigital.builder.game.sprites.buildings.Building"/></movingBuilding>
-		<getBuildingDefByName public="1" set="method" line="125" static="1">
-			<f a="pName">
-				<c path="String"/>
-				<t path="com.isartdigital.builder.game.sprites.buildings.def.BuildingDef"/>
-			</f>
-			<haxe_doc>* Permet de récuperer le contenu de definiton d'un building (building.json) grâce à son nom
-	 * @param	pName</haxe_doc>
-		</getBuildingDefByName>
-		<cancelMoving set="method" line="227" static="1">
+		<cancelMoving set="method" line="188" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Annule le deplacement du batiment actuellement en train de bouger et le remet à sa position initiale</haxe_doc>
 		</cancelMoving>
@@ -3786,76 +3790,87 @@
 		<colMax public="1"><x path="UInt"/></colMax>
 		<rowMin public="1"><x path="UInt"/></rowMin>
 		<rowMax public="1"><x path="UInt"/></rowMax>
-		<positionBeforeStartMoving><c path="pixi.core.math.Point"/></positionBeforeStartMoving>
-		<init public="1" set="method" line="62" override="1"><f a="pDefinition">
+		<positionBeforeConstruct><c path="pixi.core.math.Point"/></positionBeforeConstruct>
+		<init public="1" set="method" line="64" override="1"><f a="pDefinition">
 	<d/>
 	<x path="Void"/>
 </f></init>
-		<addToStage set="method" line="89"><f a=""><x path="Void"/></f></addToStage>
-		<remove public="1" set="method" line="99" override="1"><f a=""><x path="Bool"/></f></remove>
-		<doActionNormal set="method" line="112" override="1"><f a=""><x path="Void"/></f></doActionNormal>
-		<upgradeBuilding public="1" set="method" line="141">
+		<addToStage set="method" line="91"><f a=""><x path="Void"/></f></addToStage>
+		<remove public="1" set="method" line="101" override="1"><f a=""><x path="Bool"/></f></remove>
+		<doActionNormal set="method" line="114" override="1"><f a=""><x path="Void"/></f></doActionNormal>
+		<upgradeBuilding public="1" set="method" line="133">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Upgrade un building</haxe_doc>
 		</upgradeBuilding>
-		<buildingClick public="1" set="method" line="150">
+		<buildingClick public="1" set="method" line="142">
 			<f a="event">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>* Commence le deplacement d'un batiment</haxe_doc>
 		</buildingClick>
-		<stopMoving set="method" line="169">
+		<stopMoving set="method" line="161">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Stop le deplacement d'un batiment</haxe_doc>
 		</stopMoving>
-		<moveBuildingToCursor set="method" line="177">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>* Deplace le batiment sous le curseur de la souris</haxe_doc>
-		</moveBuildingToCursor>
-		<getBuildingPositionByCursor set="method" line="191">
-			<f a=""><c path="pixi.core.math.Point"/></f>
-			<haxe_doc>* Récupère la position du building qui ce place sous le curseur
-	 * @return Point de la position du building sous le curseur (Model, non tronqué)</haxe_doc>
-		</getBuildingPositionByCursor>
-		<buildingRequest set="method" line="206"><f a=""><x path="Void"/></f></buildingRequest>
-		<setPositionBeforeStartMovingWith set="method" line="219"><f a="newPosition">
+		<constructRequest set="method" line="166"><f a=""><x path="Void"/></f></constructRequest>
+		<setPositionBeforeConstructWith set="method" line="180"><f a="newPosition">
 	<c path="pixi.core.math.Point"/>
 	<x path="Void"/>
-</f></setPositionBeforeStartMovingWith>
-		<callServerToDestroy public="1" set="method" line="240"><f a=""><x path="Void"/></f></callServerToDestroy>
-		<cbTryToDestroy set="method" line="245"><f a="pResponse">
+</f></setPositionBeforeConstructWith>
+		<callServerToDestroy public="1" set="method" line="201"><f a=""><x path="Void"/></f></callServerToDestroy>
+		<cbTryToDestroy set="method" line="206"><f a="pResponse">
 	<c path="String"/>
 	<x path="Void"/>
 </f></cbTryToDestroy>
-		<destroy public="1" set="method" line="253" override="1"><f a=""><x path="Void"/></f></destroy>
-		<new public="1" set="method" line="52"><f a=""><x path="Void"/></f></new>
+		<destroy public="1" set="method" line="214" override="1"><f a=""><x path="Void"/></f></destroy>
+		<new public="1" set="method" line="54"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>* ...
  * @author Dorian</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<class path="com.isartdigital.builder.game.sprites.buildings.BuildingMover" params="" file="src/com/isartdigital/builder/game/sprites/buildings/BuildingMover.hx">
+	<class path="com.isartdigital.builder.game.sprites.buildings.BuildingConstructor" params="" file="src/com/isartdigital/builder/game/sprites/buildings/BuildingConstructor.hx">
 		<mapManager><c path="com.isartdigital.builder.game.manager.MapManager"/></mapManager>
 		<building><c path="com.isartdigital.builder.game.sprites.buildings.Building"/></building>
-		<positionBeforeStartMoving><c path="pixi.core.math.Point"/></positionBeforeStartMoving>
+		<positionBeforeConstruct><c path="pixi.core.math.Point"/></positionBeforeConstruct>
 		<destinationPosition><c path="pixi.core.math.Point"/></destinationPosition>
-		<move public="1" set="method" line="28"><f a=""><x path="Void"/></f></move>
-		<canMove public="1" set="method" line="34"><f a=""><x path="Bool"/></f></canMove>
-		<setDestination public="1" set="method" line="39"><f a="x:y">
+		<setDestination public="1" set="method" line="28"><f a="x:y">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></setDestination>
-		<setOriginTilesToConstructibleInGlobalMap set="method" line="44"><f a=""><x path="Void"/></f></setOriginTilesToConstructibleInGlobalMap>
-		<setDestinationTilesToNotConstructibleInGlobalMap set="method" line="49"><f a=""><x path="Void"/></f></setDestinationTilesToNotConstructibleInGlobalMap>
-		<updateGlobalMap set="method" line="54"><f a=""><x path="Void"/></f></updateGlobalMap>
-		<new public="1" set="method" line="20"><f a="building:positionBeforeStartMoving">
+		<tilesAtDestinationIsBuildable public="1" set="method" line="33"><f a=""><x path="Bool"/></f></tilesAtDestinationIsBuildable>
+		<construct public="1" set="method" line="38"><f a=""><x path="Void"/></f></construct>
+		<updateTilesBuildableState set="method" line="43"><f a=""><x path="Void"/></f></updateTilesBuildableState>
+		<updateBuildingReferencePositionInGlobalMap set="method" line="48"><f a=""><x path="Void"/></f></updateBuildingReferencePositionInGlobalMap>
+		<setOriginTilesToConstructibleInGlobalMap set="method" line="54"><f a=""><x path="Void"/></f></setOriginTilesToConstructibleInGlobalMap>
+		<setDestinationTilesToNotConstructibleInGlobalMap set="method" line="59"><f a=""><x path="Void"/></f></setDestinationTilesToNotConstructibleInGlobalMap>
+		<getBuildingFromGlobalMap set="method" line="64"><f a=""><d/></f></getBuildingFromGlobalMap>
+		<new public="1" set="method" line="20"><f a="building:positionBeforeConstruct">
 	<c path="com.isartdigital.builder.game.sprites.buildings.Building"/>
 	<c path="pixi.core.math.Point"/>
 	<x path="Void"/>
 </f></new>
 		<haxe_doc>* ...
  * @author Dorian</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="com.isartdigital.builder.game.sprites.buildings.BuildingMover" params="" file="src/com/isartdigital/builder/game/sprites/buildings/BuildingMover.hx">
+		<building><c path="com.isartdigital.builder.game.sprites.buildings.Building"/></building>
+		<definition><t path="com.isartdigital.builder.game.sprites.buildings.def.BuildingDef"/></definition>
+		<mousePosition><c path="pixi.core.math.Point"/></mousePosition>
+		<moveUnderMouse public="1" set="method" line="23"><f a=""><x path="Void"/></f></moveUnderMouse>
+		<setMousePosition public="1" set="method" line="37"><f a="mousePosition">
+	<c path="pixi.core.math.Point"/>
+	<x path="Void"/>
+</f></setMousePosition>
+		<mousePositionNullException set="method" line="41"><f a=""><x path="Void"/></f></mousePositionNullException>
+		<new public="1" set="method" line="17"><f a="building">
+	<c path="com.isartdigital.builder.game.sprites.buildings.Building"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>* ...
+ * @author Dorian MILLIERE</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="com.isartdigital.builder.game.sprites.buildings.childrens.Altar" params="" file="src/com/isartdigital/builder/game/sprites/buildings/childrens/Altar.hx">
@@ -3978,6 +3993,44 @@
 		</a>
 		<haxe_doc>* @author Dorian</haxe_doc>
 	</typedef>
+	<class path="com.isartdigital.builder.game.sprites.buildings.utils.BuildingDefinition" params="" file="src/com/isartdigital/builder/game/sprites/buildings/utils/BuildingDefinition.hx">
+		<BUILDING_JSON_PATH get="inline" set="null" line="11" static="1"><c path="String"/></BUILDING_JSON_PATH>
+		<definitionName static="1"><c path="String"/></definitionName>
+		<getByName public="1" set="method" line="20" static="1"><f a="name">
+	<c path="String"/>
+	<t path="com.isartdigital.builder.game.sprites.buildings.def.BuildingDef"/>
+</f></getByName>
+		<setDefinitionName set="method" line="27" static="1"><f a="pDefinitionName">
+	<c path="String"/>
+	<x path="Void"/>
+</f></setDefinitionName>
+		<getTypedBuildingDefinitions set="method" line="31" static="1"><f a=""><c path="Array"><t path="com.isartdigital.builder.game.sprites.buildings.def.BuildingDef"/></c></f></getTypedBuildingDefinitions>
+		<getBuildingDefinitionInto set="method" line="35" static="1"><f a="buildingDefinitions">
+	<c path="Array"><t path="com.isartdigital.builder.game.sprites.buildings.def.BuildingDef"/></c>
+	<t path="com.isartdigital.builder.game.sprites.buildings.def.BuildingDef"/>
+</f></getBuildingDefinitionInto>
+		<new public="1" set="method" line="14"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>* ...
+ * @author Dorian MILLIERE</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="com.isartdigital.builder.game.sprites.buildings.utils.BuildingPosition" params="" file="src/com/isartdigital/builder/game/sprites/buildings/utils/BuildingPosition.hx">
+		<building><c path="com.isartdigital.builder.game.sprites.buildings.Building"/></building>
+		<definition><t path="com.isartdigital.builder.game.sprites.buildings.def.BuildingDef"/></definition>
+		<getPositionOnCursor public="1" set="method" line="22"><f a=""><c path="pixi.core.math.Point"/></f></getPositionOnCursor>
+		<getBuildingOffset set="method" line="28"><f a=""><c path="pixi.core.math.Point"/></f></getBuildingOffset>
+		<getMousePositionWith set="method" line="37"><f a="buildingOffset">
+	<c path="pixi.core.math.Point"/>
+	<c path="pixi.core.math.Point"/>
+</f></getMousePositionWith>
+		<new public="1" set="method" line="16"><f a="building">
+	<c path="com.isartdigital.builder.game.sprites.buildings.Building"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>* ...
+ * @author Dorian MILLIERE</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
 	<class path="com.isartdigital.builder.game.utils.TypeDefUtils" params="" file="src/com/isartdigital/builder/game/utils/TypeDefUtils.hx">
 		<tileSavedDef public="1" line="11" static="1"><t path="com.isartdigital.builder.game.def.TileSavedDef"/></tileSavedDef>
 		<buildingSavedDef public="1" line="12" static="1"><t path="com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef"/></buildingSavedDef>
