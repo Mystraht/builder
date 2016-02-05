@@ -10,8 +10,9 @@ import js.html.CreateFileOptions;
  */
 class Api 
 {	
-	//public static var domain:String = "https://fbgame.isartdigital.com/2017_builder/builder2/";
-	public static var domain:String = "https://localhostbuilder.com/";
+	public static var domain:String;
+	public static var domainProd:String = "https://fbgame.isartdigital.com/2017_builder/builder2/";
+	public static var domainDev:String = "https://localhostbuilder.com/";
 	
 	public static var pathApi:String = "api/v1/";
 	
@@ -44,6 +45,8 @@ class Api
 	{
 		instance = this;
 		
+		domain = domainDev;
+		
 		token = Browser.getLocalStorage().getItem("token");
 		
 		user = User.getInstance();
@@ -52,22 +55,5 @@ class Api
 		lanterns = Lanterns.getInstance();
 		gifts = Gifts.getInstance();
 	}
-	
-	/**
-	 * Permet de mettre des paramètre dans un lien HTTP (avec un object)
-	 * @param	path Adresse du lien
-	 * @param	params Paramètre GET à passer
-	 */
-	public static function formatPath(path:String, params:Dynamic):String {
-		var paramsStringFormatted:String = path + "?";
-		var paramKeys:Array<String> = Reflect.fields(params);
-		
-		for (i in 0...paramKeys.length) {
-			paramsStringFormatted += paramKeys[i] + "=" + cast(Reflect.field(params, paramKeys[i])) + "&";
-		}
-		
-		paramsStringFormatted = paramsStringFormatted.substring(0, paramsStringFormatted.length - 1);
-		
-		return paramsStringFormatted;
-	}
+
 }

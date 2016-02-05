@@ -9,6 +9,8 @@ import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
 import com.isartdigital.builder.game.manager.MapManager;
 import com.isartdigital.builder.game.pooling.IPoolObject;
+import com.isartdigital.builder.game.sprites.buildings.utils.BuildingDefinition;
+import com.isartdigital.builder.game.sprites.buildings.utils.BuildingPosition;
 import com.isartdigital.builder.game.utils.TypeDefUtils;
 import com.isartdigital.builder.ui.hud.BaseBuildingHUD;
 import com.isartdigital.builder.ui.UIManager;
@@ -49,7 +51,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	public var rowMin:UInt;
 	public var rowMax:UInt;
 	
-	private var positionBeforeStartMoving:Point = new Point(0, 0);
+	private var positionBeforeConstruct:Point = new Point(0, 0);
 
 	public function new()
 	{
@@ -68,7 +70,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
 		list.push(this);
-		definition = getBuildingDefByName(pDefinition.name);
+		definition = BuildingDefinition.getByName(pDefinition.name);
 			
 		colMin = Math.floor(toModel().y);
 		colMax = Math.floor(toModel().y) + definition.size.height;
@@ -113,27 +115,17 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	
 	override function doActionNormal():Void {
 		super.doActionNormal();
+		var buildingMover:BuildingMover;
+		var buildingPosition:BuildingPosition;
+		var positionOnCursor:Point;
 		
 		if (movingBuilding == this) {
-			moveBuildingToCursor();
+			buildingMover = new BuildingMover(this);
+			buildingPosition = new BuildingPosition(this);
+			positionOnCursor = buildingPosition.getPositionOnCursor();
+			buildingMover.setMousePosition(positionOnCursor);
+			buildingMover.moveUnderMouse();
 		}
-	}
-	
-	
-	/**
-	 * Permet de récuperer le contenu de definiton d'un building (building.json) grâce à son nom
-	 * @param	pName
-	 */
-	public static function getBuildingDefByName(pName:String):BuildingDef {
-		var buildingsDef:Array<BuildingDef> = cast(GameLoader.getContent("json/building.json"));
-
-		for (i in 0...buildingsDef.length) {
-			if (buildingsDef[i].name == pName) {
-				return buildingsDef[i];
-			}
-		}
-		
-		return null;
 	}
 	
 	
@@ -157,11 +149,11 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
 		if (movingBuilding == this) {
-			buildingRequest();
+			constructRequest();
 		} else {
-			positionBeforeStartMoving = toModel(true);
+			positionBeforeConstruct = toModel(true);
 			movingBuilding = this;
-			tilesUnderBuilding = lMapManager.getTilesArray(positionBeforeStartMoving, definition.size);
+			tilesUnderBuilding = lMapManager.getTilesArray(positionBeforeConstruct, definition.size);
 			lMapManager.setTilesBuildable(tilesUnderBuilding, true);
 		}
 	}
@@ -173,55 +165,24 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	private function stopMoving () {
 		movingBuilding = null;
 	}
-	
-	
-	/**
-	 * Deplace le batiment sous le curseur de la souris
-	 */
-	private function moveBuildingToCursor():Void {
-		var centerOfBuildingModel:Point = getBuildingPositionByCursor();
-		
-		centerOfBuildingModel.x = Math.round(centerOfBuildingModel.x);
-		centerOfBuildingModel.y = Math.round(centerOfBuildingModel.y);
-		
-		position = IsoManager.modelToIsoView(centerOfBuildingModel);
-	}
-	
-	
-	/**
-	 * Récupère la position du building qui ce place sous le curseur
-	 * @return Point de la position du building sous le curseur (Model, non tronqué)
-	 */
-	private function getBuildingPositionByCursor():Point {
-		var mousePosition:Point = GameManager.getInstance().mousePosition;
-		var buildingOffset:Point = new Point(0, 0);
-		var centerOfBuilding:Point = new Point(0, 0);
-		
-		buildingOffset.x = (definition.size.width - definition.size.height) / 2 * (Config.tileWidth / 2);
-		buildingOffset.y = (definition.size.width + definition.size.height) / 2 * (Config.tileHeight / 2);
-		
-		centerOfBuilding.x = mousePosition.x + buildingOffset.x;
-		centerOfBuilding.y = mousePosition.y + buildingOffset.y;
 
-		return IsoManager.isoViewToModel(centerOfBuilding);
-	}
 	
-	
-	private function buildingRequest():Void {
-		var destination:Point = getBuildingPositionByCursor();
-		var buildingMover:BuildingMover = new BuildingMover(this, positionBeforeStartMoving);
+	private function constructRequest():Void {
+		var buildingPosition:BuildingPosition = new BuildingPosition(this);
+		var buildingConstructor:BuildingConstructor = new BuildingConstructor(this, positionBeforeConstruct);
+		var destination:Point = buildingPosition.getPositionOnCursor();
 		
-		buildingMover.setDestination(destination.x, destination.y);
+		buildingConstructor.setDestination(destination.x, destination.y);
 		
-		if (buildingMover.canMove()) {
-			buildingMover.move();
-			setPositionBeforeStartMovingWith(destination);
+		if (buildingConstructor.tilesAtDestinationIsBuildable()) {
+			buildingConstructor.construct();
+			setPositionBeforeConstructWith(destination);
 			cancelMoving();
 		}
 	}
 	
-	private function setPositionBeforeStartMovingWith(newPosition:Point):Void {
-		positionBeforeStartMoving.set(newPosition.x, newPosition.y);
+	private function setPositionBeforeConstructWith(newPosition:Point):Void {
+		positionBeforeConstruct.set(newPosition.x, newPosition.y);
 	}
 	
 	
@@ -233,10 +194,10 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		var tilesUnderBuilding:Array<TileSavedDef>;
 		
 		if (movingBuilding != null) {
-			tilesUnderBuilding = lMapManager.getTilesArray(movingBuilding.positionBeforeStartMoving, movingBuilding.definition.size);
+			tilesUnderBuilding = lMapManager.getTilesArray(movingBuilding.positionBeforeConstruct, movingBuilding.definition.size);
 			lMapManager.setTilesBuildable(tilesUnderBuilding, false);
 			
-			movingBuilding.position = IsoManager.modelToIsoView(movingBuilding.positionBeforeStartMoving);
+			movingBuilding.position = IsoManager.modelToIsoView(movingBuilding.positionBeforeConstruct);
 			movingBuilding = null;
 		}
 	}
@@ -278,6 +239,5 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		super.destroy();
 		GameStage.getInstance().getBuildingsContainer().removeChild(this);
 		list.splice(list.indexOf(this), 1);
-	}
-	
+	}	
 }

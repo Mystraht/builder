@@ -12,5 +12,5 @@
 -lib WebFont
 -cp src
 
--cp test
+-cp src/com/isartdigital/test
 -js bin/js_test.js
