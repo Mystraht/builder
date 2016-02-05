@@ -1559,16 +1559,6 @@
 			<haxe_doc>* Retourne l'instance unique de la classe, et la crée si elle n'existait pas au préalable
 	 * @return instance unique</haxe_doc>
 		</getInstance>
-		<formatPath public="1" set="method" line="64" static="1">
-			<f a="path:params">
-				<c path="String"/>
-				<d/>
-				<c path="String"/>
-			</f>
-			<haxe_doc>* Permet de mettre des paramètre dans un lien HTTP (avec un object)
-	 * @param	path Adresse du lien
-	 * @param	params Paramètre GET à passer</haxe_doc>
-		</formatPath>
 		<new set="method" line="44">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* constructeur privé pour éviter qu'une instance soit créée directement</haxe_doc>
@@ -1939,7 +1929,17 @@
 	 * 		2: Model incorrect
 	 * @param	errorMessage]]></haxe_doc>
 		</errorHandler>
-		<destroy public="1" set="method" line="54">
+		<formatPath public="1" set="method" line="56" static="1">
+			<f a="path:params">
+				<c path="String"/>
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>* Permet de mettre des paramètre dans un lien HTTP (avec un object)
+	 * @param	path Adresse du lien
+	 * @param	params Paramètre GET à passer</haxe_doc>
+		</formatPath>
+		<destroy public="1" set="method" line="72">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* détruit l'instance unique et met sa référence interne à null</haxe_doc>
 		</destroy>
@@ -3778,9 +3778,9 @@
 		<extends path="com.isartdigital.builder.game.sprites.SpriteObject"/>
 		<implements path="com.isartdigital.builder.game.pooling.IPoolObject"/>
 		<implements path="com.isartdigital.utils.game.iso.IZSortable"/>
-		<list public="1" line="40" static="1"><c path="Array"><c path="com.isartdigital.builder.game.sprites.buildings.Building"/></c></list>
+		<list public="1" line="42" static="1"><c path="Array"><c path="com.isartdigital.builder.game.sprites.buildings.Building"/></c></list>
 		<movingBuilding public="1" static="1"><c path="com.isartdigital.builder.game.sprites.buildings.Building"/></movingBuilding>
-		<cancelMoving set="method" line="188" static="1">
+		<cancelMoving set="method" line="192" static="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Annule le deplacement du batiment actuellement en train de bouger et le remet à sa position initiale</haxe_doc>
 		</cancelMoving>
@@ -3791,40 +3791,49 @@
 		<rowMin public="1"><x path="UInt"/></rowMin>
 		<rowMax public="1"><x path="UInt"/></rowMax>
 		<positionBeforeConstruct><c path="pixi.core.math.Point"/></positionBeforeConstruct>
-		<init public="1" set="method" line="64" override="1"><f a="pDefinition">
+		<init public="1" set="method" line="66" override="1"><f a="pDefinition">
 	<d/>
 	<x path="Void"/>
 </f></init>
-		<addToStage set="method" line="91"><f a=""><x path="Void"/></f></addToStage>
-		<remove public="1" set="method" line="101" override="1"><f a=""><x path="Bool"/></f></remove>
-		<doActionNormal set="method" line="114" override="1"><f a=""><x path="Void"/></f></doActionNormal>
-		<upgradeBuilding public="1" set="method" line="133">
+		<addToStage set="method" line="93"><f a=""><x path="Void"/></f></addToStage>
+		<remove public="1" set="method" line="103" override="1"><f a=""><x path="Bool"/></f></remove>
+		<doActionNormal set="method" line="116" override="1"><f a=""><x path="Void"/></f></doActionNormal>
+		<upgradeBuilding public="1" set="method" line="135">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Upgrade un building</haxe_doc>
 		</upgradeBuilding>
-		<buildingClick public="1" set="method" line="142">
+		<buildingClick public="1" set="method" line="144">
 			<f a="event">
 				<d/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>* Commence le deplacement d'un batiment</haxe_doc>
 		</buildingClick>
-		<stopMoving set="method" line="161">
+		<stopMoving set="method" line="165">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Stop le deplacement d'un batiment</haxe_doc>
 		</stopMoving>
-		<constructRequest set="method" line="166"><f a=""><x path="Void"/></f></constructRequest>
-		<setPositionBeforeConstructWith set="method" line="180"><f a="newPosition">
+		<constructRequest set="method" line="170"><f a=""><x path="Void"/></f></constructRequest>
+		<setPositionBeforeConstructWith set="method" line="184"><f a="newPosition">
 	<c path="pixi.core.math.Point"/>
 	<x path="Void"/>
 </f></setPositionBeforeConstructWith>
-		<callServerToDestroy public="1" set="method" line="201"><f a=""><x path="Void"/></f></callServerToDestroy>
-		<cbTryToDestroy set="method" line="206"><f a="pResponse">
+		<callServerToUpgrade public="1" set="method" line="205"><f a=""><x path="Void"/></f></callServerToUpgrade>
+		<callServerToDestroy public="1" set="method" line="210"><f a=""><x path="Void"/></f></callServerToDestroy>
+		<cbTryToDestroy set="method" line="215"><f a="pResponse">
 	<c path="String"/>
 	<x path="Void"/>
 </f></cbTryToDestroy>
-		<destroy public="1" set="method" line="214" override="1"><f a=""><x path="Void"/></f></destroy>
-		<new public="1" set="method" line="54"><f a=""><x path="Void"/></f></new>
+		<cbTryToUpgrade set="method" line="223"><f a="pResponse">
+	<c path="String"/>
+	<x path="Void"/>
+</f></cbTryToUpgrade>
+		<setLevelStateGraphic public="1" set="method" line="233"><f a="lvl">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></setLevelStateGraphic>
+		<destroy public="1" set="method" line="238" override="1"><f a=""><x path="Void"/></f></destroy>
+		<new public="1" set="method" line="56"><f a=""><x path="Void"/></f></new>
 		<haxe_doc>* ...
  * @author Dorian</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>

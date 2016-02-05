@@ -444,18 +444,6 @@ com_isartdigital_builder_api_Api.getInstance = function() {
 	if(com_isartdigital_builder_api_Api.instance == null) com_isartdigital_builder_api_Api.instance = new com_isartdigital_builder_api_Api();
 	return com_isartdigital_builder_api_Api.instance;
 };
-com_isartdigital_builder_api_Api.formatPath = function(path,params) {
-	var paramsStringFormatted = path + "?";
-	var paramKeys = Reflect.fields(params);
-	var _g1 = 0;
-	var _g = paramKeys.length;
-	while(_g1 < _g) {
-		var i = _g1++;
-		paramsStringFormatted += paramKeys[i] + "=" + (Std.string(Reflect.field(params,paramKeys[i])) + "&");
-	}
-	paramsStringFormatted = paramsStringFormatted.substring(0,paramsStringFormatted.length - 1);
-	return paramsStringFormatted;
-};
 com_isartdigital_builder_api_Api.prototype = {
 	__class__: com_isartdigital_builder_api_Api
 };
@@ -477,42 +465,42 @@ com_isartdigital_builder_api_Buildings.getInstance = function() {
 };
 com_isartdigital_builder_api_Buildings.prototype = {
 	getAllBuildings: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,create: function(pBuilding,pX,pY,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + "/" + pBuilding + this.createPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + "/" + pBuilding + this.createPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,upgrade: function(pX,pY,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.upgradePath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.upgradePath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,collect: function(pX,pY,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.collectPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.collectPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,move: function(pX_start,pY_start,pX_end,pY_end,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.movePath,{ token : com_isartdigital_builder_api_Api.token, x_start : pX_start, y_start : pY_start, x_end : pX_end, y_end : pY_end}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.movePath,{ token : com_isartdigital_builder_api_Api.token, x_start : pX_start, y_start : pY_start, x_end : pX_end, y_end : pY_end}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,hardBuild: function(pX,pY,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.hardBuildPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.hardBuildPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,changeColor: function(pColor,pX,pY,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.changeColorPath,{ token : com_isartdigital_builder_api_Api.token, color : pColor, x : pX, y : pY}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.changeColorPath,{ token : com_isartdigital_builder_api_Api.token, color : pColor, x : pX, y : pY}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,destroy: function(pX,pY,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.destroyPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.buildingsPath + this.destroyPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
@@ -531,17 +519,17 @@ com_isartdigital_builder_api_Gifts.getInstance = function() {
 };
 com_isartdigital_builder_api_Gifts.prototype = {
 	getGifts: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.giftsPath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.giftsPath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,create: function(friendUserId,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.giftsPath + this.createPath,{ token : com_isartdigital_builder_api_Api.token, friend_user_id : friendUserId}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.giftsPath + this.createPath,{ token : com_isartdigital_builder_api_Api.token, friend_user_id : friendUserId}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,collect: function(name,authorName,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.giftsPath + this.collectPath,{ token : com_isartdigital_builder_api_Api.token, name : name, author_name : authorName}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.giftsPath + this.collectPath,{ token : com_isartdigital_builder_api_Api.token, name : name, author_name : authorName}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
@@ -559,12 +547,12 @@ com_isartdigital_builder_api_Lanterns.getInstance = function() {
 };
 com_isartdigital_builder_api_Lanterns.prototype = {
 	getLanterns: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.lanternsPath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.lanternsPath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,create: function(pX,pY,pHardPurchase,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.lanternsPath + this.createPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY, hard : pHardPurchase}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.lanternsPath + this.createPath,{ token : com_isartdigital_builder_api_Api.token, x : pX, y : pY, hard : pHardPurchase}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
@@ -584,22 +572,22 @@ com_isartdigital_builder_api_Resources.getInstance = function() {
 };
 com_isartdigital_builder_api_Resources.prototype = {
 	get: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.resourcesPath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.resourcesPath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,gold: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.resourcesPath + this.goldPath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.resourcesPath + this.goldPath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,spice: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.resourcesPath + this.spicePath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.resourcesPath + this.spicePath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,offering: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.resourcesPath + this.offeringPath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.resourcesPath + this.offeringPath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
@@ -628,52 +616,52 @@ com_isartdigital_builder_api_User.getInstance = function() {
 };
 com_isartdigital_builder_api_User.prototype = {
 	getUserInfo: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userInfoPath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userInfoPath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,getDailyreward: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.dailyRewardPath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.dailyRewardPath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,dailyrewardUpdate: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.dailyRewardPath + this.updatePath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.dailyRewardPath + this.updatePath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,getParade: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.paradePath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.paradePath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,paradeUpdate: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.paradePath + this.updatePath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.paradePath + this.updatePath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,getFtue: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.ftuePath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.ftuePath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,getExperience: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.experiencePath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.experiencePath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,buy: function(pName,pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.experiencePath,{ token : com_isartdigital_builder_api_Api.token, name : pName}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.experiencePath,{ token : com_isartdigital_builder_api_Api.token, name : pName}));
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	,ftueComplet: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.ftuePath + this.completePath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.ftuePath + this.completePath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	,destroy: function(pCallBack) {
-		var request = new haxe_Http(com_isartdigital_builder_api_Api.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.destroyPath,{ token : com_isartdigital_builder_api_Api.token}));
+		var request = new haxe_Http(com_isartdigital_builder_api_Utils.formatPath(com_isartdigital_builder_api_Api.domain + com_isartdigital_builder_api_Api.pathApi + this.userPath + this.destroyPath,{ token : com_isartdigital_builder_api_Api.token}));
 		request.onData = pCallBack;
 		request.request(true);
 	}
@@ -693,6 +681,18 @@ com_isartdigital_builder_api_Utils.errorHandler = function(errorCode,errorMessag
 		window.location.href = "../";
 	}
 	com_isartdigital_utils_Debug.error(errorMessage);
+};
+com_isartdigital_builder_api_Utils.formatPath = function(path,params) {
+	var paramsStringFormatted = path + "?";
+	var paramKeys = Reflect.fields(params);
+	var _g1 = 0;
+	var _g = paramKeys.length;
+	while(_g1 < _g) {
+		var i = _g1++;
+		paramsStringFormatted += paramKeys[i] + "=" + (Std.string(Reflect.field(params,paramKeys[i])) + "&");
+	}
+	paramsStringFormatted = paramsStringFormatted.substring(0,paramsStringFormatted.length - 1);
+	return paramsStringFormatted;
 };
 com_isartdigital_builder_api_Utils.prototype = {
 	destroy: function() {
@@ -1807,9 +1807,10 @@ com_isartdigital_builder_game_sprites_buildings_Building.prototype = $extend(com
 	}
 	,upgradeBuilding: function() {
 		this.buildingLevel++;
-		(js_Boot.__cast(this.anim , pixi_display_FlumpMovie)).gotoAndStop(this.buildingLevel);
+		this.setLevelStateGraphic(this.buildingLevel);
 	}
 	,buildingClick: function(event) {
+		this.callServerToUpgrade();
 		com_isartdigital_builder_ui_hud_BaseBuildingHUD.getInstance().initHUD(function(p) {
 			console.log("OKLM POTPO");
 		},function(p1) {
@@ -1840,6 +1841,10 @@ com_isartdigital_builder_game_sprites_buildings_Building.prototype = $extend(com
 	,setPositionBeforeConstructWith: function(newPosition) {
 		this.positionBeforeConstruct.set(newPosition.x,newPosition.y);
 	}
+	,callServerToUpgrade: function() {
+		var modelPosistion = this.toModel(true);
+		com_isartdigital_builder_api_Api.buildings.upgrade(modelPosistion.x | 0,modelPosistion.y | 0,$bind(this,this.cbTryToUpgrade));
+	}
 	,callServerToDestroy: function() {
 		var modelPosistion = this.toModel(true);
 		com_isartdigital_builder_api_Api.buildings.destroy(modelPosistion.x | 0,modelPosistion.y | 0,$bind(this,this.cbTryToDestroy));
@@ -1847,6 +1852,17 @@ com_isartdigital_builder_game_sprites_buildings_Building.prototype = $extend(com
 	,cbTryToDestroy: function(pResponse) {
 		var lResponse = JSON.parse(pResponse);
 		if(!lResponse.error) this.destroy();
+	}
+	,cbTryToUpgrade: function(pResponse) {
+		var lResponse = JSON.parse(pResponse);
+		if(!lResponse.error) {
+			var lResources = lResponse.data;
+			com_isartdigital_builder_game_manager_RessourceManager.getInstance().updateAllRessources(lResources);
+			this.upgradeBuilding();
+		}
+	}
+	,setLevelStateGraphic: function(lvl) {
+		(js_Boot.__cast(this.anim , pixi_display_FlumpMovie)).gotoAndStop(lvl);
 	}
 	,destroy: function() {
 		com_isartdigital_builder_game_sprites_SpriteObject.prototype.destroy.call(this);
