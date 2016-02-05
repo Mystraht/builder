@@ -78,6 +78,8 @@
 				"resource_production" : "gold",
 				"production" : 200,
 				"capacity" : 2000,
+				"resource_upgrade" : "offering",
+				"upgrade_price" : 35,
 				"contruction_time": 5,
 				"production_per_parade" : 25
 			},

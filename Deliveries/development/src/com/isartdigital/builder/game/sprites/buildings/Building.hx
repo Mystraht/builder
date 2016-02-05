@@ -2,6 +2,8 @@ package com.isartdigital.builder.game.sprites.buildings;
 
 import com.isartdigital.builder.api.Api;
 import com.isartdigital.builder.api.DataDef;
+import com.isartdigital.builder.game.def.ResourceDef;
+import com.isartdigital.builder.game.manager.RessourceManager;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
 import com.isartdigital.builder.game.def.TileSavedDef;
@@ -132,7 +134,7 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	 */
 	public function upgradeBuilding():Void {
 		buildingLevel++;
-		cast(anim, FlumpMovie).gotoAndStop(buildingLevel);
+		setLevelStateGraphic(buildingLevel);
 	}
 	
 	
@@ -140,6 +142,8 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	 * Commence le deplacement d'un batiment
 	 */
 	public function buildingClick (event:Dynamic) {
+		callServerToUpgrade();
+		
 		BaseBuildingHUD.getInstance().initHUD(function (p:EventTarget):Void { trace("OKLM POTPO"); }, function (p:EventTarget):Void { } );
 		var lMapManager:MapManager = MapManager.getInstance();
 		var tilesUnderBuilding:Array<TileSavedDef>;
@@ -198,6 +202,11 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 		}
 	}
 	
+	public function callServerToUpgrade():Void {
+		var modelPosistion:Point = toModel(true);
+		Api.buildings.upgrade(Std.int(modelPosistion.x), Std.int(modelPosistion.y), cbTryToUpgrade );
+	}
+	
 	public function callServerToDestroy():Void {
 		var modelPosistion:Point = toModel(true);
 		Api.buildings.destroy(Std.int(modelPosistion.x), Std.int(modelPosistion.y), cbTryToDestroy );
@@ -210,6 +219,21 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 			destroy();
 		}
 	}
+	
+	private function cbTryToUpgrade(pResponse:String): Void {
+		var lResponse:DataDef = cast(Json.parse(pResponse));
+		
+		if (!lResponse.error) {
+			var lResources:ResourceDef = cast(lResponse.data);
+			RessourceManager.getInstance().updateAllRessources(lResources);
+			upgradeBuilding();
+		}
+	}
+	
+	public function setLevelStateGraphic(lvl:Int):Void {
+		cast(anim, FlumpMovie).gotoAndStop(lvl);
+	}
+
 	
 	override public function destroy():Void {
 		super.destroy();
