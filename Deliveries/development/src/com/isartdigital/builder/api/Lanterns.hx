@@ -35,14 +35,14 @@ class Lanterns
 	}
 
 	public function getLanterns(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + lanternsPath, { token: Api.token }));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + lanternsPath, { token: Api.token }));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function create(pX: Int, pY:Int, pHardPurchase:Bool, pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + lanternsPath + createPath, { token: Api.token, x:pX , y:pY, hard: pHardPurchase}));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + lanternsPath + createPath, { token: Api.token, x:pX , y:pY, hard: pHardPurchase}));
 		
 		request.onData = pCallBack;
 		request.request(true);

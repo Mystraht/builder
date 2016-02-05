@@ -42,70 +42,70 @@ class User
 	}
 	
 	public function getUserInfo(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userInfoPath, { token: Api.token }));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + userInfoPath, { token: Api.token }));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function getDailyreward(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userPath + dailyRewardPath, { token:Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + userPath + dailyRewardPath, { token:Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function dailyrewardUpdate(pCallBack:String->Void) {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userPath + dailyRewardPath + updatePath, { token:Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + userPath + dailyRewardPath + updatePath, { token:Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	
 	public function getParade(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userPath + paradePath, { token:Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + userPath + paradePath, { token:Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function paradeUpdate(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userPath + paradePath + updatePath, { token:Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + userPath + paradePath + updatePath, { token:Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	
 	public function getFtue(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userPath + ftuePath, { token:Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + userPath + ftuePath, { token:Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function getExperience(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi +userPath + experiencePath, { token:Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi +userPath + experiencePath, { token:Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function buy(pName: String, pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi +userPath + experiencePath, { token:Api.token, name:pName}));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi +userPath + experiencePath, { token:Api.token, name:pName}));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function ftueComplet(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userPath + ftuePath + completePath, { token:Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + userPath + ftuePath + completePath, { token:Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	
 	public function destroy(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + userPath + destroyPath, { token:Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + userPath + destroyPath, { token:Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(true);

@@ -1,6 +1,5 @@
 import massive.munit.TestSuite;
 
-import api.ApiTest;
 import game.sprites.buildings.BuildingBuilderTest;
 import game.sprites.buildings.BuildingConstructorTest;
 import game.sprites.buildings.BuildingDefinitionTest;
@@ -20,7 +19,6 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
-		add(api.ApiTest);
 		add(game.sprites.buildings.BuildingBuilderTest);
 		add(game.sprites.buildings.BuildingConstructorTest);
 		add(game.sprites.buildings.BuildingDefinitionTest);

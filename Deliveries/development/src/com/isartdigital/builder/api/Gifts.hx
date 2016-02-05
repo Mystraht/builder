@@ -36,21 +36,21 @@ class Gifts
 	}
 
 	public function getGifts(pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + giftsPath, { token: Api.token }));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + giftsPath, { token: Api.token }));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function create(friendUserId, pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + giftsPath + createPath, { token: Api.token, friend_user_id: friendUserId}));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + giftsPath + createPath, { token: Api.token, friend_user_id: friendUserId}));
 		
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	
 	public function collect(name, authorName, pCallBack:String->Void):Void {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + giftsPath + collectPath, { token: Api.token, name: name, author_name: authorName}));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + giftsPath + collectPath, { token: Api.token, name: name, author_name: authorName}));
 		
 		request.onData = pCallBack;
 		request.request(true);

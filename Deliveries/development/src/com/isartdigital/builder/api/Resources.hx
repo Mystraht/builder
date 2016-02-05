@@ -42,7 +42,7 @@ class Resources
 	public function get(pCallBack:String->Void) {
 		//notre request en ajax
 		
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + resourcesPath, { token: Api.token }));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + resourcesPath, { token: Api.token }));
 		
 		request.onData = pCallBack;
 		request.request(false);
@@ -51,21 +51,21 @@ class Resources
 	
 	
 	public function gold (pCallBack:String->Void) {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + resourcesPath + goldPath, { token: Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + resourcesPath + goldPath, { token: Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function spice (pCallBack:String->Void) {
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + resourcesPath + spicePath, { token: Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + resourcesPath + spicePath, { token: Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
 	public function offering (pCallBack:String->Void) {		
-		var request = new Http(Api.formatPath(Api.domain + Api.pathApi + resourcesPath + offeringPath, { token: Api.token } ));
+		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + resourcesPath + offeringPath, { token: Api.token } ));
 		
 		request.onData = pCallBack;
 		request.request(false);

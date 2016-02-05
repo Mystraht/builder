@@ -14,7 +14,7 @@ import pixi.core.display.Container;
 import pixi.display.FlumpMovie;
 
 
-class ApiTest 
+class Utils 
 {
 	public function new() 
 	{
@@ -47,7 +47,7 @@ class ApiTest
 	{
 		var formattedPath:String;
 		
-		formattedPath = Api.formatPath("http://google.com", { token: "AZERTY123456", x: 5, y: 10 } );
+		formattedPath = Utils.formatPath("http://google.com", { token: "AZERTY123456", x: 5, y: 10 } );
 		
 		Assert.isTrue(formattedPath == "http://google.com?token=AZERTY123456&x=5&y=10");
 	}
