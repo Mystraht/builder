@@ -111,9 +111,11 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	
 	override function doActionNormal():Void {
 		super.doActionNormal();
+		var buildingMover:BuildingMover;
 		
 		if (movingBuilding == this) {
-			moveBuildingToCursor();
+			buildingMover = new BuildingMover(this);
+			buildingMover.moveUnderMouse();
 		}
 	}
 	
@@ -152,42 +154,11 @@ class Building extends SpriteObject implements IZSortable implements IPoolObject
 	private function stopMoving () {
 		movingBuilding = null;
 	}
-	
-	
-	/**
-	 * Deplace le batiment sous le curseur de la souris
-	 */
-	private function moveBuildingToCursor():Void {
-		var centerOfBuildingModel:Point = getBuildingPositionByCursor();
-		
-		centerOfBuildingModel.x = Math.round(centerOfBuildingModel.x);
-		centerOfBuildingModel.y = Math.round(centerOfBuildingModel.y);
-		
-		position = IsoManager.modelToIsoView(centerOfBuildingModel);
-	}
-	
-	
-	/**
-	 * Récupère la position du building qui ce place sous le curseur
-	 * @return Point de la position du building sous le curseur (Model, non tronqué)
-	 */
-	private function getBuildingPositionByCursor():Point {
-		var mousePosition:Point = GameManager.getInstance().mousePosition;
-		var buildingOffset:Point = new Point(0, 0);
-		var centerOfBuilding:Point = new Point(0, 0);
-		
-		buildingOffset.x = (definition.size.width - definition.size.height) / 2 * (Config.tileWidth / 2);
-		buildingOffset.y = (definition.size.width + definition.size.height) / 2 * (Config.tileHeight / 2);
-		
-		centerOfBuilding.x = mousePosition.x + buildingOffset.x;
-		centerOfBuilding.y = mousePosition.y + buildingOffset.y;
 
-		return IsoManager.isoViewToModel(centerOfBuilding);
-	}
-	
 	
 	private function constructRequest():Void {
-		var destination:Point = getBuildingPositionByCursor();
+		var buildingPosition:BuildingPosition = new BuildingPosition(this);
+		var destination:Point = buildingPosition.getPositionOnCursor();
 		var buildingConstructor:BuildingConstructor = new BuildingConstructor(this, positionBeforeConstruct);
 		
 		buildingConstructor.setDestination(destination.x, destination.y);
