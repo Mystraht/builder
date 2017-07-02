@@ -1,0 +1,3636 @@
+{
+ "frameRate": 30,
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        1,
+        512,
+        342
+       ],
+       "symbol": "RayAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        515,
+        1,
+        486,
+        297
+       ],
+       "symbol": "BackgroundCredit"
+      },
+      {
+       "origin": [
+        -0.25,
+        0
+       ],
+       "rect": [
+        1,
+        345,
+        512,
+        134
+       ],
+       "symbol": "fanionAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        515,
+        300,
+        335,
+        126
+       ],
+       "symbol": "IkhoweAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        515,
+        428,
+        178,
+        236
+       ],
+       "symbol": "BackgroundConfirmAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        695,
+        428,
+        178,
+        236
+       ],
+       "symbol": "BackgroundRewardAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        875,
+        300,
+        125,
+        192
+       ],
+       "symbol": "CharRewardAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        481,
+        156,
+        83
+       ],
+       "symbol": "ParadeContinueDescription1_txt"
+      },
+      {
+       "origin": [
+        64.25,
+        42.25
+       ],
+       "rect": [
+        875,
+        494,
+        129,
+        85
+       ],
+       "symbol": "illuParadeAsset"
+      },
+      {
+       "origin": [
+        -0.4,
+        0
+       ],
+       "rect": [
+        875,
+        581,
+        136,
+        80
+       ],
+       "symbol": "NoMoneyDescription_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        875,
+        663,
+        118,
+        92
+       ],
+       "symbol": "DeleteConfirm_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        159,
+        481,
+        96,
+        96
+       ],
+       "symbol": "OfferingAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        566,
+        96,
+        96
+       ],
+       "symbol": "PesosAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        257,
+        481,
+        96,
+        96
+       ],
+       "symbol": "PimientosAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        355,
+        481,
+        128,
+        71
+       ],
+       "symbol": "UpgradeRewardDescription_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        355,
+        554,
+        113,
+        77
+       ],
+       "symbol": "UpgradeConfirmDescription_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        99,
+        579,
+        131,
+        61
+       ],
+       "symbol": "InfoLantern_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        232,
+        633,
+        255,
+        30
+       ],
+       "symbol": "GameDescription_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        664,
+        200,
+        38
+       ],
+       "symbol": "LogoTitleAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        203,
+        665,
+        200,
+        38
+       ],
+       "symbol": "SmoocityAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        704,
+        123,
+        61
+       ],
+       "symbol": "HardBuildConfirmDescription_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        405,
+        665,
+        90,
+        82
+       ],
+       "symbol": "CharConfirmAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        126,
+        705,
+        256,
+        25
+       ],
+       "symbol": "OtherGameDescription_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        126,
+        732,
+        138,
+        45
+       ],
+       "symbol": "ConfirmCashDescription_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        266,
+        732,
+        135,
+        46
+       ],
+       "symbol": "LevelReward_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        232,
+        579,
+        119,
+        48
+       ],
+       "symbol": "ParadeConfirmTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        779,
+        126,
+        44
+       ],
+       "symbol": "LanternConfirmText_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        129,
+        779,
+        74,
+        74
+       ],
+       "symbol": "RewardPimientosAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        403,
+        749,
+        138,
+        37
+       ],
+       "symbol": "ShareButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        825,
+        75,
+        66
+       ],
+       "symbol": "CadreRewardHdvAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        497,
+        666,
+        138,
+        35
+       ],
+       "symbol": "BuyHardButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        497,
+        703,
+        138,
+        35
+       ],
+       "symbol": "BuyOfferingButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        205,
+        780,
+        138,
+        35
+       ],
+       "symbol": "BuyHardButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        637,
+        666,
+        138,
+        35
+       ],
+       "symbol": "AdButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        637,
+        703,
+        138,
+        35
+       ],
+       "symbol": "BuyPesosButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        543,
+        740,
+        138,
+        35
+       ],
+       "symbol": "AdButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        683,
+        740,
+        138,
+        35
+       ],
+       "symbol": "BuyPesosButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        823,
+        757,
+        138,
+        34
+       ],
+       "symbol": "CancelButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        543,
+        777,
+        138,
+        34
+       ],
+       "symbol": "RewardButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        683,
+        777,
+        138,
+        34
+       ],
+       "symbol": "CancelButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        823,
+        793,
+        138,
+        34
+       ],
+       "symbol": "ShareButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        345,
+        788,
+        138,
+        34
+       ],
+       "symbol": "RewardButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        205,
+        817,
+        138,
+        34
+       ],
+       "symbol": "BuyOfferingButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        485,
+        813,
+        193,
+        23
+       ],
+       "symbol": "MainBuildingInfoTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        777,
+        666,
+        65,
+        65
+       ],
+       "symbol": "RewardPesosAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        680,
+        829,
+        182,
+        21
+       ],
+       "symbol": "ParadeContinueDescription2_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        345,
+        824,
+        110,
+        33
+       ],
+       "symbol": "LanternInfoDescription_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        864,
+        829,
+        146,
+        24
+       ],
+       "symbol": "ParadeRewardText_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        205,
+        853,
+        130,
+        24
+       ],
+       "symbol": "KeepGoing_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        78,
+        855,
+        106,
+        29
+       ],
+       "symbol": "NoMoneyTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        457,
+        838,
+        168,
+        18
+       ],
+       "symbol": "MainBuildingInfoDescription_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        627,
+        852,
+        84,
+        35
+       ],
+       "symbol": "ParadeRewardTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        713,
+        852,
+        114,
+        23
+       ],
+       "symbol": "UpgradeConfirmTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        457,
+        858,
+        109,
+        23
+       ],
+       "symbol": "ParadeContinueTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        337,
+        859,
+        107,
+        23
+       ],
+       "symbol": "UpgradeRewardTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        186,
+        879,
+        90,
+        27
+       ],
+       "symbol": "Share_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        78,
+        886,
+        92,
+        26
+       ],
+       "symbol": "UpgradeSpeedUpTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        446,
+        883,
+        90,
+        25
+       ],
+       "symbol": "ParadeRewardPesos_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        278,
+        884,
+        90,
+        25
+       ],
+       "symbol": "ParadeRewardOffering_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        172,
+        908,
+        90,
+        25
+       ],
+       "symbol": "ParadeRewardPimientos_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        538,
+        883,
+        85,
+        26
+       ],
+       "symbol": "PriceSoft_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        963,
+        757,
+        46,
+        46
+       ],
+       "symbol": "PesosPopUpAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        99,
+        642,
+        123,
+        17
+       ],
+       "symbol": "HardBuildConfirm_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        914,
+        87,
+        23
+       ],
+       "symbol": "LanternInfoConfirm_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        370,
+        910,
+        82,
+        24
+       ],
+       "symbol": "RewardBuildingTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        264,
+        911,
+        85,
+        23
+       ],
+       "symbol": "CurrencyCount_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        90,
+        914,
+        72,
+        26
+       ],
+       "symbol": "PriceHard_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        939,
+        81,
+        23
+       ],
+       "symbol": "ParadeRewardCollect_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        164,
+        935,
+        76,
+        24
+       ],
+       "symbol": "LanternConfirmTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        829,
+        855,
+        91,
+        20
+       ],
+       "symbol": "Confirm_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        470,
+        554,
+        41,
+        44
+       ],
+       "symbol": "PimientosPopUpAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        84,
+        942,
+        75,
+        24
+       ],
+       "symbol": "IsartLogoAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        964,
+        76,
+        23
+       ],
+       "symbol": "ContinueHardButton_txt"
+      },
+      {
+       "origin": [
+        -1.25,
+        0
+       ],
+       "rect": [
+        454,
+        910,
+        76,
+        23
+       ],
+       "symbol": "AdButton_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        922,
+        855,
+        85,
+        20
+       ],
+       "symbol": "PriceOffrande_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        989,
+        85,
+        20
+       ],
+       "symbol": "Cancel_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        713,
+        877,
+        85,
+        20
+       ],
+       "symbol": "NoMoneyAccept_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        625,
+        889,
+        83,
+        20
+       ],
+       "symbol": "UpgradeRewardButton_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        568,
+        858,
+        57,
+        23
+       ],
+       "symbol": "LanternConfirmPriceHard_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        370,
+        884,
+        57,
+        23
+       ],
+       "symbol": "LanternConfirmPriceSoft_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        800,
+        877,
+        34,
+        35
+       ],
+       "symbol": "ShopCloseButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        710,
+        899,
+        34,
+        35
+       ],
+       "symbol": "ShopCloseButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        485,
+        788,
+        46,
+        23
+       ],
+       "symbol": "RewardPimientos_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        78,
+        825,
+        46,
+        23
+       ],
+       "symbol": "RewardPesos_txt"
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ],
+ "movies": [
+  {
+   "id": "AdButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "AdButtonAsset"
+      },
+      {
+       "tweened": false,
+       "index": 1,
+       "duration": 1,
+       "ref": "AdButtonClickAsset"
+      },
+      {
+       "tweened": false,
+       "index": 2,
+       "duration": 1,
+       "ref": "AdButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "BuyHardButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "BuyHardButtonAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 0
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "BuyHardButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 1
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "BuyHardButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "BuyOfferingButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "BuyOfferingButtonAsset"
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "BuyOfferingButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 1
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "BuyOfferingButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "BuyPesosButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "BuyPesosButtonAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 0
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "BuyPesosButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 1
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "BuyPesosButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "CancelButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "CancelButtonAsset"
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "CancelButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 1
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "CancelButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "CloseButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        16.875,
+        17.375
+       ],
+       "duration": 1,
+       "ref": "ShopCloseButtonAsset",
+       "loc": [
+        16.875,
+        17.375
+       ],
+       "index": 0
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        16.875,
+        17.375
+       ],
+       "duration": 1,
+       "ref": "ShopCloseButtonClickAsset",
+       "loc": [
+        16.875,
+        17.375
+       ],
+       "index": 1
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        16.875,
+        17.375
+       ],
+       "duration": 1,
+       "ref": "ShopCloseButtonClickAsset",
+       "loc": [
+        16.875,
+        17.375
+       ],
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "ConfirmCash",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -89.925,
+        -117.9375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset"
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -71.8125,
+        61.075
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CancelButton"
+      }
+     ],
+     "name": "CancelButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -71.8125,
+        24.2
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardButton"
+      }
+     ],
+     "name": "RewardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        42.5,
+        0
+       ],
+       "duration": 1,
+       "ref": "Cancel_txt",
+       "loc": [
+        -13.5,
+        68.6125
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Cancel_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        45.25,
+        0
+       ],
+       "duration": 1,
+       "ref": "Confirm_txt",
+       "loc": [
+        -10.75,
+        31.2125
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Confirm_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -69.8625,
+        -77.6625
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "ConfirmCashDescription_txt"
+      }
+     ],
+     "name": "ConfirmCashDescription_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "PimientosAsset",
+       "loc": [
+        -58.2625,
+        -20.975
+       ],
+       "index": 0,
+       "scale": [
+        0.4063,
+        0.4063
+       ]
+      }
+     ],
+     "name": "PimientosAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        11.675,
+        -11.0625
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardPimientos_txt"
+      }
+     ],
+     "name": "RewardPimientos_txt"
+    }
+   ]
+  },
+  {
+   "id": "ContinueHardButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "BuyHardButtonAsset"
+      },
+      {
+       "tweened": false,
+       "index": 1,
+       "duration": 1,
+       "ref": "BuyHardButtonClickAsset"
+      },
+      {
+       "tweened": false,
+       "index": 2,
+       "duration": 1,
+       "ref": "BuyHardButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "Credit",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -242.2375,
+        -149.575
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundCredit"
+      }
+     ],
+     "name": "BackgroundCredit"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        214.775,
+        -158.85
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CloseButton"
+      }
+     ],
+     "name": "CloseButton"
+    }
+   ]
+  },
+  {
+   "id": "DeleteConfirm",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -89.425,
+        -111.475
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset"
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        67.1625,
+        -118.025
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CloseButton"
+      }
+     ],
+     "name": "CloseButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -70.3375,
+        55.0875
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CancelButton"
+      }
+     ],
+     "name": "CancelButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -70.3375,
+        15.225
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardButton"
+      }
+     ],
+     "name": "RewardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -46.25,
+        -80.1875
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "DeleteConfirm_txt"
+      }
+     ],
+     "name": "DeleteConfirm_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        42.5,
+        0
+       ],
+       "duration": 1,
+       "ref": "Cancel_txt",
+       "loc": [
+        -12.3625,
+        61.6875
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Cancel_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        45.25,
+        0
+       ],
+       "duration": 1,
+       "ref": "Confirm_txt",
+       "loc": [
+        -11.55,
+        20.85
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Confirm_txt"
+    }
+   ]
+  },
+  {
+   "id": "FirstConnexion",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "BackgroundRewardAsset",
+       "loc": [
+        -162.3875,
+        -119.1125
+       ],
+       "index": 0,
+       "scale": [
+        1.8163,
+        1
+       ]
+      }
+     ],
+     "name": "BackgroundRewardAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "LogoTitleAsset",
+       "loc": [
+        -75.1,
+        -110.4125
+       ],
+       "index": 0,
+       "scale": [
+        0.7393,
+        0.7393
+       ]
+      }
+     ],
+     "name": "LogoTitleAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -71.2,
+        57.2625
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardButton"
+      }
+     ],
+     "name": "RewardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        43.0625,
+        0
+       ],
+       "duration": 1,
+       "ref": "LanternInfoConfirm_txt",
+       "loc": [
+        -10.775,
+        62.65
+       ],
+       "index": 0
+      }
+     ],
+     "name": "LanternInfoConfirm_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -130.625,
+        -76
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "GameDescription_txt"
+      }
+     ],
+     "name": "GameDescription_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -130.625,
+        -17.6625
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "OtherGameDescription_txt"
+      }
+     ],
+     "name": "OtherGameDescription_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -38.45,
+        -43.4375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "IsartLogoAsset"
+      }
+     ],
+     "name": "IsartLogoAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "IkhoweAsset",
+       "loc": [
+        -123.3375,
+        11.7625
+       ],
+       "index": 0,
+       "scale": [
+        0.3323,
+        0.3323
+       ]
+      }
+     ],
+     "name": "IkhoweAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "SmoocityAsset",
+       "loc": [
+        -7.8625,
+        24.0125
+       ],
+       "index": 0,
+       "scale": [
+        0.6533,
+        0.6533
+       ]
+      }
+     ],
+     "name": "SmoocityAsset"
+    }
+   ]
+  },
+  {
+   "id": "HardBuildConfirm",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        -0.25,
+        0
+       ],
+       "duration": 1,
+       "ref": "fanionAsset",
+       "loc": [
+        -254.1375,
+        -113.175
+       ],
+       "index": 0
+      }
+     ],
+     "name": "FW_fanionAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -89.025,
+        -104.1375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset"
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -164.225,
+        -73.7125
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CharConfirmAsset"
+      }
+     ],
+     "name": "CharConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        66.1625,
+        -115.575
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CloseButton"
+      }
+     ],
+     "name": "CloseButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        61.3,
+        0
+       ],
+       "duration": 1,
+       "ref": "HardBuildConfirm_txt",
+       "loc": [
+        0.425,
+        5.775
+       ],
+       "index": 0
+      }
+     ],
+     "name": "HardBuildConfirm_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -60.875,
+        -55.0625
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "HardBuildConfirmDescription_txt"
+      }
+     ],
+     "name": "HardBuildConfirmDescription_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -71.7375,
+        33.925
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BuyHardButton"
+      }
+     ],
+     "name": "BuyHardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -71.7375,
+        73.0875
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CancelButton"
+      }
+     ],
+     "name": "CancelButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        42.5,
+        0
+       ],
+       "duration": 1,
+       "ref": "CurrencyCount_txt",
+       "loc": [
+        -10.5,
+        39.6875
+       ],
+       "index": 0
+      }
+     ],
+     "name": "CurrencyCount_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        42.5,
+        0
+       ],
+       "duration": 1,
+       "ref": "Cancel_txt",
+       "loc": [
+        -10.5,
+        79.125
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Cancel_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        45.625,
+        0
+       ],
+       "duration": 1,
+       "ref": "UpgradeSpeedUpTitle_txt",
+       "loc": [
+        1.7125,
+        -81.0625
+       ],
+       "index": 0
+      }
+     ],
+     "name": "UpgradeSpeedUpTitle_txt"
+    }
+   ]
+  },
+  {
+   "id": "LanternConfirm",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        -0.25,
+        0
+       ],
+       "duration": 1,
+       "ref": "fanionAsset",
+       "loc": [
+        -249.0375,
+        -162.2125
+       ],
+       "index": 0
+      }
+     ],
+     "name": "FW_fanionAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -90.6,
+        -106.3
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset"
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -163.8,
+        -58.4
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CharConfirmAsset"
+      }
+     ],
+     "name": "CharConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        66.6625,
+        -119.2125
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CloseButton"
+      }
+     ],
+     "name": "CloseButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -70.8375,
+        24.2875
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BuyPesosButton"
+      }
+     ],
+     "name": "BuyPesosButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -70.8375,
+        65.6125
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BuyHardButton"
+      }
+     ],
+     "name": "BuyHardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        28.1375,
+        0
+       ],
+       "duration": 1,
+       "ref": "LanternConfirmPriceHard_txt",
+       "loc": [
+        -9.925,
+        71.675
+       ],
+       "index": 0
+      }
+     ],
+     "name": "LanternConfirmPriceHard_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -51.5625,
+        -39.05
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "LanternConfirmText_txt"
+      }
+     ],
+     "name": "LanternConfirmText_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        38,
+        0
+       ],
+       "duration": 1,
+       "ref": "LanternConfirmTitle_txt",
+       "loc": [
+        -1.8125,
+        -84.4625
+       ],
+       "index": 0
+      }
+     ],
+     "name": "LanternConfirmTitle_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        28.1375,
+        0
+       ],
+       "duration": 1,
+       "ref": "LanternConfirmPriceSoft_txt",
+       "loc": [
+        -9.925,
+        30.7125
+       ],
+       "index": 0
+      }
+     ],
+     "name": "LanternConfirmPriceSoft_txt"
+    }
+   ]
+  },
+  {
+   "id": "LanternInfo",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -89.275,
+        -105.7
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset"
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -71.1375,
+        55.2
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardButton"
+      }
+     ],
+     "name": "RewardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        43.0625,
+        0
+       ],
+       "duration": 1,
+       "ref": "LanternInfoConfirm_txt",
+       "loc": [
+        -10.85,
+        61.6875
+       ],
+       "index": 0
+      }
+     ],
+     "name": "LanternInfoConfirm_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        54.5625,
+        0
+       ],
+       "duration": 1,
+       "ref": "LanternInfoDescription_txt",
+       "loc": [
+        -1.3125,
+        -79.225
+       ],
+       "index": 0
+      }
+     ],
+     "name": "LanternInfoDescription_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -56.55,
+        -25.25
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "InfoLantern_txt"
+      }
+     ],
+     "name": "InfoLantern_txt"
+    }
+   ]
+  },
+  {
+   "id": "LevelReward",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -256.125,
+        -158.5375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RayAsset"
+      }
+     ],
+     "name": "FS_RayAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        -0.25,
+        0
+       ],
+       "duration": 1,
+       "ref": "fanionAsset",
+       "loc": [
+        -256.125,
+        -132.2
+       ],
+       "index": 0
+      }
+     ],
+     "name": "FW_fanionAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -92.4625,
+        -113.825
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundRewardAsset"
+      }
+     ],
+     "name": "BackgroundRewardAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "RewardPimientosAsset",
+       "loc": [
+        -56.9875,
+        23.1375
+       ],
+       "index": 0,
+       "scale": [
+        0.5161,
+        0.5161
+       ]
+      }
+     ],
+     "name": "RewardPimientosAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -0.6375,
+        30.925
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardPimientos_txt"
+      }
+     ],
+     "name": "RewardPimientos_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -66.3,
+        -64.7375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "LevelReward_txt"
+      }
+     ],
+     "name": "LevelReward_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        41.8625,
+        0
+       ],
+       "duration": 1,
+       "ref": "ParadeRewardTitle_txt",
+       "loc": [
+        -1.2,
+        -93.1375
+       ],
+       "index": 0
+      }
+     ],
+     "name": "ParadeRewardTitle_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -193.925,
+        -142.7375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CharRewardAsset"
+      }
+     ],
+     "name": "CharRewardAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -72.125,
+        65.2875
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardButton"
+      }
+     ],
+     "name": "RewardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        0,
+        -8.7625
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardPesos_txt"
+      }
+     ],
+     "name": "RewardPesos_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "RewardPesosAsset",
+       "loc": [
+        -56.9875,
+        -18
+       ],
+       "index": 0,
+       "scale": [
+        0.615,
+        0.615
+       ]
+      }
+     ],
+     "name": "RewardPesosAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        40.1375,
+        0
+       ],
+       "duration": 1,
+       "ref": "ParadeRewardCollect_txt",
+       "loc": [
+        -12.925,
+        71.7375
+       ],
+       "index": 0
+      }
+     ],
+     "name": "ParadeRewardCollect_txt"
+    }
+   ]
+  },
+  {
+   "id": "NoMoneyInfo",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -88.7375,
+        -110.525
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset"
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -67.7,
+        63.3625
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CancelButton"
+      }
+     ],
+     "name": "CancelButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        42.5,
+        0
+       ],
+       "duration": 1,
+       "ref": "Cancel_txt",
+       "loc": [
+        -9.4,
+        69.9125
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Cancel_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -67.7,
+        21.15
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardButton"
+      }
+     ],
+     "name": "RewardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -38.4625,
+        27.575
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "NoMoneyAccept_txt"
+      }
+     ],
+     "name": "NoMoneyAccept_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        -0.3875,
+        0
+       ],
+       "duration": 1,
+       "ref": "NoMoneyDescription_txt",
+       "loc": [
+        -67.4625,
+        -74.175
+       ],
+       "index": 0
+      }
+     ],
+     "name": "NoMoneyDescription_txt"
+    }
+   ]
+  },
+  {
+   "id": "ParadeConfirm",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -241.5875,
+        -154.4125
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RayAsset"
+      }
+     ],
+     "name": "FS_RayAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -243.3875,
+        -134.2
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "fanionAsset"
+      }
+     ],
+     "name": "FW_fanionAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -158.1375,
+        -74.35
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CharConfirmAsset"
+      }
+     ],
+     "name": "CharConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -82.2875,
+        -98.925
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset"
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -62.95,
+        34.775
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BuyPesosButton"
+      }
+     ],
+     "name": "BuySoftButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -62.95,
+        77.525
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BuyHardButton"
+      }
+     ],
+     "name": "BuyHardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        74.55,
+        -106.1875
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CloseButton"
+      }
+     ],
+     "name": "CloseButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        35.75,
+        0
+       ],
+       "duration": 1,
+       "ref": "PriceHard_txt",
+       "loc": [
+        -1.65,
+        82.9
+       ],
+       "index": 0
+      }
+     ],
+     "name": "PriceHard_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        35.75,
+        0
+       ],
+       "duration": 1,
+       "ref": "PriceSoft_txt",
+       "loc": [
+        -2.975,
+        40.15
+       ],
+       "index": 0
+      }
+     ],
+     "name": "PriceSoft_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        64.25,
+        42.25
+       ],
+       "duration": 1,
+       "ref": "illuParadeAsset",
+       "loc": [
+        4.7125,
+        -9.725
+       ],
+       "index": 0
+      }
+     ],
+     "name": "illuParadeAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -41.9375,
+        -71.825
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "ParadeConfirmTitle_txt"
+      }
+     ],
+     "name": "ParadeConfirmTitle_txt"
+    }
+   ]
+  },
+  {
+   "id": "ParadeContinue",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        -0.25,
+        0
+       ],
+       "duration": 1,
+       "ref": "fanionAsset",
+       "loc": [
+        -268.45,
+        -142.825
+       ],
+       "index": 0
+      }
+     ],
+     "name": "FW_fanionAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        256,
+        170.75
+       ],
+       "duration": 1,
+       "ref": "RayAsset",
+       "loc": [
+        -12.2,
+        -3.9
+       ],
+       "index": 0
+      }
+     ],
+     "name": "FS_RayAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset",
+       "loc": [
+        -103.7625,
+        -138.625
+       ],
+       "index": 0,
+       "scale": [
+        1.1643,
+        1.1643
+       ]
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        86.2875,
+        -147.175
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CloseButton"
+      }
+     ],
+     "name": "CloseButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -73.425,
+        65.3
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "AdButton"
+      }
+     ],
+     "name": "AdButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -74.8375,
+        -80.975
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "ParadeContinueDescription1_txt"
+      }
+     ],
+     "name": "ParadeContinueDescription1_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        64.875,
+        0
+       ],
+       "duration": 1,
+       "ref": "KeepGoing_txt",
+       "loc": [
+        0.8,
+        -108.3375
+       ],
+       "index": 0
+      }
+     ],
+     "name": "KeepGoing_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -73.425,
+        18.8875
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "ContinueHardButton"
+      }
+     ],
+     "name": "ContinueHardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        37.725,
+        0
+       ],
+       "duration": 1,
+       "ref": "AdButton_txt",
+       "loc": [
+        -12.0875,
+        71.5625
+       ],
+       "index": 0
+      }
+     ],
+     "name": "AdButton_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        37.6375,
+        0
+       ],
+       "duration": 1,
+       "ref": "ContinueHardButton_txt",
+       "loc": [
+        -13.25,
+        24.1875
+       ],
+       "index": 0
+      }
+     ],
+     "name": "ContinueHardButton_txt"
+    }
+   ]
+  },
+  {
+   "id": "ParadeReward",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        256,
+        170.75
+       ],
+       "duration": 1,
+       "ref": "RayAsset",
+       "loc": [
+        -8.8375,
+        5
+       ],
+       "index": 0
+      }
+     ],
+     "name": "FS_RayAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        255.875,
+        66.875
+       ],
+       "duration": 1,
+       "ref": "fanionAsset",
+       "loc": [
+        -8.9625,
+        -98.875
+       ],
+       "index": 0
+      }
+     ],
+     "name": "FW_fanionAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -180.375,
+        -142.5375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CharRewardAsset"
+      }
+     ],
+     "name": "CharRewardAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -87.4125,
+        -114.375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundRewardAsset"
+      }
+     ],
+     "name": "BackgroundRewardAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -66.0375,
+        65.2375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardButton"
+      }
+     ],
+     "name": "RewardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        40.1375,
+        0
+       ],
+       "duration": 1,
+       "ref": "ParadeRewardCollect_txt",
+       "loc": [
+        -5.025,
+        71.15
+       ],
+       "index": 0
+      }
+     ],
+     "name": "ParadeRewardCollect_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "OfferingAsset",
+       "loc": [
+        -65.975,
+        -18.125
+       ],
+       "index": 0,
+       "scale": [
+        0.4044,
+        0.4044
+       ]
+      }
+     ],
+     "name": "OfferingAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "PesosAsset",
+       "loc": [
+        -64.9875,
+        -59.15
+       ],
+       "index": 0,
+       "scale": [
+        0.3939,
+        0.3939
+       ]
+      }
+     ],
+     "name": "PesosAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "ref": "PimientosAsset",
+       "loc": [
+        -64.9875,
+        23.8875
+       ],
+       "index": 0,
+       "scale": [
+        0.3772,
+        0.3772
+       ]
+      }
+     ],
+     "name": "PimientosAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        45,
+        0
+       ],
+       "duration": 1,
+       "ref": "ParadeRewardPesos_txt",
+       "loc": [
+        26.4125,
+        -53.35
+       ],
+       "index": 0
+      }
+     ],
+     "name": "ParadeRewardPesos_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        45,
+        0
+       ],
+       "duration": 1,
+       "ref": "ParadeRewardOffering_txt",
+       "loc": [
+        26.4125,
+        -11.725
+       ],
+       "index": 0
+      }
+     ],
+     "name": "ParadeRewardOffering_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        45,
+        0
+       ],
+       "duration": 1,
+       "ref": "ParadeRewardPimientos_txt",
+       "loc": [
+        26.4125,
+        29.9
+       ],
+       "index": 0
+      }
+     ],
+     "name": "ParadeRewardPimientos_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        72.75,
+        0
+       ],
+       "duration": 1,
+       "ref": "ParadeRewardText_txt",
+       "loc": [
+        2.375,
+        -82.725
+       ],
+       "index": 0
+      }
+     ],
+     "name": "ParadeRewardText_txt"
+    }
+   ]
+  },
+  {
+   "id": "RewardBuilding",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "CadreRewardHdvAsset",
+       "scale": [
+        1.3574,
+        1.3574
+       ]
+      }
+     ],
+     "name": "CadreRewardHdvAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1
+      }
+     ],
+     "name": "BuildingInShop_item"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        9.7375,
+        87.8
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardBuildingTitle_txt"
+      }
+     ],
+     "name": "RewardBuildingTitle_txt"
+    }
+   ]
+  },
+  {
+   "id": "RewardButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardButtonAsset"
+      },
+      {
+       "tweened": false,
+       "index": 1,
+       "duration": 1,
+       "ref": "RewardButtonClickAsset"
+      },
+      {
+       "tweened": false,
+       "index": 2,
+       "duration": 1,
+       "ref": "RewardButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "ShareButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "ShareButtonAsset"
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "ShareButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 1
+      },
+      {
+       "tweened": false,
+       "pivot": [
+        68.75,
+        18.25
+       ],
+       "duration": 1,
+       "ref": "ShareButtonClickAsset",
+       "loc": [
+        68.75,
+        18.25
+       ],
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "UpgradeConfirm",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -89.175,
+        -109.55
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset"
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -68.7375,
+        27.0875
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BuyOfferingButton"
+      }
+     ],
+     "name": "BuyOfferingButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        64.5375,
+        -118.35
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CloseButton"
+      }
+     ],
+     "name": "CloseButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -68.7375,
+        69.3375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "CancelButton"
+      }
+     ],
+     "name": "CancelButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        42.5,
+        0
+       ],
+       "duration": 1,
+       "ref": "Cancel_txt",
+       "loc": [
+        -10.45,
+        75.5625
+       ],
+       "index": 0,
+       "scale": [
+        1,
+        0.9995
+       ]
+      }
+     ],
+     "name": "Cancel_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        42.5,
+        0
+       ],
+       "duration": 1,
+       "ref": "PriceOffrande_txt",
+       "loc": [
+        -10.45,
+        35.3375
+       ],
+       "index": 0
+      }
+     ],
+     "name": "PriceOffrande_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -57.4125,
+        -75.8375
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "UpgradeConfirmDescription_txt"
+      }
+     ],
+     "name": "UpgradeConfirmDescription_txt"
+    }
+   ]
+  },
+  {
+   "id": "UpgradeReward",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        256,
+        170.75
+       ],
+       "duration": 1,
+       "ref": "RayAsset",
+       "loc": [
+        -14.4625,
+        5.4375
+       ],
+       "index": 0
+      }
+     ],
+     "name": "FS_RayAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        -0.25,
+        0
+       ],
+       "duration": 1,
+       "ref": "fanionAsset",
+       "loc": [
+        -270.4625,
+        -130.3625
+       ],
+       "index": 0
+      }
+     ],
+     "name": "FW_fanionAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        62.125,
+        95.625
+       ],
+       "duration": 1,
+       "ref": "CharRewardAsset",
+       "loc": [
+        -120.0125,
+        -21.9125
+       ],
+       "index": 0
+      }
+     ],
+     "name": "CharRewardAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -90,
+        -111.2875
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "BackgroundConfirmAsset"
+      }
+     ],
+     "name": "BackgroundConfirmAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -69.95,
+        24.25
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "RewardButton"
+      }
+     ],
+     "name": "RewardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        41.4625,
+        0
+       ],
+       "duration": 1,
+       "ref": "UpgradeRewardButton_txt",
+       "loc": [
+        -13.3125,
+        30.4875
+       ],
+       "index": 0
+      }
+     ],
+     "name": "UpgradeRewardButton_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -69.95,
+        60.75
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "ShareButton"
+      }
+     ],
+     "name": "ShareButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        44.75,
+        0
+       ],
+       "duration": 1,
+       "ref": "Share_txt",
+       "loc": [
+        -10.025,
+        66.75
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Share_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "loc": [
+        -61.6875,
+        -53.1125
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "UpgradeRewardDescription_txt"
+      }
+     ],
+     "name": "UpgradeRewardDescription_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        53.0875,
+        0
+       ],
+       "duration": 1,
+       "ref": "UpgradeRewardTitle_txt",
+       "loc": [
+        -1.3,
+        -84.225
+       ],
+       "index": 0
+      }
+     ],
+     "name": "UpgradeRewardTitle_txt"
+    }
+   ]
+  }
+ ],
+ "md5": "88750389a31b03d823ec88b13c24b637"
+}

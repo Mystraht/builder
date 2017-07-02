@@ -1,9 +1,8 @@
 package com.isartdigital.builder.api;
 import com.isartdigital.builder.api.Lanterns;
 import js.Browser;
-import js.html.CreateFileOptions;
 
-	
+
 /**
  * ...
  * @author Flavien
@@ -24,7 +23,7 @@ class Api
 	public static var buildings:Buildings;
 	public static var lanterns:Lanterns;
 	
-		/**
+	/**
 	 * instance unique de la classe Resources
 	 */
 	private static var instance: Api;
@@ -46,9 +45,8 @@ class Api
 		instance = this;
 		
 		domain = domainDev;
-		
 		token = Browser.getLocalStorage().getItem("token");
-		
+
 		user = User.getInstance();
 		resources = Resources.getInstance();
 		buildings = Buildings.getInstance();

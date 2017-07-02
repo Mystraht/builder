@@ -1,0 +1,892 @@
+{
+ "movies": [
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        110,
+        105
+       ],
+       "tweened": false,
+       "ref": "fleurs_0000",
+       "duration": 1
+      },
+      {
+       "index": 1,
+       "pivot": [
+        147.5,
+        147
+       ],
+       "tweened": false,
+       "ref": "fleurs_0001",
+       "duration": 1
+      },
+      {
+       "index": 2,
+       "pivot": [
+        167,
+        168.5
+       ],
+       "tweened": false,
+       "ref": "fleurs_0002",
+       "duration": 1
+      },
+      {
+       "index": 3,
+       "pivot": [
+        103,
+        103.5
+       ],
+       "tweened": false,
+       "ref": "fleurs_0003",
+       "duration": 1
+      },
+      {
+       "index": 4,
+       "pivot": [
+        99,
+        102.8
+       ],
+       "tweened": false,
+       "ref": "fleurs_0004",
+       "duration": 1
+      },
+      {
+       "index": 5,
+       "pivot": [
+        109.85,
+        108
+       ],
+       "tweened": false,
+       "ref": "fleurs_0005",
+       "duration": 1
+      },
+      {
+       "index": 6,
+       "pivot": [
+        145,
+        145
+       ],
+       "tweened": false,
+       "ref": "fleurs_0006",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "Fleurs"
+  },
+  {
+   "layers": [
+    {
+     "name": "FS_rayPinata",
+     "keyframes": [
+      {
+       "pivot": [
+        1032.35,
+        664.7
+       ],
+       "scale": [
+        0.9995,
+        0.9995
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "rayPinata",
+       "loc": [
+        -0.5041,
+        -0.3448
+       ]
+      }
+     ]
+    },
+    {
+     "name": "FW_fanionPinataAsset",
+     "keyframes": [
+      {
+       "pivot": [
+        0,
+        -3.2
+       ],
+       "scale": [
+        1,
+        0.9999
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "fanionPinataAsset",
+       "loc": [
+        -1026.45,
+        -572.9497
+       ]
+      }
+     ]
+    },
+    {
+     "name": "cocardeAsset",
+     "keyframes": [
+      {
+       "pivot": [
+        6,
+        3
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "cocardeAsset",
+       "loc": [
+        -373.75,
+        -405.6
+       ]
+      }
+     ]
+    },
+    {
+     "name": "fleurs_0000",
+     "keyframes": [
+      {
+       "pivot": [
+        101.2,
+        101.75
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "fleurs_0000",
+       "loc": [
+        -840,
+        -480
+       ]
+      }
+     ]
+    },
+    {
+     "name": "fleurs_0001",
+     "keyframes": [
+      {
+       "pivot": [
+        145,
+        144
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "fleurs_0001",
+       "loc": [
+        -460,
+        -290
+       ]
+      }
+     ]
+    },
+    {
+     "name": "fleurs_0002",
+     "keyframes": [
+      {
+       "pivot": [
+        167,
+        178.5
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "fleurs_0002",
+       "loc": [
+        -690,
+        130
+       ]
+      }
+     ]
+    },
+    {
+     "name": "fleurs_0003",
+     "keyframes": [
+      {
+       "pivot": [
+        98.25,
+        99.7
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "fleurs_0003",
+       "loc": [
+        -230,
+        400
+       ]
+      }
+     ]
+    },
+    {
+     "name": "fleurs_0004",
+     "keyframes": [
+      {
+       "pivot": [
+        98,
+        103.3
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "fleurs_0004",
+       "loc": [
+        730,
+        420
+       ]
+      }
+     ]
+    },
+    {
+     "name": "fleurs_0005",
+     "keyframes": [
+      {
+       "pivot": [
+        108.15,
+        109.5
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "fleurs_0005",
+       "loc": [
+        700,
+        -410
+       ]
+      }
+     ]
+    },
+    {
+     "name": "fleurs_0006",
+     "keyframes": [
+      {
+       "pivot": [
+        140,
+        140
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "fleurs_0006",
+       "loc": [
+        440,
+        180
+       ]
+      }
+     ]
+    },
+    {
+     "name": "pinataAsset",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        217.05,
+        281.75
+       ],
+       "tweened": false,
+       "ref": "pinataAsset",
+       "duration": 1
+      }
+     ]
+    },
+    {
+     "name": "headAsset",
+     "keyframes": [
+      {
+       "pivot": [
+        8,
+        3.5
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "headAsset",
+       "loc": [
+        -78,
+        -330
+       ]
+      }
+     ]
+    },
+    {
+     "name": "legAsset",
+     "keyframes": [
+      {
+       "index": 0,
+       "tweened": false,
+       "loc": [
+        12.5,
+        3
+       ],
+       "ref": "legAsset",
+       "duration": 1
+      }
+     ]
+    },
+    {
+     "name": "legBisAsset",
+     "keyframes": [
+      {
+       "pivot": [
+        8.5,
+        7.5
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "legBisAsset",
+       "loc": [
+        -250,
+        30
+       ]
+      }
+     ]
+    },
+    {
+     "name": "assAsset",
+     "keyframes": [
+      {
+       "pivot": [
+        2,
+        16
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "assAsset",
+       "loc": [
+        -290,
+        -270
+       ]
+      }
+     ]
+    },
+    {
+     "name": "panAsset",
+     "keyframes": [
+      {
+       "pivot": [
+        566.65,
+        240.95
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "panAsset",
+       "loc": [
+        -10.7,
+        -16.5
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "Pinata"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        24.5,
+        26
+       ],
+       "tweened": false,
+       "ref": "paperBlue1",
+       "duration": 1
+      },
+      {
+       "index": 1,
+       "pivot": [
+        24.5,
+        26
+       ],
+       "tweened": false,
+       "ref": "paperBlue2",
+       "duration": 1
+      },
+      {
+       "index": 2,
+       "pivot": [
+        28.5,
+        25
+       ],
+       "tweened": false,
+       "ref": "paperBlue3",
+       "duration": 1
+      },
+      {
+       "index": 3,
+       "pivot": [
+        28.5,
+        25
+       ],
+       "tweened": false,
+       "ref": "paperBlue4",
+       "duration": 1
+      },
+      {
+       "index": 4,
+       "pivot": [
+        24.5,
+        24
+       ],
+       "tweened": false,
+       "ref": "paperRed1",
+       "duration": 1
+      },
+      {
+       "index": 5,
+       "pivot": [
+        24.5,
+        24
+       ],
+       "tweened": false,
+       "ref": "paperRed2",
+       "duration": 1
+      },
+      {
+       "index": 6,
+       "pivot": [
+        26.5,
+        37
+       ],
+       "tweened": false,
+       "ref": "paperRed3",
+       "duration": 1
+      },
+      {
+       "index": 7,
+       "pivot": [
+        26.5,
+        37
+       ],
+       "tweened": false,
+       "ref": "paperRed4",
+       "duration": 1
+      },
+      {
+       "index": 8,
+       "pivot": [
+        23.5,
+        27
+       ],
+       "tweened": false,
+       "ref": "paperYellow",
+       "duration": 1
+      },
+      {
+       "index": 9,
+       "pivot": [
+        23.5,
+        27
+       ],
+       "tweened": false,
+       "ref": "paperYellow2",
+       "duration": 1
+      },
+      {
+       "index": 10,
+       "pivot": [
+        31.5,
+        29
+       ],
+       "tweened": false,
+       "ref": "paperYellow3",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "PinataPaper"
+  }
+ ],
+ "md5": "347e647776fa4f15e5e49ae3cede884b",
+ "frameRate": 30,
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "rect": [
+        1,
+        1,
+        2048,
+        1357
+       ],
+       "symbol": "rayPinata",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        2051,
+        1,
+        1968,
+        1218
+       ],
+       "symbol": "fleursAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1,
+        1360,
+        2047,
+        535
+       ],
+       "symbol": "fanionPinataAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        2050,
+        1360,
+        806,
+        806
+       ],
+       "symbol": "cocardeAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        2858,
+        1221,
+        1131,
+        479
+       ],
+       "symbol": "panAsset",
+       "origin": [
+        566.35,
+        241.3
+       ]
+      },
+      {
+       "rect": [
+        2858,
+        1702,
+        419,
+        557
+       ],
+       "symbol": "pinataAsset",
+       "origin": [
+        216.45,
+        281.55
+       ]
+      },
+      {
+       "rect": [
+        3279,
+        1702,
+        337,
+        337
+       ],
+       "symbol": "fleurs_0002",
+       "origin": [
+        167,
+        168.5
+       ]
+      },
+      {
+       "rect": [
+        3618,
+        1702,
+        295,
+        294
+       ],
+       "symbol": "fleurs_0001",
+       "origin": [
+        147.5,
+        147
+       ]
+      },
+      {
+       "rect": [
+        3618,
+        1998,
+        290,
+        290
+       ],
+       "symbol": "fleurs_0006",
+       "origin": [
+        145,
+        145
+       ]
+      },
+      {
+       "rect": [
+        3279,
+        2041,
+        276,
+        267
+       ],
+       "symbol": "headAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3557,
+        2290,
+        217,
+        315
+       ],
+       "symbol": "legBisAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3910,
+        1998,
+        184,
+        292
+       ],
+       "symbol": "assAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3776,
+        2292,
+        216,
+        216
+       ],
+       "symbol": "fleurs_0005",
+       "origin": [
+        109.85,
+        108
+       ]
+      },
+      {
+       "rect": [
+        3776,
+        2510,
+        210,
+        210
+       ],
+       "symbol": "fleurs_0000",
+       "origin": [
+        110,
+        105
+       ]
+      },
+      {
+       "rect": [
+        1,
+        1897,
+        206,
+        207
+       ],
+       "symbol": "fleurs_0003",
+       "origin": [
+        103,
+        103.5
+       ]
+      },
+      {
+       "rect": [
+        209,
+        1897,
+        198,
+        201
+       ],
+       "symbol": "fleurs_0004",
+       "origin": [
+        99,
+        102.8
+       ]
+      },
+      {
+       "rect": [
+        3915,
+        1702,
+        115,
+        294
+       ],
+       "symbol": "legAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3557,
+        2041,
+        53,
+        74
+       ],
+       "symbol": "paperRed3",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3557,
+        2117,
+        53,
+        74
+       ],
+       "symbol": "paperRed4",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3991,
+        1221,
+        63,
+        58
+       ],
+       "symbol": "paperYellow3",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3557,
+        2193,
+        57,
+        50
+       ],
+       "symbol": "paperBlue4",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3991,
+        1281,
+        57,
+        50
+       ],
+       "symbol": "paperBlue3",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3991,
+        1333,
+        49,
+        52
+       ],
+       "symbol": "paperBlue1",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3991,
+        1387,
+        49,
+        52
+       ],
+       "symbol": "paperBlue2",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3991,
+        1441,
+        47,
+        54
+       ],
+       "symbol": "paperYellow2",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3991,
+        1497,
+        47,
+        54
+       ],
+       "symbol": "paperYellow",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        3991,
+        1553,
+        49,
+        48
+       ],
+       "symbol": "paperRed2",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        4040,
+        1441,
+        49,
+        48
+       ],
+       "symbol": "paperRed1",
+       "origin": [
+        0,
+        0
+       ]
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ]
+}

@@ -1,0 +1,286 @@
+﻿Version 1.0.7 Gold 19-05-2016
+
+Add : Info dans le shop sur le nombre d'ISART Point
+Add : Popin de confirmation sur l'achat en Isart Point
+Add : Popin d'information au premier lancement du jeu
+Add : Popin de Disclaimer dans le Shop Ressource
+
+Fix : Bouton des notifications du Hud enlevé
+Fix : bug de chargement au lancement du jeu
+
+Version 1.0.6 Gold 16-05-2016
+
+Fix bug de chargement au lancement du jeu
+
+Add : locale du jeu chargé en fonction de la langue FB de l'utilisateur
+
+Version 1.0.5 Gold 16-05-2016
+
+Add : FeedBack When no more IP
+
+Version 1.0.4 Gold 16-05-2016
+
+Fix : Achat en IP de HardCurrency fonctionne.
+
+Version 1.0.3 Gold 05-05-2016
+
+Hot-Fix : Bug IE et Edge. Le son étant mal chargé par ses deux navigateurs, les sons ne sont plus joué sur ses deux navigateurs.
+
+Version 1.0.2 Gold 28-04-2016
+
+Fix : Amélioration de perf (notamment des coins)
+Fix : Affichage dans les infos de batiment : Production d'un batiment en heure et non minute
+Fix : Fix bug decalage tutor à droite
+Fix : Clipping fix au resize du screen
+Fix : Curseur pinata
+
+Add : Ajout des sons
+Add : Ajout du mute SFX
+Add : Ajout du mute Musique
+
+Version 1.0.1 Gold 28-04-2016
+
+Add : Poisson dans l'eau
+Add : Page de Credit
+
+Update : Pinata feedback
+Update : Couleur des textes, contour des texte
+
+Version 1.0.0 Gold 27-04-2016
+
+Polish
+
+Version 0.2.10 Beta 26-04-2016
+
+Add : Indication de l'xp
+Add : Il y a une surbrillance au passage de la souris sur un building
+Add : Ajout de la pinata (Avec le réel comportement)
+Add : Bouton d'info dans le Shop
+Add : Information de promotion dans le Shop
+Add : Ecran de chargement
+Add : Pinata dans la FTUE
+
+Fix : Bug de placement du HUD
+Fix : Le temps indiqué pour faire une upgrade est maintenant correct
+Fix : Le over sur les batiment n'est plus une surbrillance mais un assombrissement (Merci Etienne)
+
+
+Version 0.2.9 Beta 25-04-2016
+
+Fix : Arrow bien callé dans la FTUE
+Fix : La main de la FTUE ne passe maintenant plus à travers des building, citizen ou icon de récolte
+Fix : La popin de récompense pour avoir upgrade un batiment ne s'ouvre plus pendant la FTUE
+Fix : Les citizen ne traverse maintenant plus les batiments
+Fix : La popup de félicitation d'upgrade ne s'affiche plus lors de la fin de construction d'un batiment
+Fix : L'animation de fin de construction englobe maintenant bien tout le batiment
+Fix : Plus besoin de passer par l'écran de login pour être connecté à FB
+Fix : Les flèches n'aparaissent plus lorsqu'il ni a pas de page suivante
+
+
+Add : La camera et la main squeletique apparaisse uniquement à la dernière page de la FTUE quand il n'y a plus de bouton NEXT
+Add : Les bonus de la parade clignotte legerement
+Add : Clignotement sur des boutons dans la FTUE
+Add : Animation petal quand on pose un batiment / fini une construction ou upgrade.
+Add : Des petals on une faible chance d'apparaitre (ambiance general)
+Add : Info sur valeurs d'un pack dans le SHOP
+Add : Share FB explicit quand une upgrade ce fini
+Add : Share implicit quand on monte de niveau
+Add : Bouton Shop animation
+
+Version 0.2.8 Beta 23-04-2016
+
+Fix : Ajout popin erreur manque d'argent si nous n'avons pas d'argent
+Fix : Nous pouvons désormais plus faire un hardbuild avec zéro argent
+Fix : Lors de la FTUE, le bar n'est désormais plus selectioné de base
+Fix : polish textes FTUE (cut phrases, ajout infos sur les offrandes, réorganisation pour les lanternes)
+Fix: organisation éléments popins
+
+Add : nouveaux labels loc
+
+Version 0.2.7 Beta 21-04-2016
+
+Add : Popin Delete confirmation
+Add : Popin NoMoney
+Add : Bouton Fake Share Facebook
+Add : Bouton FTUE
+Add : Système de citizen qui se balade dans la ville
+Add : FTUE aparaition a droite
+Add : Système de fireworks
+Add : Toute les animations des batiments sont maintenant ingame
+
+Fix : Les animations de pilotis sont maintenant fixé
+Fix : FTUE plusieurs correction
+Fix : Bug Bouton Upgrade pas de state sur le Over et CLick
+
+Version 0.2.6 Beta 21-04-2016
+
+Add : FTUE arrow sur le bouton de la parade pour le step PARADE_CONFIRM
+
+Fix : Bug graphics sur la popin de HardBuild
+
+Version 0.2.5 Beta 21-04-2016
+
+Fix : Boite de dialogue de la FTUE calé sur le gauche
+Fix : Les fleche squelettique lors de la FTUE apparaissent bien au dessus des bonus/batiment
+Fix : Bug d'affichage du prix du hardBuild
+Fix : Lors d'une parade, nous ne pouvons desormais plus collecter ou selectionner les batiments
+Fix : Quand un batiment n'a pas de propriété "production" ou "Capacité" les informations ne sont plus affiché dans la popup d'info
+Fix : Localization dans le nom des building après un selection
+Fix : Shop le nom des packages est maintenant traduit
+
+Add : La FTUE est presque terminé (Encore un peu de peaufinage et dialogue à mettre)
+Add : Filtre du HUD
+Add : L'achat des items est maintenant lié au serveur
+Add : Popin de confirmation d'upgrade
+Add : Popin sur les lanterns allumés
+Add : Popin de reward quand un batiment est amélioré
+
+
+Add : Review de toutes les popins !
+
+Version 0.2.4 Beta 20-04-2016
+
+Fix : Le niveau graphique du cityHall s'affiche correctement
+Fix : Bug du click a travers les popins
+Fix : Plusieurs Bugs de la FTUE
+
+Add : Arrow dans la FTUE
+Add : Temps de construction restant sur l'animation de construction
+Add : Shop phrases d'explication quand un batiment est lock
+
+Version 0.2.3 Beta 20-04-2016
+
+Fix : Bug Parade
+Fix : Limite du nombre de pièces pendant l'anim de harvest
+Fix : Les bâtiments s'affichent correctement à l'écran avec une bonne profondeur
+
+Add : Début FTUE
+Add : version définitive assets shop ressources
+
+Version 0.2.2 Beta 17-04-2016
+
+Fix : Harvest les ressources s'updatent correctement par rapport au serveur
+Fix : Grosses améliorations de performance dans le jeu
+Fix : L'animation des bâtiments s'affiche maintenant correctement
+Fix : Bug qui empêchait de poser un bâtiment sur un position ou un batiment venait d'être détruit
+Fix : Crée un double bâtiment lors de l'achat
+Fix : Les lanternes affichent maintenant un prix d'achat correct
+Fix : La popup pour acheter un bâtiment en hard affiche le montant correct de hard
+Fix : Shop, les batiments affichés dans le Shop sont maintenant en couleur
+Fix : Shop, les dots indiquant les pages sont maintenant dans le bon sens
+Fix : Hud, les textes sont maintenant correctement calés
+Fix : Hud la taille des cartouches de ressources a été grossie et replacée
+Fix : Le texte du bouton parade s'affiche maintenant correctement
+
+Add : Hud, image du bouton de hardBuild
+Add : Hud, Image de profil par default
+
+Version 0.2.1 Beta 11-04-2016
+
+Fix : Les batiments ne sont plus en construction en arrivant pour la première fois sur le jeu
+
+Version 0.2.0 Beta 10-04-2016
+
+Add : ShopRessource
+Add : Animation des particules de l'animation de harvest
+Add : On peut maintenant terminer l'upgrade/construction avec de la hard currency
+
+Fix : Bug sur les lanternes
+Fix : HudParade bouton
+Fix : Bug sur le close des popins
+Fix : Quand un batiment est au niveau maximum, le bouton d'upgrade n'est plus affiché
+	
+Version 0.1.11 Alpha 10-04-2016
+
+Fix : Bug d'affichage de la largeur des textes
+Fix : Plusieurs corrections de la parade
+Fix : Bug acheter plusieurs fois un batiment unique
+
+Add : Nous pouvons maintenant upgrade un building
+Add : Systeme des houses qui applique un multiplicateur de récolte
+Add : Animation sur la disparition de la parade et apparition
+Add : Le nombre de pnj dans la parade évolue en fonction du niveau de l'hotel de ville
+Add : Animation des backgrounds
+
+Version 0.1.10 Alpha 08-04-2016
+
+- Fix : Bug d'affichage des ressources
+- Fix : Bug la parade ne se terminait pas correctement
+- Fix : Bug du clic qui traverse les élèments d'UI
+
+- Add : Scénario de début de parade
+- Add : Achat temps supplémentaire a la fin de la parade
+- Add : Feedback sur le déplacement de la parade
+
+Version 0.1.9 Alpha 03-04-2016
+
+- Add : Le feedback de collect de batiment a été ajouté (asset temporaire)
+- Add : Collecte des bonus de la parade
+- Add : Gestion de la Parade côté serveur
+
+Version 0.1.8 Alpha 31-03-2016
+
+- Fix d'un bug qui empechait d'interagir avec les batiments après l'achat d'une lanterne
+- Fix : Le city hall est de nouveau dans le jeu quand on commence une partie. (Il est necessaire de reset votre compte pour l'afficher)
+- Fix : Les buildings peuvent maintenant être correctement détruits
+
+- Add : Ajout du contrôle de la parade
+
+Version 0.1.7 Alpha - 29-03-2016
+
+- Fix : Grosse optimisation au niveau des performances
+- Fix : Correction d'un bug qui empechait la version mobile de fonctionner
+- Fix : Une lanterne non éclairée (Dans la zone noire) ne peut plus s'activer en cliquant dessus
+
+- add : Hud Parade
+- add : Génération des Bonus de la parade
+
+
+Version 0.1.6 Alpha 16-03-2016
+
+- Ajout de la gestion des fonts
+- Ajout du gain des rewards quand on passe de niveau
+- Fix bug de clipping
+
+Version 0.1.5 Alpha 09-03-2016
+- add système d'xp côté serveur linké a la construction et a la l'updrade d'un batiment
+- add feedback quand les objets du hud disparaissent
+- add : l'xp lorsqu'on construit un batiment s'ajoute correctement a l'xp total du joueur
+- add : popup de reward quand le joueur passe un niveau
+- add : placement du batiment au plus au centre de l'écran 
+
+- fix : bug sur l'achat d'un batiment qui empechait de poser correctement le batiment
+
+Version 0.1.4 Alpha 04-03-2016
+- Refonte du système de move pour être plus intuitif
+
+Version 0.1.3 Alpha 04-03-2016
+
+- fix : la barre de niveau et le niveau sont correctement affichés
+- fix : la photo de profil est maintenant devant la progress bar
+- fix bug lors du move
+- implémentation du move d'un batiment sur mobile totalement fini
+
+Version 0.1.2 Alpha 03-03-2016
+
+- fix : ouvrir le shop depuis les boutons + de ressource ouvre directement le Shop dans la page ressource
+
+- ajout de la gestion du touch dans le shop
+- ajout du touch sur le jeu
+- ajout asset de currency sur le bouton d'upgrade pour indiquer en quelle ressource il faut payer l'upgrade
+- On peut maintenant cliquer sur l'icone de recolte pour recolter le batiment (en plus du batiment)
+- Systeme de move modifié, il est maintenant compatible avec le mobile
+- Nouvelle sécurité sur la camera pour pouvoir quand même avoir une interation sur le batiment même si au même moment la souris bouge un peu
+
+
+Version 0.1.1 Alpha 02-03-2016
+
+- ajout bouton on/off pour la musique
+- ajout bouton on/off pour les bruitages
+- ajout bouton pour les credits
+- ajout bouton on/off notifications
+- ajout d'un bouton pour reset le user
+
+- fix une seul popin ne peux ouverte a la fois
+
+Version 0.1.0 Alpha 1-03-2016

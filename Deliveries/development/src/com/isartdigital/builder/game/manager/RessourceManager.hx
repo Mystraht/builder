@@ -1,21 +1,25 @@
 package com.isartdigital.builder.game.manager;
-import com.isartdigital.builder.api.Api;
-import com.isartdigital.builder.api.DataDef;
-import com.isartdigital.builder.api.Resources;
-import com.isartdigital.builder.api.Utils;
+import com.isartdigital.builder.ui.hud.Hud;
+import com.isartdigital.services.Users;
 import com.isartdigital.builder.game.def.ResourceDef;
-import com.isartdigital.builder.ui.hud.SpiceCurrency;
-import haxe.Json;
 
-	
+
 /**
  * ...
  * @author Thorcal
  */
 class RessourceManager extends Manager 
 {
+	public static inline var UPDATE_REQUEST_GOLD_VALUE:String = "UPDATE_REQUEST_GOLD_VALUE";
+	public static inline var UPDATE_REQUEST_OFFERING_VALUE:String = "UPDATE_REQUEST_OFFERING_VALUE";
+	public static inline var UPDATE_REQUEST_SPICE_VALUE:String = "UPDATE_REQUEST_SPICE_VALUE";
 	
-	public var ressources:Map<Ressources,Int> = new Map<Ressources, Int>();
+	public static inline var GOLD:String = 'gold';
+	public static inline var OFFERING:String = 'offering';
+	public static inline var SPICE:String = 'spice';
+	public static inline var CASH:String = 'cash';
+	
+	public var ressources:ResourceDef;
 	
 	/**
 	 * instance unique de la classe RessourceManager
@@ -37,22 +41,42 @@ class RessourceManager extends Manager
 	private function new() 
 	{
 		super();
+		subscribeEvents();
+	}
+	
+	private function subscribeEvents () : Void {
+		on(UPDATE_REQUEST_GOLD_VALUE, onUpdateGold);
+		on(UPDATE_REQUEST_OFFERING_VALUE, onUpdateOffering);
+		on(UPDATE_REQUEST_SPICE_VALUE, onUpdateSpice);
+	}
+	
+	
+	private function onUpdateSpice (params:Dynamic) : Void {
+		ressources.spice = Users.infos.resources.spice;
+		Hud.getInstance().emit(Hud.UPDATE_REQUEST_PIMIENTOS_TEXT, ressources.spice);
+	}
+	
+	private function onUpdateOffering (params:Dynamic) : Void {
+		ressources.offering = Users.infos.resources.offering;
+		Hud.getInstance().emit(Hud.UPDATE_REQUEST_OFFERING_TEXT, ressources.offering);
+	}
+	
+	private function onUpdateGold (params:Dynamic) : Void {
+		ressources.gold = Users.infos.resources.gold;
+		Hud.getInstance().emit(Hud.UPDATE_REQUEST_PESOS_TEXT, ressources.gold);
 	}
 	
 	public function start():Void {
-		ressources = [
-			Ressources.SPICE => 15,
-			Ressources.GOLD => 0,
-			Ressources.OFFERINGS => 0
-		];
+		ressources = Users.infos.resources;
+		updateRessourcesInHud(ressources);
 	}
 	
 	/**
 	 * Renvoie le nombre de ressource pour la ressource donnée en parametre
 	 * @param	pRessource
 	 */
-	public function getRessources(pRessource:Ressources):Int {
-		return ressources[pRessource];
+	public function getRessources(pRessource:String):Int {
+		return Reflect.field(ressources, pRessource);
 	}
 	
 	/**
@@ -60,50 +84,31 @@ class RessourceManager extends Manager
 	 * @param	pRessource
 	 * @param	pNumber
 	 */
-	public function addRessources(pRessource:Ressources, pNumber:Int):Void {
-		ressources[pRessource] += pNumber;
+	public function addRessources(pRessource:String, number:Float):Void {
+		Reflect.setField(ressources, pRessource, Std.int(Std.int(getRessources(pRessource)) + Std.int(number)));
+		updateRessourcesInHud(ressources);
 	}
-	
-	//TO DO
-	//Faire un fonction avec parametre l'objet Ressources, et update avec cet objet la map ressources
 	
 	/**
 	 * Retire pNumber à pRessource
 	 * @param	pRessource
 	 * @param	pNumber
 	 */
-	public function removeRessources(pRessource:Ressources, pNumber:Int):Void {
-		if (ressources[pRessource] > 0) {
-			ressources[pRessource] -= pNumber;
-		}else {
-			trace ("Plus de ressources");
+	public function removeRessources(pRessource:String, pNumber:Float):Bool {
+		if (getRessources(pRessource) - pNumber >= 0) {
+			Reflect.setField(ressources, pRessource, getRessources(pRessource) - pNumber);
+		} else {
+			return false;
 		}
-	}	
-	
-	public var updateSpice:Int->Void;
-	public var updateGold:Int->Void;
-	public var updateOfferings:Int->Void;
-	
-	public function updateRessources() {
-		Api.resources.get(cbOnResourcesCall);
+		updateRessourcesInHud(ressources);
+		return true;
 	}
 	
-	
-	private function cbOnResourcesCall(pData:String):Void {
-		var lData:DataDef = cast(Json.parse(pData));
-		
-		if (lData.error) {
-			Utils.errorHandler(lData.errorCode, lData.errorMessage);
-			return;
-		}
-		var lResource:ResourceDef = cast(lData.data);
-		updateAllRessources(lResource);
-	}
-	
-	public function updateAllRessources(lResource:ResourceDef) {
-		updateGold(lResource.gold);
-		updateSpice(lResource.spice);
-		updateOfferings(lResource.offering);
+	public function updateRessourcesInHud(lResource:ResourceDef) {
+		ressources = lResource;
+		Hud.getInstance().emit(Hud.UPDATE_REQUEST_PIMIENTOS_TEXT, ressources.spice);
+		Hud.getInstance().emit(Hud.UPDATE_REQUEST_PESOS_TEXT, ressources.gold);
+		Hud.getInstance().emit(Hud.UPDATE_REQUEST_OFFERING_TEXT, ressources.offering);
 	}
 	
 	/**

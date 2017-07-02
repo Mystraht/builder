@@ -1,0 +1,93 @@
+{
+	"PriceHard_txt": {
+		"height": 102.7,
+		"x": 0,
+		"color": 0,
+		"font": "Candara",
+		"y": 0,
+		"text": "49499",
+		"bold": false,
+		"align": "center",
+		"size": 72,
+		"width": 330,
+		"italic": false
+	},
+	"ShopTitle_txt": {
+		"height": 89.2,
+		"x": 0,
+		"color": 0,
+		"font": "Mayan",
+		"y": 0,
+		"text": "label_shop",
+		"bold": false,
+		"align": "center",
+		"size": 72,
+		"width": 305.65,
+		"italic": false
+	},
+	"PackageName_txt": {
+		"height": 70.95,
+		"x": 0,
+		"color": 0,
+		"font": "Candara",
+		"y": 0,
+		"text": "PackageName",
+		"bold": false,
+		"align": "center",
+		"size": 48,
+		"width": 310.55,
+		"italic": false
+	},
+	"ShopRessourceTitle_txt": {
+		"height": 91.9,
+		"x": 0,
+		"color": 0,
+		"font": "Candara",
+		"y": 0,
+		"text": "label_resources",
+		"bold": false,
+		"align": "center",
+		"size": 72,
+		"width": 357,
+		"italic": false
+	},
+	"BuildingName_txt": {
+		"height": 123.2,
+		"x": 0,
+		"color": 0,
+		"font": "Candara",
+		"y": 0,
+		"text": "BuildingName",
+		"bold": false,
+		"align": "center",
+		"size": 72,
+		"width": 455.95,
+		"italic": false
+	},
+	"PriceSoft_txt": {
+		"height": 105.15,
+		"x": 0,
+		"color": 0,
+		"font": "Candara",
+		"y": 0,
+		"text": "4654564",
+		"bold": false,
+		"align": "center",
+		"size": 72,
+		"width": 286,
+		"italic": false
+	},
+	"ShopBuildingTitle_txt": {
+		"height": 91.9,
+		"x": 0,
+		"color": 0,
+		"font": "Candara",
+		"y": 0,
+		"text": "label_buildings",
+		"bold": false,
+		"align": "center",
+		"size": 72,
+		"width": 344.8,
+		"italic": false
+	}
+}

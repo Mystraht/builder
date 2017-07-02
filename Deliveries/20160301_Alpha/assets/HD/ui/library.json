@@ -1,0 +1,508 @@
+{
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "origin": [
+        440.35,
+        138.05
+       ],
+       "rect": [
+        1,
+        1,
+        881,
+        277
+       ],
+       "symbol": "HelpContent_txt"
+      },
+      {
+       "origin": [
+        440.7,
+        63
+       ],
+       "rect": [
+        1,
+        280,
+        882,
+        126
+       ],
+       "symbol": "HelpTitle_txt"
+      },
+      {
+       "origin": [
+        392.05,
+        63
+       ],
+       "rect": [
+        1,
+        408,
+        785,
+        126
+       ],
+       "symbol": "TitleCardTitle_txt"
+      },
+      {
+       "origin": [
+        175.5,
+        50.5
+       ],
+       "rect": [
+        1,
+        536,
+        351,
+        101
+       ],
+       "symbol": "_standardButton_disable"
+      },
+      {
+       "origin": [
+        175.5,
+        50.5
+       ],
+       "rect": [
+        354,
+        536,
+        351,
+        101
+       ],
+       "symbol": "_standardButton_down"
+      },
+      {
+       "origin": [
+        175.5,
+        50.5
+       ],
+       "rect": [
+        1,
+        639,
+        351,
+        101
+       ],
+       "symbol": "_play_up"
+      },
+      {
+       "origin": [
+        175.5,
+        50.5
+       ],
+       "rect": [
+        354,
+        639,
+        351,
+        101
+       ],
+       "symbol": "_play_over"
+      },
+      {
+       "origin": [
+        158.9,
+        36.8
+       ],
+       "rect": [
+        1,
+        742,
+        318,
+        74
+       ],
+       "symbol": "PlayButton_txt"
+      },
+      {
+       "origin": [
+        157.9,
+        25.2
+       ],
+       "rect": [
+        707,
+        536,
+        316,
+        51
+       ],
+       "symbol": "CreditsButton_txt"
+      },
+      {
+       "origin": [
+        75.45,
+        50.5
+       ],
+       "rect": [
+        788,
+        408,
+        151,
+        101
+       ],
+       "symbol": "_back_up"
+      },
+      {
+       "origin": [
+        75.45,
+        50.5
+       ],
+       "rect": [
+        707,
+        589,
+        151,
+        101
+       ],
+       "symbol": "_back_down"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        884,
+        1,
+        50,
+        50
+       ],
+       "symbol": "HelpBg"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        884,
+        53,
+        50,
+        50
+       ],
+       "symbol": "TitleCardBg"
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ],
+ "movies": [
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        75.45,
+        50.5
+       ],
+       "index": 0,
+       "ref": "_back_up"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        75.45,
+        50.5
+       ],
+       "index": 1,
+       "ref": "_back_down"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "BackButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        175.5,
+        50.5
+       ],
+       "index": 0,
+       "ref": "_play_up"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        175.5,
+        50.5
+       ],
+       "index": 1,
+       "ref": "_play_over"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        175.5,
+        50.5
+       ],
+       "index": 2,
+       "ref": "_standardButton_down"
+      }
+     ],
+     "name": "Calque 1"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 3,
+       "pivot": [
+        157.9,
+        25.2
+       ],
+       "index": 0,
+       "ref": "CreditsButton_txt"
+      }
+     ],
+     "name": "_txt"
+    }
+   ],
+   "id": "CreditsButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "scale": [
+        19.2,
+        12.8002
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "HelpBg",
+       "loc": [
+        -480,
+        -320
+       ]
+      }
+     ],
+     "name": "HelpBg"
+    },
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "BackButton",
+       "loc": [
+        367.85,
+        245.6
+       ]
+      }
+     ],
+     "name": "BackButton"
+    },
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "pivot": [
+        440.35,
+        138
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "HelpContent_txt",
+       "loc": [
+        -0.35,
+        19.35
+       ]
+      }
+     ],
+     "name": "HelpContent_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "pivot": [
+        440.7,
+        62.95
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "HelpTitle_txt",
+       "loc": [
+        0,
+        -220.4
+       ]
+      }
+     ],
+     "name": "HelpTitle_txt"
+    }
+   ],
+   "id": "Help"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        175.5,
+        50.5
+       ],
+       "index": 0,
+       "ref": "_play_up"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        175.5,
+        50.5
+       ],
+       "index": 1,
+       "ref": "_play_over"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        175.5,
+        50.5
+       ],
+       "index": 2,
+       "ref": "_standardButton_down"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        175.5,
+        50.5
+       ],
+       "index": 3,
+       "ref": "_standardButton_disable"
+      }
+     ],
+     "name": "standardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        158.9,
+        36.8
+       ],
+       "index": 0,
+       "ref": "PlayButton_txt"
+      },
+      {
+       "tweened": false,
+       "duration": 2,
+       "pivot": [
+        158.9,
+        36.8
+       ],
+       "index": 1,
+       "ref": "PlayButton_txt"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "pivot": [
+        158.9,
+        36.8
+       ],
+       "index": 3,
+       "ref": "PlayButton_txt"
+      }
+     ],
+     "name": "_txt"
+    }
+   ],
+   "id": "PlayButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "scale": [
+        19.2,
+        12.8002
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "TitleCardBg",
+       "loc": [
+        -480,
+        -320
+       ]
+      }
+     ],
+     "name": "FW_TitleCardBg"
+    },
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "PlayButton",
+       "loc": [
+        0,
+        224.35
+       ]
+      }
+     ],
+     "name": "B_PlayButton"
+    },
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "CreditsButton",
+       "loc": [
+        0,
+        106.1
+       ]
+      }
+     ],
+     "name": "CreditsButton"
+    },
+    {
+     "keyframes": [
+      {
+       "duration": 1,
+       "pivot": [
+        392.05,
+        62.95
+       ],
+       "tweened": false,
+       "index": 0,
+       "ref": "TitleCardTitle_txt",
+       "loc": [
+        0,
+        -202.55
+       ]
+      }
+     ],
+     "name": "TitleCardTitle_txt"
+    }
+   ],
+   "id": "TitleCard"
+  }
+ ],
+ "md5": "f17175765c19aab8dbea48673b513e48",
+ "frameRate": 30
+}

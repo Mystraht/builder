@@ -1,232 +1,324 @@
 {
-	"_comment_global" : "Ce document liste tous les batiments ainsi que leurs configuration",
-	"_comment_fields" : "Les champs : 'production' et 'construction_time' sont mesurés en heures",
-	"_comment_fields_options" : "Si un batiments n'a pas besoin d'un champs, le champ ne doit pas être présent, (pas de valeurs null)",
-	"hard_price_max" : 1000,
-	"max_construct_time" : 100,
-	"base_hard_price" : 10,
-	"rocket_factory" : {
-		"1" : {
-				"resource_production" : "gold",
-				"production" : 100,
-				"capacity" : 1000,
-				"resource_price" : "gold",
-				"price" : 35,
-				"resource_upgrade" : "offering",
-				"upgrade_price" : 35,
-				"contruction_time": 3
-			},
-		"2" : {
-				"resource_production" : "gold",
-				"production" : 200,
-				"capacity" : 2000,
-				"contruction_time": 5
-			}
-	},
-	"motel" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 2
-	},
-	"temple" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"casino" : {
-		"1" : {
-				"resource_production" : "gold",
-				"production" : 100,
-				"capacity" : 1000,
-				"resource_price" : "gold",
-				"price" : 35,
-				"resource_upgrade" : "offering",
-				"upgrade_price" : 35,
-				"contruction_time": 3
-			},
-		"2" : {
-				"resource_production" : "gold",
-				"production" : 200,
-				"capacity" : 2000,
-				"contruction_time": 5
-			}
-	},
-	"brothel" : {
-		"resource_production" : "gold",
-		"production" : 100,
-		"capacity" : 1000,
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"pyrotechnician" : {
-		"1" : {
-				"resource_production" : "gold",
-				"production" : 100,
-				"capacity" : 1000,
-				"resource_price" : "gold",
-				"price" : 35,
-				"resource_upgrade" : "offering",
-				"upgrade_price" : 35,
-				"contruction_time" : 3,
-				"production_per_parade" : 12
-			},
-		"2" : {
-				"resource_production" : "gold",
-				"production" : 200,
-				"capacity" : 2000,
-				"resource_upgrade" : "offering",
-				"upgrade_price" : 35,
-				"contruction_time": 5,
-				"production_per_parade" : 25
-			},
-		"3" : {
-				"resource_production" : "gold",
-				"production" : 200,
-				"capacity" : 2000,
-				"contruction_time": 5,
-				"production_per_parade" : 40
-			}
-	},
-	"house" : {
-		"action_radius" : 10,
-		"resource_multiplier" : 0.4,
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"main_square" : {
-		"1" : {
-				"action_radius" : 3,
-				"resource_price" : "gold",
-				"price" : 35,
-				"resource_upgrade" : "offering",
-				"upgrade_price" : 35,
-				"contruction_time": 3
-			},
-		"2" : {
-				"action_radius" : 5,
-				"contruction_time": 5
-			}
-	},
-	"park" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"statue" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"gift_shop" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"tapas_stand" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"big_flower_pot" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"floating_flower" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"harbor" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"city_hall" : {
-		"1" : {
-				"resource_price" : "gold",
-				"price" : 35,
-				"resource_upgrade" : "offering",
-				"upgrade_price" : 35,
-				"contruction_time": 3
-			},
-		"2" : {
-				"contruction_time": 5
-			}
-	},
-	"lanterns" : {
-		"action_radius" : 15,
-		"resource_price" : "gold",
-		"price" : 35,
-		"max_price" : 1000,
-		"max_hard_price" : 100,
-		"hard_price" : 5
-	},
-	"church" : {
-		"1" : {
-				"resource_price" : "offering",
-				"price" : 35,
-				"resource_upgrade" : "offering",
-				"upgrade_price" : 35,
-				"resource_production" : "offering",
-				"production" : 100,
-				"capacity" : 1000,
-				"contruction_time": 3
-			},
-		"2" : {
-				"resource_production" : "offering",
-				"production" : 200,
-				"capacity" : 2000,
-				"contruction_time": 5
-			}
-	},
-	"cantina" : {
-		"1" : {
-				"resource_price" : "gold",
-				"price" : 35,
-				"resource_production" : "gold",
-				"production" : 100,
-				"capacity" : 1000,
-				"resource_upgrade" : "offering",
-				"upgrade_price" : 35,
-				"contruction_time": 3
-			},
-		"2" : {
-				"resource_production" : "gold",
-				"production" : 200,
-				"capacity" : 2000,
-				"contruction_time": 5
-			}
-	},
-	"memory" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"hostel" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	},
-	"bar" : {
-		"resource_price" : "gold",
-		"price" : 35,
-		"hard_price" : 5,
-		"contruction_time": 1
-	}
+   "_comment_global":"Ce document liste tous les batiments ainsi que leurs configuration",
+   "_comment_fields":"Les champs : 'production' et 'construction_time' sont mesurés en heures",
+   "_comment_fields_options":"Si un batiments n'a pas besoin d'un champs, le champ ne doit pas être présent, (pas de valeurs null)",
+   "hard_price_max":11505,
+   "max_construct_time":23010,
+   "base_hard_price":1,
+   
+   "main_square":{
+		 "unique":true,
+         "action_radius":3,
+         "resource_price":"gold",
+         "price":35,
+         "hard_price":5,
+         "contruction_time":3
+   },
+
+   "bar":{
+      "1":{
+         "resource_production":"gold",
+         "production":175,
+         "capacity":300,
+         "resource_price":"gold",
+         "price":1000,
+         "resource_upgrade":"offering",
+         "upgrade_price":200,
+         "contruction_time":1,
+         "hard_price":1,
+         "xp_gain":50,
+         "require_main_building_lvl":1
+      },
+      "2":{
+         "resource_price":"gold",
+         "resource_production":"gold",
+         "production":240,
+         "capacity":480,
+         "resource_upgrade":"offering",
+         "upgrade_price":600,
+         "contruction_time":4,
+         "xp_gain":80,
+         "require_main_building_lvl":3
+      },
+      "3":{
+         "resource_price":"gold",
+         "resource_production":"gold",
+         "production":720,
+         "capacity":2000,
+         "contruction_time":8,
+         "xp_gain":120,
+         "require_main_building_lvl":7
+      }
+   },
+   "cantina":{
+      "1":{
+         "resource_price":"gold",
+         "price":5000,
+         "resource_production":"gold",
+         "production":250,
+         "capacity":375,
+         "resource_upgrade":"offering",
+         "upgrade_price":1000,
+         "hard_price":5,
+         "contruction_time":7.5,
+         "xp_gain":60,
+         "require_main_building_lvl":4
+      },
+      "2":{
+         "resource_price":"gold",
+         "resource_production":"gold",
+         "production":400,
+         "capacity":600,
+         "resource_upgrade":"offering",
+         "upgrade_price":3000,
+         "contruction_time":15,
+         "xp_gain":100,
+         "require_main_building_lvl":6
+      },
+      "3":{
+         "resource_price":"gold",
+         "resource_production":"gold",
+         "production":600,
+         "capacity":900,
+         "contruction_time":30,
+         "xp_gain":145,
+         "require_main_building_lvl":10
+      }
+   },
+   "brothel":{
+      "resource_price":"gold",
+      "resource_production":"gold",
+      "production":100,
+      "capacity":1000,
+      "resource_price":"gold",
+      "price":15000,
+      "hard_price":5,
+      "contruction_time":20,
+      "xp_gain":100,
+      "require_main_building_lvl":11
+   },
+   "pyrotechnician":{
+      "1":{
+         "resource_production":"gold",
+         "production":400,
+         "capacity":640,
+         "resource_price":"gold",
+         "price":10000,
+         "resource_upgrade":"offering",
+         "upgrade_price":2000,
+         "contruction_time":15,
+         "hard_price":5,
+         "xp_gain":85,
+         "require_main_building_lvl":6
+      },
+      "2":{
+         "resource_price":"gold",
+         "resource_production":"gold",
+         "production":640,
+         "capacity":1025,
+         "resource_upgrade":"offering",
+         "upgrade_price":6000,
+         "contruction_time":30,
+         "xp_gain":140,
+         "require_main_building_lvl":12
+      },
+      "3":{
+         "resource_price":"gold",
+         "resource_production":"gold",
+         "production":960,
+         "capacity":1535,
+         "contruction_time":60,
+         "xp_gain":205,
+         "require_main_building_lvl":17
+      }
+   },
+   "church":{
+      "1":{
+		 "unique":true,
+         "resource_price":"gold",
+         "price":20000,
+         "resource_upgrade":"gold",
+         "upgrade_price":4000,
+         "resource_production":"offering",
+         "production":200,
+         "capacity":600,
+         "hard_price":5,
+         "contruction_time":20,
+         "xp_gain":150,
+         "require_main_building_lvl":8
+      },
+      "2":{
+         "resource_price":"gold",
+         "resource_production":"gold",
+         "production":320,
+         "capacity":960,
+         "resource_upgrade":"offering",
+         "upgrade_price":12000,
+         "contruction_time":40,
+         "xp_gain":240,
+         "require_main_building_lvl":15
+      },
+      "3":{
+         "resource_price":"gold",
+         "resource_production":"gold",
+         "production":480,
+         "capacity":1440,
+         "contruction_time":80,
+         "xp_gain":360,
+         "require_main_building_lvl":19
+      }
+   },
+   "lanterns":{
+      "action_radius":12,
+      "resource_price":"gold",
+      "price":1500,
+      "hard_price":2,
+      "base_price": 1200,
+      "base_hard_price": 3,
+      "xp_gain":80
+   },
+   "gift_shop":{
+	  "unique":true,
+      "resource_price":"gold",
+      "price":2000,
+      "hard_price":5,
+      "contruction_time":5,
+      "xp_gain":70,
+      "require_main_building_lvl":3
+   },
+   "house":{
+      "action_radius":10,
+      "resource_multiplier":0.05,
+      "resource_price":"gold",
+      "price":1000,
+      "hard_price":5,
+      "contruction_time":1,
+	  "xp_gain":40,
+	  "require_main_building_lvl":2
+   },
+   "park":{
+      "resource_price":"gold",
+      "price":2000,
+      "hard_price":5,
+      "contruction_time":2,
+      "xp_gain":30,
+      "require_main_building_lvl":5
+   },
+   "statue":{
+      "resource_price":"gold",
+      "price":10000,
+      "hard_price":5,
+      "contruction_time":15,
+      "xp_gain":110,
+      "require_main_building_lvl":12
+   },
+   "big_flower_pot":{
+      "resource_price":"gold",
+      "price":7500,
+      "hard_price":5,
+      "contruction_time":10,
+      "xp_gain":60,
+      "require_main_building_lvl":9
+   },
+   "floating_flower":{
+      "resource_price":"gold",
+      "price":3000,
+      "hard_price":5,
+      "contruction_time":4,
+      "xp_gain":30,
+      "require_main_building_lvl":5
+   },
+   "harbor":{
+      "resource_price":"gold",
+      "price":5000,
+      "hard_price":5,
+      "contruction_time":6,
+      "xp_gain":40,
+      "require_main_building_lvl":7
+   },
+   "altar":{
+      "resource_price":"gold",
+      "price":9000,
+      "hard_price":19,
+      "contruction_time":12,
+      "xp_gain":80,
+      "require_main_building_lvl":10
+   },
+
+   "city_hall":{
+      "1":{
+		 "unique":true,
+         "resource_upgrade":"offering",
+         "upgrade_price":800,
+         "contruction_time":10,
+         "xp_gain":560
+      },
+      "2":{
+         "resource_upgrade":"offering",
+         "upgrade_price":1120,
+         "contruction_time":14,
+         "xp_gain":85
+      },
+      "3":{
+         "resource_upgrade":"offering",
+         "upgrade_price":1570,
+         "contruction_time":16,
+         "xp_gain":120
+      },
+      "4":{
+         "resource_upgrade":"offering",
+         "upgrade_price":2200,
+         "contruction_time":20,
+         "xp_gain":140
+      },
+      "5":{
+         "resource_upgrade":"offering",
+         "upgrade_price":2630,
+         "contruction_time":25,
+         "xp_gain":170
+      },
+      "6":{
+         "resource_upgrade":"offering",
+         "upgrade_price":3160,
+         "contruction_time":30,
+         "xp_gain":205
+      },
+      "7":{
+         "resource_upgrade":"offering",
+         "upgrade_price":3800,
+         "contruction_time":40,
+         "xp_gain":245
+      },
+      "8":{
+         "resource_upgrade":"offering",
+         "upgrade_price":4360,
+         "contruction_time":50,
+         "xp_gain":295
+      },
+      "9":{
+         "resource_upgrade":"offering",
+         "upgrade_price":5010,
+         "contruction_time":60,
+         "xp_gain":350
+      },
+      "10":{
+         "resource_upgrade":"offering",
+         "upgrade_price":5770,
+         "contruction_time":75,
+         "xp_gain":425
+      },
+      "11":{
+         "resource_upgrade":"offering",
+         "upgrade_price":6345,
+         "contruction_time":95,
+         "xp_gain":510
+      },
+      "12":{
+         "resource_upgrade":"offering",
+         "upgrade_price":6980,
+         "contruction_time":120,
+         "xp_gain":610
+      }
+   }
+
 }

@@ -1,5 +1,4 @@
 package com.isartdigital.builder.game.pooling;
-import com.isartdigital.utils.Debug;
 
 //Deuxième itération du système de pooling
 /**
@@ -9,7 +8,7 @@ import com.isartdigital.utils.Debug;
 class PoolObject
 {
 	/**
-	 * Map de liste de pooling
+	 * MapManagerTest de liste de pooling
 	 */
 	private static var poolList:Map<String, Array<Dynamic>> = new Map<String, Array<Dynamic>> ();
 	

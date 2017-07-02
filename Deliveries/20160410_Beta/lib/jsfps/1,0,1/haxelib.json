@@ -1,0 +1,23 @@
+{
+	"name": "jsfps",
+	"license": "MIT",
+	"tags": [
+		"js",
+		"stats",
+		"fpsmeter",
+		"fps",
+		"framerate",
+		"counter",
+		"web"
+	],
+	"description": "Externs of js fps counters (Stats & FPSMeter)",
+	"contributors": [
+		"adireddy"
+	],
+	"releasenote": "added simple fps with no ui",
+	"version": "1.0.1",
+	"url": "https://github.com/adireddy/jsfps",
+	"dependencies": {
+
+	}
+}

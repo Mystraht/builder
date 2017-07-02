@@ -1,10 +1,4 @@
 package com.isartdigital.builder.ui.hud;
-import com.isartdigital.builder.game.manager.RessourceManager;
-import com.isartdigital.builder.game.manager.Ressources;
-import com.isartdigital.utils.game.factory.FlumpMovieAnimFactory;
-import com.isartdigital.utils.game.StateGraphic;
-import com.isartdigital.utils.ui.UIAsset;
-import com.isartdigital.utils.ui.UIComponent;
 import pixi.core.text.Text;
 
 /**
@@ -14,14 +8,28 @@ import pixi.core.text.Text;
 class SpiceCurrency extends CurrencyAsset
 {
 
+	public var spiceText:Text;
+	
 	public function new() 
 	{
 		super();
-		RessourceManager.getInstance().updateSpice = changeCount;
+		build();
+		
+		setVariablesFromChild();
 	}
 	
-	override public function changeCount(pNumber:Int) {
-		super.changeCount(pNumber);
-		cast(getChildByName("Spice_txt"), Text).text = cast (pNumber);
+	private function setVariablesFromChild () : Void {
+		spiceText = cast(getChildByName("Spice_txt"), Text);
+	}
+	
+	public function changeDisplayTextValue(number:Int) {
+		spiceText.text = Std.string(number);
+	}
+	
+	override public function destroy():Void 
+	{
+		spiceText.destroy();
+		spiceText = null;
+		super.destroy();
 	}
 }

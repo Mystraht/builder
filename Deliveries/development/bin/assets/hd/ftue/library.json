@@ -1,0 +1,480 @@
+{
+ "movies": [
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        111.15,
+        303.9
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "ArrowAsset",
+       "loc": [
+        110,
+        300
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "Arrow"
+  },
+  {
+   "layers": [
+    {
+     "name": "Tutor_item",
+     "keyframes": [
+      {
+       "pivot": [
+        0,
+        10
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "Tutor",
+       "loc": [
+        0,
+        10
+       ]
+      }
+     ]
+    },
+    {
+     "name": "BackgroundDialogueAsset",
+     "keyframes": [
+      {
+       "pivot": [
+        0,
+        2.05
+       ],
+       "scale": [
+        0.7078,
+        0.7077
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "BackgroundDialogueAsset",
+       "loc": [
+        10,
+        520.0009
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Dialogue_txt",
+     "keyframes": [
+      {
+       "pivot": [
+        -0.1,
+        0
+       ],
+       "scale": [
+        0.9946,
+        1.2586
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "Dialogue_txt",
+       "loc": [
+        46.2005,
+        542.6
+       ]
+      }
+     ]
+    },
+    {
+     "name": "OkFtueButton",
+     "keyframes": [
+      {
+       "pivot": [
+        -3,
+        0
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "OkFtueButton",
+       "loc": [
+        587.5,
+        647
+       ]
+      }
+     ]
+    },
+    {
+     "name": "NextFtueButton",
+     "keyframes": [
+      {
+       "index": 0,
+       "tweened": false,
+       "loc": [
+        590.2,
+        652.6
+       ],
+       "ref": "NextFtueButton",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "FtueUI"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "index": 0,
+       "tweened": false,
+       "ref": "NextFtueButtonAsset",
+       "duration": 1
+      },
+      {
+       "index": 1,
+       "pivot": [
+        1,
+        1
+       ],
+       "tweened": false,
+       "ref": "NextFtueButtonClickAsset",
+       "duration": 2
+      }
+     ]
+    }
+   ],
+   "id": "NextFtueButton"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        67,
+        40
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "OkFtueButtonAsset",
+       "loc": [
+        67,
+        40
+       ]
+      },
+      {
+       "pivot": [
+        67,
+        40
+       ],
+       "duration": 2,
+       "index": 1,
+       "tweened": false,
+       "ref": "OkFtueButtonClickAsset",
+       "loc": [
+        67,
+        40
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "OkFtueButton"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        0,
+        3.4
+       ],
+       "label": "wait",
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "TuteurWaitAsset",
+       "loc": [
+        -220.85,
+        4.95
+       ]
+      },
+      {
+       "pivot": [
+        1024,
+        750
+       ],
+       "label": "throw",
+       "duration": 1,
+       "index": 1,
+       "tweened": false,
+       "ref": "TuteurThrowAsset",
+       "loc": [
+        1024,
+        750
+       ]
+      },
+      {
+       "pivot": [
+        1024,
+        750
+       ],
+       "label": "show",
+       "duration": 1,
+       "index": 2,
+       "tweened": false,
+       "ref": "TuteurShowAsset",
+       "loc": [
+        868.05,
+        756.25
+       ]
+      },
+      {
+       "pivot": [
+        1024,
+        750
+       ],
+       "label": "good",
+       "duration": 1,
+       "index": 3,
+       "tweened": false,
+       "ref": "TuteurGoodAsset",
+       "loc": [
+        1024,
+        750
+       ]
+      },
+      {
+       "pivot": [
+        1024,
+        750
+       ],
+       "label": "finger",
+       "duration": 1,
+       "index": 4,
+       "tweened": false,
+       "ref": "TuteurFingerAsset",
+       "loc": [
+        1024,
+        750
+       ]
+      },
+      {
+       "pivot": [
+        1024,
+        750
+       ],
+       "label": "easy",
+       "duration": 1,
+       "index": 5,
+       "tweened": false,
+       "ref": "TuteurEasyAsset",
+       "loc": [
+        1024,
+        750
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "Tutor"
+  }
+ ],
+ "md5": "348ac00415409d269590f00ffe897914",
+ "frameRate": 30,
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "rect": [
+        1,
+        1,
+        675,
+        633
+       ],
+       "symbol": "TuteurThrowAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        678,
+        1,
+        675,
+        633
+       ],
+       "symbol": "TuteurShowAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1355,
+        1,
+        675,
+        633
+       ],
+       "symbol": "TuteurGoodAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1,
+        636,
+        675,
+        633
+       ],
+       "symbol": "TuteurWaitAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1,
+        1271,
+        675,
+        633
+       ],
+       "symbol": "TuteurEasyAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        678,
+        636,
+        675,
+        633
+       ],
+       "symbol": "TuteurFingerAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        678,
+        1271,
+        935,
+        319
+       ],
+       "symbol": "BackgroundDialogueAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1355,
+        636,
+        554,
+        150
+       ],
+       "symbol": "Dialogue_txt",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1355,
+        788,
+        211,
+        304
+       ],
+       "symbol": "ArrowAsset",
+       "origin": [
+        1,
+        2
+       ]
+      },
+      {
+       "rect": [
+        1355,
+        1094,
+        59,
+        66
+       ],
+       "symbol": "OkFtueButtonAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1355,
+        1162,
+        59,
+        66
+       ],
+       "symbol": "OkFtueButtonClickAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1416,
+        1094,
+        58,
+        58
+       ],
+       "symbol": "NextFtueButtonClickAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1416,
+        1154,
+        58,
+        58
+       ],
+       "symbol": "NextFtueButtonAsset",
+       "origin": [
+        0,
+        0
+       ]
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ]
+}

@@ -1,9 +1,13 @@
 package com.isartdigital.builder.game.manager;
-import pathfinder.IMap;
+
+import com.isartdigital.builder.game.map.GMap;
+import com.isartdigital.builder.game.type.ModelElementNames;
+import com.isartdigital.utils.lib.pathfinder.IMap;
+import pixi.core.math.Point;
 
 /**
  * ...
- * @author Thorcal	
+ * @author Thorcal
  */
 class Maps implements IMap
 {
@@ -17,8 +21,10 @@ class Maps implements IMap
         // create an array of tiles, and determine if they are walkable or obstructed
     }
 
-    public function isWalkable( p_x:Int, p_y:Int ):Bool
-    {
-        return true;
+    public function isWalkable( p_x:Int, p_y:Int ):Bool {
+		if (!GameManager.pathfindingWithObstacle) {
+            return true;
+        }
+		return GMap.getElementByTypeAt(new Point(p_x, p_y), ModelElementNames.TILE).isBuildable;
     }
 }

@@ -107,9 +107,9 @@ class Ads
 	
 	private static function onData (pData:String): Void {
 		var lData:Dynamic = Json.parse(pData);
-		
 		if (lData.type == MOVIE) current=new AdMovie(lData.id,lData.url,lData.target);
 		else current=new AdImage(lData.id,lData.url,lData.target);
+		
 	}
 	
 	private static function onQuit (pClose:String):Void {
@@ -158,7 +158,7 @@ private class Ad extends Popin {
 		btnQuit = new Container();
 		addChild (btnQuit);
 		
-		positionables.unshift( { item:btnQuit, align:Math.random() < 0.5 ? UIPosition.TOP_RIGHT : UIPosition.TOP_LEFT , offsetX:80, offsetY:80 } );
+		positionables.unshift( { item:btnQuit, align:Math.random() < 0.5 ? UIPosition.TOP_RIGHT : UIPosition.TOP_LEFT, fit:UIPosition.FIT_SCREEN, offsetX:80, offsetY:80 } );
 		
 		var lCircle:Graphics = new Graphics();
 		lCircle.lineStyle(4, 0x000000);
@@ -181,6 +181,11 @@ private class Ad extends Popin {
 		GameStage.getInstance().addChild(this);
 		open();
 			
+	}
+	
+	override function juicyOpen():Void 
+	{
+		//super.juicyOpen();
 	}
 	
 	private function onError ():Void {
@@ -298,6 +303,8 @@ private class AdMovie extends Ad {
 	override private function createContent ():Void {
 		var texture:Texture = Texture.fromVideoUrl(url);
 		var source:VideoElement = texture.baseTexture.source;
+		
+		source.crossOrigin = "anonymous";
 		
 		content = new Sprite(texture);
 		cast(content.texture.baseTexture.source, VideoElement).onended = onEnded;

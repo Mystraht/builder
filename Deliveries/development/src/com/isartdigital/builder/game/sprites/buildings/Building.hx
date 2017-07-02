@@ -1,243 +1,366 @@
 package com.isartdigital.builder.game.sprites.buildings;
 
-import com.isartdigital.builder.api.Api;
-import com.isartdigital.builder.api.DataDef;
-import com.isartdigital.builder.game.def.ResourceDef;
 import com.isartdigital.builder.game.manager.RessourceManager;
-import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
-import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
-import com.isartdigital.builder.game.def.TileSavedDef;
-import com.isartdigital.builder.game.manager.MapManager;
-import com.isartdigital.builder.game.pooling.IPoolObject;
-import com.isartdigital.builder.game.sprites.buildings.utils.BuildingDefinition;
-import com.isartdigital.builder.game.sprites.buildings.utils.BuildingPosition;
-import com.isartdigital.builder.game.utils.TypeDefUtils;
-import com.isartdigital.builder.ui.hud.BaseBuildingHUD;
+import com.isartdigital.builder.game.parade.Parade;
+import com.isartdigital.builder.game.type.ModelElementNames;
+import com.isartdigital.builder.game.ftue.FtueEvents;
+import com.isartdigital.builder.game.ftue.Ftue;
+import com.isartdigital.builder.api.Api;
+import com.isartdigital.builder.ui.popin.HardBuildConfirm;
+import com.isartdigital.utils.game.Filter;
+import com.isartdigital.builder.game.sprites.buildings.const.BuildingComponents;
+import com.isartdigital.builder.game.sprites.buildings.BuildingUtils;
+import com.isartdigital.builder.Main;
 import com.isartdigital.builder.ui.UIManager;
-import com.isartdigital.utils.Config;
-import com.isartdigital.utils.events.MouseEventType;
-import com.isartdigital.utils.game.BoxType;
+import com.isartdigital.utils.game.Camera;
+import pixi.core.math.Point;
+import com.isartdigital.builder.game.sprites.buildings.BuildingPosition;
+import com.isartdigital.builder.game.sprites.buildings.BuildingDefinition;
+import com.isartdigital.builder.game.sprites.buildings.const.BuildingEvents;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingEventDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingModelDef;
+import com.isartdigital.builder.ui.hud.BaseBuildingHUDEvent;
 import com.isartdigital.utils.game.factory.FlumpMovieAnimFactory;
 import com.isartdigital.utils.game.GameStage;
 import com.isartdigital.utils.game.iso.IsoManager;
 import com.isartdigital.utils.game.iso.IZSortable;
-import com.isartdigital.utils.game.StateGraphic;
-import com.isartdigital.utils.loader.GameLoader;
-import com.isartdigital.utils.ui.Screen;
-import eventemitter3.EventEmitter;
-import haxe.Json;
-import js.html.MouseEvent;
-import js.Lib;
-import pixi.core.math.Point;
 import pixi.display.FlumpMovie;
-import pixi.extras.MovieClip;
-import pixi.interaction.EventTarget;
 
 /**
- * ...
+ * Class des buildings
  * @author Dorian
  */
-class Building extends SpriteObject implements IZSortable implements IPoolObject
+class Building extends SpriteObject implements IZSortable
 {
+	public static var buildingsModel:Array<BuildingModelDef> = new Array();
 	public static var list:Array<Building> = new Array();
-	
-	public static var movingBuilding:Building;
-	
+
+	public var type:String = ModelElementNames.BUILDING;
 	public var definition:BuildingDef;
-	public var buildingLevel:Int = 0;
-	
-	public var colMin:UInt;
-	public var colMax:UInt;
-	public var rowMin:UInt;
-	public var rowMax:UInt;
-	
-	private var positionBeforeConstruct:Point = new Point(0, 0);
+	public var buildingLevel:Int;
+	public var interactionAction:Dynamic;
+
+	private static inline var MOUSE_OVER_BRIGHTNESS:Float = 0.65;
+	private static inline var ALPHA_WHEN_BUILDING_IS_MOVING:Float = 0.3;
+	private static inline var ALPHA_WHEN_BUILDING_IS_NOT_MOVING:Float = 1;
+
+	private var isSelected:Bool = false;
+	private var isMoving:Bool = false;
+	private var hasHarvestableFunctionality:Bool;
+	private var canTriggerMouseUpEvent = true;
+
+	private var buildingInitialisator:BuildingInitialisator;
+	private var buildingConstructor:BuildingConstructor;
+	private var buildingDestructor:BuildingDestructor;
+	private var buildingHarvester:BuildingHarvester;
+	private var buildingUpgrader:BuildingUpgrader;
+	private var buildingPosition:BuildingPosition;
+	private var buildingTimebase:BuildingTimebase;
+	private var buildingMover:BuildingMover;
+	private var buildingTile:BuildingTile;
 
 	public function new()
 	{
 		super();
-		
 		factory = new FlumpMovieAnimFactory();
-		boxType = BoxType.NONE;
-		
-		interactive = true;
 	}
-	
-	override public function init(pDefinition:Dynamic):Void 
+
+	override public function init(buildingModelDef:BuildingModelDef):Void
 	{
-		var buildingModelPosition:Point = new Point(pDefinition.x, pDefinition.y);
-		var buildingIsoPosition:Point = IsoManager.modelToIsoView(new Point(pDefinition.x, pDefinition.y));
-		var tilesUnderBuilding:Array<TileSavedDef>;
-		
-		list.push(this);
-		definition = BuildingDefinition.getByName(pDefinition.name);
-			
-		colMin = Math.floor(toModel().y);
-		colMax = Math.floor(toModel().y) + definition.size.height;
-		rowMin = Math.floor(toModel().x);
-		rowMax = Math.floor(toModel().x) + definition.size.width;
-		
-		x = buildingIsoPosition.x;
-		y = buildingIsoPosition.y;
-		buildingLevel = pDefinition.buildingLevel;
-		
-		assetName = definition.spriteName;
-		
-		tilesUnderBuilding = MapManager.getInstance().getTilesArray(buildingModelPosition, definition.size);
-		MapManager.getInstance().setTilesBuildable(tilesUnderBuilding, false);
-		MapManager.getInstance().addElementInGlobalMapAt(buildingModelPosition, TypeDefUtils.buildingSavedDef);
-		
-		addToStage();
+		buildingInitialisator = new BuildingInitialisator(this);
+		buildingConstructor = new BuildingConstructor(this);
+		buildingDestructor = new BuildingDestructor(this);
+		buildingHarvester = new BuildingHarvester(this);
+		buildingUpgrader = new BuildingUpgrader(this);
+		buildingPosition = new BuildingPosition(this);
+		buildingTimebase = new BuildingTimebase(this);
+		buildingMover = new BuildingMover(this);
+		buildingTile = new BuildingTile(this);
+
+		buildingInitialisator.initialisate(buildingModelDef);
+	}
+
+	/**
+	 * Récupère l'état du model du building dans la global map
+	 * @return
+	 */
+	public function getModelInGlobalMap():BuildingModelDef {
+		return BuildingDefinition.getBuildingModelInGlobalMapAt(positionToModel(true));
 	}
 	
-	private function addToStage():Void {
-		setState(DEFAULT_STATE);
-		cast(anim, FlumpMovie).gotoAndStop(buildingLevel);
-		
-		on(MouseEventType.CLICK, buildingClick);
-		
-		GameStage.getInstance().getBuildingsContainer().addChild(this);
-		start();
+	/**
+	 * Récupère la configuration dans le json du building
+	 * @return
+	 */
+	public function getConfig():Dynamic {
+		return BuildingUtils.getConfigByName(definition.name, buildingLevel);
+	}
+
+	/**
+	 * TODO : Bouger dans un component d'ugrade
+	 * @return
+	 */
+	public function isUpgradableBuilding():Bool {
+		return BuildingUtils.isUpgradableBuilding(definition.name);
 	}
 	
-	override public function remove() :Bool
-	{
+	public function isHarvestable():Bool {
+		return hasHarvestableFunctionality;
+	}
+
+	public function select():Void {
+		BuildingUtils.unselectBuildingSelected();
+		setBuildingSelected();
+	}
+
+	public function setMoveState():Void {
+		setMouseToBuildingPosition();
+		buildingTile.setTileUnderBuildingBuildable();
+		startMove();
+		emitUnselectEvent();
+		Camera.desactivateCamera();
+	}
+
+	private function setMouseToBuildingPosition():Void {
+		GameManager.getInstance().mousePosition = new Point(
+			x - buildingPosition.getBuildingCenterOffsetInPixel().x,
+			y - buildingPosition.getBuildingCenterOffsetInPixel().y
+		);
+	}
+	
+	override private function doActionNormal():Void {
+		super.doActionNormal();
+		var onCursorPosition:Point;
+
+		updateTimebaseAnimation();
+		updateHarvestIconState();
+
+		if (canInteract() && !isSelected) {
+			filters = cast Filter.getBrightness(MOUSE_OVER_BRIGHTNESS);
+		} else {
+			filters = cast Filter.EMPTY_FILTER;
+		}
+
+		if (isMoving) {
+			onCursorPosition = buildingPosition.getPositionOnCursorWithBuildingCenterOffset();
+			buildingMover.setMousePosition(onCursorPosition);
+			buildingMover.move();
+			applyFilterByConstructibleState();
+		}
+	}
+
+	private function updateTimebaseAnimation():Void {
+		if (!isMoving) {
+			buildingTimebase.updateAnimation();
+		} else {
+			buildingTimebase.hideAnimation();
+		}
+	}
+
+	private function updateHarvestIconState():Void {
+		if (isHarvestable() && !isSelected && !isMoving) {
+			checkIfHarvestingMustBeDesctivatedOrActivated();
+			buildingHarvester.updateHarvestIconState();
+		}
+	}
+
+	private function checkIfHarvestingMustBeDesctivatedOrActivated() {
+		if (buildingTimebase.isConstructingOrUpgradingState() || GameManager.getInstance().isParadeActive()) {
+			buildingHarvester.desactiveHarversting();
+		} else {
+			buildingHarvester.activeHarversting();
+		}
+	}
+
+	private function applyFilterByConstructibleState():Void {
+		var position:Point = buildingPosition.getPositionOnCursorWithBuildingCenterOffset();
+		buildingConstructor.setDestination(position);
+		if (buildingConstructor.canConstruct()) {
+			filters = cast Filter.EMPTY_FILTER;
+		} else {
+			filters = cast Filter.getRed();
+		}
+	}
+
+	private function upgradeLantern():Void {
+		getModelInGlobalMap().lvl++;
+		buildingLevel++;
+		cast(anim, FlumpMovie).gotoAndStop(buildingLevel * 2 + 1);
+	}
+
+	private function onInteractionEvent(position:Point):Void {
+		var buildingModelPosition:Point = positionToModel(true);
+		position = IsoManager.isoToModelView(position);
+		position.x = Math.floor(position.x);
+		position.y = Math.floor(position.y);
+
+		canTriggerMouseUpEvent = true;
+
+		if (canInteract()) {
+			interactionAction();
+		}
+	}
+
+	private function canInteract():Bool {
+		return (
+			UIManager.mouseIsNotInteractingWithUI() &&
+			!GameManager.getInstance().isParadeActive() &&
+			visible && (
+				buildingPosition.isCursorOverBuilding() ||
+				isSelected
+			)
+		);
+	}
+	
+	private function subscribeHudEvent():Void {
+		Main.getInstance().on(BaseBuildingHUDEvent.DELETE_BUTTON, onErasable);
+		Main.getInstance().on(BaseBuildingHUDEvent.MOVE_BUTTON, onMove);
+		Main.getInstance().on(BaseBuildingHUDEvent.UPGRADE_BUTTON, onUpgrade);
+		Main.getInstance().on(BaseBuildingHUDEvent.HARDBUILD_BUTTON, onHardBuildRequest);
+	}
+	
+	private function forgetHudEvent():Void {
+		Main.getInstance().off(BaseBuildingHUDEvent.DELETE_BUTTON, onErasable);
+		Main.getInstance().off(BaseBuildingHUDEvent.MOVE_BUTTON, onMove);
+		Main.getInstance().off(BaseBuildingHUDEvent.UPGRADE_BUTTON, onUpgrade);
+		Main.getInstance().off(BaseBuildingHUDEvent.HARDBUILD_BUTTON, onHardBuildRequest);
+	}
+
+	private function onErasable(event:Dynamic):Void {
+		buildingDestructor.destruct();
+	}
+	
+	private function onMove(event:Dynamic):Void {
+		setMoveState();
+	}
+	
+	private function onHardBuildRequest(event:Dynamic):Void {
+		Ftue.event.emit(FtueEvents.CITYHALL_HARD_BUILD_REQUEST);
+		setBuildingUnselected();
+		UIManager.getInstance().emit(UIManager.OPEN_POPIN_REQUEST_HARDBUILDCONFIRM, buildingTimebase.getHardBuildPrice());
+		UIManager.getInstance().on(HardBuildConfirm.CONFIRM_BUTTON_CLICK, onHardBuildConfirm);
+	}
+
+	private function onHardBuildConfirm(hardbuild:Dynamic):Void {
+		Ftue.event.emit(FtueEvents.CITYHALL_HARD_BUILD);
+		var buildingPosition:Point = positionToModel(true);
+		UIManager.getInstance().off(HardBuildConfirm.CONFIRM_BUTTON_CLICK, onHardBuildConfirm);
+		if (!RessourceManager.getInstance().removeRessources(RessourceManager.SPICE, hardbuild.price)) {
+			UIManager.getInstance().emit(UIManager.OPEN_POPIN_REQUEST_NOMONEY);
+			return;
+		}
+		UIManager.getInstance().emit(UIManager.CLOSE_POPIN_REQUEST);
+		Api.buildings.hardBuild(Std.int(buildingPosition.x), Std.int(buildingPosition.y));
+		getModelInGlobalMap().construct_end_at = Date.now().toString();
+	}
+	
+	private function onUpgrade(event:Dynamic):Void {
+		if (buildingUpgrader.canUpgrade()) {
+			buildingUpgrader.upgrade();
+			setBuildingUnselected();
+		}
+	}
+	
+	private function startMove():Void {
+		isMoving = true;
+		alpha = ALPHA_WHEN_BUILDING_IS_MOVING;
+	}
+	
+	private function stopMove():Void {
+		isMoving = false;
+		alpha = ALPHA_WHEN_BUILDING_IS_NOT_MOVING;
+	}
+	
+	private function setBuildingSelected():Void {
+		setSelectedGraphicState();
+		emitSelectEvent();
+		subscribeHudEvent();
+		isSelected = true;
+		Ftue.event.emit(FtueEvents.BUILDING_SELECTED, { buildingName: definition.name });
+	}
+
+	private function setBuildingUnselected():Void {
+		setUnselectedGraphicState();
+		emitUnselectEvent();
+		forgetHudEvent();
+		isSelected = false;
+	}
+	
+	private function emitSelectEvent():Void {
+		emitSelectionEvent(BuildingEvents.SELECTED);
+	}
+	
+	private function emitUnselectEvent():Void {
+		emitSelectionEvent(BuildingEvents.UNSELECTED);
+	}
+	
+	private function emitSelectionEvent(eventType:String):Void {
+		var buildingEvent:BuildingEventDef = {
+			ref: this,
+			type: getBuildingActionComponents()
+		}
+		
+		Main.getInstance().emit(eventType, buildingEvent);
+	}
+
+	private function getBuildingActionComponents():Array<String> {
+		var actionComponent:Array<String>;
+
+		if (buildingTimebase.isNotConstructingOrUpgradingState()) {
+			actionComponent = definition.component;
+		} else {
+			actionComponent = [
+				BuildingComponents.MOVABLE,
+				BuildingComponents.ERASABLE,
+				BuildingComponents.HARDBUILD
+			];
+		}
+
+		if (!buildingUpgrader.hasNextLevel()) {
+			actionComponent = BuildingUtils.removeActionComponent(actionComponent, BuildingComponents.UPGRADABLE);
+		}
+
+		return actionComponent;
+	}
+	
+	private function setSelectedGraphicState():Void {
+		cast(anim, FlumpMovie).gotoAndStop(buildingLevel * 2 + 1);
+	}
+	
+	private function setUnselectedGraphicState():Void {
+		cast(anim, FlumpMovie).gotoAndStop(buildingLevel * 2);
+	}
+
+	private function removeEventSubscription():Void {
+		Main.getInstance().off(GameManager.EVENT_INTERACTION, onInteractionEvent);
+	}
+	
+	override public function remove() :Bool {
+		cleanObject();
 		if (!super.remove()) {
 			destroy();
 			return true;
-		};
-		
-		off(MouseEventType.CLICK, buildingClick);
-		list.splice(list.indexOf(this), 1);
+		}
 		
 		return true;
 	}
 	
-	override function doActionNormal():Void {
-		super.doActionNormal();
-		var buildingMover:BuildingMover;
-		var buildingPosition:BuildingPosition;
-		var positionOnCursor:Point;
-		
-		if (movingBuilding == this) {
-			buildingMover = new BuildingMover(this);
-			buildingPosition = new BuildingPosition(this);
-			positionOnCursor = buildingPosition.getPositionOnCursor();
-			buildingMover.setMousePosition(positionOnCursor);
-			buildingMover.moveUnderMouse();
-		}
-	}
-	
-	
-	/**
-	 * Upgrade un building
-	 */
-	public function upgradeBuilding():Void {
-		buildingLevel++;
-		setLevelStateGraphic(buildingLevel);
-	}
-	
-	
-	/**
-	 * Commence le deplacement d'un batiment
-	 */
-	public function buildingClick (event:Dynamic) {
-		callServerToUpgrade();
-		
-		BaseBuildingHUD.getInstance().initHUD(function (p:EventTarget):Void { trace("OKLM POTPO"); }, function (p:EventTarget):Void { } );
-		var lMapManager:MapManager = MapManager.getInstance();
-		var tilesUnderBuilding:Array<TileSavedDef>;
-		
-		if (movingBuilding == this) {
-			constructRequest();
-		} else {
-			positionBeforeConstruct = toModel(true);
-			movingBuilding = this;
-			tilesUnderBuilding = lMapManager.getTilesArray(positionBeforeConstruct, definition.size);
-			lMapManager.setTilesBuildable(tilesUnderBuilding, true);
-		}
-	}
-	
-	
-	/**
-	 * Stop le deplacement d'un batiment
-	 */
-	private function stopMoving () {
-		movingBuilding = null;
-	}
+	private function cleanObject():Void {
+		if (isSelected) {
+			setBuildingUnselected();
+		};
 
-	
-	private function constructRequest():Void {
-		var buildingPosition:BuildingPosition = new BuildingPosition(this);
-		var buildingConstructor:BuildingConstructor = new BuildingConstructor(this, positionBeforeConstruct);
-		var destination:Point = buildingPosition.getPositionOnCursor();
-		
-		buildingConstructor.setDestination(destination.x, destination.y);
-		
-		if (buildingConstructor.tilesAtDestinationIsBuildable()) {
-			buildingConstructor.construct();
-			setPositionBeforeConstructWith(destination);
-			cancelMoving();
-		}
-	}
-	
-	private function setPositionBeforeConstructWith(newPosition:Point):Void {
-		positionBeforeConstruct.set(newPosition.x, newPosition.y);
-	}
-	
-	
-	/**
-	 * Annule le deplacement du batiment actuellement en train de bouger et le remet à sa position initiale
-	 */
-	private static function cancelMoving():Void {
-		var lMapManager:MapManager = MapManager.getInstance();
-		var tilesUnderBuilding:Array<TileSavedDef>;
-		
-		if (movingBuilding != null) {
-			tilesUnderBuilding = lMapManager.getTilesArray(movingBuilding.positionBeforeConstruct, movingBuilding.definition.size);
-			lMapManager.setTilesBuildable(tilesUnderBuilding, false);
-			
-			movingBuilding.position = IsoManager.modelToIsoView(movingBuilding.positionBeforeConstruct);
-			movingBuilding = null;
-		}
-	}
-	
-	public function callServerToUpgrade():Void {
-		var modelPosistion:Point = toModel(true);
-		Api.buildings.upgrade(Std.int(modelPosistion.x), Std.int(modelPosistion.y), cbTryToUpgrade );
-	}
-	
-	public function callServerToDestroy():Void {
-		var modelPosistion:Point = toModel(true);
-		Api.buildings.destroy(Std.int(modelPosistion.x), Std.int(modelPosistion.y), cbTryToDestroy );
-	}
-	
-	private function cbTryToDestroy(pResponse:String): Void {
-		var lResponse:DataDef = cast(Json.parse(pResponse));
-		
-		if (!lResponse.error) {
-			destroy();
-		}
-	}
-	
-	private function cbTryToUpgrade(pResponse:String): Void {
-		var lResponse:DataDef = cast(Json.parse(pResponse));
-		
-		if (!lResponse.error) {
-			var lResources:ResourceDef = cast(lResponse.data);
-			RessourceManager.getInstance().updateAllRessources(lResources);
-			upgradeBuilding();
-		}
-	}
-	
-	public function setLevelStateGraphic(lvl:Int):Void {
-		cast(anim, FlumpMovie).gotoAndStop(lvl);
-	}
+		buildingHarvester.cleanObject();
+		buildingConstructor.cleanObject();
+		buildingTimebase.cleanObject();
 
+		removeEventSubscription();
+		GameStage.getInstance().getBuildingsContainer().removeChild(this);
+		list.splice(list.indexOf(this), 1);
+	}
 	
 	override public function destroy():Void {
 		super.destroy();
-		GameStage.getInstance().getBuildingsContainer().removeChild(this);
-		list.splice(list.indexOf(this), 1);
-	}	
+	}
 }

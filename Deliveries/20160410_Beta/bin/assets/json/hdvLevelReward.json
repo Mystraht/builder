@@ -1,0 +1,102 @@
+{
+	"1" : {
+		"gold" : 100,
+		"pimientos" : 0,
+		"offering" : 10
+	},
+	"2" : {
+		"gold" : 200,
+		"pimientos" : 0,
+		"offering" : 20
+	},
+	"3" : {
+		"gold" : 300,
+		"pimientos" : 0,
+		"offering" : 30
+	},
+	"4" : {
+		"gold" : 400,
+		"pimientos" : 0,
+		"offering" : 40
+	},
+	"5" : {
+		"gold" : 500,
+		"pimientos" : 5,
+		"offering" : 50
+	},
+	"6" : {
+		"gold" : 700,
+		"pimientos" : 0,
+		"offering" : 70
+	},
+	"7" : {
+		"gold" : 900,
+		"pimientos" : 0,
+		"offering" : 90
+	},
+	"8" : {
+		"gold" : 1100,
+		"pimientos" : 0,
+		"offering" : 110
+	},
+	"9" : {
+		"gold" : 1300,
+		"pimientos" : 0,
+		"offering" : 130
+	},
+	"10" : {
+		"gold" : 1500,
+		"pimientos" : 5,
+		"offering" : 150
+	},
+	"11" : {
+		"gold" : 2000,
+		"pimientos" : 0,
+		"offering" : 200
+	},
+	"12" : {
+		"gold" : 2500,
+		"pimientos" : 0,
+		"offering" : 250
+	},
+	"13" : {
+		"gold" : 3000,
+		"pimientos" : 0,
+		"offering" : 300
+	},
+	"14" : {
+		"gold" : 3500,
+		"pimientos" : 0,
+		"offering" : 350
+	},
+	"15" : {
+		"gold" : 4000,
+		"pimientos" : 5,
+		"offering" : 400
+	},
+	"16" : {
+		"gold" : 4750,
+		"pimientos" : 0,
+		"offering" : 475
+	},
+	"17" : {
+		"gold" : 5500,
+		"pimientos" : 0,
+		"offering" : 550
+	},
+	"18" : {
+		"gold" : 6250,
+		"pimientos" : 0,
+		"offering" : 625
+	},
+	"19" : {
+		"gold" : 7000,
+		"pimientos" : 0,
+		"offering" : 700
+	},
+	"20" : {
+		"gold" : 8000,
+		"pimientos" : 5,
+		"offering" : 800
+	}
+}

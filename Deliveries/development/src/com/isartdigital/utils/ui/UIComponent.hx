@@ -1,12 +1,13 @@
 package com.isartdigital.utils.ui;
 
+import com.isartdigital.builder.ui.UIManager;
 import com.isartdigital.utils.events.EventType;
 import com.isartdigital.utils.events.MouseEventType;
 import com.isartdigital.utils.events.TouchEventType;
 import com.isartdigital.utils.game.GameObject;
 import com.isartdigital.utils.game.GameStage;
 import com.isartdigital.utils.ui.UIPositionable;
-import haxe.Timer;
+import pixi.core.display.DisplayObject;
 import pixi.core.sprites.Sprite;
 import pixi.core.textures.Texture;
 import pixi.interaction.EventTarget;
@@ -17,7 +18,6 @@ import pixi.interaction.EventTarget;
  */
 class UIComponent extends GameObject
 {
-
 	private var positionables:Array<UIPositionable> = [];
 	
 	private var isOpened:Bool;
@@ -29,32 +29,58 @@ class UIComponent extends GameObject
 	// TODO: pouvoir le varier dynamiquement
 	public var modalImage:String="assets/alpha_bg.png";
 	
-	public function new() 
+	public function new()
 	{
 		super();
+		interactive = true;
 	}
 	
+    private function _mouseOver (pEvent:EventTarget): Void {
+        UIManager.getInstance().emit(UIManager.ON_MOUSE_OVER_UI);
+    }
+    
+    private function _mouseOut (pEvent:EventTarget): Void {
+        UIManager.getInstance().emit(UIManager.ON_MOUSE_OUT_UI);
+    }
+	
+	private function subscribeButtonsClickAndTap (callBack:EventTarget->Void, list:Array<Button>) : Void {
+		for (button in list) {
+			button.tap = button.click = callBack;
+		}
+	}
+	
+	private function setVisibilityInList (visibility:Bool, list:Array<DisplayObject>) : Void {
+		for (object in list) {
+			object.visible = visibility;
+		}
+	}
+	
+	private function unsubscribeButtonsClickAndTap (list:Array<Button>) : Void {
+		for (button in list) {
+			button.tap = button.click = null;
+		}
+	}
+	
+	private function setListFromChild (childName:String, list:Array<Dynamic>) : Void {
+		for (child in children) {
+			if (child.name == childName) list.push(cast(child));
+		}
+	}
+
 	/**
 	 * permet de construire l'UIComponent à partir de l'UIBuilder
 	 */
 	public function build () : Void {
 		var lClassName = Type.getClassName(Type.getClass(this));
 		lClassName = lClassName.substring(lClassName.lastIndexOf(".") + 1);
-		
+
 		var lItems:Array<UIPositionable> = UIBuilder.build(lClassName);
-		
+		//trace("number items :" + lItems.length + " class name : " + lClassName);
+
 		addChildItems(lItems);
 	}
 	
 	private function addChildItems (pItems:Array<UIPositionable>) : Void
-	{
-		for (lItem in pItems) {
-			addChild(lItem.item);
-			if (lItem.align != "") positionables.push(lItem);
-		}
-	}
-	
-	private function addChildItem (pItems:Array<UIPositionable>) : Void
 	{
 		for (lItem in pItems) {
 			addChild(lItem.item);
@@ -83,11 +109,11 @@ class UIComponent extends GameObject
 		
 		if (_modal) {
 			if (modalZone == null) {
-				modalZone = new Sprite(Texture.fromImage(modalImage));
+				modalZone = new Sprite(Texture.fromImage(Config.url(modalImage)));
 				modalZone.interactive = true;
 				modalZone.on(MouseEventType.CLICK, stopPropagation);
 				modalZone.on(TouchEventType.TAP, stopPropagation);
-				positionables.unshift({ item:modalZone, align:UIPosition.FIT_SCREEN, offsetX:0, offsetY:0});
+				positionables.unshift({ item:modalZone, align:UIPosition.TOP_LEFT, fit:UIPosition.FIT_SCREEN, offsetX:0, offsetY:0});
 			}
 			if (parent != null) parent.addChildAt(modalZone, parent.getChildIndex(this));
 		} else {	
@@ -117,32 +143,40 @@ class UIComponent extends GameObject
 	 * @param pEvent
 	 */
 	private function onResize (pEvent:EventTarget = null): Void {
-		for (lObj in positionables) {
-			if (lObj.update) {
-				if (lObj.align==UIPosition.TOP || lObj.align==UIPosition.TOP_LEFT || lObj.align==UIPosition.TOP_RIGHT) {
-					lObj.offsetY = parent.y + lObj.item.y;
-				} else if (lObj.align==UIPosition.BOTTOM || lObj.align==UIPosition.BOTTOM_LEFT || lObj.align==UIPosition.BOTTOM_RIGHT) {	
-					lObj.offsetY = GameStage.getInstance().safeZone.height - parent.y - lObj.item.y;
+		for (positionable in positionables) {
+			if (positionable.update) {
+				if (positionable.align==UIPosition.TOP || positionable.align==UIPosition.TOP_LEFT || positionable.align==UIPosition.TOP_RIGHT) {
+					positionable.offsetY = parent.y + positionable.item.y;
+				} else if (positionable.align==UIPosition.BOTTOM || positionable.align==UIPosition.BOTTOM_LEFT || positionable.align==UIPosition.BOTTOM_RIGHT) {
+					positionable.offsetY = GameStage.getInstance().safeZone.height - parent.y - positionable.item.y;
 				}
 				
-				if (lObj.align==UIPosition.LEFT || lObj.align==UIPosition.TOP_LEFT || lObj.align==UIPosition.BOTTOM_LEFT) {
-					lObj.offsetX = parent.x + lObj.item.x;
-				} else if (lObj.align==UIPosition.RIGHT || lObj.align==UIPosition.TOP_RIGHT || lObj.align==UIPosition.BOTTOM_RIGHT) {	
-					lObj.offsetX = GameStage.getInstance().safeZone.width - parent.x - lObj.item.x;
+				if (positionable.align==UIPosition.LEFT || positionable.align==UIPosition.TOP_LEFT || positionable.align==UIPosition.BOTTOM_LEFT) {
+					positionable.offsetX = parent.x + positionable.item.x;
+				} else if (positionable.align==UIPosition.RIGHT || positionable.align==UIPosition.TOP_RIGHT || positionable.align==UIPosition.BOTTOM_RIGHT) {
+					positionable.offsetX = GameStage.getInstance().safeZone.width - parent.x - positionable.item.x;
 				}
 				
-				lObj.update = false;
+				positionable.update = false;
 			}
-			UIPosition.setPosition(lObj.item, lObj.align, lObj.offsetX, lObj.offsetY);
+
+			UIPosition.setPosition(positionable.item, positionable.align, positionable.fit, positionable.offsetX, positionable.offsetY);
 		}
 	}
-	
+
 	/**
 	 * nettoie l'instance
 	 */
-	override public function destroy (): Void {
+	override public function destroy():Void {
+		UIManager.getInstance().emit(UIManager.ON_MOUSE_OUT_UI);
+		
+		off(MouseEventType.MOUSE_OVER, _mouseOver);
+		off(MouseEventType.MOUSE_OUT, _mouseOut);
+		off(MouseEventType.MOUSE_UP_OUTSIDE, _mouseOut);
+
 		close();
 		GameStage.getInstance().off(EventType.RESIZE, onResize);
+		
 		super.destroy();
 	}
 	

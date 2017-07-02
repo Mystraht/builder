@@ -1,0 +1,15 @@
+{
+	"Dialogue_txt": {
+		"height": 149.6,
+		"x": 0,
+		"color": 4861462,
+		"font": "Blissful Thinking",
+		"y": 0,
+		"text": "Dans cette ville, on ne peut construire que dans les zones éclairées par les lanternes.\r",
+		"bold": false,
+		"align": "center",
+		"size": 40,
+		"width": 553.9,
+		"italic": false
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"gameName":"Builder4",
+	"version":"0.1.11",
+	"debug":true,
+	"fps":true,
+	"qrcode":false,
+	"language":"en",
+	"languages":["en","fr"],
+	"txtsPath":"assets/",
+	"assetsPath":"assets/",
+	"soundsPath":"assets/sounds/",
+	"jsonPath":"assets/json/",
+	"fontsPath":"assets/fonts/",
+	"langPath":"localization/",
+	
+	"cheat":true,
+	"boxAlpha":0,
+	"animAlpha":1,
+	"texture":"hd",
+	"ads": true
+
+}

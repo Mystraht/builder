@@ -1,0 +1,502 @@
+{
+	"1" : {
+		"gold" : 100,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"2" : {
+		"gold" : 200,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"3" : {
+		"gold" : 300,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"4" : {
+		"gold" : 400,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"5" : {
+		"gold" : 500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"6" : {
+		"gold" : 700,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"7" : {
+		"gold" : 900,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"8" : {
+		"gold" : 1100,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"9" : {
+		"gold" : 1300,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"10" : {
+		"gold" : 1500,
+		"pimientos" : 1,
+		"pinata" : false
+	},
+	"11" : {
+		"gold" : 2000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"12" : {
+		"gold" : 2500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"13" : {
+		"gold" : 3000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"14" : {
+		"gold" : 3500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"15" : {
+		"gold" : 4000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"16" : {
+		"gold" : 4750,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"17" : {
+		"gold" : 5500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"18" : {
+		"gold" : 6250,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"19" : {
+		"gold" : 7000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"20" : {
+		"gold" : 8000,
+		"pimientos" : 2,
+		"pinata" : false
+	},
+	"21" : {
+		"gold" : 9000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"22" : {
+		"gold" : 10000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"23" : {
+		"gold" : 11000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"24" : {
+		"gold" : 12000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"25" : {
+		"gold" : 13000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"26" : {
+		"gold" : 14000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"27" : {
+		"gold" : 15000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"28" : {
+		"gold" : 16000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"29" : {
+		"gold" : 17000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"30" : {
+		"gold" : 18000,
+		"pimientos" : 3,
+		"pinata" : false
+	},
+	"31" : {
+		"gold" : 19250,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"32" : {
+		"gold" : 20500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"33" : {
+		"gold" : 21750,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"34" : {
+		"gold" : 23000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"35" : {
+		"gold" : 24250,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"36" : {
+		"gold" : 25500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"37" : {
+		"gold" : 26750,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"38" : {
+		"gold" : 28000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"39" : {
+		"gold" : 29250,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"40" : {
+		"gold" : 30500,
+		"pimientos" : 4,
+		"pinata" : false
+	},
+	"41" : {
+		"gold" : 32000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"42" : {
+		"gold" : 33500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"43" : {
+		"gold" : 35000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"44" : {
+		"gold" : 36500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"45" : {
+		"gold" : 38000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"46" : {
+		"gold" : 39500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"47" : {
+		"gold" : 41000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"48" : {
+		"gold" : 42500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"49" : {
+		"gold" : 44000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"50" : {
+		"gold" : 45500,
+		"pimientos" : 5,
+		"pinata" : false
+	},
+	"51" : {
+		"gold" : 47250,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"52" : {
+		"gold" : 49000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"53" : {
+		"gold" : 50750,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"54" : {
+		"gold" : 52500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"55" : {
+		"gold" : 54250,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"56" : {
+		"gold" : 56000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"57" : {
+		"gold" : 57750,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"58" : {
+		"gold" : 59500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"59" : {
+		"gold" : 61250,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"60" : {
+		"gold" : 63000,
+		"pimientos" : 6,
+		"pinata" : false
+	},
+	"61" : {
+		"gold" : 65000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"62" : {
+		"gold" : 67000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"63" : {
+		"gold" : 69000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"64" : {
+		"gold" : 71000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"65" : {
+		"gold" : 73000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"66" : {
+		"gold" : 75000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"67" : {
+		"gold" : 77000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"68" : {
+		"gold" : 79000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"69" : {
+		"gold" : 81000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"70" : {
+		"gold" : 83000,
+		"pimientos" : 7,
+		"pinata" : false
+	},
+	"71" : {
+		"gold" : 85000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"72" : {
+		"gold" : 87000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"73" : {
+		"gold" : 89000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"74" : {
+		"gold" : 91000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"75" : {
+		"gold" : 93000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"76" : {
+		"gold" : 95000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"77" : {
+		"gold" : 97000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"78" : {
+		"gold" : 99000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"79" : {
+		"gold" : 101000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"80" : {
+		"gold" : 103000,
+		"pimientos" : 8,
+		"pinata" : false
+	},
+	"81" : {
+		"gold" : 105500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"82" : {
+		"gold" : 108000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"83" : {
+		"gold" : 110500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"84" : {
+		"gold" : 113000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"85" : {
+		"gold" : 115500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"86" : {
+		"gold" : 118000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"87" : {
+		"gold" : 120500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"88" : {
+		"gold" : 123000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"89" : {
+		"gold" : 125500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"90" : {
+		"gold" : 128000,
+		"pimientos" : 9,
+		"pinata" : false
+	},
+	"91" : {
+		"gold" : 130500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"92" : {
+		"gold" : 133000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"93" : {
+		"gold" : 135500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"94" : {
+		"gold" : 138000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"95" : {
+		"gold" : 140500,
+		"pimientos" : 20,
+		"pinata" : false
+	},
+	"96" : {
+		"gold" : 143000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"97" : {
+		"gold" : 145500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"98" : {
+		"gold" : 148000,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"99" : {
+		"gold" : 150500,
+		"pimientos" : 0,
+		"pinata" : false
+	},
+	"100" : {
+		"gold" : 153000,
+		"pimientos" : 10,
+		"pinata" : false
+	}
+}

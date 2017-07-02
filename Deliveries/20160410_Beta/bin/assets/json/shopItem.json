@@ -1,0 +1,56 @@
+{
+	"gold_1" : {
+		"resource_price" : "spice",
+		"price" : 50,
+		"resource_product" : "gold",
+		"product" : 5000
+	},
+	"gold_2" : {
+		"resource_price" : "spice",
+		"price" : 180,
+		"resource_product" : "gold",
+		"product" : 20000
+	},
+	"gold_3" : {
+		"resource_price" : "spice",
+		"price" : 375,
+		"resource_product" : "gold",
+		"product" : 50000
+	},
+	"offerings_1" : {
+		"resource_price" : "spice",
+		"price" : 50,
+		"resource_product" : "offering",
+		"product" : 500
+	},
+	"offerings_2" : {
+		"resource_price" : "spice",
+		"price" : 130,
+		"resource_product" : "offering",
+		"product" : 1500
+	},
+	"offerings_3" : {
+		"resource_price" : "spice",
+		"price" : 450,
+		"resource_product" : "offering",
+		"product" : 5000
+	},
+	"spice_1" : {
+		"resource_price" : "cash",
+		"price" : 1.99,
+		"resource_product" : "spice",
+		"product" : 200
+	},
+	"spice_2" : {
+		"resource_price" : "cash",
+		"price" : 4.99,
+		"resource_product" : "spice",
+		"product" : 550
+	},
+	"spice_3" : {
+		"resource_price" : "cash",
+		"price" : 7.99,
+		"resource_product" : "spice",
+		"product" : 900
+	}
+}

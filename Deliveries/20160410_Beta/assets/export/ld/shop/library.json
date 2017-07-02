@@ -1,0 +1,1921 @@
+{
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "file": "atlas0.png",
+     "textures": [
+      {
+       "symbol": "Shop_modal",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        1,
+        460,
+        326
+       ]
+      },
+      {
+       "symbol": "ShopRessourceBackground",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        329,
+        458,
+        296
+       ]
+      },
+      {
+       "symbol": "PimientosAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        627,
+        96,
+        96
+       ]
+      },
+      {
+       "symbol": "PesosAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        725,
+        96,
+        96
+       ]
+      },
+      {
+       "symbol": "AssetGiftShop",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        823,
+        84,
+        91
+       ]
+      },
+      {
+       "symbol": "ShopRessourceButtonClickAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        461,
+        329,
+        49,
+        150
+       ]
+      },
+      {
+       "symbol": "ShopRessourceButtonAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        461,
+        481,
+        49,
+        150
+       ]
+      },
+      {
+       "symbol": "ShopBuildingButtonClickAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        463,
+        1,
+        48,
+        151
+       ]
+      },
+      {
+       "symbol": "ShopBuildingButtonAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        463,
+        154,
+        48,
+        151
+       ]
+      },
+      {
+       "symbol": "AssetBigFlowerPot",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        916,
+        92,
+        77
+       ]
+      },
+      {
+       "symbol": "AssetFloatingFlower",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        87,
+        823,
+        92,
+        77
+       ]
+      },
+      {
+       "symbol": "PackPesos3Asset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        95,
+        902,
+        92,
+        75
+       ]
+      },
+      {
+       "symbol": "PackHard3Asset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        99,
+        627,
+        92,
+        75
+       ]
+      },
+      {
+       "symbol": "PackOffrandes3Asset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        99,
+        704,
+        92,
+        75
+       ]
+      },
+      {
+       "symbol": "AssetCantina",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        181,
+        781,
+        87,
+        75
+       ]
+      },
+      {
+       "symbol": "AssetMainSquare",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        193,
+        627,
+        97,
+        67
+       ]
+      },
+      {
+       "symbol": "AssetFirework",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        189,
+        858,
+        75,
+        85
+       ]
+      },
+      {
+       "symbol": "AssetChurch",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        189,
+        945,
+        82,
+        77
+       ]
+      },
+      {
+       "symbol": "AssetGonzales",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        266,
+        858,
+        73,
+        81
+       ]
+      },
+      {
+       "symbol": "AssetBar",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        273,
+        941,
+        72,
+        70
+       ]
+      },
+      {
+       "symbol": "PackHard2Asset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        193,
+        696,
+        79,
+        60
+       ]
+      },
+      {
+       "symbol": "PackOffrandes2Asset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        270,
+        758,
+        78,
+        60
+       ]
+      },
+      {
+       "symbol": "PackPesos2Asset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        274,
+        696,
+        78,
+        60
+       ]
+      },
+      {
+       "symbol": "ShopRessourceTemp_txt",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        270,
+        820,
+        200,
+        22
+       ]
+      },
+      {
+       "symbol": "AssetAltar",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        350,
+        758,
+        65,
+        60
+       ]
+      },
+      {
+       "symbol": "AssetHouse",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        292,
+        627,
+        64,
+        60
+       ]
+      },
+      {
+       "symbol": "AssetPark",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        354,
+        689,
+        61,
+        62
+       ]
+      },
+      {
+       "symbol": "AssetHarbor",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        358,
+        627,
+        71,
+        53
+       ]
+      },
+      {
+       "symbol": "BuildingName_txt",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        341,
+        844,
+        114,
+        31
+       ]
+      },
+      {
+       "symbol": "PackHard1Asset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        457,
+        844,
+        54,
+        54
+       ]
+      },
+      {
+       "symbol": "PackPesos1Asset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        341,
+        877,
+        53,
+        53
+       ]
+      },
+      {
+       "symbol": "PackOffrandes1Asset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        396,
+        877,
+        53,
+        53
+       ]
+      },
+      {
+       "symbol": "ShopBuyAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        95,
+        979,
+        62,
+        44
+       ]
+      },
+      {
+       "symbol": "ShopBuySoftClickAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        417,
+        682,
+        62,
+        44
+       ]
+      },
+      {
+       "symbol": "AssetStatue",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        472,
+        728,
+        39,
+        63
+       ]
+      },
+      {
+       "symbol": "PriceHard_txt",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        995,
+        83,
+        26
+       ]
+      },
+      {
+       "symbol": "ShopRessourceTitle_txt",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        417,
+        793,
+        90,
+        23
+       ]
+      },
+      {
+       "symbol": "ShopBuildingTitle_txt",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        347,
+        932,
+        87,
+        23
+       ]
+      },
+      {
+       "symbol": "PriceSoft_txt",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        99,
+        781,
+        72,
+        27
+       ]
+      },
+      {
+       "symbol": "ShopTitle_txt",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        431,
+        633,
+        77,
+        23
+       ]
+      },
+      {
+       "symbol": "CadenasAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        417,
+        728,
+        34,
+        52
+       ]
+      },
+      {
+       "symbol": "PackageName_txt",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        431,
+        658,
+        78,
+        18
+       ]
+      },
+      {
+       "symbol": "CashAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        436,
+        932,
+        34,
+        38
+       ]
+      },
+      {
+       "symbol": "ShopCloseButtonAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        472,
+        900,
+        34,
+        35
+       ]
+      },
+      {
+       "symbol": "ShopCloseButtonClickAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        472,
+        937,
+        34,
+        35
+       ]
+      },
+      {
+       "symbol": "RightButtonAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        451,
+        900,
+        13,
+        30
+       ]
+      },
+      {
+       "symbol": "RightButtonClickAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        453,
+        728,
+        13,
+        30
+       ]
+      },
+      {
+       "symbol": "LeftButtonAsset",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        453,
+        760,
+        13,
+        30
+       ]
+      },
+      {
+       "symbol": "LeftButtonClickAsset",
+       "origin": [
+        0,
+        -1.1
+       ],
+       "rect": [
+        159,
+        979,
+        13,
+        30
+       ]
+      },
+      {
+       "symbol": "DotActive",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        86,
+        995,
+        7,
+        7
+       ]
+      },
+      {
+       "symbol": "DotPassive",
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        86,
+        1004,
+        7,
+        7
+       ]
+      }
+     ]
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ],
+ "movies": [
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "AssetAltar",
+       "label": "altar"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 1,
+       "ref": "AssetBar",
+       "label": "bar"
+      },
+      {
+       "loc": [
+        -0.975,
+        0
+       ],
+       "ref": "AssetBigFlowerPot",
+       "tweened": false,
+       "duration": 1,
+       "index": 2,
+       "label": "big_flower_pot"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 3,
+       "ref": "AssetCantina",
+       "label": "cantina"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 4,
+       "ref": "AssetChurch",
+       "label": "church"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 5,
+       "ref": "AssetFirework",
+       "label": "pyrotechnician"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 6,
+       "ref": "AssetFloatingFlower",
+       "label": "floating_flower"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 7,
+       "ref": "AssetGiftShop",
+       "label": "gift_shop"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 8,
+       "ref": "AssetGonzales",
+       "label": "brothel"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 9,
+       "ref": "AssetHarbor",
+       "label": "harbor"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 10,
+       "ref": "AssetHouse",
+       "label": "house"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 11,
+       "ref": "AssetMainSquare",
+       "label": "main_square"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 12,
+       "ref": "AssetPark",
+       "label": "park"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 13,
+       "ref": "AssetStatue",
+       "label": "statue"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "BuildingInShop"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        16.875,
+        17.375
+       ],
+       "ref": "ShopCloseButtonAsset",
+       "tweened": false,
+       "pivot": [
+        16.875,
+        17.375
+       ],
+       "duration": 1,
+       "index": 0
+      },
+      {
+       "loc": [
+        16.875,
+        17.375
+       ],
+       "ref": "ShopCloseButtonClickAsset",
+       "tweened": false,
+       "pivot": [
+        16.875,
+        17.375
+       ],
+       "duration": 1,
+       "index": 1
+      },
+      {
+       "loc": [
+        16.875,
+        17.375
+       ],
+       "ref": "ShopCloseButtonClickAsset",
+       "tweened": false,
+       "pivot": [
+        16.875,
+        17.375
+       ],
+       "duration": 1,
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "CloseButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -3.5,
+        -3.5
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "DotPassive"
+      },
+      {
+       "loc": [
+        -3.5,
+        -3.5
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 1,
+       "ref": "DotActive"
+      },
+      {
+       "loc": [
+        -3.5,
+        -3.5
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 2,
+       "ref": "DotActive"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "DotButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        5.975,
+        0
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "BuildingName_txt"
+      }
+     ],
+     "name": "BuildingName_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        7.2,
+        161.3125
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopBuySoftButton"
+      }
+     ],
+     "name": "ShopBuySoftButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        0,
+        168.0125
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "PriceSoft_txt"
+      }
+     ],
+     "name": "PriceSoft_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        73.95,
+        161.3125
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopBuyHardButton"
+      }
+     ],
+     "name": "ShopBuyHardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        61.2,
+        168.0125
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "PriceHard_txt"
+      }
+     ],
+     "name": "PriceHard_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        31.375,
+        64.8375
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "BuildingInShop"
+      }
+     ],
+     "name": "BuildingInShop_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        46.75,
+        109.8125
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "CadenasAsset"
+      }
+     ],
+     "name": "CadenasAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        86.6,
+        188.9
+       ],
+       "ref": "PimientosAsset",
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "scale": [
+        0.3328,
+        0.3328
+       ]
+      }
+     ],
+     "name": "PimientosAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        18.675,
+        188.9
+       ],
+       "ref": "PesosAsset",
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "scale": [
+        0.353,
+        0.353
+       ]
+      }
+     ],
+     "name": "PesosAsset"
+    }
+   ],
+   "id": "ItemBuilding"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        33.6125,
+        28.275
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "RessourceInShop"
+      }
+     ],
+     "name": "RessourceInShop_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        16.075,
+        105.1
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopBuyHardButton"
+      }
+     ],
+     "name": "ShopBuyHardButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        76.9125,
+        105.1
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "CashAsset"
+      }
+     ],
+     "name": "CashAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        76.9125,
+        105.1
+       ],
+       "ref": "PimientosAsset",
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "scale": [
+        0.3903,
+        0.3903
+       ]
+      }
+     ],
+     "name": "PimientosAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        20.4,
+        113.5
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "PriceHard_txt"
+      }
+     ],
+     "name": "PriceHard_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        20.4,
+        -9.6125
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "PackageName_txt"
+      }
+     ],
+     "name": "PackageName_txt"
+    }
+   ],
+   "id": "ItemRessource"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        6.5,
+        14.625
+       ],
+       "ref": "LeftButtonAsset",
+       "tweened": false,
+       "pivot": [
+        6.5,
+        14.625
+       ],
+       "duration": 1,
+       "index": 0
+      },
+      {
+       "loc": [
+        6.5,
+        14.625
+       ],
+       "ref": "LeftButtonClickAsset",
+       "tweened": false,
+       "pivot": [
+        6.5,
+        14.625
+       ],
+       "duration": 1,
+       "index": 1
+      },
+      {
+       "loc": [
+        6.5,
+        14.625
+       ],
+       "ref": "LeftButtonClickAsset",
+       "tweened": false,
+       "pivot": [
+        6.5,
+        14.625
+       ],
+       "duration": 1,
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "LeftButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "PackHard1Asset",
+       "label": "spice_1"
+      },
+      {
+       "loc": [
+        -9.9375,
+        0
+       ],
+       "ref": "PackHard2Asset",
+       "tweened": false,
+       "duration": 1,
+       "index": 1,
+       "label": "spice_2"
+      },
+      {
+       "loc": [
+        -19.1,
+        -8.3875
+       ],
+       "ref": "PackHard3Asset",
+       "tweened": false,
+       "duration": 1,
+       "index": 2,
+       "label": "spice_3"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 3,
+       "ref": "PackOffrandes1Asset",
+       "label": "offerings_1"
+      },
+      {
+       "loc": [
+        -12.2,
+        0
+       ],
+       "ref": "PackOffrandes2Asset",
+       "tweened": false,
+       "duration": 1,
+       "index": 4,
+       "label": "offerings_2"
+      },
+      {
+       "loc": [
+        -17.5375,
+        -4.575
+       ],
+       "ref": "PackOffrandes3Asset",
+       "tweened": false,
+       "duration": 1,
+       "index": 5,
+       "label": "offerings_3"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 6,
+       "ref": "PackPesos1Asset",
+       "label": "gold_1"
+      },
+      {
+       "loc": [
+        -11.4375,
+        0
+       ],
+       "ref": "PackPesos2Asset",
+       "tweened": false,
+       "duration": 1,
+       "index": 7,
+       "label": "gold_2"
+      },
+      {
+       "loc": [
+        -17.5375,
+        -8.3875
+       ],
+       "ref": "PackPesos3Asset",
+       "tweened": false,
+       "duration": 1,
+       "index": 8,
+       "label": "gold_3"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "RessourceInShop"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        6.5,
+        14.625
+       ],
+       "ref": "RightButtonAsset",
+       "tweened": false,
+       "pivot": [
+        6.5,
+        14.625
+       ],
+       "duration": 1,
+       "index": 0
+      },
+      {
+       "loc": [
+        6.5,
+        14.625
+       ],
+       "ref": "RightButtonClickAsset",
+       "tweened": false,
+       "pivot": [
+        6.5,
+        14.625
+       ],
+       "duration": 1,
+       "index": 1
+      },
+      {
+       "loc": [
+        6.5,
+        14.625
+       ],
+       "ref": "RightButtonClickAsset",
+       "tweened": false,
+       "pivot": [
+        6.5,
+        14.625
+       ],
+       "duration": 1,
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "RightButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -0.1875,
+        -1.0375
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopBuilding"
+      }
+     ],
+     "name": "ShopBuilding_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -211.25,
+        -147.9875
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopRessource"
+      }
+     ],
+     "name": "ShopRessource_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -255.2,
+        -4.1125
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopRessourceButton"
+      }
+     ],
+     "name": "ShopRessourceButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -254.2,
+        -150.3625
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopBuildingButton"
+      }
+     ],
+     "name": "ShopBuildingButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -242.3125,
+        -32.1375
+       ],
+       "skew": [
+        -1.5708,
+        -1.5708
+       ],
+       "ref": "ShopBuildingTitle_txt",
+       "tweened": false,
+       "duration": 1,
+       "index": 0
+      }
+     ],
+     "name": "ShopBuildingTitle_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -242.3125,
+        115.5125
+       ],
+       "skew": [
+        -1.5708,
+        -1.5708
+       ],
+       "ref": "ShopRessourceTitle_txt",
+       "tweened": false,
+       "duration": 1,
+       "index": 0
+      }
+     ],
+     "name": "ShopRessourceTitle_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        217.0625,
+        -157.2875
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "CloseButton"
+      }
+     ],
+     "name": "CloseButton"
+    }
+   ],
+   "id": "Shop"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -214.8125,
+        -166.175
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "Shop_modal"
+      }
+     ],
+     "name": "Modal"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -25.7625,
+        -142.8125
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopTitle_txt"
+      }
+     ],
+     "name": "ShopTitle_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -147.8375,
+        -104.7
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ItemBuilding"
+      }
+     ],
+     "name": "ItemBuilding_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        2.4,
+        129.2875
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "DotButton"
+      }
+     ],
+     "name": "DotButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        16.9,
+        129.2875
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "DotButton"
+      }
+     ],
+     "name": "DotButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        45.7875,
+        -104.7
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ItemBuilding"
+      }
+     ],
+     "name": "ItemBuilding_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -186.3125,
+        64.425
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "LeftButton"
+      }
+     ],
+     "name": "LeftButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        201.975,
+        64.425
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "RightButton"
+      }
+     ],
+     "name": "RightButton"
+    }
+   ],
+   "id": "ShopBuilding"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        23.875,
+        75.125
+       ],
+       "ref": "ShopBuildingButtonClickAsset",
+       "tweened": false,
+       "pivot": [
+        23.875,
+        75.125
+       ],
+       "duration": 1,
+       "index": 0
+      },
+      {
+       "loc": [
+        23.875,
+        75.125
+       ],
+       "ref": "ShopBuildingButtonAsset",
+       "tweened": false,
+       "pivot": [
+        23.875,
+        75.125
+       ],
+       "duration": 1,
+       "index": 1
+      },
+      {
+       "loc": [
+        23.875,
+        75.125
+       ],
+       "ref": "ShopBuildingButtonAsset",
+       "tweened": false,
+       "pivot": [
+        23.875,
+        75.125
+       ],
+       "duration": 1,
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "ShopBuildingButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        27,
+        19.125
+       ],
+       "ref": "ShopBuyAsset",
+       "tweened": false,
+       "pivot": [
+        27,
+        19.125
+       ],
+       "duration": 1,
+       "index": 0
+      },
+      {
+       "loc": [
+        27,
+        19.125
+       ],
+       "ref": "ShopBuySoftClickAsset",
+       "tweened": false,
+       "pivot": [
+        27,
+        19.125
+       ],
+       "duration": 1,
+       "index": 1
+      },
+      {
+       "loc": [
+        27,
+        19.125
+       ],
+       "ref": "ShopBuySoftClickAsset",
+       "tweened": false,
+       "pivot": [
+        27,
+        19.125
+       ],
+       "duration": 1,
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "ShopBuyHardButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        27,
+        19.125
+       ],
+       "ref": "ShopBuyAsset",
+       "tweened": false,
+       "pivot": [
+        27,
+        19.125
+       ],
+       "duration": 1,
+       "index": 0
+      },
+      {
+       "loc": [
+        27,
+        19.125
+       ],
+       "ref": "ShopBuySoftClickAsset",
+       "tweened": false,
+       "pivot": [
+        27,
+        19.125
+       ],
+       "duration": 1,
+       "index": 1
+      },
+      {
+       "loc": [
+        27,
+        19.125
+       ],
+       "ref": "ShopBuySoftClickAsset",
+       "tweened": false,
+       "pivot": [
+        27,
+        19.125
+       ],
+       "duration": 1,
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "ShopBuySoftButton"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopRessourceBackground"
+      }
+     ],
+     "name": "ShopRessourceBackground"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        220.1875,
+        274.475
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "DotButton"
+      }
+     ],
+     "name": "DotButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        234.6875,
+        274.475
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "DotButton"
+      }
+     ],
+     "name": "DotButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        14.6,
+        218.7
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "LeftButton"
+      }
+     ],
+     "name": "LeftButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        429.2,
+        218.7
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "RightButton"
+      }
+     ],
+     "name": "RightButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        34.2375,
+        108.7625
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ItemRessource"
+      }
+     ],
+     "name": "ItemRessource_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        168.575,
+        108
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ItemRessource"
+      }
+     ],
+     "name": "ItemRessource_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        303.3625,
+        108
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ItemRessource"
+      }
+     ],
+     "name": "ItemRessource_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        185.55,
+        6.5875
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ShopTitle_txt"
+      }
+     ],
+     "name": "ShopTitle_txt"
+    }
+   ],
+   "id": "ShopRessource"
+  },
+  {
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        24.375,
+        75
+       ],
+       "ref": "ShopRessourceButtonClickAsset",
+       "tweened": false,
+       "pivot": [
+        24.375,
+        75
+       ],
+       "duration": 1,
+       "index": 0
+      },
+      {
+       "loc": [
+        24.375,
+        75
+       ],
+       "ref": "ShopRessourceButtonAsset",
+       "tweened": false,
+       "pivot": [
+        24.375,
+        75
+       ],
+       "duration": 1,
+       "index": 1
+      },
+      {
+       "loc": [
+        24.375,
+        75
+       ],
+       "ref": "ShopRessourceButtonAsset",
+       "tweened": false,
+       "pivot": [
+        24.375,
+        75
+       ],
+       "duration": 1,
+       "index": 2
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ],
+   "id": "ShopRessourceButton"
+  }
+ ],
+ "md5": "614adb0d3960a45fdd9ab707d997a8a1",
+ "frameRate": 30
+}

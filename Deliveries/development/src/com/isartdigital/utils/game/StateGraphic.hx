@@ -1,6 +1,8 @@
 package com.isartdigital.utils.game;
 
+import pixi.display.FlumpMovie;
 import com.isartdigital.utils.game.factory.AnimFactory;
+import com.isartdigital.utils.game.factory.FlumpMovieAnimFactory;
 import com.isartdigital.utils.game.iso.IsoManager;
 import com.isartdigital.utils.system.DeviceCapabilities;
 import haxe.Json;
@@ -10,7 +12,6 @@ import pixi.core.math.Point;
 import pixi.core.math.shapes.Circle;
 import pixi.core.math.shapes.Ellipse;
 import pixi.core.math.shapes.Rectangle;
-import pixi.extras.MovieClip;
 
 /**
  * Classe de base des objets interactifs ayant plusieurs états graphiques
@@ -26,6 +27,7 @@ class StateGraphic extends StateMachine
 	 * Fabrique d'anim
 	 */
 	private var factory:AnimFactory;
+
 	 
 	/**
 	 * anim de l'état courant
@@ -70,7 +72,7 @@ class StateGraphic extends StateMachine
 	 * Si boxType est égal à BoxType.MULTIPLE, chaque state correspond à une boite de collision, chaque state va cherche la boite assetName+"_"+ANIM_SUFFIX+"_"+BOX_SUFFIX
 	 * Si boxType est égal à BoxType.SELF, hitBox retourne le MovieClip anim
 	 */
-	private var boxType:BoxType=BoxType.NONE;
+	public var boxType:BoxType=BoxType.NONE;
 	
 	/**
 	 * niveau d'alpha des anim
@@ -92,40 +94,48 @@ class StateGraphic extends StateMachine
 	 */
 	public var isAnimEnd (default, null):Bool;
 	
-	private function setAnimEnd ():Void {
-		isAnimEnd = true;
-	}
-	
-	public function new() 
+
+	public function new(?assetName:String)
 	{
 		super();
+		if (assetName != null) {
+			factory = new FlumpMovieAnimFactory();
+			this.assetName = assetName;
+			setState(DEFAULT_STATE);
+			start();
+		}
+	}
+
+	/**
+	 *	Change l'asset à la volé par un asset personnalisé
+	 */
+	public function changeAsset(pAssetName:String, pState:String = ""):Void {
+		cleanAnim();
+		assetName = pAssetName;
 	}
 	
-	
-	/**		
-	 *	Change l'asset à la volé par un asset personnalisé		
-	 *  DEPRECATED		
-	 */		
-	public function changeAsset (pAssetName:String, pState:String = ""):Void {		
-		//assetName = pAssetName;		
-		//cast(anim, MovieClip).textures = getTextures(pState);		
-	}		
-			
-	/**		
+	/**
 	 * Conversion du modèle à la vue Isométrique du stateGraphic		
 	 * @param	pFloor Arrondi les valeur		
 	 * @return point en x, y dans la vue		
-	 */		
-	public function toModel(?pFloor:Bool = false):Point {	
-		var positionIndex:Point = IsoManager.isoViewToModel(new Point(x, y));		
-		if (pFloor) {		
-			positionIndex.x = Math.floor(positionIndex.x);		
-			positionIndex.y = Math.floor(positionIndex.y);		
-		}		
+	 */
+	public function positionToModel(?pFloor:Bool = false):Point {	
+		var positionIndex:Point = IsoManager.isoToModelView(new Point(x, y));
+		if (pFloor) {
+			positionIndex.x = Math.floor(positionIndex.x);
+			positionIndex.y = Math.floor(positionIndex.y);
+		}
 				
 		return positionIndex;		
 	}
-	
+
+	public function getAnim():Container {
+		return anim;
+	}
+
+	public function getFlumpMovie():FlumpMovie {
+		return cast(anim, FlumpMovie);
+	}
 	
 	/**
 	 * défini l'état courant du StateGraphic
@@ -134,10 +144,9 @@ class StateGraphic extends StateMachine
 	 * @param	pAutoPlay lance l'anim automatiquement
 	 * @param	pStart lance l'anim à cette frame
 	 */
-	private function setState (pState:String, ?pLoop:Bool = false, ?pAutoPlay:Bool=true, ?pStart:UInt = 0): Void {
-		
+	public function setState (pState:String, ?pLoop:Bool = false, ?pAutoPlay:Bool=true, ?pStart:UInt = 0): Void {
 		if (factory == null) throw "StateGraphic :: propriété fabrique non définie";
-		
+
 		if (state == pState) return;
 		
 		if (anim != null) {
@@ -205,6 +214,10 @@ class StateGraphic extends StateMachine
 	private function getID(pState:String): String {
 		if (pState == DEFAULT_STATE) return assetName+ANIM_SUFFIX;
 		return assetName+"_" + pState+ANIM_SUFFIX;
+	}
+
+	private function setAnimEnd ():Void {
+		isAnimEnd = true;
 	}
 	
 	/**
@@ -313,22 +326,34 @@ class StateGraphic extends StateMachine
 		return null;
 		// liste de Points : return [box.toGlobal(box.getChildByName("nom d'instance du MovieClip de type Point dans Flash IDE").position,box.toGlobal(box.getChildByName("nom d'instance du MovieClip de type Point dans Flash IDE").position];
 	}
-	
-	/**
-	 * nettoyage et suppression de l'instance
-	 */
-	override public function destroy (): Void {
-		if (untyped anim.stop!=null) untyped anim.stop();
-		removeChild(anim);
-		anim.destroy();
-		
+
+	private function cleanAnim():Void {
+		if (untyped anim != null) {
+			if (untyped anim.stop != null) {
+				untyped anim.stop();				
+			}
+			removeChild(anim);
+			anim.destroy();
+		}
+
 		if (box != anim) {
 			removeChild(box);
 			box.destroy();
 			box = null;
 		}
-		anim = null;
 		
+		state = null;
+		anim = null;
+		if (factory != null) {
+			untyped factory.anim = null;			
+		}
+	}
+	
+	/**
+	 * nettoyage et suppression de l'instance
+	 */
+	override public function destroy (): Void {
+		cleanAnim();
 		super.destroy();
 	}
 	

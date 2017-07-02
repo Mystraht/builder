@@ -1,32 +1,65 @@
 {
-	"gold_bag" : {
+	"gold_1" : {
 		"resource_price" : "spice",
-		"price" : 35,
+		"price" : 20,
 		"resource_product" : "gold",
-		"product" : 300
+		"product" : 5000,
+		"promotion" : 0
 	},
-	"gold_chest" : {
+	"gold_2" : {
 		"resource_price" : "spice",
-		"price" : 100,
+		"price" : 150,
 		"resource_product" : "gold",
-		"product" : 1000
+		"product" : 20000,
+		"promotion" : 20
 	},
-	"gold_mountain" : {
+	"gold_3" : {
 		"resource_price" : "spice",
-		"price" : 300,
+		"price" : 320,
 		"resource_product" : "gold",
-		"product" : 3700
+		"product" : 50000,
+		"promotion" : 40
 	},
-	"spice_refill" : {
-		"resource_price" : "gold",
-		"price" : 3,
+	"offerings_1" : {
+		"resource_price" : "spice",
+		"price" : 8,
+		"resource_product" : "offering",
+		"product" : 1500,
+		"promotion" : 0
+	},
+	"offerings_2" : {
+		"resource_price" : "spice",
+		"price" : 50,
+		"resource_product" : "offering",
+		"product" : 8000,
+		"promotion" : 20
+	},
+	"offerings_3" : {
+		"resource_price" : "spice",
+		"price" : 200,
+		"resource_product" : "offering",
+		"product" : 30000,
+		"promotion" : 40
+	},
+	"spice_1" : {
+		"resource_price" : "cash",
+		"price" : 1.99,
 		"resource_product" : "spice",
-		"product" : 3700
+		"product" : 200,
+		"promotion" : 0
 	},
-	"spice" : {
-		"resource_price" : "spice",
-		"price" : 300,
-		"resource_product" : "gold",
-		"product" : 3700
+	"spice_2" : {
+		"resource_price" : "cash",
+		"price" : 4.99,
+		"resource_product" : "spice",
+		"product" : 550,
+		"promotion" : 20
+	},
+	"spice_3" : {
+		"resource_price" : "cash",
+		"price" : 7.99,
+		"resource_product" : "spice",
+		"product" : 900,
+		"promotion" : 40
 	}
 }

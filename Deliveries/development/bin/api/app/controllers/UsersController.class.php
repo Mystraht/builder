@@ -105,8 +105,9 @@ class UsersController extends ApplicationController
 		if (!isset($params['mail'])) $params['mail'] = null;
 
 		$date = date("Y-m-d H:i:s");
+		$dateDailyreward = date("Y-m-d H:i:s", strtotime("- 9999 hour"));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO users VALUES (NULL, ?, ?, ?, NULL, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($date, $date, $params['username'], addslashes($params['mail']), 1, addslashes($params['token']), 0, $date, false, $date));
+		$request->execute(array($date, $date, $params['username'], addslashes($params['mail']), 1, addslashes($params['token']), 0, $dateDailyreward, false, $date));
 
 		$userId = $GLOBALS['app']['db']->lastInsertId();
 		$this->createUserResources($userId);
@@ -136,7 +137,13 @@ class UsersController extends ApplicationController
 
 		$resourceProduct = ResourcesController::getResourceIdByName($shopItem['resource_product']);
 		$product = $shopItem['product'];
-		
+
+
+		if ($shopItem['resource_price'] == 'cash') {
+			ResourcesController::addResource($resourceProduct, $product, $userId);;
+			return ResourcesController::getResource($userId);
+		}
+
 		if (ResourcesController::spendResource($resourcePrice, $price, $userId)) {
 			ResourcesController::addResource($resourceProduct, $product, $userId);
 			return ResourcesController::getResource($userId);
@@ -150,7 +157,7 @@ class UsersController extends ApplicationController
 		$userId = self::getUserIdByToken(addslashes($params['token']));
 		if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
 
-		$data = self::getDailyreward($userId);
+		$data = self::isDailyrewardAvailable($userId);
 
 		return json_encode([
 			'data' => $data,
@@ -208,14 +215,17 @@ class UsersController extends ApplicationController
 	 */
 	public static function isDailyrewardAvailable($userId) {
 		$sql = "SELECT last_dailyreward_used_at FROM users WHERE id = '" . $userId . "'";
-		
+		$SQLftue = "SELECT ftue_complet FROM users WHERE id = '" . $userId . "'";
+
 		$result = $GLOBALS['app']['db']->fetchAll($sql);
+		$resultFtue = $GLOBALS['app']['db']->fetchAll($SQLftue);
+
 		$lastDailyrewardUsedAt = $result[0]['last_dailyreward_used_at'];
 
 		$lastDailyrewardUsedAt = new DateTime($lastDailyrewardUsedAt);
 		$now = new DateTime();
 
-		if ($lastDailyrewardUsedAt->format('d') != $now->format('d') || ($now->getTimestamp() - $lastDailyrewardUsedAt->getTimestamp()) >= 86400) {
+		if ($lastDailyrewardUsedAt->format('d') != $now->format('d') || ($now->getTimestamp() - $lastDailyrewardUsedAt->getTimestamp()) >= 86400 || $resultFtue[0]['ftue_complet'] == 0) {
 			return true;
 		} else {
 			return false;
@@ -247,48 +257,122 @@ class UsersController extends ApplicationController
 		$userId = self::getUserIdByToken(addslashes($params['token']));
 		if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
 		
+		$totalBonusCollect = $params['bonusPesos'] + $params['bonusPimientos'] + $params['bonusOffering'];
+		
+		$lanternSettings = file_get_contents(__DIR__ . "./../../../assets/json/buildingsSettings.json", FILE_USE_INCLUDE_PATH);
+		$lanternSettings = json_decode($lanternSettings, true);
+		$lanternSettings = $lanternSettings["lanterns"];
+		
+		$lanterns = LanternsController::getLanterns($userId);
+		$maxBonus = (pow($lanternSettings['action_radius'], 2) * 3.14) * count($lanterns);
+		
+		if ($totalBonusCollect > $maxBonus) 
+			return Utils::formatErrorMessage(ERROR_PARADE_TOO_MANY_BONUS, "Too many bonus collect in the parade Bonus " . $totalBonusCollect . " MaxBonus " . $maxBonus);
+		
 		$params['hardPurchase'] = $params['hardPurchase'] == 'true';
-
+		
+		$offeringResourceId = ResourcesController::getResourceIdByName("offering");
+		$goldResourceId = ResourcesController::getResourceIdByName("gold");
+		$spiceResourceId = ResourcesController::getResourceIdByName("spice");
+		
+		
+		if ($params['hardPurchase']) {
+			if (!ResourcesController::spendResource($spiceResourceId, $this->getParadePrice(true, $userId), $userId))
+				return Utils::formatErrorMessage(ERROR_NO_MONEY, "Not enought hard currency"); 
+		} else {
+			if (!ResourcesController::spendResource($goldResourceId, $this->getParadePrice(false, $userId), $userId))
+				return Utils::formatErrorMessage(ERROR_NO_MONEY, "Not enought soft currency"); 
+		}
+		
+		$params['useHardInParade'] = $params['useHardInParade'] == 'true';
+		
+		if ($params['useHardInParade']) {
+			if (!ResourcesController::spendResource($spiceResourceId, $this->getMoreParadePrice(), $userId))
+				return Utils::formatErrorMessage(ERROR_NO_MONEY, "Not enought hard currency to use hard during parade"); 
+		}
+		
+		$quality = $this->getBonusQuality($userId);
+		
+		$goldToAdd = $params['bonusPesos'] * $this->getBonusValue('pesos', $quality);
+		$spiceToAdd = $params['bonusPimientos'] * $this->getBonusValue('pimientos', $quality);
+		$offeringToAdd = $params['bonusOffering'] * $this->getBonusValue('offerings', $quality);
+		
+		ResourcesController::addResource($offeringResourceId, $offeringToAdd, $userId);
+		ResourcesController::addResource($goldResourceId, $goldToAdd, $userId);
+		ResourcesController::addResource($spiceResourceId, $spiceToAdd, $userId);
+		
+		ResourcesController::addResource($offeringResourceId, $this->getParadeDefaultGain($userId), $userId);
+		
+		//Update last parade
+		$sql = "UPDATE users
+				SET last_parade_at = NOW()
+				WHERE id = '" . $userId . "'";
+		$result = $GLOBALS['app']['db']->exec($sql);
+		
+		return ResourcesController::getResource($userId);
+	}
+	
+	public function getParadeDefaultGain ($userId) {
 		$paradeSettings = file_get_contents(__DIR__ . "./../../../assets/json/paradeSettings.json", FILE_USE_INCLUDE_PATH);
 		$paradeSettings = json_decode($paradeSettings, true);
-
-		$lanterns = LanternsController::getLanterns($userId);
-		$maxBonus = $paradeSettings['generatedBonusCountPerLanterns'] * count($lanterns);
 		
-		if ($params['bonusHarvested'] > $maxBonus) return Utils::formatErrorMessage(ERROR_BONUS_SENT_TOO_BIG, "Bonus sent is too big");
-
-		$offeringResourceId = ResourcesController::getResourceIdByName("offering");
-
-		if (!$params['hardPurchase']) {
-			$sql = "SELECT last_parade_at FROM users WHERE id = '" . $userId . "'";
-			
-			$result = $GLOBALS['app']['db']->fetchAll($sql);
-
-			$lastParadeAt = new DateTime($result[0]['last_parade_at']);
-			$now = new DateTime();
-
-			// Verification de si la parade n'a pas eu lieu aujourd'hui
-			if ($lastParadeAt->format('d') != $now->format('d') || ($now->getTimestamp() - $lastParadeAt->getTimestamp()) >= 86400) {
-				$sql = "UPDATE users
-						SET last_parade_at = NOW()
-						WHERE id = '" . $userId . "'";
-				
-				$result = $GLOBALS['app']['db']->exec($sql);
-				$goldGained = $this->convertBonusToGold($params['bonusHarvested'], $paradeSettings, $userId);
-				ResourcesController::addResource($offeringResourceId, $goldGained, $userId);
-			} else {
-				return Utils::formatErrorMessage(ERROR_PARADE_ALREADY_LAUNCH, "Parade already launched today");
-			}
-		} else {
-			$resourceId = ResourcesController::getResourceIdByName("spice");
-			if (ResourcesController::spendResource($resourceId, $paradeSettings['paradeHardPrice'], $userId)) {
-				$goldGained = $this->convertBonusToGold($params['bonusHarvested'], $paradeSettings, $userId);
-				ResourcesController::addResource($offeringResourceId, $goldGained, $userId);
-			} else {
-				return Utils::formatErrorMessage(ERROR_NO_MONEY, "Not enought spice");
-			}
-		}
-		return ResourcesController::getResource($userId);
+		$sql = "SELECT lvl FROM building_city_hall WHERE user_id = '" . $userId . "'";
+		$result = $GLOBALS['app']['db']->fetchAll($sql);
+		$mainBuildingLevel = $result[0]["lvl"];
+		
+		$mainBuildingLevel = ceil($mainBuildingLevel / 5) * 5;
+		
+		return $paradeSettings["main_building"][strval($mainBuildingLevel)]["default_gain"];
+	}
+	
+	public function getBonusQuality ($userId) {
+		$paradeSettings = file_get_contents(__DIR__ . "./../../../assets/json/paradeSettings.json", FILE_USE_INCLUDE_PATH);
+		$paradeSettings = json_decode($paradeSettings, true);
+		
+		$sql = "SELECT * FROM building_city_hall WHERE user_id = '" . $userId . "'";
+		$result = $GLOBALS['app']['db']->fetchAll($sql);
+		$mainBuildingLevel = $result[0]["lvl"];
+		
+		$mainBuildingLevel = ceil($mainBuildingLevel / 10) * 10;
+		
+		return $paradeSettings["bonus_quality"][strval($mainBuildingLevel)];
+	}
+	
+	public function getBonusValue ($bonusName, $quality) {
+		$paradeSettings = file_get_contents(__DIR__ . "./../../../assets/json/paradeSettings.json", FILE_USE_INCLUDE_PATH);
+		$paradeSettings = json_decode($paradeSettings, true);
+		
+		$baseValue = $paradeSettings["base_value"][$bonusName];
+		
+		return round($baseValue * $quality, 1);
+	}
+	
+	/**
+	 * Recupère le prix pour augmenter le temps d'une parade
+	*/
+	public function getMoreParadePrice () {
+		return 3;
+	}
+	
+	/**
+	 * Recupère le prix d'une parade
+	 * @param hard
+	*/
+	public function getParadePrice ($hard, $userId) {
+		$paradeSettings = file_get_contents(__DIR__ . "./../../../assets/json/paradeSettings.json", FILE_USE_INCLUDE_PATH);
+		$paradeSettings = json_decode($paradeSettings, true);
+		
+		$sql = "SELECT lvl FROM building_city_hall WHERE user_id = '" . $userId . "'";
+		$result = $GLOBALS['app']['db']->fetchAll($sql);
+		$mainBuildingLevel = $result[0]["lvl"];
+		
+		$mainBuildingLevel = ceil($mainBuildingLevel / 5) * 5;
+		
+		$paradeSettingsInCurrentLevel = $paradeSettings["main_building"][strval($mainBuildingLevel)];
+		
+		if ($hard) return $paradeSettingsInCurrentLevel["price_hard"];
+		else return $paradeSettingsInCurrentLevel["price_soft"];
+		
 	}
 
 	/**
@@ -300,10 +384,6 @@ class UsersController extends ApplicationController
 		$paradeSettings = file_get_contents(__DIR__ . "./../../../assets/json/paradeSettings.json", FILE_USE_INCLUDE_PATH);
 		$paradeSettings = json_decode($paradeSettings, true);
 		$buildingsSettings = BuildingsController::getSettings();
-		
-		$sql = "SELECT lvl FROM building_city_hall WHERE user_id = '" . $userId . "'";
-		$result = $GLOBALS['app']['db']->fetchAll($sql);
-		$mainBuildingLevel = $result[0]["lvl"];
 		
 		$goldPerBonus = $paradeSettings['goldPerBonus'] + $paradeSettings['goldPerBonus'] * ($paradeSettings['goldMultiplierByMainBuilding'] * $mainBuildingLevel);
 		$goldIncremented = $paradeSettings['goldIncremented'] + $paradeSettings['goldIncremented'] * ($paradeSettings['goldMultiplierByMainBuilding'] * $mainBuildingLevel);
@@ -357,12 +437,12 @@ class UsersController extends ApplicationController
 		return Utils::successMessage();
 	}
 
-	public function experience($params) {
+	public function experience($params) {		
 		$userId = self::getUserIdByToken(addslashes($params['token']));
 		if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
-
+		
 		$data = self::getExperience($userId);
-
+		
 		return json_encode([
 			'data' => $data,
 			'error' => false,
@@ -377,12 +457,84 @@ class UsersController extends ApplicationController
 		$result = $GLOBALS['app']['db']->fetchAll($sql);
 		return $result[0]['experience'];
 	}
+	
+	public static function addExperience($experienceToAdd, $userId) {		
+		$currentExperience = self::getExperience($userId);
+		
+		$currentLevel = self::getCurrentLevel($currentExperience);
+		
+		$levelMultiplicator = self::getLevelMultiplicator($currentExperience);
+		
+		for ($i = 0; $i < $levelMultiplicator - 1; $i++) $experienceToAdd *= 2;
+		
+		$newExperience = $currentExperience + $experienceToAdd;
+		
+		$sql = "UPDATE users
+				SET experience = " . $newExperience . ",
+				updated_at = NOW()
+				WHERE id = '" . $userId . "'";			
+			
+		$result = $GLOBALS['app']['db']->exec($sql);
+		
+		$newCurrentLevel = self::getCurrentLevel($newExperience);
+		
+		if ($newCurrentLevel > $currentLevel) self::addGiftLevelReward($userId, $newCurrentLevel);
+		
+		//self::addGiftLevelReward($userId, $newCurrentLevel);
+	}
+	
+	private static function addGiftLevelReward ($userId, $level)
+	{
+		$levelRewardSettings = file_get_contents(__DIR__ . "./../../../assets/json/levelReward.json", FILE_USE_INCLUDE_PATH);
+		$levelRewardSettings = json_decode($levelRewardSettings, true);
+		$levelRewardSettings = $levelRewardSettings[$level];
+		
+		$resourceId = ResourcesController::getResourceIdByName("gold");
+		ResourcesController::addResource($resourceId, $levelRewardSettings["gold"], $userId);
+		
+		$resourceId = ResourcesController::getResourceIdByName("spice");
+		ResourcesController::addResource($resourceId, $levelRewardSettings["pimientos"], $userId);
+		
+	}
+
+	private static function getLevelMultiplicator ($currentExperience) {
+		$xpSettings = file_get_contents(__DIR__ . "./../../../assets/json/XP.json", FILE_USE_INCLUDE_PATH);
+		$xpSettings = json_decode($xpSettings, true);
+		$xpSettings = $xpSettings["levels"];
+		
+		for ($i = 0; $i < count($xpSettings); $i++) {
+			if ($xpSettings[$i] > $currentExperience) return ceil($i / 10);
+		}
+		
+		return 10;
+	}
+	
+	private static function getCurrentLevel ($currentExperience) {
+		$xpSettings = file_get_contents(__DIR__ . "./../../../assets/json/XP.json", FILE_USE_INCLUDE_PATH);
+		$xpSettings = json_decode($xpSettings, true);
+		$xpSettings = $xpSettings["levels"];
+		
+		for ($i = 0; $i < count($xpSettings); $i++) {
+			if ($xpSettings[$i] > $currentExperience) return $i;
+		}
+		
+		return 100;
+	}
 
 	public function destroy($params)
 	{
 		$userId = self::getUserIdByToken(addslashes($params['token']));
 
 		if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
+
+		$request = $GLOBALS['app']['db']->prepare('DELETE FROM building_users WHERE user_id="' . $userId . '";');
+		$request->execute();
+
+		$request = $GLOBALS['app']['db']->prepare('DELETE FROM lantern_users WHERE user_id="' . $userId . '";');
+		$request->execute();
+
+		$request = $GLOBALS['app']['db']->prepare('DELETE FROM resource_users WHERE user_id="' . $userId . '";');
+		$request->execute();
 
 		$request = $GLOBALS['app']['db']->prepare('DELETE FROM users WHERE id="' . $userId . '";');
 		$request->execute();
@@ -413,109 +565,21 @@ class UsersController extends ApplicationController
 	 * Créer les batiments de bases pour un utilisateurs
 	 */
 	private function createBasemap($userId) {
-		$date = date("Y-m-d H:i:s");
+		$date = date("Y-m-d H:i:s", strtotime("- 9999 hour"));
 		$lvl = 1;
-		
-		$pinataReady = date("Y-m-d H:i:s");
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_temple VALUES (NULL, ?, ?)');
-		$request->execute(array($userId, $pinataReady));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 1, $GLOBALS['app']['db']->lastInsertId(), 5, 5, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_pyrotechnician VALUES (NULL, ?, ?, ?)');
-		$request->execute(array($userId, $lvl, $date));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 2, $GLOBALS['app']['db']->lastInsertId(), 45, 42, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_bar VALUES (NULL, ?, ?, ?)');
-		$request->execute(array($userId, $lvl, $date));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 4, $GLOBALS['app']['db']->lastInsertId(), 2, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_brothel VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 5, $GLOBALS['app']['db']->lastInsertId(), 45, 50, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_rocket_factory VALUES (NULL, ?, ?, ?)');
-		$request->execute(array($userId, $lvl, $date));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 6, $GLOBALS['app']['db']->lastInsertId(), 4, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_house VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 7, $GLOBALS['app']['db']->lastInsertId(), 50, 55, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_main_square VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 8, $GLOBALS['app']['db']->lastInsertId(), 6, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_park VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 9, $GLOBALS['app']['db']->lastInsertId(), 58, 58, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_statue VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 10, $GLOBALS['app']['db']->lastInsertId(), 8, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_big_flower_pot VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 11, $GLOBALS['app']['db']->lastInsertId(), 9, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_floating_flower VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 12, $GLOBALS['app']['db']->lastInsertId(),10, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_gift_shop VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 13, $GLOBALS['app']['db']->lastInsertId(), 11, 0, $date, 'A'));
 		
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_city_hall VALUES (NULL, ?, ?, ?)');
 		$request->execute(array($userId, $lvl, $date));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 14, $GLOBALS['app']['db']->lastInsertId(), 12, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_church VALUES (NULL, ?, ?, ?)');
-		$request->execute(array($userId, $lvl, $date));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 15, $GLOBALS['app']['db']->lastInsertId(), 13, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_cantina VALUES (NULL, ?, ?, ?)');
-		$request->execute(array($userId, $lvl, $date));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 16, $GLOBALS['app']['db']->lastInsertId(), 14, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_harbor VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 17, $GLOBALS['app']['db']->lastInsertId(), 15, 0, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_altar VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 18, $GLOBALS['app']['db']->lastInsertId(), 60, 52, $date, 'A'));
-		
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 48, 52, $date, 'A'));
+		$request->execute(array($userId, $date, $date, 14, $GLOBALS['app']['db']->lastInsertId(), 47, 49, $date, 'A'));
 
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
+		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_main_square VALUES (NULL, ?)');
 		$request->execute(array($userId));
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 50, 52, $date, 'A'));
-
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_motel VALUES (NULL, ?)');
-		$request->execute(array($userId));
-		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-		$request->execute(array($userId, $date, $date, 3, $GLOBALS['app']['db']->lastInsertId(), 52, 52, $date, 'A'));
+		$request->execute(array($userId, $date, $date, 8, $GLOBALS['app']['db']->lastInsertId(), 50, 55, $date, 'A'));
+		
+		$request = $GLOBALS['app']['db']->prepare('INSERT INTO lantern_users VALUES (NULL, ?, ?, ?, ?, ?)');
+		$request->execute(array($userId, $date, $date, 50, 50));
 	}
 
 }

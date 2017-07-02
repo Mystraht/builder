@@ -1,10 +1,5 @@
 package com.isartdigital.builder.ui.hud;
-import com.isartdigital.builder.game.manager.RessourceManager;
-import com.isartdigital.builder.game.manager.Ressources;
-import com.isartdigital.utils.game.factory.FlumpMovieAnimFactory;
-import com.isartdigital.utils.game.StateGraphic;
-import com.isartdigital.utils.ui.UIAsset;
-import com.isartdigital.utils.ui.UIComponent;
+import Std;
 import pixi.core.text.Text;
 
 /**
@@ -13,15 +8,29 @@ import pixi.core.text.Text;
  */
 class GoldCurrency extends CurrencyAsset
 {
+	public var goldText:Text;
+
 
 	public function new() 
 	{
 		super();
-		RessourceManager.getInstance().updateGold = changeCount;
+		build();
+
+		setVariablesFromChild();
 	}
 	
-	override public function changeCount(pNumber:Int) {
-		super.changeCount(pNumber);
-		cast(getChildByName("Gold_txt"), Text).text = cast (pNumber);
+	private function setVariablesFromChild () : Void {
+		goldText = cast(getChildByName("Gold_txt"), Text);
+	}
+	
+	public function changeDisplayTextValue(number:Int) {
+		goldText.text = Std.string(number);
+	}
+	
+	override public function destroy():Void 
+	{
+		goldText.destroy();
+		goldText = null;
+		super.destroy();
 	}
 }

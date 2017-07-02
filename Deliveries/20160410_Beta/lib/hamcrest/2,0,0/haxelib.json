@@ -1,0 +1,22 @@
+{
+	"name": "hamcrest",
+	"license": "BSD",
+	"tags": [
+	"cross",
+	"unit",
+	"unittest",
+	"test",
+	"matchers"
+],
+	"description": "A library of Matchers (also known as constraints or predicates) allowing 'match' rules to be defined declaratively, to be used in other frameworks. Typical scenarios include testing frameworks, mocking libraries and UI validation rules.",
+	"contributors": [
+	"mikestead"
+],
+	"releasenote": "Add Matchers and CoreMatchers. Improve api of MatcherAssert",
+	"version": "2.0.0",
+	"url": "https://github.com/mikestead/hamcrest-haxe",
+	"dependencies": 
+	{
+
+	}
+}

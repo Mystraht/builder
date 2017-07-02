@@ -1,7 +1,16 @@
 package com.isartdigital.builder.ui;
+
+import com.isartdigital.builder.game.ftue.Ftue;
+import com.isartdigital.utils.Debug;
+import pixi.core.graphics.Graphics;
+import com.isartdigital.utils.game.iso.IsoManager;
+import pixi.core.math.Point;
+import haxe.Json;
+import com.isartdigital.builder.api.Api;
 import com.isartdigital.utils.Config;
-import com.isartdigital.utils.game.Camera;
 import dat.gui.GUI;
+import com.isartdigital.utils.system.DeviceCapabilities;
+import js.Browser;
 
 	
 /**
@@ -12,7 +21,6 @@ import dat.gui.GUI;
  */
 class CheatPanel 
 {
-	
 	/**
 	 * instance unique de la classe CheatPanel
 	 */
@@ -41,7 +49,7 @@ class CheatPanel
 	}
 	
 	private function init():Void {
-		if (Config.debug && Config.data.cheat) gui = new GUI();
+		if (Config.debug && Config.data.cheat && !DeviceCapabilities.isCocoonJS) gui = new GUI();
 	}
 	
 	// exemple de méthode configurant le panneau de cheat suivant le contexte
@@ -49,12 +57,28 @@ class CheatPanel
 		// ATTENTION: toujours intégrer cette ligne dans chacune de vos méthodes pour ignorer le reste du code si le CheatPanel doit être désactivé
 		if (gui == null) return;
 		
-		var lCamera:GUI = gui.addFolder("Camera");
-		lCamera.open();
-		lCamera.add(Camera.getInstance(), "speedLimite", 0, 100).listen();
-		lCamera.add(Camera.getInstance(), "inertiaMax", 0, 100).listen();
-		lCamera.add(Camera.getInstance(), "inertiaMin", 0, 100).listen();
-		
+		var debugGUI:GUI = gui.addFolder("Debugg");
+		debugGUI.add( { destroyAccount:function() {
+			Browser.getLocalStorage().removeItem(Ftue.LOCALSTORAGE_STEP_KEY);
+			Api.user.destroy(function (result:String):Void {
+				Browser.location.reload();
+			}); 
+		}}, 'destroyAccount');
+
+		debugGUI.add(untyped Debug, 'debugPositionOnClick').listen();
+		debugGUI.add(untyped Debug, 'debugIlluminateTileAtClick').listen();
+
+		debugGUI.add( { getAllLanternPosition:function() {
+			var positions:Array<Point> = [];
+			var debugPointToRemove:Graphics;
+			for (debugPoint in Debug.debugPointsList) {
+				positions.push(IsoManager.isoToModelView(debugPoint.position, true));
+			}
+			debugPointToRemove = Debug.debugPointsList.pop();
+			debugPointToRemove.parent.removeChild(debugPointToRemove);
+			positions.pop();
+			trace(Json.stringify(positions));
+		}}, 'getAllLanternPosition');
 	}
 	
 	/**

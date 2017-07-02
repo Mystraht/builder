@@ -1,0 +1,803 @@
+{
+ "movies": [
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        169.95,
+        283.6
+       ],
+       "tweened": false,
+       "ref": "_citizenG_back_left",
+       "duration": 1
+      },
+      {
+       "index": 1,
+       "pivot": [
+        162.2,
+        284.55
+       ],
+       "tweened": false,
+       "ref": "_citizenG_top_right",
+       "duration": 1
+      },
+      {
+       "index": 2,
+       "pivot": [
+        171.7,
+        289.5
+       ],
+       "tweened": false,
+       "ref": "_citizenG_left",
+       "duration": 1
+      },
+      {
+       "index": 3,
+       "pivot": [
+        134,
+        265.2
+       ],
+       "tweened": false,
+       "ref": "_citizenG_back",
+       "duration": 1
+      },
+      {
+       "index": 4,
+       "pivot": [
+        137.4,
+        283.2
+       ],
+       "tweened": false,
+       "ref": "_citizenG_top",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "CitizenA"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        151.3,
+        217.45
+       ],
+       "tweened": false,
+       "ref": "_citizen1_back_right",
+       "duration": 1
+      },
+      {
+       "index": 1,
+       "pivot": [
+        158.5,
+        224
+       ],
+       "tweened": false,
+       "ref": "_citizen1_front_right",
+       "duration": 1
+      },
+      {
+       "index": 2,
+       "pivot": [
+        153.2,
+        232.9
+       ],
+       "tweened": false,
+       "ref": "citizenB_left",
+       "duration": 1
+      },
+      {
+       "index": 3,
+       "pivot": [
+        143,
+        164.5
+       ],
+       "tweened": false,
+       "ref": "citizenB_bot",
+       "duration": 1
+      },
+      {
+       "index": 4,
+       "pivot": [
+        146,
+        149.5
+       ],
+       "tweened": false,
+       "ref": "citizenB_top",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "CitizenB"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        160,
+        222
+       ],
+       "tweened": false,
+       "ref": "_citizenC_left_down",
+       "duration": 1
+      },
+      {
+       "index": 1,
+       "pivot": [
+        168,
+        224
+       ],
+       "tweened": false,
+       "ref": "_citizenC_left_top",
+       "duration": 1
+      },
+      {
+       "index": 2,
+       "pivot": [
+        150.1,
+        240.95
+       ],
+       "tweened": false,
+       "ref": "_citizenC_left",
+       "duration": 1
+      },
+      {
+       "index": 3,
+       "pivot": [
+        142.3,
+        158.85
+       ],
+       "tweened": false,
+       "ref": "_citizenC_bot",
+       "duration": 1
+      },
+      {
+       "index": 4,
+       "pivot": [
+        142.1,
+        154.25
+       ],
+       "tweened": false,
+       "ref": "_citizenC_top",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "CitizenC"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        167.2,
+        220.5
+       ],
+       "tweened": false,
+       "ref": "_citizenD_left_down",
+       "duration": 1
+      },
+      {
+       "index": 1,
+       "pivot": [
+        171.95,
+        226.85
+       ],
+       "tweened": false,
+       "ref": "_citizenD_left_top",
+       "duration": 1
+      },
+      {
+       "index": 2,
+       "pivot": [
+        155,
+        231.5
+       ],
+       "tweened": false,
+       "ref": "citizenD_left",
+       "duration": 1
+      },
+      {
+       "index": 3,
+       "pivot": [
+        144.7,
+        154.6
+       ],
+       "tweened": false,
+       "ref": "citizenD_bot",
+       "duration": 1
+      },
+      {
+       "index": 4,
+       "pivot": [
+        143.95,
+        155.95
+       ],
+       "tweened": false,
+       "ref": "citizenD_top",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "CitizenD"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        164.75,
+        218.5
+       ],
+       "tweened": false,
+       "ref": "_citizenE_left_down",
+       "duration": 1
+      },
+      {
+       "index": 1,
+       "pivot": [
+        166,
+        222.25
+       ],
+       "tweened": false,
+       "ref": "_citizenE_left_top",
+       "duration": 1
+      },
+      {
+       "index": 2,
+       "pivot": [
+        157.95,
+        235.15
+       ],
+       "tweened": false,
+       "ref": "citizenE_left",
+       "duration": 1
+      },
+      {
+       "index": 3,
+       "pivot": [
+        140.25,
+        166.25
+       ],
+       "tweened": false,
+       "ref": "citizenE_bot",
+       "duration": 1
+      },
+      {
+       "index": 4,
+       "pivot": [
+        145,
+        166.9
+       ],
+       "tweened": false,
+       "ref": "citizenE_top",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "CitizenE"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        176.15,
+        204.6
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "_citizenF_back_right",
+       "loc": [
+        0,
+        -0.05
+       ]
+      },
+      {
+       "index": 1,
+       "pivot": [
+        161.25,
+        185.9
+       ],
+       "tweened": false,
+       "ref": "_citizenF_left",
+       "duration": 1
+      },
+      {
+       "pivot": [
+        156,
+        185.9
+       ],
+       "duration": 1,
+       "index": 2,
+       "tweened": false,
+       "ref": "_citizenF_right",
+       "loc": [
+        0,
+        0.45
+       ]
+      },
+      {
+       "index": 3,
+       "pivot": [
+        59,
+        136
+       ],
+       "tweened": false,
+       "ref": "_citizenF_back_left",
+       "duration": 1
+      },
+      {
+       "index": 4,
+       "pivot": [
+        196,
+        184.5
+       ],
+       "tweened": false,
+       "ref": "_citizenF_top",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "CitizenF"
+  }
+ ],
+ "md5": "b0566c47230080ab2b10592f12362b8e",
+ "frameRate": 1,
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "rect": [
+        1,
+        1,
+        329,
+        410
+       ],
+       "symbol": "_citizenG_top_right",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1,
+        413,
+        329,
+        410
+       ],
+       "symbol": "_citizenG_left",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1,
+        825,
+        312,
+        410
+       ],
+       "symbol": "_citizenG_back_left",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1,
+        1237,
+        272,
+        410
+       ],
+       "symbol": "_citizenG_back",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        275,
+        1237,
+        272,
+        410
+       ],
+       "symbol": "_citizenG_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        315,
+        825,
+        312,
+        309
+       ],
+       "symbol": "_citizen1_front_right",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1,
+        1649,
+        312,
+        309
+       ],
+       "symbol": "citizenD_left",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        315,
+        1649,
+        312,
+        309
+       ],
+       "symbol": "citizenB_bot",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        549,
+        1136,
+        312,
+        309
+       ],
+       "symbol": "citizenB_left",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        629,
+        1447,
+        312,
+        309
+       ],
+       "symbol": "citizenB_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        332,
+        1,
+        312,
+        309
+       ],
+       "symbol": "_citizenC_bot",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        332,
+        312,
+        312,
+        309
+       ],
+       "symbol": "_citizenC_left",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        629,
+        623,
+        312,
+        309
+       ],
+       "symbol": "_citizenC_left_down",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        863,
+        934,
+        312,
+        309
+       ],
+       "symbol": "_citizenC_left_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        646,
+        1,
+        312,
+        309
+       ],
+       "symbol": "_citizenC_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        646,
+        312,
+        312,
+        309
+       ],
+       "symbol": "citizenD_bot",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        943,
+        623,
+        312,
+        309
+       ],
+       "symbol": "_citizen1_back_right",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        960,
+        1,
+        312,
+        309
+       ],
+       "symbol": "_citizenD_left_down",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        960,
+        312,
+        312,
+        309
+       ],
+       "symbol": "_citizenD_left_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        943,
+        1245,
+        312,
+        309
+       ],
+       "symbol": "citizenD_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1177,
+        934,
+        312,
+        309
+       ],
+       "symbol": "citizenE_bot",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1257,
+        623,
+        312,
+        309
+       ],
+       "symbol": "citizenE_left",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1274,
+        1,
+        312,
+        309
+       ],
+       "symbol": "_citizenE_left_down",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1274,
+        312,
+        312,
+        309
+       ],
+       "symbol": "_citizenE_left_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        943,
+        1556,
+        312,
+        309
+       ],
+       "symbol": "citizenE_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1491,
+        934,
+        312,
+        309
+       ],
+       "symbol": "_citizenF_back",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1571,
+        623,
+        312,
+        309
+       ],
+       "symbol": "_citizenF_left_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1588,
+        1,
+        312,
+        309
+       ],
+       "symbol": "_citizenF_back_right",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1588,
+        312,
+        312,
+        309
+       ],
+       "symbol": "_citizenF_left",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1257,
+        1245,
+        312,
+        309
+       ],
+       "symbol": "_citizenF_right",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1571,
+        1245,
+        312,
+        309
+       ],
+       "symbol": "_citizenF_top",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        629,
+        934,
+        178,
+        192
+       ],
+       "symbol": "_citizenF_back_left",
+       "origin": [
+        0,
+        0
+       ]
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ]
+}

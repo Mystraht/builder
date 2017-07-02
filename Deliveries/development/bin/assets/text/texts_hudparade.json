@@ -1,0 +1,54 @@
+{
+	"timerParade_txt": {
+		"height": 89.45,
+		"x": 0,
+		"color": 16374348,
+		"font": "Blissful Thinking",
+		"y": 0,
+		"text": "1234",
+		"bold": false,
+		"align": "center",
+		"size": 70,
+		"width": 148.45,
+		"italic": false
+	},
+	"Pimientos_txt": {
+		"height": 67.45,
+		"x": 0,
+		"color": 16374348,
+		"font": "Blissful Thinking",
+		"y": 0,
+		"text": "12345",
+		"bold": false,
+		"align": "center",
+		"size": 52,
+		"width": 97,
+		"italic": false
+	},
+	"Pesos_txt": {
+		"height": 67.45,
+		"x": 0,
+		"color": 16374348,
+		"font": "Blissful Thinking",
+		"y": 0,
+		"text": "11111",
+		"bold": false,
+		"align": "center",
+		"size": 52,
+		"width": 97.25,
+		"italic": false
+	},
+	"Offering_txt": {
+		"height": 67.45,
+		"x": 0,
+		"color": 16374348,
+		"font": "Blissful Thinking",
+		"y": 0,
+		"text": "12334",
+		"bold": false,
+		"align": "center",
+		"size": 52,
+		"width": 97,
+		"italic": false
+	}
+}

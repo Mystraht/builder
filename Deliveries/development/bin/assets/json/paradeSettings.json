@@ -1,7 +1,42 @@
 {
-    "generatedBonusCountPerLanterns": 10,
-    "paradeHardPrice": 10,
-    "goldPerBonus": 10,
-    "goldIncremented": 2,
-    "goldMultiplierByMainBuilding": 0.2
+	"main_building": {
+		"5": {
+			"price_soft": 1000,
+			"price_hard": 12,
+			"time": 30,
+			"default_gain": 50
+		},
+		"10": {
+			"price_soft": 2000,
+			"price_hard": 25,
+			"time": 30,
+			"default_gain": 150
+		},
+		"15": {
+			"price_soft": 5000,
+			"price_hard": 40,
+			"time": 35,
+			"default_gain": 300
+		},
+		"20": {
+			"price_soft": 14000,
+			"price_hard": 7,
+			"time": 40,
+			"default_gain": 500
+		}
+	},
+	"spawn_rate": {
+		"pesos": 24,
+		"offerings": 75,
+		"pimientos": 1
+	},
+	"base_value": {
+		"pesos": 200,
+		"offerings": 50,
+		"pimientos": 1
+	},
+	"bonus_quality": {
+		"10": 1,
+		"20": 2
+	}
 }

@@ -1,0 +1,72 @@
+{
+	"main_building": {
+		"5": {
+			"price_soft": 3000,
+			"price_hard": 2,
+			"time": 60,
+			"default_gain": 15
+		},
+		"15": {
+			"price_soft": 10000,
+			"price_hard": 5,
+			"time": 65,
+			"default_gain": 50
+		},
+		"30": {
+			"price_soft": 30000,
+			"price_hard": 15,
+			"time": 75,
+			"default_gain": 150
+		},
+		"40": {
+			"price_soft": 75000,
+			"price_hard": 37,
+			"time": 80,
+			"default_gain": 375
+		},
+		"55": {
+			"price_soft": 150000,
+			"price_hard": 75,
+			"time": 90,
+			"default_gain": 750
+		},
+		"65": {
+			"price_soft": 350000,
+			"price_hard": 175,
+			"time": 95,
+			"default_gain": 1750
+		},
+		"80": {
+			"price_soft": 750000,
+			"price_hard": 675,
+			"time": 105,
+			"default_gain": 3750
+		},
+		"90": {
+			"price_soft": 1200000,
+			"price_hard": 600,
+			"time": 110,
+			"default_gain": 6000
+		},
+		"100": {
+			"price_soft": 2000000,
+			"price_hard": 1000,
+			"time": 120,
+			"default_gain": 10000
+		}
+	},
+	"spawn_rate": {
+		"pesos": 15,
+		"offerings": 80,
+		"pimientos": 5
+	},
+	"base_value": {
+		"pesos": 15,
+		"offerings": 80,
+		"pimientos": 5
+	},
+	"bonus_quality": {
+		"10": 0.2,
+		"20": 0.5
+	}
+}

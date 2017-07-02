@@ -1,5 +1,4 @@
 package com.isartdigital.utils.game;
-import com.isartdigital.builder.game.def.TileSavedDef;
 
 /**
  * Interface permettant à des classes d'implémenter le modèle Machine à état en respectant les convention de la structure

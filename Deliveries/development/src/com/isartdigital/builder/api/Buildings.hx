@@ -1,7 +1,8 @@
 package com.isartdigital.builder.api;
+
 import haxe.Http;
 
-	
+
 /**
  * ...
  * @author Dorian
@@ -42,59 +43,62 @@ class Buildings
 	
 	
 	public function getAllBuildings(pCallBack:String->Void):Void {
-		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + buildingsPath, { token: Api.token }));
+		var request = new Http(ApiUtils.formatPath(Api.domain + Api.pathApi + buildingsPath, { token: Api.token }));
 		
 		request.onData = pCallBack;
 		request.request(false);
 	}
 	
-	public function create(pBuilding:String, pX:Int, pY:Int, pCallBack:String->Void) {
-		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + buildingsPath + "/" + pBuilding + createPath , { token: Api.token, x: pX, y: pY }));
+	public function create(pBuilding:String, pX:Int, pY:Int, hardBought:Bool) {
+		var hardBoughtToString:String;
+		hardBoughtToString = hardBought ? 'true' : 'false';
 
-		request.onData = pCallBack;
+		var request = new Http(ApiUtils.formatPath(Api.domain + Api.pathApi + buildingsPath + "/" + pBuilding + createPath , { token: Api.token, x: pX, y: pY, hard: hardBoughtToString }));
+		
+		request.onData = ApiUtils.updateUserDataWithRequestResult;
+		
 		request.request(true);
 	}
 	
-	public function upgrade(pX:Int, pY:Int,pCallBack:String->Void):Void {
-		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + buildingsPath + upgradePath, { token: Api.token, x: pX, y: pY }));
+	public function upgrade(pX:Int, pY:Int):Void {
+		var request = new Http(ApiUtils.formatPath(Api.domain + Api.pathApi + buildingsPath + upgradePath, { token: Api.token, x: pX, y: pY }));
 		
-		request.onData = pCallBack;
+		request.onData = ApiUtils.updateUserDataWithRequestResult;
 		request.request(true);
 	}
 	
-	public function collect(pX:Int, pY:Int,pCallBack:String->Void):Void {
-		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + buildingsPath + collectPath, { token: Api.token, x: pX, y: pY }));
-		
-		request.onData = pCallBack;
+	public function collect(pX:Int, pY:Int):Void {
+		var request = new Http(ApiUtils.formatPath(Api.domain + Api.pathApi + buildingsPath + collectPath, { token: Api.token, x: pX, y: pY }));
+
+		request.onData = ApiUtils.updateUserDataWithRequestResult;
 		request.request(true);
 	}
 	
 	public function move(pX_start:Int, pY_start:Int, pX_end:Int, pY_end:Int, pCallBack:String->Void):Void {
-		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + buildingsPath + movePath, { token: Api.token, x_start: pX_start, y_start: pY_start, x_end: pX_end, y_end: pY_end }));
+		var request = new Http(ApiUtils.formatPath(Api.domain + Api.pathApi + buildingsPath + movePath, { token: Api.token, x_start: pX_start, y_start: pY_start, x_end: pX_end, y_end: pY_end }));
 		
 		request.onData = pCallBack;
 		request.request(true);
 	}
 	
-	public function hardBuild(pX:Int, pY:Int, pCallBack:String->Void ):Void {
-		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + buildingsPath + hardBuildPath , { token: Api.token, x: pX, y: pY }));
+	public function hardBuild(pX:Int, pY:Int):Void {
+		var request = new Http(ApiUtils.formatPath(Api.domain + Api.pathApi + buildingsPath + hardBuildPath , { token: Api.token, x: pX, y: pY }));
 		
-		request.onData = pCallBack;
+		request.onData = ApiUtils.updateUserDataWithRequestResult;
 		request.request(true);
 	}
 	
 	public function changeColor(pColor:String, pX:Int, pY:Int, pCallBack:String->Void ):Void {
-		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + buildingsPath + changeColorPath , { token: Api.token, color: pColor, x: pX, y: pY }));
+		var request = new Http(ApiUtils.formatPath(Api.domain + Api.pathApi + buildingsPath + changeColorPath , { token: Api.token, color: pColor, x: pX, y: pY }));
 		
 		request.onData = pCallBack;
 		request.request(true);
 	}
 
 	public function destroy(pX:Int, pY:Int, pCallBack:String->Void ):Void {
-		var request = new Http(Utils.formatPath(Api.domain + Api.pathApi + buildingsPath + destroyPath , { token: Api.token, x: pX, y: pY }));
+		var request = new Http(ApiUtils.formatPath(Api.domain + Api.pathApi + buildingsPath + destroyPath , { token: Api.token, x: pX, y: pY }));
 		
 		request.onData = pCallBack;
 		request.request(true);
 	}
-
 }

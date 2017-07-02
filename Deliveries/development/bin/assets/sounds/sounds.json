@@ -1,12 +1,24 @@
 {
-	"extensions": ["mp3","ogg"],
+	"extensions": ["ogg"],
 	
 	"fxs":
 		{
-			"click":100			
+			"button001":100,
+			"building_water":100,
+			"buy":100,
+			"fireworks_1":100,
+			"fireworks_2":100,
+			"harvest_1_original":50,
+			"punch1": 100,
+			"punch2": 100,
+			"punch4": 100,
+			"punch5": 100,
+			"punch6": 100,
+			"pinata": 100
 		},
 	"musics":
 		{
-			
+			"musique":100,
+			"parade_1":100	
 		}
 }

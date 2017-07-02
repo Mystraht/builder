@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/Deliveries/development/bin/Builder.js" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="Haxe 3.2.1" project-jdk-type="Haxe toolkit">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/20160202_Assets_Wireframe1-2/Shop/Bâtiment">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/20160202_Assets_Wireframe1-2/Shop/B%C3%A2timent" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/20160217_Assets_Wireframe2-2/Interface Hôtel de ville">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/20160217_Assets_Wireframe2-2/Interface%20H%C3%B4tel%20de%20ville" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/20160217_Assets_Wireframe2-2/Interface récompense">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/20160217_Assets_Wireframe2-2/Interface%20r%C3%A9compense" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/20160217_Assets_Wireframe2-2/Pop-up level up bâtiment">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/20160217_Assets_Wireframe2-2/Pop-up%20level%20up%20b%C3%A2timent" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/20160217_Assets_Wireframe2-2/Timer Bâtiment construction et amélioration">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/20160217_Assets_Wireframe2-2/Timer%20B%C3%A2timent%20construction%20et%20am%C3%A9lioration" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/Modification Beta/FTUE/HUD général">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/Modification%20Beta/FTUE/HUD%20g%C3%A9n%C3%A9ral" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/Modification Beta/HUD général">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/Modification%20Beta/HUD%20g%C3%A9n%C3%A9ral" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/Modification gold/Crédits">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/Modification%20gold/Cr%C3%A9dits" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/Modification gold/FTUE/Personnage FTUE Resizé">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/Modification%20gold/FTUE/Personnage%20FTUE%20Resiz%C3%A9" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/Modification gold/HUD général">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/Modification%20gold/HUD%20g%C3%A9n%C3%A9ral" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/Modifications Alpha/HUD général">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/Modifications%20Alpha/HUD%20g%C3%A9n%C3%A9ral" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/Deliveries/Modifications Alpha/Shop/Bâtiment">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="https://svn.isartintra.com/svn/2015_2016/BUILDER_2015_2016/Builder_4_PASTEQUE/Deliveries/Modifications%20Alpha/Shop/B%C3%A2timent" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>

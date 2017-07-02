@@ -1,0 +1,201 @@
+[
+  {
+	 "name":"motel",
+	 "spriteName":"Building_1x1",
+	 "className":"Motel",
+     "component": ["UPGRADABLE", "COLLECTABLE", "PAINTABLE"],
+	 "size":{
+		"width":1,
+		"height":1
+	 }
+  },
+  {
+	 "name":"temple",
+	 "spriteName":"Building_2x1",
+	 "className":"Temple",
+	 "component": ["UPGRADABLE", "COLLECTABLE"],
+	 "size":{
+		"width":2,
+		"height":1
+	 }
+  },
+  {
+	 "name":"rocket_factory",
+	 "spriteName":"Building_3x1",
+	 "className":"RocketFactory",
+	 "component": ["MOVABLE","ERASABLE","UPGRADABLE", "COLLECTABLE", "PAINTABLE"],
+	 "size":{
+		"width":3,
+		"height":1
+	 }
+  },
+  {
+	 "name":"casino",
+	 "spriteName":"Building_2x2",
+	 "className":"Casino",
+	 "component": ["MOVABLE","ERASABLE","UPGRADABLE", "COLLECTABLE", "PAINTABLE"],
+	 "size":{
+		"width":2,
+		"height":2
+	 }
+  },
+  {
+	 "name":"altar",
+	 "spriteName":"Building_Altar",
+	 "className":"Altar",
+	 "component": ["MOVABLE","ERASABLE", "PAINTABLE"],
+	 "size":{
+		"width":2,
+		"height":2
+	 }
+  },
+  {
+	 "name":"brothel",
+	 "spriteName":"Building_Gonzales",
+	 "className":"Brothel",
+	 "component": ["MOVABLE","ERASABLE", "COLLECTABLE"],
+	 "size":{
+		"width":3,
+		"height":3
+	 }
+  },
+  {
+	 "name":"house",
+	 "spriteName":"Building_House",
+	 "className":"House",
+	 "component": ["MOVABLE","ERASABLE"],
+	 "size":{
+		"width":2,
+		"height":2
+	 }
+  },
+  {
+	 "name":"pyrotechnician",
+	 "spriteName":"Building_Pyrotechnician",
+	 "className":"Pyrotechnician",
+	 "component": ["MOVABLE","ERASABLE","UPGRADABLE", "COLLECTABLE"],
+	 "size":{
+		"width":4,
+		"height":4
+	 }
+  },
+  {
+	 "name":"park",
+	 "spriteName":"Building_park",
+	 "className":"decoration.Park",
+	 "component": ["MOVABLE","ERASABLE","PAINTABLE"],
+	 "size":{
+		"width":2,
+		"height":2
+	 }
+  },
+  {
+	 "name":"bar",
+	 "spriteName":"Building_Bar",
+	 "className":"Bar",
+	 "component": ["MOVABLE","ERASABLE","UPGRADABLE", "COLLECTABLE"],
+	 "size":{
+		"width":3,
+		"height":3
+	 }
+  },
+  {
+	 "name":"main_square",
+	 "spriteName":"Building_MainSquare",
+	 "className":"MainSquare",
+	 "component": ["MOVABLE"],
+	 "size":{
+		"width":4,
+		"height":4
+	 }
+  },
+  {
+	 "name":"statue",
+	 "spriteName":"Building_Statue",
+	 "className":"decoration.Statue",
+	 "component": ["MOVABLE","ERASABLE","PAINTABLE"],
+	 "size":{
+		"width":1,
+		"height":1
+	 }
+  },
+  {
+	 "name":"big_flower_spot",
+	 "spriteName":"Building_BigFlowerPot",
+	 "className":"decoration.BigFlowerPot",
+	 "component": ["MOVABLE","ERASABLE", "PAINTABLE"],
+	 "size":{
+		"width":1,
+		"height":1
+	 }
+  },
+  {
+	 "name":"floating_flower",
+	 "spriteName":"Building_FloatingFlower",
+	 "className":"decoration.FloatingFlower",
+	 "component": ["MOVABLE","ERASABLE", "PAINTABLE"],
+	 "size":{
+		"width":2,
+		"height":1
+	 }
+  },
+  {
+	 "name":"giftshop",
+	 "spriteName":"Building_GiftShop",
+	 "className":"GiftShop",
+	 "component": ["MOVABLE","ERASABLE"],
+	 "size":{
+		"width":3,
+		"height":2
+	 }
+  },
+  {
+	 "name":"city_hall",
+	 "spriteName":"Building_CityHall",
+	 "className":"CityHall",
+	 "component": ["MOVABLE","UPGRADABLE", "COLLECTABLE"],
+	 "size":{
+		"width":4,
+		"height":4
+	 }
+  },
+  {
+	 "name":"church",
+	 "spriteName":"Building_Church",
+	 "className":"Church",
+	 "component": ["MOVABLE","ERASABLE","UPGRADABLE", "COLLECTABLE"],
+	 "size":{
+		"width":2,
+		"height":3
+	 }
+  },
+  {
+	 "name":"cantina",
+	 "spriteName":"Building_Cantina",
+	 "className":"Cantina",
+	 "component": ["MOVABLE","ERASABLE","UPGRADABLE", "COLLECTABLE"],
+	 "size":{
+		"width":3,
+		"height":3
+	 }
+  },
+  {
+	 "name":"harbor",
+	 "spriteName":"Building_Harbor",
+	 "className":"decoration.Harbor",
+	 "component": ["MOVABLE","ERASABLE"],
+	 "size":{
+		"width":2,
+		"height":2
+	 }
+  },
+  {
+	"name":"lanterns",
+	"spriteName":"Lantern",
+	"component": [],
+	"size": {
+		"width":2,
+		"height":2
+	}
+  }
+]

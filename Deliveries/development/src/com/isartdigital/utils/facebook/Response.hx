@@ -1,5 +1,4 @@
 package com.isartdigital.utils.facebook;
-import com.isartdigital.utils.events.FacebookEventType;
 
 /**
  * @author Mathieu Anthoine

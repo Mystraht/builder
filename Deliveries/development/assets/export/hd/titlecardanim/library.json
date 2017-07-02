@@ -1,0 +1,4950 @@
+{
+ "md5": "c30e641ef068cfecc552fc6570415bd1",
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "rect": [
+        1,
+        1,
+        1920,
+        1080
+       ],
+       "symbol": "TitlecardBackground",
+       "origin": [
+        960,
+        540
+       ]
+      },
+      {
+       "rect": [
+        1923,
+        1,
+        350,
+        633
+       ],
+       "symbol": "FX_Flame copy_flipbook_49",
+       "origin": [
+        124.64999999999998,
+        537.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        2275,
+        1,
+        350,
+        633
+       ],
+       "symbol": "FX_Flame copy_flipbook_48",
+       "origin": [
+        124.64999999999998,
+        537.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        2627,
+        1,
+        305,
+        633
+       ],
+       "symbol": "FX_Flame copy_flipbook_47",
+       "origin": [
+        72.64999999999998,
+        537.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        2934,
+        1,
+        305,
+        633
+       ],
+       "symbol": "FX_Flame copy_flipbook_46",
+       "origin": [
+        72.64999999999998,
+        537.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3241,
+        1,
+        317,
+        607
+       ],
+       "symbol": "FX_Flame copy_flipbook_3",
+       "origin": [
+        141.64999999999998,
+        513.25
+       ]
+      },
+      {
+       "rect": [
+        3560,
+        1,
+        317,
+        607
+       ],
+       "symbol": "FX_Flame copy_flipbook_2",
+       "origin": [
+        141.64999999999998,
+        513.25
+       ]
+      },
+      {
+       "rect": [
+        3241,
+        610,
+        304,
+        632
+       ],
+       "symbol": "FX_Flame copy_flipbook_45",
+       "origin": [
+        66.64999999999998,
+        536.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3547,
+        610,
+        304,
+        632
+       ],
+       "symbol": "FX_Flame copy_flipbook_44",
+       "origin": [
+        66.64999999999998,
+        536.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        1923,
+        636,
+        317,
+        600
+       ],
+       "symbol": "FX_Flame copy_flipbook_1",
+       "origin": [
+        141.64999999999998,
+        506.25
+       ]
+      },
+      {
+       "rect": [
+        2242,
+        636,
+        317,
+        599
+       ],
+       "symbol": "FX_Flame copy_flipbook_0",
+       "origin": [
+        141.64999999999998,
+        505.7750000000001
+       ]
+      },
+      {
+       "rect": [
+        2561,
+        636,
+        290,
+        632
+       ],
+       "symbol": "FX_Flame copy_flipbook_43",
+       "origin": [
+        66.64999999999998,
+        536.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        2242,
+        1237,
+        290,
+        632
+       ],
+       "symbol": "FX_Flame copy_flipbook_42",
+       "origin": [
+        66.64999999999998,
+        536.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        2853,
+        636,
+        281,
+        610
+       ],
+       "symbol": "FX_Flame copy_flipbook_6",
+       "origin": [
+        138.64999999999998,
+        516.25
+       ]
+      },
+      {
+       "rect": [
+        3136,
+        1244,
+        281,
+        610
+       ],
+       "symbol": "FX_Flame copy_flipbook_7",
+       "origin": [
+        138.64999999999998,
+        516.25
+       ]
+      },
+      {
+       "rect": [
+        2853,
+        1248,
+        281,
+        607
+       ],
+       "symbol": "FX_Flame copy_flipbook_4",
+       "origin": [
+        138.64999999999998,
+        513.25
+       ]
+      },
+      {
+       "rect": [
+        2534,
+        1270,
+        281,
+        607
+       ],
+       "symbol": "FX_Flame copy_flipbook_5",
+       "origin": [
+        138.64999999999998,
+        513.25
+       ]
+      },
+      {
+       "rect": [
+        3419,
+        1244,
+        247,
+        635
+       ],
+       "symbol": "FX_Flame copy_flipbook_36",
+       "origin": [
+        71.64999999999998,
+        539.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3136,
+        1856,
+        247,
+        635
+       ],
+       "symbol": "FX_Flame copy_flipbook_38",
+       "origin": [
+        71.64999999999998,
+        539.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        2817,
+        1857,
+        247,
+        635
+       ],
+       "symbol": "FX_Flame copy_flipbook_41",
+       "origin": [
+        71.64999999999998,
+        539.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3668,
+        1244,
+        247,
+        635
+       ],
+       "symbol": "FX_Flame copy_flipbook_40",
+       "origin": [
+        71.64999999999998,
+        539.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3385,
+        1881,
+        247,
+        635
+       ],
+       "symbol": "FX_Flame copy_flipbook_39",
+       "origin": [
+        71.64999999999998,
+        539.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3066,
+        2493,
+        247,
+        635
+       ],
+       "symbol": "FX_Flame copy_flipbook_37",
+       "origin": [
+        71.64999999999998,
+        539.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3634,
+        1881,
+        255,
+        595
+       ],
+       "symbol": "FX_Flame copy_flipbook_22",
+       "origin": [
+        147.64999999999998,
+        499.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3634,
+        2478,
+        255,
+        595
+       ],
+       "symbol": "FX_Flame copy_flipbook_21",
+       "origin": [
+        147.64999999999998,
+        499.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3315,
+        2518,
+        255,
+        595
+       ],
+       "symbol": "FX_Flame copy_flipbook_20",
+       "origin": [
+        147.64999999999998,
+        499.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3572,
+        3075,
+        255,
+        595
+       ],
+       "symbol": "FX_Flame copy_flipbook_23",
+       "origin": [
+        147.64999999999998,
+        499.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3315,
+        3115,
+        249,
+        575
+       ],
+       "symbol": "FX_Flame copy_flipbook_11",
+       "origin": [
+        136.64999999999998,
+        483.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3829,
+        3075,
+        249,
+        575
+       ],
+       "symbol": "FX_Flame copy_flipbook_9",
+       "origin": [
+        136.64999999999998,
+        483.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        1,
+        3130,
+        249,
+        575
+       ],
+       "symbol": "FX_Flame copy_flipbook_10",
+       "origin": [
+        136.64999999999998,
+        483.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        1,
+        2494,
+        249,
+        575
+       ],
+       "symbol": "FX_Flame copy_flipbook_8",
+       "origin": [
+        136.64999999999998,
+        483.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        1,
+        1871,
+        243,
+        553
+       ],
+       "symbol": "FX_Flame copy_flipbook_15",
+       "origin": [
+        138.64999999999998,
+        457.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        1,
+        1238,
+        243,
+        553
+       ],
+       "symbol": "FX_Flame copy_flipbook_14",
+       "origin": [
+        138.64999999999998,
+        457.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        246,
+        1871,
+        243,
+        553
+       ],
+       "symbol": "FX_Flame copy_flipbook_13",
+       "origin": [
+        138.64999999999998,
+        457.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        246,
+        1238,
+        243,
+        553
+       ],
+       "symbol": "FX_Flame copy_flipbook_12",
+       "origin": [
+        138.64999999999998,
+        457.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3853,
+        610,
+        236,
+        568
+       ],
+       "symbol": "FX_Flame copy_flipbook_19",
+       "origin": [
+        136.64999999999998,
+        472.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        252,
+        3130,
+        236,
+        568
+       ],
+       "symbol": "FX_Flame copy_flipbook_16",
+       "origin": [
+        136.64999999999998,
+        472.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        252,
+        2494,
+        236,
+        568
+       ],
+       "symbol": "FX_Flame copy_flipbook_17",
+       "origin": [
+        136.64999999999998,
+        472.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        490,
+        3130,
+        236,
+        568
+       ],
+       "symbol": "FX_Flame copy_flipbook_18",
+       "origin": [
+        136.64999999999998,
+        472.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        490,
+        2426,
+        224,
+        558
+       ],
+       "symbol": "FX_Flame copy_flipbook_28",
+       "origin": [
+        92.64999999999998,
+        462.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        716,
+        2494,
+        224,
+        558
+       ],
+       "symbol": "FX_Flame copy_flipbook_29",
+       "origin": [
+        92.64999999999998,
+        462.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        716,
+        1871,
+        224,
+        558
+       ],
+       "symbol": "FX_Flame copy_flipbook_31",
+       "origin": [
+        92.64999999999998,
+        462.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        491,
+        1238,
+        224,
+        558
+       ],
+       "symbol": "FX_Flame copy_flipbook_30",
+       "origin": [
+        92.64999999999998,
+        462.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        3879,
+        1,
+        209,
+        594
+       ],
+       "symbol": "FX_Flame copy_flipbook_33",
+       "origin": [
+        50.64999999999998,
+        499.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        491,
+        1798,
+        209,
+        594
+       ],
+       "symbol": "FX_Flame copy_flipbook_32",
+       "origin": [
+        50.64999999999998,
+        499.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        717,
+        1083,
+        209,
+        594
+       ],
+       "symbol": "FX_Flame copy_flipbook_34",
+       "origin": [
+        50.64999999999998,
+        499.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        928,
+        1083,
+        209,
+        594
+       ],
+       "symbol": "FX_Flame copy_flipbook_35",
+       "origin": [
+        50.64999999999998,
+        499.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        1139,
+        1083,
+        220,
+        556
+       ],
+       "symbol": "FX_Flame copy_flipbook_25",
+       "origin": [
+        120.64999999999998,
+        460.29999999999995
+       ]
+      },
+      {
+       "rect": [
+        1361,
+        1083,
+        220,
+        556
+       ],
+       "symbol": "FX_Flame copy_flipbook_24",
+       "origin": [
+        120.64999999999998,
+        460.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        1583,
+        1083,
+        220,
+        556
+       ],
+       "symbol": "FX_Flame copy_flipbook_26",
+       "origin": [
+        120.64999999999998,
+        460.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        1805,
+        1238,
+        220,
+        556
+       ],
+       "symbol": "FX_Flame copy_flipbook_27",
+       "origin": [
+        120.64999999999998,
+        460.5250000000001
+       ]
+      },
+      {
+       "rect": [
+        1139,
+        1641,
+        231,
+        504
+       ],
+       "symbol": "bones_0011",
+       "origin": [
+        198.1,
+        -8.4
+       ]
+      },
+      {
+       "rect": [
+        3566,
+        3672,
+        276,
+        382
+       ],
+       "symbol": "bones_0009",
+       "origin": [
+        -84.5,
+        49.1
+       ]
+      },
+      {
+       "rect": [
+        717,
+        1679,
+        249,
+        180
+       ],
+       "symbol": "bones_0010",
+       "origin": [
+        29.5,
+        50.1
+       ]
+      },
+      {
+       "rect": [
+        3844,
+        3652,
+        139,
+        274
+       ],
+       "symbol": "bones_0001",
+       "origin": [
+        243.6,
+        -8.5
+       ]
+      },
+      {
+       "rect": [
+        2027,
+        1238,
+        205,
+        181
+       ],
+       "symbol": "bones_0016",
+       "origin": [
+        -197.5,
+        15.55
+       ]
+      },
+      {
+       "rect": [
+        3891,
+        1881,
+        132,
+        278
+       ],
+       "symbol": "bones_0000",
+       "origin": [
+        305.35,
+        -229
+       ]
+      },
+      {
+       "rect": [
+        3917,
+        1180,
+        126,
+        267
+       ],
+       "symbol": "bones_0005",
+       "origin": [
+        209.55,
+        -27
+       ]
+      },
+      {
+       "rect": [
+        3891,
+        2161,
+        182,
+        170
+       ],
+       "symbol": "bones_0003",
+       "origin": [
+        349.35,
+        -42.25
+       ]
+      },
+      {
+       "rect": [
+        3844,
+        3928,
+        240,
+        124
+       ],
+       "symbol": "bones_0025",
+       "origin": [
+        -85.55,
+        512.1
+       ]
+      },
+      {
+       "rect": [
+        490,
+        2986,
+        183,
+        131
+       ],
+       "symbol": "bones_0012",
+       "origin": [
+        -198.6,
+        131.1
+       ]
+      },
+      {
+       "rect": [
+        1,
+        1083,
+        194,
+        107
+       ],
+       "symbol": "bones_0013",
+       "origin": [
+        -154,
+        70
+       ]
+      },
+      {
+       "rect": [
+        3917,
+        1449,
+        133,
+        150
+       ],
+       "symbol": "bones_0021",
+       "origin": [
+        43.55,
+        356.1
+       ]
+      },
+      {
+       "rect": [
+        3917,
+        1601,
+        172,
+        108
+       ],
+       "symbol": "bones_0020",
+       "origin": [
+        118.55,
+        233.6
+       ]
+      },
+      {
+       "rect": [
+        3917,
+        1711,
+        154,
+        118
+       ],
+       "symbol": "bones_0024",
+       "origin": [
+        -252.5,
+        399.6
+       ]
+      },
+      {
+       "rect": [
+        1805,
+        1083,
+        104,
+        128
+       ],
+       "symbol": "bones_0018",
+       "origin": [
+        -171.55,
+        249.05
+       ]
+      },
+      {
+       "rect": [
+        4025,
+        1831,
+        68,
+        175
+       ],
+       "symbol": "bones_0008",
+       "origin": [
+        -26,
+        -198.55
+       ]
+      },
+      {
+       "rect": [
+        1,
+        1793,
+        157,
+        72
+       ],
+       "symbol": "bones_0022",
+       "origin": [
+        338.1,
+        448.6
+       ]
+      },
+      {
+       "rect": [
+        197,
+        1083,
+        127,
+        78
+       ],
+       "symbol": "bones_0007",
+       "origin": [
+        -64.5,
+        -353.1
+       ]
+      },
+      {
+       "rect": [
+        3985,
+        3652,
+        100,
+        96
+       ],
+       "symbol": "bones_0019",
+       "origin": [
+        -90.95,
+        136.6
+       ]
+      },
+      {
+       "rect": [
+        3985,
+        3750,
+        96,
+        96
+       ],
+       "symbol": "flarelolipop",
+       "origin": [
+        48,
+        48
+       ]
+      },
+      {
+       "rect": [
+        326,
+        1083,
+        80,
+        91
+       ],
+       "symbol": "bones_0004",
+       "origin": [
+        409,
+        -131.95
+       ]
+      },
+      {
+       "rect": [
+        3985,
+        3848,
+        105,
+        56
+       ],
+       "symbol": "bones_0023",
+       "origin": [
+        51.55,
+        508.15
+       ]
+      },
+      {
+       "rect": [
+        4025,
+        2008,
+        42,
+        127
+       ],
+       "symbol": "bones_0006",
+       "origin": [
+        -29,
+        -89.05
+       ]
+      },
+      {
+       "rect": [
+        3066,
+        1857,
+        61,
+        84
+       ],
+       "symbol": "bones_0014",
+       "origin": [
+        -191.5,
+        -7.5
+       ]
+      },
+      {
+       "rect": [
+        3572,
+        2518,
+        52,
+        95
+       ],
+       "symbol": "bones_0002",
+       "origin": [
+        181.1,
+        -42.25
+       ]
+      },
+      {
+       "rect": [
+        3572,
+        2615,
+        58,
+        81
+       ],
+       "symbol": "bones_0015",
+       "origin": [
+        -350.5,
+        35.1
+       ]
+      },
+      {
+       "rect": [
+        3917,
+        1831,
+        99,
+        39
+       ],
+       "symbol": "bones_0017",
+       "origin": [
+        -175.55,
+        276.6
+       ]
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ],
+ "frameRate": 60,
+ "isNamespaced": false,
+ "movies": [
+  {
+   "layers": [
+    {
+     "name": "bonesMI_0020",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        -33.05,
+        -183.55
+       ],
+       "duration": 14,
+       "ref": "~bonesMI_0020",
+       "loc": [
+        -68.25,
+        136.3
+       ]
+      },
+      {
+       "pivot": [
+        -33.1,
+        -183.55
+       ],
+       "skew": [
+        0.1394,
+        0.1394
+       ],
+       "index": 14,
+       "duration": 1,
+       "ref": "~bonesMI_0020",
+       "loc": [
+        -56.7695,
+        157.7811
+       ]
+      },
+      {
+       "pivot": [
+        -33.05,
+        -183.5
+       ],
+       "scale": [
+        0.9989,
+        0.9989
+       ],
+       "skew": [
+        -1.8591,
+        -1.8591
+       ],
+       "index": 15,
+       "duration": 12,
+       "ref": "~bonesMI_0020",
+       "loc": [
+        -34.1947,
+        -22.1244
+       ]
+      },
+      {
+       "pivot": [
+        -33,
+        -183.5
+       ],
+       "scale": [
+        0.9983,
+        0.9983
+       ],
+       "skew": [
+        -0.2142,
+        -0.2142
+       ],
+       "index": 27,
+       "duration": 48,
+       "ref": "~bonesMI_0020",
+       "loc": [
+        -37.484,
+        -252.2028
+       ]
+      },
+      {
+       "pivot": [
+        -33.1,
+        -183.55
+       ],
+       "scale": [
+        0.9995,
+        0.9995
+       ],
+       "skew": [
+        0.0795,
+        0.0795
+       ],
+       "index": 75,
+       "duration": 1,
+       "ref": "~bonesMI_0020",
+       "loc": [
+        9.0328,
+        -367.3009
+       ]
+      },
+      {
+       "duration": 8,
+       "index": 76
+      },
+      {
+       "pivot": [
+        -33.1,
+        -183.55
+       ],
+       "skew": [
+        0.0005,
+        0.0005
+       ],
+       "index": 84,
+       "duration": 8,
+       "ref": "~bonesMI_0020",
+       "loc": [
+        -419.3515,
+        624.5851
+       ]
+      },
+      {
+       "pivot": [
+        -33.1,
+        -183.55
+       ],
+       "skew": [
+        0.0005,
+        0.0005
+       ],
+       "index": 92,
+       "duration": 13,
+       "ref": "~bonesMI_0020",
+       "loc": [
+        -68.1015,
+        136.6351
+       ]
+      },
+      {
+       "pivot": [
+        -33.15,
+        -183.5
+       ],
+       "skew": [
+        0.0001,
+        0.0001
+       ],
+       "index": 105,
+       "duration": 9,
+       "ref": "~bonesMI_0020",
+       "loc": [
+        -62.8738,
+        142.951
+       ]
+      },
+      {
+       "pivot": [
+        -33.1,
+        -183.5
+       ],
+       "skew": [
+        0.0001,
+        0.0001
+       ],
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0020",
+       "loc": [
+        -67.4771,
+        137.3488
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0021",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        16.05,
+        -281.05
+       ],
+       "duration": 14,
+       "ref": "~bonesMI_0021",
+       "loc": [
+        -19.15,
+        38.8
+       ]
+      },
+      {
+       "pivot": [
+        16.05,
+        -281.05
+       ],
+       "skew": [
+        -0.183,
+        -0.183
+       ],
+       "index": 14,
+       "duration": 1,
+       "ref": "~bonesMI_0021",
+       "loc": [
+        4.8462,
+        43.3214
+       ]
+      },
+      {
+       "pivot": [
+        16.1,
+        -281.1
+       ],
+       "scale": [
+        0.9985,
+        0.9985
+       ],
+       "skew": [
+        1.9951,
+        1.9951
+       ],
+       "index": 15,
+       "duration": 12,
+       "ref": "~bonesMI_0021",
+       "loc": [
+        64.9702,
+        -97.3345
+       ]
+      },
+      {
+       "pivot": [
+        16.1,
+        -281.1
+       ],
+       "scale": [
+        0.9971,
+        0.9971
+       ],
+       "skew": [
+        4.0873,
+        4.0873
+       ],
+       "index": 27,
+       "duration": 48,
+       "ref": "~bonesMI_0021",
+       "loc": [
+        116.9188,
+        -245.4014
+       ]
+      },
+      {
+       "pivot": [
+        16.05,
+        -281.05
+       ],
+       "scale": [
+        0.9993,
+        0.9993
+       ],
+       "skew": [
+        6.1779,
+        6.1779
+       ],
+       "index": 75,
+       "duration": 1,
+       "ref": "~bonesMI_0021",
+       "loc": [
+        180.1905,
+        -367.5769
+       ]
+      },
+      {
+       "duration": 8,
+       "index": 76
+      },
+      {
+       "pivot": [
+        16.05,
+        -281.05
+       ],
+       "skew": [
+        6.2825,
+        6.2825
+       ],
+       "index": 84,
+       "duration": 8,
+       "ref": "~bonesMI_0021",
+       "loc": [
+        -406.1889,
+        562.5435
+       ]
+      },
+      {
+       "pivot": [
+        16.05,
+        -281.05
+       ],
+       "skew": [
+        6.2825,
+        6.2825
+       ],
+       "index": 92,
+       "duration": 13,
+       "ref": "~bonesMI_0021",
+       "loc": [
+        -18.7889,
+        38.8435
+       ]
+      },
+      {
+       "pivot": [
+        16.05,
+        -281.05
+       ],
+       "skew": [
+        6.283,
+        6.283
+       ],
+       "index": 105,
+       "duration": 9,
+       "ref": "~bonesMI_0021",
+       "loc": [
+        -12.4477,
+        35.7059
+       ]
+      },
+      {
+       "pivot": [
+        16.05,
+        -281.05
+       ],
+       "skew": [
+        6.283,
+        6.283
+       ],
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0021",
+       "loc": [
+        -18.0931,
+        38.5018
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0022",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        -260.05,
+        -412.1
+       ],
+       "duration": 14,
+       "ref": "~bonesMI_0022",
+       "loc": [
+        -295.25,
+        -92.25
+       ]
+      },
+      {
+       "pivot": [
+        -260,
+        -412.15
+       ],
+       "skew": [
+        -0.1483,
+        -0.1483
+       ],
+       "index": 14,
+       "duration": 1,
+       "ref": "~bonesMI_0022",
+       "loc": [
+        -314.7805,
+        -104.771
+       ]
+      },
+      {
+       "pivot": [
+        -259.95,
+        -412.15
+       ],
+       "scale": [
+        0.9985,
+        0.9985
+       ],
+       "skew": [
+        2.0257,
+        2.0257
+       ],
+       "index": 15,
+       "duration": 12,
+       "ref": "~bonesMI_0022",
+       "loc": [
+        -294.761,
+        -170.3533
+       ]
+      },
+      {
+       "pivot": [
+        -260,
+        -412.15
+       ],
+       "scale": [
+        0.9972,
+        0.9972
+       ],
+       "skew": [
+        4.1175,
+        4.1175
+       ],
+       "index": 27,
+       "duration": 48,
+       "ref": "~bonesMI_0022",
+       "loc": [
+        -314.0252,
+        -263.687
+       ]
+      },
+      {
+       "pivot": [
+        -260.05,
+        -412.1
+       ],
+       "scale": [
+        0.9994,
+        0.9994
+       ],
+       "skew": [
+        6.1996,
+        6.1996
+       ],
+       "index": 75,
+       "duration": 1,
+       "ref": "~bonesMI_0022",
+       "loc": [
+        -256.3946,
+        -296.3284
+       ]
+      },
+      {
+       "duration": 8,
+       "index": 76
+      },
+      {
+       "pivot": [
+        -260,
+        -412.1
+       ],
+       "skew": [
+        6.2826,
+        6.2826
+       ],
+       "index": 84,
+       "duration": 8,
+       "ref": "~bonesMI_0022",
+       "loc": [
+        -358.5787,
+        298.7531
+       ]
+      },
+      {
+       "pivot": [
+        -260,
+        -412.1
+       ],
+       "skew": [
+        6.2826,
+        6.2826
+       ],
+       "index": 92,
+       "duration": 13,
+       "ref": "~bonesMI_0022",
+       "loc": [
+        -295.4787,
+        -92.3969
+       ]
+      },
+      {
+       "pivot": [
+        -260,
+        -412.15
+       ],
+       "skew": [
+        6.283,
+        6.283
+       ],
+       "index": 105,
+       "duration": 9,
+       "ref": "~bonesMI_0022",
+       "loc": [
+        -290.2487,
+        -86.1517
+       ]
+      },
+      {
+       "pivot": [
+        -260,
+        -412.15
+       ],
+       "skew": [
+        6.2831,
+        6.2831
+       ],
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0022",
+       "loc": [
+        -294.8963,
+        -91.712
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0023",
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 14,
+       "ref": "~bonesMI_0023",
+       "loc": [
+        -35.2,
+        319.85
+       ]
+      },
+      {
+       "index": 14,
+       "duration": 1,
+       "ref": "~bonesMI_0023",
+       "loc": [
+        -43.7,
+        323.4
+       ]
+      },
+      {
+       "index": 15,
+       "duration": 12,
+       "ref": "~bonesMI_0023",
+       "loc": [
+        -27,
+        268.85
+       ]
+      },
+      {
+       "index": 27,
+       "duration": 48,
+       "ref": "~bonesMI_0023",
+       "loc": [
+        -20.6,
+        247.9
+       ]
+      },
+      {
+       "index": 75,
+       "duration": 1,
+       "ref": "~bonesMI_0023",
+       "loc": [
+        5,
+        164.2
+       ]
+      },
+      {
+       "duration": 7,
+       "index": 76
+      },
+      {
+       "duration": 1,
+       "index": 83
+      },
+      {
+       "index": 84,
+       "duration": 8,
+       "ref": "~bonesMI_0023",
+       "loc": [
+        -3.8,
+        255.75
+       ]
+      },
+      {
+       "index": 92,
+       "duration": 13,
+       "ref": "~bonesMI_0023",
+       "loc": [
+        -35.35,
+        319.9
+       ]
+      },
+      {
+       "index": 105,
+       "duration": 9,
+       "ref": "~bonesMI_0023",
+       "loc": [
+        -39.55,
+        323.05
+       ]
+      },
+      {
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0023",
+       "loc": [
+        -35.8,
+        320.25
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0024",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        325.1,
+        -329.1
+       ],
+       "duration": 14,
+       "ref": "~bonesMI_0024",
+       "loc": [
+        289.9,
+        -9.25
+       ]
+      },
+      {
+       "pivot": [
+        325.1,
+        -329.1
+       ],
+       "skew": [
+        0.0781,
+        0.0781
+       ],
+       "index": 14,
+       "duration": 1,
+       "ref": "~bonesMI_0024",
+       "loc": [
+        293.8987,
+        -26.2671
+       ]
+      },
+      {
+       "pivot": [
+        325.05,
+        -329.05
+       ],
+       "scale": [
+        0.9989,
+        0.9989
+       ],
+       "skew": [
+        -1.9116,
+        -1.9116
+       ],
+       "index": 15,
+       "duration": 12,
+       "ref": "~bonesMI_0024",
+       "loc": [
+        392.5034,
+        -33.4417
+       ]
+      },
+      {
+       "pivot": [
+        325.1,
+        -329.1
+       ],
+       "scale": [
+        0.9982,
+        0.9982
+       ],
+       "skew": [
+        -0.2625,
+        -0.2625
+       ],
+       "index": 27,
+       "duration": 48,
+       "ref": "~bonesMI_0024",
+       "loc": [
+        513.2901,
+        -52.2655
+       ]
+      },
+      {
+       "pivot": [
+        325.1,
+        -329.1
+       ],
+       "scale": [
+        0.9997,
+        0.9997
+       ],
+       "skew": [
+        0.0442,
+        0.0442
+       ],
+       "index": 75,
+       "duration": 1,
+       "ref": "~bonesMI_0024",
+       "loc": [
+        581.496,
+        -47.272
+       ]
+      },
+      {
+       "duration": 8,
+       "index": 76
+      },
+      {
+       "pivot": [
+        325.1,
+        -329.05
+       ],
+       "skew": [
+        0.0003,
+        0.0003
+       ],
+       "index": 84,
+       "duration": 8,
+       "ref": "~bonesMI_0024",
+       "loc": [
+        -374.7096,
+        701.3493
+       ]
+      },
+      {
+       "pivot": [
+        325.1,
+        -329.05
+       ],
+       "skew": [
+        0.0003,
+        0.0003
+       ],
+       "index": 92,
+       "duration": 13,
+       "ref": "~bonesMI_0024",
+       "loc": [
+        289.9404,
+        -9.5007
+       ]
+      },
+      {
+       "pivot": [
+        325.15,
+        -329.05
+       ],
+       "skew": [
+        0.0001,
+        0.0001
+       ],
+       "index": 105,
+       "duration": 9,
+       "ref": "~bonesMI_0024",
+       "loc": [
+        293.1152,
+        -15.7652
+       ]
+      },
+      {
+       "pivot": [
+        325.15,
+        -329
+       ],
+       "skew": [
+        0.0001,
+        0.0001
+       ],
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0024",
+       "loc": [
+        290.3151,
+        -10.1751
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0025",
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 14,
+       "ref": "~bonesMI_0025",
+       "loc": [
+        -35.2,
+        319.45
+       ]
+      },
+      {
+       "index": 14,
+       "duration": 1,
+       "ref": "~bonesMI_0025",
+       "loc": [
+        -35.2,
+        330.95
+       ]
+      },
+      {
+       "index": 15,
+       "duration": 12,
+       "ref": "~bonesMI_0025",
+       "loc": [
+        34.7,
+        256.2
+       ]
+      },
+      {
+       "index": 27,
+       "duration": 48,
+       "ref": "~bonesMI_0025",
+       "loc": [
+        142.55,
+        84.5
+       ]
+      },
+      {
+       "index": 75,
+       "duration": 1,
+       "ref": "~bonesMI_0025",
+       "loc": [
+        168.85,
+        112.75
+       ]
+      },
+      {
+       "duration": 8,
+       "index": 76
+      },
+      {
+       "index": 84,
+       "duration": 8,
+       "ref": "~bonesMI_0025",
+       "loc": [
+        23.8,
+        185
+       ]
+      },
+      {
+       "index": 92,
+       "duration": 13,
+       "ref": "~bonesMI_0025",
+       "loc": [
+        -35.2,
+        319.6
+       ]
+      },
+      {
+       "index": 105,
+       "duration": 9,
+       "ref": "~bonesMI_0025",
+       "loc": [
+        -41.55,
+        326.95
+       ]
+      },
+      {
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0025",
+       "loc": [
+        -35.9,
+        320.4
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0026",
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 115,
+       "ref": "~bonesMI_0026",
+       "loc": [
+        -112.7,
+        320.55
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "Coins"
+  },
+  {
+   "layers": [
+    {
+     "name": "flipbook",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        141.65,
+        505.775
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_0"
+      },
+      {
+       "index": 1,
+       "pivot": [
+        141.65,
+        506.25
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_1"
+      },
+      {
+       "index": 2,
+       "pivot": [
+        141.65,
+        513.25
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_2"
+      },
+      {
+       "index": 3,
+       "pivot": [
+        141.65,
+        513.25
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_3"
+      },
+      {
+       "index": 4,
+       "pivot": [
+        138.65,
+        513.25
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_4"
+      },
+      {
+       "index": 5,
+       "pivot": [
+        138.65,
+        513.25
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_5"
+      },
+      {
+       "index": 6,
+       "pivot": [
+        138.65,
+        516.25
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_6"
+      },
+      {
+       "index": 7,
+       "pivot": [
+        138.65,
+        516.25
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_7"
+      },
+      {
+       "index": 8,
+       "pivot": [
+        136.65,
+        483.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_8"
+      },
+      {
+       "index": 9,
+       "pivot": [
+        136.65,
+        483.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_9"
+      },
+      {
+       "index": 10,
+       "pivot": [
+        136.65,
+        483.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_10"
+      },
+      {
+       "index": 11,
+       "pivot": [
+        136.65,
+        483.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_11"
+      },
+      {
+       "index": 12,
+       "pivot": [
+        138.65,
+        457.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_12"
+      },
+      {
+       "index": 13,
+       "pivot": [
+        138.65,
+        457.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_13"
+      },
+      {
+       "index": 14,
+       "pivot": [
+        138.65,
+        457.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_14"
+      },
+      {
+       "index": 15,
+       "pivot": [
+        138.65,
+        457.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_15"
+      },
+      {
+       "index": 16,
+       "pivot": [
+        136.65,
+        472.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_16"
+      },
+      {
+       "index": 17,
+       "pivot": [
+        136.65,
+        472.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_17"
+      },
+      {
+       "index": 18,
+       "pivot": [
+        136.65,
+        472.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_18"
+      },
+      {
+       "index": 19,
+       "pivot": [
+        136.65,
+        472.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_19"
+      },
+      {
+       "index": 20,
+       "pivot": [
+        147.65,
+        499.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_20"
+      },
+      {
+       "index": 21,
+       "pivot": [
+        147.65,
+        499.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_21"
+      },
+      {
+       "index": 22,
+       "pivot": [
+        147.65,
+        499.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_22"
+      },
+      {
+       "index": 23,
+       "pivot": [
+        147.65,
+        499.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_23"
+      },
+      {
+       "index": 24,
+       "pivot": [
+        120.65,
+        460.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_24"
+      },
+      {
+       "index": 25,
+       "pivot": [
+        120.65,
+        460.3
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_25"
+      },
+      {
+       "index": 26,
+       "pivot": [
+        120.65,
+        460.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_26"
+      },
+      {
+       "index": 27,
+       "pivot": [
+        120.65,
+        460.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_27"
+      },
+      {
+       "index": 28,
+       "pivot": [
+        92.65,
+        462.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_28"
+      },
+      {
+       "index": 29,
+       "pivot": [
+        92.65,
+        462.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_29"
+      },
+      {
+       "index": 30,
+       "pivot": [
+        92.65,
+        462.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_30"
+      },
+      {
+       "index": 31,
+       "pivot": [
+        92.65,
+        462.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_31"
+      },
+      {
+       "index": 32,
+       "pivot": [
+        50.65,
+        499.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_32"
+      },
+      {
+       "index": 33,
+       "pivot": [
+        50.65,
+        499.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_33"
+      },
+      {
+       "index": 34,
+       "pivot": [
+        50.65,
+        499.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_34"
+      },
+      {
+       "index": 35,
+       "pivot": [
+        50.65,
+        499.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_35"
+      },
+      {
+       "index": 36,
+       "pivot": [
+        71.65,
+        539.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_36"
+      },
+      {
+       "index": 37,
+       "pivot": [
+        71.65,
+        539.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_37"
+      },
+      {
+       "index": 38,
+       "pivot": [
+        71.65,
+        539.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_38"
+      },
+      {
+       "index": 39,
+       "pivot": [
+        71.65,
+        539.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_39"
+      },
+      {
+       "index": 40,
+       "pivot": [
+        71.65,
+        539.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_40"
+      },
+      {
+       "index": 41,
+       "pivot": [
+        71.65,
+        539.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_41"
+      },
+      {
+       "index": 42,
+       "pivot": [
+        66.65,
+        536.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_42"
+      },
+      {
+       "index": 43,
+       "pivot": [
+        66.65,
+        536.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_43"
+      },
+      {
+       "index": 44,
+       "pivot": [
+        66.65,
+        536.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_44"
+      },
+      {
+       "index": 45,
+       "pivot": [
+        66.65,
+        536.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_45"
+      },
+      {
+       "index": 46,
+       "pivot": [
+        72.65,
+        537.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_46"
+      },
+      {
+       "index": 47,
+       "pivot": [
+        72.65,
+        537.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_47"
+      },
+      {
+       "index": 48,
+       "pivot": [
+        124.65,
+        537.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_48"
+      },
+      {
+       "index": 49,
+       "pivot": [
+        124.65,
+        537.525
+       ],
+       "tweened": false,
+       "duration": 1,
+       "ref": "FX_Flame copy_flipbook_49"
+      }
+     ],
+     "flipbook": true
+    }
+   ],
+   "id": "FX_Flame copy"
+  },
+  {
+   "layers": [
+    {
+     "name": "Layer 2",
+     "keyframes": [
+      {
+       "pivot": [
+        131.55,
+        255
+       ],
+       "scale": [
+        14.6963,
+        14.6963
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "flareflarelolipop",
+       "loc": [
+        58.4488,
+        -23.7924
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "tweened": false,
+       "scale": [
+        1.1954,
+        1.1954
+       ],
+       "index": 0,
+       "duration": 1,
+       "ref": "FX_Flame copy",
+       "loc": [
+        33.7,
+        14.25
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "FX_Light copy"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 2",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        960,
+        540
+       ],
+       "tweened": false,
+       "duration": 115,
+       "ref": "TitlecardBackground"
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0026",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        0,
+        63.3
+       ],
+       "duration": 11,
+       "ref": "Coins",
+       "loc": [
+        517.3,
+        -294.55
+       ]
+      },
+      {
+       "index": 11,
+       "pivot": [
+        0,
+        63.3
+       ],
+       "duration": 20,
+       "ref": "Coins",
+       "loc": [
+        517.3,
+        -294.55
+       ]
+      },
+      {
+       "index": 31,
+       "pivot": [
+        0,
+        63.3
+       ],
+       "duration": 12,
+       "ref": "Coins",
+       "loc": [
+        517.3,
+        -294.55
+       ]
+      },
+      {
+       "index": 43,
+       "pivot": [
+        0,
+        63.3
+       ],
+       "duration": 71,
+       "ref": "Coins",
+       "loc": [
+        517.3,
+        -294.55
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        0,
+        63.3
+       ],
+       "duration": 1,
+       "ref": "Coins",
+       "loc": [
+        517.3,
+        -294.55
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0000",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        -286.6,
+        492.3
+       ],
+       "duration": 11,
+       "ref": "~bonesMI_0000",
+       "loc": [
+        195.5,
+        454.3
+       ]
+      },
+      {
+       "pivot": [
+        -286.6,
+        492.25
+       ],
+       "scale": [
+        0.9997,
+        0.9997
+       ],
+       "skew": [
+        -0.1096,
+        -0.1096
+       ],
+       "index": 11,
+       "duration": 20,
+       "ref": "~bonesMI_0000",
+       "loc": [
+        195.5016,
+        454.3179
+       ]
+      },
+      {
+       "pivot": [
+        -286.6,
+        492.25
+       ],
+       "scale": [
+        0.9994,
+        0.9994
+       ],
+       "skew": [
+        -0.162,
+        -0.162
+       ],
+       "index": 31,
+       "duration": 12,
+       "ref": "~bonesMI_0000",
+       "loc": [
+        195.4473,
+        454.3163
+       ]
+      },
+      {
+       "pivot": [
+        -286.6,
+        492.35
+       ],
+       "skew": [
+        -0.1786,
+        -0.1786
+       ],
+       "index": 43,
+       "duration": 71,
+       "ref": "~bonesMI_0000",
+       "loc": [
+        195.5043,
+        454.2755
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        -286.6,
+        492.3
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0000",
+       "loc": [
+        195.5,
+        454.3
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0001",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        -125.75,
+        33.35
+       ],
+       "duration": 11,
+       "ref": "~bonesMI_0001",
+       "loc": [
+        356.35,
+        -4.65
+       ]
+      },
+      {
+       "pivot": [
+        -125.75,
+        33.35
+       ],
+       "scale": [
+        1.0023,
+        0.9999
+       ],
+       "skew": [
+        -0.0359,
+        -0.0961
+       ],
+       "index": 11,
+       "duration": 20,
+       "ref": "~bonesMI_0001",
+       "loc": [
+        335.3837,
+        -19.6356
+       ]
+      },
+      {
+       "pivot": [
+        -125.75,
+        33.35
+       ],
+       "scale": [
+        1.0033,
+        0.9998
+       ],
+       "skew": [
+        -0.0534,
+        -0.1402
+       ],
+       "index": 31,
+       "duration": 12,
+       "ref": "~bonesMI_0001",
+       "loc": [
+        325.447,
+        -26.8237
+       ]
+      },
+      {
+       "pivot": [
+        -125.7,
+        33.5
+       ],
+       "scale": [
+        1.0043,
+        1
+       ],
+       "skew": [
+        -0.0623,
+        -0.1546
+       ],
+       "index": 43,
+       "duration": 71,
+       "ref": "~bonesMI_0001",
+       "loc": [
+        322.7061,
+        -28.78
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        -125.75,
+        33.35
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0001",
+       "loc": [
+        356.35,
+        -4.65
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0002",
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 11,
+       "ref": "~bonesMI_0002",
+       "loc": [
+        482.1,
+        -38
+       ]
+      },
+      {
+       "scale": [
+        0.9999,
+        0.9999
+       ],
+       "skew": [
+        0.0441,
+        0.0441
+       ],
+       "index": 11,
+       "duration": 20,
+       "ref": "~bonesMI_0002",
+       "loc": [
+        463.9,
+        -46.35
+       ]
+      },
+      {
+       "scale": [
+        0.9997,
+        0.9997
+       ],
+       "skew": [
+        0.0657,
+        0.0657
+       ],
+       "index": 31,
+       "duration": 12,
+       "ref": "~bonesMI_0002",
+       "loc": [
+        455.25,
+        -50.35
+       ]
+      },
+      {
+       "index": 43,
+       "skew": [
+        0.0728,
+        0.0728
+       ],
+       "duration": 71,
+       "ref": "~bonesMI_0002",
+       "loc": [
+        452.8,
+        -51.45
+       ]
+      },
+      {
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0002",
+       "loc": [
+        482.1,
+        -38
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0003",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        -327.55,
+        190.1
+       ],
+       "duration": 11,
+       "ref": "~bonesMI_0003",
+       "loc": [
+        154.55,
+        152.1
+       ]
+      },
+      {
+       "pivot": [
+        -327.55,
+        190.05
+       ],
+       "scale": [
+        0.9996,
+        0.9996
+       ],
+       "skew": [
+        -0.1188,
+        -0.1188
+       ],
+       "index": 11,
+       "duration": 20,
+       "ref": "~bonesMI_0003",
+       "loc": [
+        154.5383,
+        152.0852
+       ]
+      },
+      {
+       "pivot": [
+        -327.55,
+        190.05
+       ],
+       "scale": [
+        0.9994,
+        0.9994
+       ],
+       "skew": [
+        -0.1756,
+        -0.1756
+       ],
+       "index": 31,
+       "duration": 12,
+       "ref": "~bonesMI_0003",
+       "loc": [
+        154.5347,
+        152.0524
+       ]
+      },
+      {
+       "pivot": [
+        -327.5,
+        190.05
+       ],
+       "skew": [
+        -0.1953,
+        -0.1953
+       ],
+       "index": 43,
+       "duration": 71,
+       "ref": "~bonesMI_0003",
+       "loc": [
+        154.5658,
+        152.0938
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        -327.55,
+        190.1
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0003",
+       "loc": [
+        154.55,
+        152.1
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0004",
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 11,
+       "ref": "~bonesMI_0004",
+       "loc": [
+        482.1,
+        -38
+       ]
+      },
+      {
+       "index": 11,
+       "duration": 20,
+       "ref": "~bonesMI_0004",
+       "loc": [
+        482.1,
+        -38
+       ]
+      },
+      {
+       "index": 31,
+       "duration": 12,
+       "ref": "~bonesMI_0004",
+       "loc": [
+        482.1,
+        -38
+       ]
+      },
+      {
+       "index": 43,
+       "duration": 71,
+       "ref": "~bonesMI_0004",
+       "loc": [
+        482.1,
+        -38
+       ]
+      },
+      {
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0004",
+       "loc": [
+        482.1,
+        -38
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0005",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        -137.2,
+        133.4
+       ],
+       "duration": 11,
+       "ref": "~bonesMI_0005",
+       "loc": [
+        344.9,
+        95.4
+       ]
+      },
+      {
+       "pivot": [
+        -137.2,
+        133.4
+       ],
+       "scale": [
+        1.0827,
+        0.9829
+       ],
+       "skew": [
+        0.0003,
+        -0.2191
+       ],
+       "index": 11,
+       "duration": 20,
+       "ref": "~bonesMI_0005",
+       "loc": [
+        319.5089,
+        79.6502
+       ]
+      },
+      {
+       "pivot": [
+        -137.2,
+        133.45
+       ],
+       "scale": [
+        1.1218,
+        0.9747
+       ],
+       "skew": [
+        0.0004,
+        -0.324
+       ],
+       "index": 31,
+       "duration": 12,
+       "ref": "~bonesMI_0005",
+       "loc": [
+        307.436,
+        72.2223
+       ]
+      },
+      {
+       "pivot": [
+        -137.1,
+        133.35
+       ],
+       "scale": [
+        1.1343,
+        0.9725
+       ],
+       "skew": [
+        0.002,
+        -0.3558
+       ],
+       "index": 43,
+       "duration": 71,
+       "ref": "~bonesMI_0005",
+       "loc": [
+        304.0265,
+        70.047
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        -137.2,
+        133.4
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0005",
+       "loc": [
+        344.9,
+        95.4
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0011",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        -70.5,
+        121.95
+       ],
+       "duration": 11,
+       "ref": "~bonesMI_0011",
+       "loc": [
+        411.6,
+        83.95
+       ]
+      },
+      {
+       "pivot": [
+        -70.55,
+        121.95
+       ],
+       "scale": [
+        0.9999,
+        1.0062
+       ],
+       "skew": [
+        -0.0699,
+        0.0178
+       ],
+       "index": 11,
+       "duration": 20,
+       "ref": "~bonesMI_0011",
+       "loc": [
+        386.5889,
+        71.301
+       ]
+      },
+      {
+       "pivot": [
+        -70.55,
+        121.95
+       ],
+       "scale": [
+        0.9999,
+        1.0091
+       ],
+       "skew": [
+        -0.1012,
+        0.0265
+       ],
+       "index": 31,
+       "duration": 12,
+       "ref": "~bonesMI_0011",
+       "loc": [
+        374.7625,
+        65.3094
+       ]
+      },
+      {
+       "pivot": [
+        -70.5,
+        122
+       ],
+       "scale": [
+        1,
+        1.0103
+       ],
+       "skew": [
+        -0.1129,
+        0.03
+       ],
+       "index": 43,
+       "duration": 71,
+       "ref": "~bonesMI_0011",
+       "loc": [
+        371.4215,
+        63.6058
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        -70.5,
+        121.95
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0011",
+       "loc": [
+        411.6,
+        83.95
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0019",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        -194.05,
+        -10
+       ],
+       "duration": 11,
+       "ref": "~Buste",
+       "loc": [
+        478.55,
+        28.25
+       ]
+      },
+      {
+       "pivot": [
+        -194.05,
+        -10.05
+       ],
+       "scale": [
+        0.9997,
+        0.9997
+       ],
+       "skew": [
+        0.0963,
+        0.0963
+       ],
+       "index": 11,
+       "duration": 20,
+       "ref": "~Buste",
+       "loc": [
+        447.0817,
+        17.09
+       ]
+      },
+      {
+       "pivot": [
+        -194.1,
+        -10
+       ],
+       "scale": [
+        0.9994,
+        0.9994
+       ],
+       "skew": [
+        0.1406,
+        0.1406
+       ],
+       "index": 31,
+       "duration": 12,
+       "ref": "~Buste",
+       "loc": [
+        432.1235,
+        11.8685
+       ]
+      },
+      {
+       "pivot": [
+        -194.1,
+        -10
+       ],
+       "skew": [
+        0.1564,
+        0.1564
+       ],
+       "index": 43,
+       "duration": 71,
+       "ref": "~Buste",
+       "loc": [
+        428.03,
+        10.3389
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        -194.05,
+        -10
+       ],
+       "duration": 1,
+       "ref": "~Buste",
+       "loc": [
+        478.55,
+        28.25
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Calque 3",
+     "keyframes": [
+      {
+       "pivot": [
+        42.75,
+        50.85
+       ],
+       "scale": [
+        0.4942,
+        0.4942
+       ],
+       "skew": [
+        0.5356,
+        0.5356
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 115,
+       "ref": "FX_Light copy",
+       "loc": [
+        197.4922,
+        -168.4038
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "Titlecard"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 2",
+     "keyframes": [
+      {
+       "index": 0,
+       "scale": [
+        1.1833,
+        1.1833
+       ],
+       "duration": 38,
+       "ref": "~Duplicate Items Folder/flarelolipopin",
+       "loc": [
+        130.5,
+        254.5
+       ]
+      },
+      {
+       "index": 38,
+       "scale": [
+        1.0825,
+        1.0825
+       ],
+       "duration": 11,
+       "ref": "~Duplicate Items Folder/flarelolipopin",
+       "loc": [
+        130.5,
+        254.5
+       ]
+      },
+      {
+       "index": 49,
+       "scale": [
+        1.1483,
+        1.1483
+       ],
+       "duration": 1,
+       "ref": "~Duplicate Items Folder/flarelolipopin",
+       "loc": [
+        130.5,
+        254.5
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "flareflarelolipop"
+  },
+  {
+   "layers": [
+    {
+     "name": "bonesMI_0006",
+     "keyframes": [
+      {
+       "pivot": [
+        57.5,
+        107.05
+       ],
+       "skew": [
+        -0.1038,
+        -0.1038
+       ],
+       "index": 0,
+       "duration": 16,
+       "ref": "~bonesMI_0006",
+       "loc": [
+        -129.7653,
+        28.3142
+       ]
+      },
+      {
+       "pivot": [
+        57.55,
+        107
+       ],
+       "scale": [
+        0.999,
+        0.999
+       ],
+       "skew": [
+        0.3366,
+        0.3366
+       ],
+       "index": 16,
+       "duration": 26,
+       "ref": "~bonesMI_0006",
+       "loc": [
+        -131.7347,
+        31.6801
+       ]
+      },
+      {
+       "pivot": [
+        57.5,
+        107
+       ],
+       "skew": [
+        0.4656,
+        0.4656
+       ],
+       "index": 42,
+       "duration": 72,
+       "ref": "~bonesMI_0006",
+       "loc": [
+        -131.3093,
+        32.0255
+       ]
+      },
+      {
+       "pivot": [
+        57.45,
+        107
+       ],
+       "scale": [
+        0.9997,
+        0.9997
+       ],
+       "skew": [
+        -0.0927,
+        -0.0927
+       ],
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0006",
+       "loc": [
+        -129.8117,
+        28.2877
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0007",
+     "keyframes": [
+      {
+       "pivot": [
+        77.65,
+        367.25
+       ],
+       "skew": [
+        0.3751,
+        0.3751
+       ],
+       "index": 0,
+       "duration": 16,
+       "ref": "~bonesMI_0007",
+       "loc": [
+        -90.5599,
+        282.7528
+       ]
+      },
+      {
+       "pivot": [
+        77.7,
+        367.15
+       ],
+       "scale": [
+        0.9999,
+        0.9999
+       ],
+       "skew": [
+        0.0268,
+        0.0268
+       ],
+       "index": 16,
+       "duration": 26,
+       "ref": "~bonesMI_0007",
+       "loc": [
+        -169.2832,
+        276.6718
+       ]
+      },
+      {
+       "pivot": [
+        77.7,
+        367.2
+       ],
+       "skew": [
+        0.0398,
+        0.0398
+       ],
+       "index": 42,
+       "duration": 72,
+       "ref": "~bonesMI_0007",
+       "loc": [
+        -193.212,
+        273.5539
+       ]
+      },
+      {
+       "pivot": [
+        77.7,
+        367.2
+       ],
+       "scale": [
+        0.9989,
+        0.9989
+       ],
+       "skew": [
+        0.368,
+        0.368
+       ],
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0007",
+       "loc": [
+        -91.972,
+        282.5572
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0008",
+     "keyframes": [
+      {
+       "pivot": [
+        43,
+        214.55
+       ],
+       "skew": [
+        -0.0124,
+        -0.0124
+       ],
+       "index": 0,
+       "duration": 16,
+       "ref": "~bonesMI_0008",
+       "loc": [
+        -133.0022,
+        136.7489
+       ]
+      },
+      {
+       "pivot": [
+        43.05,
+        214.5
+       ],
+       "scale": [
+        0.9994,
+        0.9994
+       ],
+       "skew": [
+        0.193,
+        0.193
+       ],
+       "index": 16,
+       "duration": 26,
+       "ref": "~bonesMI_0008",
+       "loc": [
+        -180.6439,
+        126.1916
+       ]
+      },
+      {
+       "pivot": [
+        43.05,
+        214.5
+       ],
+       "skew": [
+        0.2703,
+        0.2703
+       ],
+       "index": 42,
+       "duration": 72,
+       "ref": "~bonesMI_0008",
+       "loc": [
+        -193.2904,
+        121.5591
+       ]
+      },
+      {
+       "pivot": [
+        43.05,
+        214.5
+       ],
+       "skew": [
+        -0.0054,
+        -0.0054
+       ],
+       "index": 114,
+       "duration": 1,
+       "ref": "~bonesMI_0008",
+       "loc": [
+        -133.8031,
+        136.5096
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0009",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        200.05,
+        42.05
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0009",
+       "loc": [
+        9.55,
+        -34.2
+       ]
+      },
+      {
+       "pivot": [
+        200.05,
+        42.05
+       ],
+       "scale": [
+        1.0152,
+        0.9088
+       ],
+       "skew": [
+        -0.2929,
+        -0.1703
+       ],
+       "index": 16,
+       "duration": 8,
+       "ref": "~bonesMI_0009",
+       "loc": [
+        9.6349,
+        -34.3885
+       ]
+      },
+      {
+       "pivot": [
+        200.2,
+        41.8
+       ],
+       "scale": [
+        1.0176,
+        0.8988
+       ],
+       "skew": [
+        -0.3286,
+        -0.1909
+       ],
+       "index": 24,
+       "duration": 90,
+       "ref": "~bonesMI_0009",
+       "loc": [
+        9.6521,
+        -34.4368
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        200.05,
+        42.05
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0009",
+       "loc": [
+        9.55,
+        -34.2
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0017",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        265.55,
+        -245.05
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0017",
+       "loc": [
+        75.05,
+        -321.3
+       ]
+      },
+      {
+       "pivot": [
+        265.55,
+        -245
+       ],
+       "scale": [
+        0.9984,
+        0.9984
+       ],
+       "skew": [
+        2.1923,
+        2.1923
+       ],
+       "index": 16,
+       "duration": 26,
+       "ref": "~bonesMI_0017",
+       "loc": [
+        130.3036,
+        -238.4675
+       ]
+      },
+      {
+       "pivot": [
+        265.6,
+        -245.05
+       ],
+       "skew": [
+        3.0314,
+        3.0314
+       ],
+       "index": 42,
+       "duration": 21,
+       "ref": "~bonesMI_0017",
+       "loc": [
+        151.4152,
+        -206.7839
+       ]
+      },
+      {
+       "pivot": [
+        265.55,
+        -245
+       ],
+       "scale": [
+        0.9984,
+        0.9984
+       ],
+       "skew": [
+        2.1792,
+        2.1792
+       ],
+       "index": 63,
+       "duration": 27,
+       "ref": "~bonesMI_0017",
+       "loc": [
+        140.3983,
+        -246.3284
+       ]
+      },
+      {
+       "pivot": [
+        265.6,
+        -245.05
+       ],
+       "scale": [
+        0.9977,
+        0.9977
+       ],
+       "skew": [
+        0.9053,
+        0.9053
+       ],
+       "index": 90,
+       "duration": 24,
+       "ref": "~bonesMI_0017",
+       "loc": [
+        105.8451,
+        -294.459
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        265.55,
+        -245.05
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0017",
+       "loc": [
+        75.05,
+        -321.3
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0018",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        186.55,
+        -134
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0018",
+       "loc": [
+        -3.95,
+        -210.25
+       ]
+      },
+      {
+       "pivot": [
+        186.55,
+        -133.95
+       ],
+       "scale": [
+        0.9985,
+        0.9985
+       ],
+       "skew": [
+        0.5778,
+        0.5778
+       ],
+       "index": 16,
+       "duration": 26,
+       "ref": "~bonesMI_0018",
+       "loc": [
+        9.527,
+        -194.1031
+       ]
+      },
+      {
+       "pivot": [
+        186.5,
+        -133.95
+       ],
+       "skew": [
+        0.8007,
+        0.8007
+       ],
+       "index": 42,
+       "duration": 72,
+       "ref": "~bonesMI_0018",
+       "loc": [
+        14.6964,
+        -187.8893
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        186.55,
+        -134
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0018",
+       "loc": [
+        -3.95,
+        -210.25
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0010",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        -4,
+        62.5
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0010",
+       "loc": [
+        -194.5,
+        -13.75
+       ]
+      },
+      {
+       "index": 16,
+       "pivot": [
+        -4,
+        62.5
+       ],
+       "duration": 26,
+       "ref": "~bonesMI_0010",
+       "loc": [
+        -194.5,
+        -13.75
+       ]
+      },
+      {
+       "index": 42,
+       "pivot": [
+        -4,
+        62.5
+       ],
+       "duration": 72,
+       "ref": "~bonesMI_0010",
+       "loc": [
+        -194.5,
+        -13.75
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        -4,
+        62.5
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0010",
+       "loc": [
+        -194.5,
+        -13.75
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0012",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        324.55,
+        -16
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0012",
+       "loc": [
+        134.05,
+        -92.25
+       ]
+      },
+      {
+       "pivot": [
+        324.6,
+        -16
+       ],
+       "scale": [
+        0.9048,
+        0.9998
+       ],
+       "skew": [
+        0.0699,
+        0.0699
+       ],
+       "index": 16,
+       "duration": 8,
+       "ref": "~bonesMI_0012",
+       "loc": [
+        133.9566,
+        -87.2016
+       ]
+      },
+      {
+       "pivot": [
+        324.45,
+        -16.05
+       ],
+       "scale": [
+        0.8937,
+        1
+       ],
+       "skew": [
+        0.0783,
+        0.0783
+       ],
+       "index": 24,
+       "duration": 90,
+       "ref": "~bonesMI_0012",
+       "loc": [
+        133.9682,
+        -86.6166
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        324.55,
+        -16
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0012",
+       "loc": [
+        134.05,
+        -92.25
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0013",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        210.05,
+        8.5
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0013",
+       "loc": [
+        19.55,
+        -67.75
+       ]
+      },
+      {
+       "pivot": [
+        210,
+        8.5
+       ],
+       "scale": [
+        0.9998,
+        0.9998
+       ],
+       "skew": [
+        0.0526,
+        0.0526
+       ],
+       "index": 16,
+       "duration": 26,
+       "ref": "~bonesMI_0013",
+       "loc": [
+        19.526,
+        -67.7646
+       ]
+      },
+      {
+       "pivot": [
+        210.05,
+        8.5
+       ],
+       "skew": [
+        0.0739,
+        0.0739
+       ],
+       "index": 42,
+       "duration": 72,
+       "ref": "~bonesMI_0013",
+       "loc": [
+        19.5485,
+        -67.7605
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        210.05,
+        8.5
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0013",
+       "loc": [
+        19.55,
+        -67.75
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0014",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        248.55,
+        14.75
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0014",
+       "loc": [
+        58.05,
+        -61.5
+       ]
+      },
+      {
+       "pivot": [
+        248.5,
+        14.75
+       ],
+       "scale": [
+        0.9993,
+        0.9993
+       ],
+       "skew": [
+        -0.2319,
+        -0.2319
+       ],
+       "index": 16,
+       "duration": 26,
+       "ref": "~bonesMI_0014",
+       "loc": [
+        58.0589,
+        -61.4834
+       ]
+      },
+      {
+       "pivot": [
+        248.55,
+        14.7
+       ],
+       "skew": [
+        -0.3224,
+        -0.3224
+       ],
+       "index": 42,
+       "duration": 72,
+       "ref": "~bonesMI_0014",
+       "loc": [
+        58.0533,
+        -61.4986
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        248.55,
+        14.75
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0014",
+       "loc": [
+        58.05,
+        -61.5
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0015",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        363.6,
+        11
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0015",
+       "loc": [
+        173.45,
+        -65.25
+       ]
+      },
+      {
+       "pivot": [
+        363.6,
+        11
+       ],
+       "scale": [
+        0.9997,
+        0.9997
+       ],
+       "skew": [
+        0.1013,
+        0.1013
+       ],
+       "index": 16,
+       "duration": 26,
+       "ref": "~bonesMI_0015",
+       "loc": [
+        173.4575,
+        -65.2593
+       ]
+      },
+      {
+       "pivot": [
+        363.6,
+        10.95
+       ],
+       "skew": [
+        0.1436,
+        0.1436
+       ],
+       "index": 42,
+       "duration": 72,
+       "ref": "~bonesMI_0015",
+       "loc": [
+        173.4376,
+        -65.2661
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        363.6,
+        11
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0015",
+       "loc": [
+        173.45,
+        -65.25
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0016",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        324.05,
+        23
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0016",
+       "loc": [
+        133.55,
+        -53.25
+       ]
+      },
+      {
+       "pivot": [
+        324,
+        23.05
+       ],
+       "scale": [
+        0.9807,
+        1.0229
+       ],
+       "skew": [
+        -0.0743,
+        -0.1539
+       ],
+       "index": 16,
+       "duration": 8,
+       "ref": "~bonesMI_0016",
+       "loc": [
+        133.4293,
+        -53.239
+       ]
+      },
+      {
+       "pivot": [
+        324.05,
+        22.85
+       ],
+       "scale": [
+        0.9789,
+        1.0259
+       ],
+       "skew": [
+        -0.0836,
+        -0.1758
+       ],
+       "index": 24,
+       "duration": 90,
+       "ref": "~bonesMI_0016",
+       "loc": [
+        133.5185,
+        -53.328
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        324.05,
+        23
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0016",
+       "loc": [
+        133.55,
+        -53.25
+       ]
+      }
+     ]
+    },
+    {
+     "name": "bonesMI_0019",
+     "keyframes": [
+      {
+       "index": 0,
+       "pivot": [
+        108.05,
+        -42.5
+       ],
+       "duration": 16,
+       "ref": "~bonesMI_0019",
+       "loc": [
+        -82.45,
+        -118.75
+       ]
+      },
+      {
+       "pivot": [
+        108.05,
+        -42.5
+       ],
+       "scale": [
+        0.9995,
+        0.9995
+       ],
+       "skew": [
+        0.1532,
+        0.1532
+       ],
+       "index": 16,
+       "duration": 26,
+       "ref": "~bonesMI_0019",
+       "loc": [
+        -82.5362,
+        -118.5546
+       ]
+      },
+      {
+       "pivot": [
+        108.1,
+        -42.5
+       ],
+       "skew": [
+        0.2131,
+        0.2131
+       ],
+       "index": 42,
+       "duration": 72,
+       "ref": "~bonesMI_0019",
+       "loc": [
+        -82.606,
+        -118.5216
+       ]
+      },
+      {
+       "index": 114,
+       "pivot": [
+        108.05,
+        -42.5
+       ],
+       "duration": 1,
+       "ref": "~bonesMI_0019",
+       "loc": [
+        -82.45,
+        -118.75
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~Buste"
+  },
+  {
+   "layers": [
+    {
+     "name": "Layer 2",
+     "keyframes": [
+      {
+       "pivot": [
+        48,
+        48
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "flarelolipop",
+       "loc": [
+        1.65,
+        1.65
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~Duplicate Items Folder/flarelolipopin"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        305.35,
+        -229
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0000",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0000"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        243.6,
+        -8.5
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0001",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0001"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        181.1,
+        -42.25
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0002",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0002"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        349.35,
+        -42.25
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0003",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0003"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        409,
+        -131.95
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0004",
+       "loc": [
+        0.85,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0004"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        209.55,
+        -27
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0005",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0005"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -29,
+        -89.05
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0006",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0006"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -64.5,
+        -353.1
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0007",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0007"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -26,
+        -198.55
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0008",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0008"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -84.5,
+        49.1
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0009",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0009"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        29.5,
+        50.1
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0010",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0010"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        198.1,
+        -8.4
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0011",
+       "loc": [
+        1,
+        -0.9
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0011"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -198.6,
+        131.1
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0012",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0012"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -154,
+        70
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0013",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0013"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -191.5,
+        -7.5
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0014",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0014"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -350.5,
+        35.1
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0015",
+       "loc": [
+        0.65,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0015"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -197.5,
+        15.55
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0016",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0016"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -175.55,
+        276.6
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0017",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0017"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -171.55,
+        249.05
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0018",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0018"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -90.95,
+        136.6
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0019",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0019"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        118.55,
+        233.6
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0020",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0020"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        43.55,
+        356.1
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0021",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0021"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        75.05,
+        40.5
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0022",
+       "loc": [
+        -262.05,
+        -409.1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0022"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        51.55,
+        508.15
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0023",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0023"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -252.5,
+        399.6
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0024",
+       "loc": [
+        1,
+        -1
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0024"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "pivot": [
+        -85.55,
+        512.1
+       ],
+       "index": 0,
+       "tweened": false,
+       "duration": 1,
+       "ref": "bones_0025",
+       "loc": [
+        1,
+        -0.6
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0025"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "duration": 1,
+       "index": 0
+      }
+     ]
+    }
+   ],
+   "id": "~bonesMI_0026"
+  }
+ ]
+}

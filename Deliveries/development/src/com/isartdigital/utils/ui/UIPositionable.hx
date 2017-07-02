@@ -8,6 +8,7 @@ import pixi.core.display.Container;
 typedef UIPositionable = {
 	var item:Container;
 	var align:String;
+	var fit:String;
 	var offsetX:Float;
 	var offsetY:Float;
 	@:optional var update:Bool;

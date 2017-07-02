@@ -1,15 +1,20 @@
 package com.isartdigital.utils ;
 import haxe.Json;
 import js.Browser;
+import js.html.Storage;
 
-	
 /**
  * Classe utilitaire contenant les données de configuration du jeu
  * @author Mathieu ANTHOINE
  */
 class Config 
 {
-		
+	
+	/**
+	 * nom du jeu
+	 */
+	public static var gameName (get,never):String;
+	
 	/**
 	 * version de l'application
 	 */
@@ -55,31 +60,35 @@ class Config
 	 */
 	public static var assetsPath (get, never): String;
 	
-	
-	
 	/** 
 	 * chemin du dossier de sons
 	 */
 	public static var soundsPath (get, never): String;
-	
-	
-	/** 
-	 * chemin du dossier de sons
-	 */
-	public static var jsonPath (get, never): String;
 
-	
 	/** 
 	 * chemin du dossier des polices de caractères
 	 */
 	public static var fontsPath (get, never): String;	
 	
+	/*
+	 * utiliser le cache du navigateur ou non
+	 */
+	public static var cache(default, null):Bool = true;
 	
 	/**
-	 * Tailles (en px) des tiles
+	 * largeur en pixel d'une tile
 	 */
-	public static var tileWidth:UInt = 152;// 192;
-	public static var tileHeight:UInt = 76;// 96;
+	public static var tileWidth:UInt = 152;
+	
+	/**
+	 * hauteur en pixel d'une tile
+	 */
+	public static var tileHeight:UInt = 76;
+	
+	/**
+	 * taille de la map en case
+	 */
+	public static var mapSize:UInt = 100;
 	
 	/**
 	 * conteneur des données de configuration
@@ -88,11 +97,22 @@ class Config
 	private static var _data:Dynamic={};
 	
 	public static function init(pConfig:Json): Void {		
-		for (i in Reflect.fields(pConfig)) Reflect.setField(_data, i, Reflect.field(pConfig, i));
-		
+		for (i in Reflect.fields(pConfig)) Reflect.setField(_data, i, Reflect.field(pConfig, i));	
 		
 		if (_data.version == null) _data.version = "0.0.0";
-		if (_data.language == null || _data.language == "") _data.language = Browser.window.navigator.language.substr(0, 2);
+		if (_data.gameName == null) _data.gameName = "";
+		
+		var lStorage:Storage = Browser.getLocalStorage();
+		
+		trace (lStorage);
+		
+		var lVersion:String = lStorage.getItem(gameName)==null ? null : Json.parse(lStorage.getItem(gameName)).version;
+		if (lVersion != null) cache = version == lVersion;
+		lStorage.setItem(gameName, Json.stringify({version:version}));
+		
+		trace (version, cache);
+		
+		if (_data.language == null) _data.language = Browser.window.navigator.language.substr(0, 2);
 		if (_data.languages == []) _data.languages.push(_data.language);
 		if (_data.debug == null) _data.debug = false;
 		if (_data.fps == null) _data.fps = false;
@@ -103,13 +123,24 @@ class Config
 		if (_data.assetsPath == null) _data.assetsPath = "";
 		if (_data.fontsPath == null) _data.fontsPath = "";
 		if (_data.soundsPath == null) _data.soundsPath = "";
-		if (_data.jsonPath == null) _data.jsonPath = "";
-		
+			
+	}
+	
+	/**
+	 * Retourne l'url complète (chemin+version)
+	 * @return url complète
+	 */
+	public static function url (pPath:String):String {
+		return pPath + "?" + version;
 	}
 	
 	private static function get_data ():Dynamic {
 		return _data;
 	}
+
+	private static function get_gameName ():String {
+		return _data.gameName;
+	}	
 	
 	private static function get_version ():String {
 		return _data.version;
@@ -153,10 +184,6 @@ class Config
 	
 	private static function get_soundsPath ():String {
 		return _data.soundsPath;
-	}
-	
-	private static function get_jsonPath ():String {
-		return _data.jsonPath;
 	}
 
 }

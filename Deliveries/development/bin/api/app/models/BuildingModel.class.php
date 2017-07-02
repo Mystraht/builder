@@ -20,7 +20,9 @@ class BuildingModel extends ApplicationModel
         if ($type == 'create') {
 			$errorMessage .= $this->isPresent($params, 'x', "La position X est absent\n");
 			$errorMessage .= $this->isPresent($params, 'y', "La position Y est absent\n");
-        
+			
+			$errorMessage .= $this->isPresent($params, 'hard', "Le parametre hard est absent\n");
+			
 			return $errorMessage;
         }
 	
@@ -96,6 +98,23 @@ class BuildingModel extends ApplicationModel
 	}
 	
 	/**
+	 * Récupère l'experience gagner pour un batiment
+	 * @param nom du batiment
+	 * @lvl du batiment
+	*/
+	public static function getXpValue($buildingName, $lvl = 1)
+	{
+		$buildingSettings = file_get_contents(__DIR__ . "./../../../assets/json/buildingsSettings.json", FILE_USE_INCLUDE_PATH);
+		$buildingSettings = json_decode($buildingSettings, true);
+		
+		if ($lvl != 1) 
+			return $buildingSettings[$buildingName][$lvl]["xp_gain"];
+		else if (array_key_exists($lvl, $buildingSettings[$buildingName]))
+			return $buildingSettings[$buildingName][$lvl]["xp_gain"];
+		else return $buildingSettings[$buildingName]["xp_gain"];
+	}
+	
+	/**
 	 * Récupère le temps de construction d'un batiment
 	 * @param nom du batiment
 	 * @lvl du batiment
@@ -109,7 +128,7 @@ class BuildingModel extends ApplicationModel
 		$max_construct_time = $buildingSettings["max_construct_time"];
 		$base_hard_price = $buildingSettings["base_hard_price"];
 		
-		return ceil(($timeLeft / $max_construct_time) * $hard_price_max + $base_hard_price);
+		return ceil( ($timeLeft / $max_construct_time) * $hard_price_max + $base_hard_price );
 	}
 	
 	/**

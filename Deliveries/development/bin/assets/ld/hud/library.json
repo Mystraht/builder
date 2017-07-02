@@ -1,0 +1,2462 @@
+{
+ "frameRate": 30,
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        1,
+        185,
+        92
+       ],
+       "symbol": "DescriptionBuildingAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        188,
+        1,
+        96,
+        96
+       ],
+       "symbol": "PesosAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        95,
+        96,
+        96
+       ],
+       "symbol": "OfferingAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        286,
+        1,
+        103,
+        85
+       ],
+       "symbol": "ParadeButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        391,
+        1,
+        103,
+        85
+       ],
+       "symbol": "ParadeButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        99,
+        95,
+        72,
+        73
+       ],
+       "symbol": "ShopButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        286,
+        88,
+        72,
+        73
+       ],
+       "symbol": "ShopButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        173,
+        99,
+        73,
+        69
+       ],
+       "symbol": "AvatarDefaultAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        360,
+        88,
+        70,
+        69
+       ],
+       "symbol": "CadreLevelAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        432,
+        88,
+        67,
+        68
+       ],
+       "symbol": "ColorButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        432,
+        158,
+        67,
+        68
+       ],
+       "symbol": "ColorButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        360,
+        159,
+        67,
+        68
+       ],
+       "symbol": "UpgradeButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        429,
+        228,
+        67,
+        68
+       ],
+       "symbol": "MoveButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        248,
+        163,
+        67,
+        68
+       ],
+       "symbol": "hardBuildButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        317,
+        229,
+        67,
+        68
+       ],
+       "symbol": "UpgradeButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        386,
+        298,
+        67,
+        68
+       ],
+       "symbol": "MoveButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        99,
+        170,
+        67,
+        68
+       ],
+       "symbol": "hardBuildButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        168,
+        233,
+        108,
+        37
+       ],
+       "symbol": "MissionFemaleAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        193,
+        85,
+        47
+       ],
+       "symbol": "LevelBackgroundAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        242,
+        95,
+        37
+       ],
+       "symbol": "MissionMaleAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        168,
+        170,
+        56,
+        57
+       ],
+       "symbol": "SpiceCurrencyAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        455,
+        298,
+        56,
+        57
+       ],
+       "symbol": "OfferingsCurrencyAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        455,
+        357,
+        56,
+        57
+       ],
+       "symbol": "GoldCurrencyAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        98,
+        240,
+        52,
+        52
+       ],
+       "symbol": "MoveDisableButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        281,
+        52,
+        52
+       ],
+       "symbol": "MoveDisableButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        152,
+        272,
+        51,
+        51
+       ],
+       "symbol": "MoveValideButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        55,
+        294,
+        51,
+        51
+       ],
+       "symbol": "MoveValideButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        205,
+        272,
+        110,
+        16
+       ],
+       "symbol": "BuildingInfoProduction_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        317,
+        163,
+        38,
+        39
+       ],
+       "symbol": "DeleteButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        386,
+        229,
+        38,
+        39
+       ],
+       "symbol": "DeleteButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        205,
+        290,
+        62,
+        23
+       ],
+       "symbol": "LevelTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        269,
+        299,
+        84,
+        16
+       ],
+       "symbol": "BuildingInfoTitle_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        335,
+        38,
+        33
+       ],
+       "symbol": "CircleLevelAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        205,
+        317,
+        70,
+        16
+       ],
+       "symbol": "BuildingInfoCapacity_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        108,
+        325,
+        68,
+        16
+       ],
+       "symbol": "LevelBarAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        277,
+        317,
+        59,
+        16
+       ],
+       "symbol": "BuildingInfoLvl_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        178,
+        335,
+        47,
+        17
+       ],
+       "symbol": "ParadeHUDButton_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        108,
+        343,
+        54,
+        13
+       ],
+       "symbol": "Mission_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        386,
+        270,
+        26,
+        25
+       ],
+       "symbol": "NotifOnButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        108,
+        294,
+        26,
+        25
+       ],
+       "symbol": "NotifOffButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        278,
+        233,
+        26,
+        25
+       ],
+       "symbol": "CreditsButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        248,
+        99,
+        26,
+        25
+       ],
+       "symbol": "SFXoffButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        248,
+        126,
+        26,
+        25
+       ],
+       "symbol": "SFXonButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        355,
+        299,
+        26,
+        25
+       ],
+       "symbol": "SoundOffButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        338,
+        326,
+        26,
+        25
+       ],
+       "symbol": "SoundOnButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        317,
+        204,
+        35,
+        16
+       ],
+       "symbol": "UpgradeComfirm_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        226,
+        170,
+        18,
+        23
+       ],
+       "symbol": "Level_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        41,
+        347,
+        31,
+        13
+       ],
+       "symbol": "Spice_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        74,
+        347,
+        30,
+        13
+       ],
+       "symbol": "Gold_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        227,
+        335,
+        29,
+        13
+       ],
+       "symbol": "Offerings_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        226,
+        195,
+        15,
+        15
+       ],
+       "symbol": "SettingButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        226,
+        212,
+        15,
+        15
+       ],
+       "symbol": "SettingButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        496,
+        1,
+        15,
+        13
+       ],
+       "symbol": "OfferingButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        496,
+        16,
+        15,
+        13
+       ],
+       "symbol": "GoldButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        496,
+        31,
+        15,
+        13
+       ],
+       "symbol": "GoldButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        496,
+        46,
+        15,
+        13
+       ],
+       "symbol": "PimientosButtonOnAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        496,
+        61,
+        15,
+        13
+       ],
+       "symbol": "PimientosButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        366,
+        326,
+        15,
+        13
+       ],
+       "symbol": "PimientosButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        366,
+        341,
+        15,
+        13
+       ],
+       "symbol": "GoldButtonOnAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        258,
+        335,
+        15,
+        13
+       ],
+       "symbol": "OfferingButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        275,
+        335,
+        15,
+        13
+       ],
+       "symbol": "OfferingButtonOnAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        383,
+        299,
+        1,
+        81
+       ],
+       "symbol": "blackBackgroundAsset"
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ],
+ "movies": [
+  {
+   "id": "BaseBuildingHUD",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "MoveButton",
+       "loc": [
+        216.7,
+        274
+       ]
+      }
+     ],
+     "name": "D_MoveButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "DeleteButton",
+       "loc": [
+        283.45,
+        303
+       ]
+      }
+     ],
+     "name": "D_DeleteButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "UpgradeButton",
+       "loc": [
+        100.4625,
+        274
+       ]
+      }
+     ],
+     "name": "D_UpgradeButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "HardBuildButton",
+       "loc": [
+        185.5375,
+        274
+       ]
+      }
+     ],
+     "name": "D_HardBuildButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "BuildingInfo",
+       "loc": [
+        -66.75,
+        250
+       ]
+      }
+     ],
+     "name": "D_BuildingInfo_item"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "ColorButton",
+       "loc": [
+        149.95,
+        274
+       ]
+      }
+     ],
+     "name": "D_ColorButton"
+    }
+   ]
+  },
+  {
+   "id": "BuildingInfo",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "DescriptionBuildingAsset",
+       "scale": [
+        0.7844,
+        1
+       ]
+      }
+     ],
+     "name": "DescriptionbuildingAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "BuildingInfoTitle_txt",
+       "loc": [
+        17.175,
+        14.0625
+       ]
+      }
+     ],
+     "name": "BuildingInfoTitle_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "BuildingInfoCapacity_txt",
+       "loc": [
+        17.175,
+        44.9125
+       ]
+      }
+     ],
+     "name": "BuildingInfoCapacity_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "BuildingInfoLvl_txt",
+       "loc": [
+        17.175,
+        29.2625
+       ]
+      }
+     ],
+     "name": "BuildingInfoLvl_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "BuildingInfoProduction_txt",
+       "loc": [
+        17.175,
+        60.5625
+       ]
+      }
+     ],
+     "name": "BuildingInfoProduction_txt"
+    }
+   ]
+  },
+  {
+   "id": "ColorButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "ColorButtonAsset",
+       "tweened": false
+      },
+      {
+       "index": 1,
+       "duration": 1,
+       "ref": "ColorButtonClickAsset",
+       "tweened": false
+      },
+      {
+       "index": 2,
+       "duration": 1,
+       "ref": "ColorButtonClickAsset",
+       "tweened": false
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "CreditButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "CreditsButtonAsset",
+       "tweened": false
+      },
+      {
+       "index": 1,
+       "duration": 1,
+       "ref": "CreditsButtonAsset",
+       "tweened": false
+      },
+      {
+       "index": 2,
+       "duration": 1,
+       "ref": "CreditsButtonAsset",
+       "tweened": false
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "DeleteButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "DeleteButtonAsset",
+       "tweened": false
+      },
+      {
+       "index": 1,
+       "duration": 1,
+       "ref": "DeleteButtonClickAsset",
+       "tweened": false
+      },
+      {
+       "index": 2,
+       "duration": 1,
+       "ref": "DeleteButtonClickAsset",
+       "tweened": false
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "GoldButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "GoldButtonAsset",
+       "tweened": false
+      },
+      {
+       "index": 1,
+       "duration": 1,
+       "ref": "GoldButtonClickAsset",
+       "tweened": false
+      },
+      {
+       "index": 2,
+       "duration": 1,
+       "ref": "GoldButtonOnAsset",
+       "tweened": false
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "GoldCurrency",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "GoldCurrencyAsset",
+       "tweened": false
+      }
+     ],
+     "name": "GoldCurrencyAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        28.125,
+        30.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        14.7875,
+        0
+       ],
+       "ref": "Gold_txt"
+      }
+     ],
+     "name": "Gold_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        21.95,
+        44.025
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "GoldButton",
+       "scale": [
+        0.8049,
+        0.8049
+       ]
+      }
+     ],
+     "name": "GoldButton"
+    }
+   ]
+  },
+  {
+   "id": "HardBuildButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        25,
+        25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        25,
+        25
+       ],
+       "ref": "hardBuildButtonAsset"
+      },
+      {
+       "loc": [
+        25,
+        25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        25,
+        25
+       ],
+       "ref": "hardBuildButtonClickAsset"
+      },
+      {
+       "loc": [
+        25,
+        25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        25,
+        25
+       ],
+       "ref": "hardBuildButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "Hud",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "blackBackgroundAsset",
+       "scale": [
+        2047.9929,
+        1
+       ]
+      }
+     ],
+     "name": "T_FW_blackBackgroundAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        302.5625,
+        0
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "SpiceCurrency",
+       "scale": [
+        1.207,
+        1.207
+       ]
+      }
+     ],
+     "name": "T_SpiceCurrency_currency"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        166.6125,
+        0
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "GoldCurrency",
+       "scale": [
+        1.2193,
+        1.2193
+       ]
+      }
+     ],
+     "name": "T_GoldCurrency_currency"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "BaseBuildingHUD",
+       "loc": [
+        114.1,
+        0
+       ]
+      }
+     ],
+     "name": "B_BaseBuildingHUD_bHud"
+    },
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "LevelCurrency",
+       "tweened": false
+      }
+     ],
+     "name": "TL_LevelCurrency_currency"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "ParadeButton",
+       "loc": [
+        0,
+        257.25
+       ]
+      }
+     ],
+     "name": "BL_ParadeButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "SoundButton",
+       "loc": [
+        479.1375,
+        12.25
+       ]
+      }
+     ],
+     "name": "TR_SoundButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "CreditButton",
+       "loc": [
+        418.3875,
+        12.25
+       ]
+      }
+     ],
+     "name": "TR_CreditButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "ShopButton",
+       "loc": [
+        440.5,
+        268.75
+       ]
+      }
+     ],
+     "name": "BR_ShopButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "SFXButton",
+       "loc": [
+        448.7625,
+        12.25
+       ]
+      }
+     ],
+     "name": "TR_SFXButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        234.5875,
+        0
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "OfferingsCurrency",
+       "scale": [
+        1.2193,
+        1.2193
+       ]
+      }
+     ],
+     "name": "T_OfferingsCurrency_currency"
+    }
+   ]
+  },
+  {
+   "id": "LevelCurrency",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "LevelTitle_txt",
+       "loc": [
+        45.575,
+        63.775
+       ]
+      }
+     ],
+     "name": "LevelTitle_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "LevelBackgroundAsset",
+       "loc": [
+        62.8,
+        0
+       ]
+      }
+     ],
+     "name": "LevelBackgroundAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "LevelBarAsset",
+       "loc": [
+        69.25,
+        15.25
+       ]
+      }
+     ],
+     "name": "LevelBarAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "CircleLevelAsset",
+       "loc": [
+        57.175,
+        36
+       ]
+      }
+     ],
+     "name": "CircleLevelAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "AvatarDefaultAsset",
+       "tweened": false
+      }
+     ],
+     "name": "AvatarDefaultAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "CadreLevelAsset",
+       "tweened": false
+      }
+     ],
+     "name": "CadreLevelAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        76,
+        43.55
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        8.875,
+        0
+       ],
+       "ref": "Level_txt"
+      }
+     ],
+     "name": "Level_txt"
+    }
+   ]
+  },
+  {
+   "id": "MissionAsset",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "label": "female",
+       "index": 0,
+       "duration": 1,
+       "ref": "MissionFemaleAsset",
+       "tweened": false
+      },
+      {
+       "loc": [
+        12.975,
+        0
+       ],
+       "duration": 1,
+       "tweened": false,
+       "ref": "MissionMaleAsset",
+       "index": 1,
+       "label": "male"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "MissionItem",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        -3,
+        0
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        -3,
+        0
+       ],
+       "ref": "MissionAsset"
+      }
+     ],
+     "name": "MissionAsset_item"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "Mission_txt",
+       "loc": [
+        47.0375,
+        16.4
+       ]
+      }
+     ],
+     "name": "Mission_txt"
+    }
+   ]
+  },
+  {
+   "id": "MissionPanelItem",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "MissionItem",
+       "tweened": false
+      }
+     ],
+     "name": "MissionItem_item"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "MissionItem",
+       "loc": [
+        0,
+        36.5
+       ]
+      }
+     ],
+     "name": "MissionItem_item"
+    }
+   ]
+  },
+  {
+   "id": "MoveButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "ref": "MoveButtonAsset"
+      },
+      {
+       "loc": [
+        33.25,
+        33.625
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        33.25,
+        33.625
+       ],
+       "ref": "MoveButtonClickAsset"
+      },
+      {
+       "loc": [
+        33.25,
+        33.625
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        33.25,
+        33.625
+       ],
+       "ref": "MoveButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "NotificationButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        12.75,
+        12.5
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        12.75,
+        12.5
+       ],
+       "ref": "NotifOnButtonAsset"
+      },
+      {
+       "loc": [
+        12.75,
+        12.375
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        12.75,
+        12.375
+       ],
+       "ref": "NotifOffButtonAsset"
+      },
+      {
+       "loc": [
+        12.75,
+        12.375
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        12.75,
+        12.375
+       ],
+       "ref": "NotifOffButtonAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "OfferingButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        7.125,
+        6.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        7.125,
+        6.25
+       ],
+       "ref": "OfferingButtonAsset"
+      },
+      {
+       "loc": [
+        7.125,
+        6.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        7.125,
+        6.25
+       ],
+       "ref": "OfferingButtonClickAsset"
+      },
+      {
+       "loc": [
+        7.125,
+        6.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        7.125,
+        6.25
+       ],
+       "ref": "OfferingButtonOnAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "OfferingsCurrency",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "OfferingsCurrencyAsset",
+       "tweened": false
+      }
+     ],
+     "name": "OfferingsCurrencyAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        28.1375,
+        30.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        14.4,
+        0
+       ],
+       "ref": "Offerings_txt"
+      }
+     ],
+     "name": "Offerings_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        22.2875,
+        43.9875
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "OfferingButton",
+       "scale": [
+        0.7806,
+        0.7806
+       ]
+      }
+     ],
+     "name": "OfferingButton"
+    }
+   ]
+  },
+  {
+   "id": "ParadeButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        44.5,
+        19.125
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        44.5,
+        19.125
+       ],
+       "ref": "ParadeButtonAsset"
+      },
+      {
+       "loc": [
+        44.5,
+        19.125
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        44.5,
+        19.125
+       ],
+       "ref": "ParadeButtonClickAsset"
+      },
+      {
+       "loc": [
+        44.5,
+        19.125
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        44.5,
+        19.125
+       ],
+       "ref": "ParadeButtonClickAsset"
+      }
+     ],
+     "name": "ParadeButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "ParadeHUDButton_txt",
+       "loc": [
+        43.5,
+        50.75
+       ]
+      }
+     ],
+     "name": "BL_ParadeHUDButton_txt"
+    }
+   ]
+  },
+  {
+   "id": "SFXButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        12.75,
+        12.375
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        12.75,
+        12.375
+       ],
+       "ref": "SFXonButtonAsset"
+      },
+      {
+       "loc": [
+        12.75,
+        12.375
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        12.75,
+        12.375
+       ],
+       "ref": "SFXoffButtonAsset"
+      },
+      {
+       "loc": [
+        12.75,
+        12.375
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        12.75,
+        12.375
+       ],
+       "ref": "SFXoffButtonAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "SettingButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        7.5,
+        7.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        7.5,
+        7.25
+       ],
+       "ref": "SettingButtonAsset"
+      },
+      {
+       "loc": [
+        7.5,
+        7.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        7.5,
+        7.25
+       ],
+       "ref": "SettingButtonClickAsset"
+      },
+      {
+       "loc": [
+        7.5,
+        7.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        7.5,
+        7.25
+       ],
+       "ref": "SettingButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "ShopButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        38,
+        33.75
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        38,
+        33.75
+       ],
+       "ref": "ShopButtonAsset"
+      },
+      {
+       "loc": [
+        38,
+        33.75
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        38,
+        33.75
+       ],
+       "ref": "ShopButtonClickAsset"
+      },
+      {
+       "loc": [
+        38,
+        33.75
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        38,
+        33.75
+       ],
+       "ref": "ShopButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "SoundButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        12.75,
+        12.375
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        12.75,
+        12.375
+       ],
+       "ref": "SoundOnButtonAsset"
+      },
+      {
+       "loc": [
+        12.75,
+        12.375
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        12.75,
+        12.375
+       ],
+       "ref": "SoundOffButtonAsset"
+      },
+      {
+       "loc": [
+        12.75,
+        12.375
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        12.75,
+        12.375
+       ],
+       "ref": "SoundOffButtonAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "SpiceButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        7,
+        6.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        7,
+        6.25
+       ],
+       "ref": "PimientosButtonAsset"
+      },
+      {
+       "loc": [
+        7.125,
+        6.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        7.125,
+        6.25
+       ],
+       "ref": "PimientosButtonClickAsset"
+      },
+      {
+       "loc": [
+        7,
+        6.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        7,
+        6.25
+       ],
+       "ref": "PimientosButtonOnAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "SpiceCurrency",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "index": 0,
+       "duration": 1,
+       "ref": "SpiceCurrencyAsset",
+       "tweened": false
+      }
+     ],
+     "name": "SpiceCurrencyAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        27.9875,
+        30.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        15.325,
+        0
+       ],
+       "ref": "Spice_txt"
+      }
+     ],
+     "name": "Spice_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        21.85,
+        43.825
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "SpiceButton",
+       "scale": [
+        0.85,
+        0.85
+       ]
+      }
+     ],
+     "name": "SpiceButton"
+    }
+   ]
+  },
+  {
+   "id": "UpgradeButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        47.625,
+        48.125
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        47.625,
+        48.125
+       ],
+       "ref": "UpgradeButtonAsset"
+      },
+      {
+       "loc": [
+        33.25,
+        33.625
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        33.25,
+        33.625
+       ],
+       "ref": "UpgradeButtonClickAsset"
+      },
+      {
+       "loc": [
+        33.25,
+        33.625
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        33.25,
+        33.625
+       ],
+       "ref": "UpgradeButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "UpgradeComfirm",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        4.6375,
+        0.725
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "UpgradeValideButton",
+       "scale": [
+        0.5798,
+        0.5798
+       ]
+      }
+     ],
+     "name": "UpgradeValideButton"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        34.2125,
+        0
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "UpgradeDisableButton",
+       "scale": [
+        0.5798,
+        0.5798
+       ]
+      }
+     ],
+     "name": "UpgradeDisableButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "UpgradeButton",
+       "loc": [
+        0,
+        30
+       ]
+      }
+     ],
+     "name": "UpgradeButton"
+    },
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "UpgradeComfirm_txt",
+       "loc": [
+        16.4875,
+        71.625
+       ]
+      }
+     ],
+     "name": "UpgradeComfirm_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        56.0752,
+        68.3627
+       ],
+       "duration": 1,
+       "ref": "OfferingAsset",
+       "index": 0,
+       "pivot": [
+        47.625,
+        47.625
+       ],
+       "tweened": false,
+       "scale": [
+        0.2242,
+        0.2242
+       ]
+      }
+     ],
+     "name": "OfferingAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        46.3625,
+        58.625
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "ref": "PesosAsset",
+       "scale": [
+        0.2042,
+        0.2042
+       ]
+      }
+     ],
+     "name": "PesosAsset"
+    }
+   ]
+  },
+  {
+   "id": "UpgradeDisableButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        25.875,
+        25.875
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        25.875,
+        25.875
+       ],
+       "ref": "MoveDisableButtonAsset"
+      },
+      {
+       "loc": [
+        25.875,
+        25.875
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        25.875,
+        25.875
+       ],
+       "ref": "MoveDisableButtonClickAsset"
+      },
+      {
+       "loc": [
+        25.875,
+        25.875
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        25.875,
+        25.875
+       ],
+       "ref": "MoveDisableButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "UpgradeValideButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        25.5,
+        25.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 0,
+       "pivot": [
+        25.5,
+        25.25
+       ],
+       "ref": "MoveValideButtonAsset"
+      },
+      {
+       "loc": [
+        25.5,
+        25.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 1,
+       "pivot": [
+        25.5,
+        25.25
+       ],
+       "ref": "MoveValideButtonClickAsset"
+      },
+      {
+       "loc": [
+        25.5,
+        25.25
+       ],
+       "duration": 1,
+       "tweened": false,
+       "index": 2,
+       "pivot": [
+        25.5,
+        25.25
+       ],
+       "ref": "MoveValideButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  }
+ ],
+ "md5": "04333e8f11929b6a9df06f3e3741e554"
+}

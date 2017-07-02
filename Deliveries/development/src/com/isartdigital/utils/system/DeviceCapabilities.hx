@@ -1,6 +1,7 @@
 package com.isartdigital.utils.system;
 
 import com.isartdigital.utils.game.GameStage;
+import haxe.macro.Type;
 import js.Browser;
 import js.html.Element;
 import js.html.Event;
@@ -13,7 +14,7 @@ import pixi.core.math.shapes.Rectangle;
  * Classe Utilitaire donnant accès à des propriétés du périphérique cible
  * Tous les périphériques ne se comportant pas comme on l'attend, DeviceCapabilities permet de
  * masquer les comportement différents et présenter une facade unique au reste du code
- * @version 0.3.0
+ * @version 0.4.0
  * @author Mathieu ANTHOINE
  */
 class DeviceCapabilities 
@@ -47,7 +48,7 @@ class DeviceCapabilities
 	public static var height (get, never) : UInt;
 	
 	private static function get_height () {
-		return Browser.window.innerHeight;
+		return Browser.window.innerHeight - 25;
 	}
 	
 	/**
@@ -74,9 +75,20 @@ class DeviceCapabilities
 	}
 	
 	/**
+	 * Est-ce que le jeu est encapsulé dans CocoonJs
+	 */
+	public static var isCocoonJS (get, never) : Bool;
+	
+	private static function get_isCocoonJS () {
+		return untyped Browser.navigator.isCocoonJS;
+	}
+	
+	/**
 	 * affiche le bouton de fullscreen
 	 */
 	public static function displayFullScreenButton ():Void {
+		if (isCocoonJS) return;
+		
 		if (!~/(iPad|iPhone|iPod)/g.match(Browser.navigator.userAgent) && !~/MSIE/i.match(Browser.navigator.userAgent) /*&& !(Browser.window.location.hash = !!Browser.window.MSInputMethodContext)*/) {
 
 			Browser.document.onfullscreenchange = onChangeFullScreen;
@@ -154,7 +166,6 @@ class DeviceCapabilities
 	 * @return objet Rectangle
 	 */
 	public static function getScreenRect(pTarget:DisplayObject):Rectangle {
-
 		var lTopLeft:Point = new Point (0, 0);
 		var lBottomRight:Point = new Point (width, height);
 		
@@ -171,8 +182,25 @@ class DeviceCapabilities
 		if (system == SYSTEM_WINDOWS_MOBILE) return;
 		
 		screenRatio = Browser.window.devicePixelRatio;
-		Browser.document.write('<meta name="viewport" content="initial-scale=' + Math.round(100 / screenRatio) / 100 + ', user-scalable=no, minimal-ui">');				
+		if (!isCocoonJS) Browser.document.write('<meta name="viewport" content="initial-scale=' + Math.round(100 / screenRatio) / 100 + ', user-scalable=no, minimal-ui">');
+	}
+	
+	public static function isIEorEdgeBrowser () : Bool {
+		var result:Bool = false;
 		
+		if (Browser.navigator.appName == 'Microsoft Internet Explorer') {
+			var userAgent:String = Browser.navigator.userAgent;
+			var regularExpression:EReg = new EReg("MSIE ([0-9]{1,}[\\.0-9]{0,})", "i");
+			
+			if (regularExpression.match(userAgent)) {
+				result = true;
+			}
+		} else if (Browser.navigator.appName == "Netscape"){                       
+		   /// in IE 11 the navigator.appVersion says 'trident'
+		   /// in Edge the navigator.appVersion does not say trident
+		   if (Browser.navigator.appVersion.indexOf('Trident') != -1) result = true;
+		}     
+		return result;
 	}
 	
 	/**

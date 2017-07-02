@@ -1,7 +1,5 @@
-import massive.munit.client.PrintClient;
 import massive.munit.client.RichPrintClient;
 import massive.munit.client.HTTPClient;
-import massive.munit.client.JUnitReportClient;
 import massive.munit.client.SummaryReportClient;
 import massive.munit.TestRunner;
 
@@ -32,7 +30,7 @@ class TestMain
 
 		var runner:TestRunner = new TestRunner(client); 
 		runner.addResultClient(httpClient);
-		//runner.addResultClient(new HTTPClient(new JUnitReportClient()));
+		//runner.addResultClient(MapManagerTest HTTPClient(MapManagerTest JUnitReportClient()));
 		
 		runner.completionHandler = completionHandler;
 		

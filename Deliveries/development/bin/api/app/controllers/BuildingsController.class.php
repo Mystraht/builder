@@ -32,6 +32,7 @@ class BuildingsController extends ApplicationController
         if (!$userId) return Utils::formatErrorMessage(ERROR_BAD_TOKEN, "Bad token");
 
 		$data = self::getBuildings($userId);
+		$error = '';
 
 		return json_encode([
 			'data' => $data,
@@ -60,13 +61,13 @@ class BuildingsController extends ApplicationController
 		$buildingSettings = json_decode($buildingSettings, true);
 		
 		if (!isset($buildingSettings[$buildingName][$buildingDetails['lvl']])) {
-			return Utils::formatErrorMessage(ERROR_NO_MONEY, "Ce batiment ne peux pas être upgrade : Pas de type upgradable");
+			return Utils::formatErrorMessage(ERROR_NO_MONEY, "Ce batiment ne peux pas être upgrade");
 		}
 
 		$buildingDefinition = $buildingSettings[$buildingName][$buildingDetails['lvl']];
 		
 		if (!array_key_exists("lvl", $buildingDetails) || !array_key_exists("upgrade_price", $buildingDefinition))
-			return Utils::formatErrorMessage(ERROR_BUILDING, "Ce batiment ne peux pas être upgrade : Niveau maximal atteint");
+			return Utils::formatErrorMessage(ERROR_BUILDING, "Ce batiment ne peux pas être upgrade");
 		
 		$resourceId = ResourcesController::getResourceIdByName($buildingDefinition["resource_upgrade"]);
 		
@@ -76,8 +77,8 @@ class BuildingsController extends ApplicationController
 		$lvl = $buildingDetails['lvl'] + 1;
 		
 		$constructTime = BuildingModel::getConstructTime($buildingName, $lvl);
-		$construct_end = date("Y-m-d H:i:s", strtotime("+" . $constructTime . " hour", strtotime($building['construct_end_at'])));
-		
+		$construct_end = date("Y-m-d H:i:s", strtotime("+" . $constructTime . " minute"));
+
 		$sql = "UPDATE building_users
 			SET construct_end_at = '" . $construct_end . "',
 			updated_at = NOW()
@@ -94,7 +95,12 @@ class BuildingsController extends ApplicationController
 		
 		$data = $result;
 		
-		return ResourcesController::getResource($userId);
+		//ajout de l'xp
+		$xpValue = BuildingModel::getXpValue($buildingName, $lvl);
+		UsersController::addExperience($xpValue, $userId);
+		
+		return UserModel::getUserData($userId);
+		//return ResourcesController::getResource($userId);
 	}
 	
 	public static function getSettings()
@@ -135,32 +141,23 @@ class BuildingsController extends ApplicationController
 		$gainPerHour = $buildingJson['production'];
 		$maxCapacity = $buildingJson['capacity'];
 		$gainResource = $gainPerHour * $hourDetails;
-				
-		$housesInRadius = 0;
+
 		//récupère dans le .json le resource_boost et le radius
-		$boost =  $settings['house']['resource_multiplier'];
-		$radius = $settings['house']['action_radius'];
+		$resourceMultiplier =  $settings['house']['resource_multiplier'];
 		
 		//récupère tous les house du joueur	
 		$houseID = BuildingModel::getBuildingTypeIdByName('house');
-				
+
 		$sql = "SELECT x, y
 				FROM building_users
 				WHERE user_id =" .$userId. " AND building_type_id = ".$houseID;
-		$result = $GLOBALS['app']['db']->fetchAll($sql);
-		
-		foreach($result as $house) {
-			$AB = sqrt((pow($house['x'] - $params['x'], 2) + pow($house['y'] - $params['y'], 2)));
-			if ($AB < $radius) {
-				$housesInRadius++;
-			}
-		}
+		$houses = $GLOBALS['app']['db']->fetchAll($sql);
 		
 		//savoir si un batiment est dans le radius : AB = \sqrt{(x_B-x_A)^2 + (y_B-y_A)^2}.
 		
-		//multiplier $gain resource par le %		
-		$bonusResource = $gainResource * (1 +($housesInRadius * $boost));
-		$gainResource = $bonusResource > 0?$bonusResource:$gainResource;
+		//multiplier $gain resource par le %
+		$bonusResource = $gainResource * (1 + (count($houses) * $resourceMultiplier));
+		$gainResource = $bonusResource > 0 ? $bonusResource : $gainResource;
 		
 		if ($gainResource > $maxCapacity) $gainResource = $maxCapacity;
 		
@@ -175,7 +172,7 @@ class BuildingsController extends ApplicationController
 			WHERE id = " . $buildingDetails['id'] . "
 				AND user_id = " . $userId;
 		
-		$result = $GLOBALS['app']['db']->exec($sql);
+		$houses = $GLOBALS['app']['db']->exec($sql);
 		
 		return ResourcesController::getResource($userId);
 	}
@@ -264,80 +261,75 @@ class BuildingsController extends ApplicationController
 		if (!BuildingModel::isBuildingExist($params['name']))
 			return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Le nom du building est incorrect");
 
-		if (!self::buyBuilding($params['name'], $userId)) 
+		if (!self::buyBuilding($params['name'], $userId, $params['hard'])) 
 			return Utils::formatErrorMessage(ERROR_NO_MONEY, "Not enough gold");
+		
+			
+		//ajout de l'xp
+		$xpValue = BuildingModel::getXpValue($params['name'], 1);
+		UsersController::addExperience($xpValue, $userId);
 			
 		$buildingID = BuildingModel::getBuildingTypeIdByName($params['name']);
 		
 		//echo($result);
 		//$result = 0;
-		
+
+		$buildingLevel = 1;
+		$constructTime = round(BuildingModel::getConstructTime($params['name']));
+
+		$date = date("Y-m-d H:i:s");
+		$dateNow = date("Y-m-d H:i:s", strtotime("+" . $constructTime . " minute", strtotime($date)));
+
 		switch ($params['name']) {
 			case 'rocket_factory':
-				$date = date("Y-m-d H:i:s");
-				$lvl = 1;
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_rocket_factory VALUES (NULL, ?, ?, ?)');
-				$request->execute(array($userId, $lvl, $date));
+				$request->execute(array($userId, $buildingLevel, $dateNow));
 				break;
 			case 'temple':
-				$pinataReady = date("Y-m-d H:i:s");
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_temple VALUES (NULL, ?, ?)');
-				$request->execute(array($userId, $pinataReady));
+				$request->execute(array($userId, $dateNow));
 				break;
 			case 'bar':
-				$date = date("Y-m-d H:i:s");
-				$lvl = 1;
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_bar VALUES (NULL, ?, ?, ?)');
-				$request->execute(array($userId, $lvl, $date));
+				$request->execute(array($userId, $buildingLevel, $dateNow));
 				break;
 			case 'brothel':
-				if (!BuildingModel::getBuildings($buildingID, $userId)) 
-					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
+//				if (!self::getBuildings($buildingID, $userId))
+//					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
 
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_brothel VALUES (NULL, ?)');
 				$request->execute(array($userId));
 				break;
 			case 'main_square':
-				if (!BuildingModel::getBuildings($buildingID, $userId)) 
-					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
+//				if (!self::getBuildings($buildingID, $userId))
+//					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
 					
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_main_square VALUES (NULL, ?)');
 				$request->execute(array($userId));
 				break;
 			case 'pyrotechnician':
-				$date = date("Y-m-d H:i:s");
-				$lvl = 1;
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_pyrotechnician VALUES (NULL, ?, ?, ?)');
-				$request->execute(array($userId, $lvl, $date));
+				$request->execute(array($userId, $buildingLevel, $dateNow));
 				break;
 			case 'city_hall':
-				if (!BuildingModel::getBuildings($buildingID, $userId)) 
-					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
-					
-				$date = date("Y-m-d H:i:s");
-				$lvl = 1;
+//				if (!self::getBuildings($buildingID, $userId))
+//					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_city_hall VALUES (NULL, ?, ?, ?)');
-				$request->execute(array($userId, $lvl, $date));
+				$request->execute(array($userId, $buildingLevel, $dateNow));
 				break;
 			case 'church':
-				if (!BuildingModel::getBuildings($buildingID, $userId)) 
-					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
-					
-				$date = date("Y-m-d H:i:s");
-				$lvl = 1;
+//				if (!self::getBuildings($buildingID, $userId))
+//					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_church VALUES (NULL, ?, ?, ?)');
-				$request->execute(array($userId, $lvl, $date));
+				$request->execute(array($userId, $buildingLevel, $dateNow));
 				break;
 			case 'cantina':
-				$date = date("Y-m-d H:i:s");
-				$lvl = 1;
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_cantina VALUES (NULL, ?, ?, ?)');
-				$request->execute(array($userId, $lvl, $date));
+				$request->execute(array($userId, $buildingLevel, $dateNow));
 				break;
 			case 'gift_shop':
-				if (!BuildingModel::getBuildings($buildingID, $userId)) 
-					return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
-					
+				//if (!self::getBuildings($buildingID, $userId))
+				//	return Utils::formatErrorMessage(ERROR_BUILDING_NAME_INCORRECT, "Building unique déja construit");
 				$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_gift_shop VALUES (NULL, ?)');
 				$request->execute(array($userId));
 				break;
@@ -351,11 +343,8 @@ class BuildingsController extends ApplicationController
 
 		$building_type_id = BuildingModel::getBuildingTypeIdByName($params['name']);
 		
-		$date = date("Y-m-d H:i:s");
-		
 		$color = "A"; //Les couleurs sont d'une lettres, en uppercase
-		$constructTime = BuildingModel::getConstructTime($params['name']);
-		$construct_end = date("Y-m-d H:i:s", strtotime("+" . $constructTime . " hour", strtotime($date)));
+		$construct_end = date("Y-m-d H:i:s", strtotime("+" . $constructTime . " minute", strtotime($date)));
 		
 		$request = $GLOBALS['app']['db']->prepare('INSERT INTO building_users VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
 		$request->execute(array($userId, 
@@ -368,7 +357,7 @@ class BuildingsController extends ApplicationController
 								$construct_end,
 								$color));
 
-		return ResourcesController::getResource($userId);
+		return UserModel::getUserData($userId);
 	}
 
 
@@ -395,8 +384,6 @@ class BuildingsController extends ApplicationController
 	 * @paran token Token de l'utilisateur
 	 */
 	public static function getBuildings($userId) {
-		$data;
-		$error;
 		$sql = "SELECT b_t.building_name as name, b_u.x, b_u.y, b_u.construct_end_at, b_u.color, b_u.building_id
 				FROM building_users AS b_u
 				INNER JOIN building_type AS b_t
@@ -463,20 +450,25 @@ class BuildingsController extends ApplicationController
 		return $result[0];
 	}
 	
-	public static function buyBuilding($buildingName, $userId)
+	public static function buyBuilding($buildingName, $userId, $isHardBuilt)
 	{
 		$buildingSettings = file_get_contents(__DIR__ . "./../../../assets/json/buildingsSettings.json", FILE_USE_INCLUDE_PATH);
 		$buildingSettings = json_decode($buildingSettings, true);
 		
 		if ($buildingSettings[$buildingName] == null) echo 'DEBUG : Le nom du building nest pas present dans buildingsSettings.json';
 
-		$building;
 		if (array_key_exists("1", $buildingSettings[$buildingName])) $building = $buildingSettings[$buildingName]["1"];
 		else $building = $buildingSettings[$buildingName];
 		
-		$resourceId = ResourcesController::getResourceIdByName($building['resource_price']);
+		if ($isHardBuilt==='true') {
+			$resourceId = ResourcesController::getResourceIdByName('spice');
+			$buildingPrice = $building['hard_price'];
+		} else {
+			$resourceId = ResourcesController::getResourceIdByName($building['resource_price']);
+			$buildingPrice = $building['price'];
+		}
 
-		return ResourcesController::spendResource($resourceId, $building['price'], $userId);
+		return ResourcesController::spendResource($resourceId, $buildingPrice, $userId);
 	}
 
 
@@ -516,7 +508,7 @@ class BuildingsController extends ApplicationController
 		$lanterns = LanternsController::getLanterns($userId);
 
 		foreach($lanterns as $lantern) {
-			if (sqrt(pow($lantern[x] - $x, 2) + pow($lantern[y] - $y, 2)) < $buildingsSettings["lanterns"]["action_radius"]) return true;
+			if (sqrt(pow($lantern['x'] - $x, 2) + pow($lantern['y'] - $y, 2)) < $buildingsSettings["lanterns"]["action_radius"]) return true;
 		}
 
 		return false;

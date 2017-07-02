@@ -1,6 +1,8 @@
 package com.isartdigital.builder.game.utils;
-import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
-import com.isartdigital.builder.game.def.TileSavedDef;
+import com.isartdigital.builder.ui.ftue.FtueUIParamsDef;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingModelDef;
+import com.isartdigital.builder.game.def.TileModelDef;
+import haxe.Json;
 
 /**
  * ...
@@ -8,9 +10,10 @@ import com.isartdigital.builder.game.def.TileSavedDef;
  */
 class TypeDefUtils
 {
-	public static var tileSavedDef:TileSavedDef = { x:null, y:null, isBuildable:null };
-	public static var buildingSavedDef:BuildingSavedDef = { name: null, x:null, y:null, color: null, buildingLevel:null };
-	
+	public static var tileModelDef:TileModelDef = { type: null, x:null, y:null, isBuildable:null, isIlluminated:null, alpha: null };
+	public static var buildingModelDef:BuildingModelDef = { type: null, name: null, x:null, y:null, color: null, construct_end_at:null };
+	public static var ftueUIParamsDef:FtueUIParamsDef = { tutorPosture: null, text: null, event: null };
+
 	public function new() 
 	{
 		
@@ -47,6 +50,14 @@ class TypeDefUtils
 		}
 		
 		return true;
+	}
+	
+	/**
+	 * Permet de cloner un objet json de façon à ne pas utiliser la reference
+	 * @param	objectToClone
+	 */
+	public static function cloneObject(objectToClone:Dynamic):Dynamic {
+		return Json.parse(Json.stringify(objectToClone));
 	}
 	
 }

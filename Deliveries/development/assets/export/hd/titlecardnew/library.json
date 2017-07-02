@@ -1,0 +1,89 @@
+{
+ "frameRate": 30,
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "origin": [
+        1550,
+        479
+       ],
+       "rect": [
+        1,
+        1,
+        3100,
+        958
+       ],
+       "symbol": "logoisartsprite"
+      },
+      {
+       "origin": [
+        960,
+        540
+       ],
+       "rect": [
+        1,
+        961,
+        1920,
+        1080
+       ],
+       "symbol": "titlecardpsrite"
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ],
+ "movies": [
+  {
+   "id": "logoIsartDigital",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "pivot": [
+        1550,
+        479
+       ],
+       "duration": 1,
+       "ref": "logoisartsprite",
+       "loc": [
+        -5,
+        -25.05
+       ],
+       "index": 0
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "titlecard",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "index": 0,
+       "duration": 1,
+       "ref": "titlecardpsrite",
+       "pivot": [
+        960,
+        540
+       ]
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  }
+ ],
+ "md5": "9c80261506878d04b3f92b471668153e"
+}

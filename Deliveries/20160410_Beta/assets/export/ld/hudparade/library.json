@@ -1,0 +1,278 @@
+{
+ "frameRate": 30,
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "scaleFactor": 1,
+   "atlases": [
+    {
+     "textures": [
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        1,
+        135,
+        61
+       ],
+       "symbol": "ParadeMoreButtonAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        64,
+        122,
+        55
+       ],
+       "symbol": "ParadeMoreButtonClickAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        1,
+        121,
+        208,
+        32
+       ],
+       "symbol": "barreResourceAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        125,
+        64,
+        58,
+        30
+       ],
+       "symbol": "timerAsset"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        125,
+        96,
+        40,
+        17
+       ],
+       "symbol": "Offering_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        167,
+        96,
+        37,
+        17
+       ],
+       "symbol": "Pimientos_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        206,
+        1,
+        36,
+        17
+       ],
+       "symbol": "Pesos_txt"
+      },
+      {
+       "origin": [
+        0,
+        0
+       ],
+       "rect": [
+        138,
+        1,
+        27,
+        19
+       ],
+       "symbol": "timerParade_txt"
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ]
+  }
+ ],
+ "movies": [
+  {
+   "id": "HudParade",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "loc": [
+        227.25,
+        312
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "TimerParade"
+      }
+     ],
+     "name": "B_TimerParade_item"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        156,
+        0
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ResourcesView"
+      }
+     ],
+     "name": "T_ResourcesView_item"
+    }
+   ]
+  },
+  {
+   "id": "ParadeMoreButton",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "ParadeMoreButtonAsset"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 1,
+       "ref": "ParadeMoreButtonClickAsset"
+      },
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 2,
+       "ref": "ParadeMoreButtonClickAsset"
+      }
+     ],
+     "name": "Calque 1"
+    }
+   ]
+  },
+  {
+   "id": "ResourcesView",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "barreResourceAsset"
+      }
+     ],
+     "name": "barreResourceAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        29.375,
+        7.5875
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "Pesos_txt"
+      }
+     ],
+     "name": "Pesos_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        166.5875,
+        7.5875
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "Pimientos_txt"
+      }
+     ],
+     "name": "Pimientos_txt"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        95.5,
+        7.5875
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "Offering_txt"
+      }
+     ],
+     "name": "Offering_txt"
+    }
+   ]
+  },
+  {
+   "id": "TimerParade",
+   "layers": [
+    {
+     "keyframes": [
+      {
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "timerAsset"
+      }
+     ],
+     "name": "timerAsset"
+    },
+    {
+     "keyframes": [
+      {
+       "loc": [
+        15.875,
+        4.9625
+       ],
+       "tweened": false,
+       "duration": 1,
+       "index": 0,
+       "ref": "timerParade_txt"
+      }
+     ],
+     "name": "timerParade_txt"
+    }
+   ]
+  }
+ ],
+ "md5": "c5fa88e664018f22cf4823d0d5b59c56"
+}

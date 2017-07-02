@@ -1,7 +1,10 @@
 package com.isartdigital.utils.loader;
+import pixi.core.utils.Utils;
+import pixi.core.Pixi;
 import com.isartdigital.utils.events.LoadEventType;
 import com.isartdigital.utils.sounds.SoundDef;
 import com.isartdigital.utils.sounds.SoundManager;
+import com.isartdigital.utils.system.DeviceCapabilities;
 import haxe.Json;
 import howler.Howl;
 import howler.Howler;
@@ -38,6 +41,9 @@ class GameLoader extends Loader
 	* @return	fichier Json
 	*/
 	public static function getContent (pFile:String):Json {
+		if (txtLoaded[Config.txtsPath+pFile] == null) {
+			throw 'GameLoader.hx :: getContent : Content not found for ' + Config.txtsPath+pFile;
+		}
 		return txtLoaded[Config.txtsPath+pFile];
 	}
 	
@@ -53,8 +59,8 @@ class GameLoader extends Loader
 	* @param	pUrl chaine de caractères spécifiant le chemin vers le fichier
 	*/
 	public function addTxtFile (pUrl:String):Void {
-		var lUrl:String = Config.txtsPath + pUrl;
-		add(lUrl);
+		var lUrl:String = Config.txtsPath+pUrl;
+		add(Config.url(lUrl));
 	}	
 	
 	/**
@@ -63,7 +69,7 @@ class GameLoader extends Loader
 	*/
 	public function addAssetFile (pUrl:String):Void {	
 		var lUrl:String = Config.assetsPath + pUrl;
-		add(lUrl);		
+		add(Config.url(lUrl));		
 	}
 
 	/**
@@ -73,7 +79,7 @@ class GameLoader extends Loader
 	public function addSoundFile (pUrl:String):Void {	
 		var lUrl:String = Config.soundsPath + pUrl;
 		soundsList.push(lUrl);
-		add(lUrl);
+		add(Config.url(lUrl));
 	}	
 	
 	/**
@@ -82,14 +88,20 @@ class GameLoader extends Loader
 	*/
 	public function addFontFile (pUrl:String):Void {	
 		var lUrl:String = Config.fontsPath + pUrl;
-		add(lUrl);		
+		add(Config.url(lUrl));		
+	}
+
+	public function unloadAsset(name:String):Void {
+		Reflect.getProperty(Utils.TextureCache, Config.assetsPath + DeviceCapabilities.textureType + '/' + name).destroy(true);
 	}
 	
 	private function parseData (pResource:Resource, pNext:Void->Void): Void {
 		
 		trace (pResource.url + " loaded");
 		
-		if (pResource.url.indexOf(".css") > 0) {
+		var lUrl:String = pResource.url.split("?")[0];
+		
+		if (lUrl.indexOf(".css") > 0 && !DeviceCapabilities.isCocoonJS) {
 			
 			var lData:Array<String> = pResource.data.split(";");
 			var lFamilies:Array<String> = [];
@@ -113,10 +125,10 @@ class GameLoader extends Loader
 		}
 		
 		if (pResource.isJson) {			
-			txtLoaded[pResource.url] = pResource.data;
+			txtLoaded[lUrl] = pResource.data;
 			
-			if(pResource.url.substr(-12,12)=="library.json" && Reflect.hasField(pResource.data,"md5") && Reflect.hasField(pResource.data,"movies") && Reflect.hasField(pResource.data,"textureGroups") && Reflect.hasField(pResource.data,"frameRate")) {
-				FlumpParser.flumpParser(pResource, pNext);
+			if(lUrl.substr(-12,12)=="library.json" && Reflect.hasField(pResource.data,"md5") && Reflect.hasField(pResource.data,"movies") && Reflect.hasField(pResource.data,"textureGroups") && Reflect.hasField(pResource.data,"frameRate")) {
+				FlumpParser.flumpParser(1,Config.cache)(pResource, pNext);
 				return;
 			}
 			else if (soundsList.length>0) { 
@@ -124,11 +136,16 @@ class GameLoader extends Loader
 				var lData:SoundDef;
 				
 				for (i in 0...soundsList.length) {
-					if (pResource.url == soundsList[i]) {
+					if (lUrl == soundsList[i]) {
 						
 						soundsList.splice(i, 1);
 						
 						lData = pResource.data;
+						
+						if (DeviceCapabilities.isCocoonJS) {
+							if (lData.extensions.indexOf("ogg") == -1) throw "CocoonJs needs ogg sounds. No sound will be played in the application.";
+							else lData.extensions = ["ogg"];
+						}
 					
 						for (j in 0...lData.extensions.length) {
 							if (Howler.codecs(lData.extensions[j])) {
@@ -151,7 +168,7 @@ class GameLoader extends Loader
 	private function addSounds (pList:Dynamic, pLoop:Bool, pExtensions:Array<String>, pCodec:String): Void {	
 		var lUrl:String;
 		for (lID in Reflect.fields(pList)) {
-			lUrl = Config.soundsPath + lID + "." + pCodec;
+			lUrl = Config.url(Config.soundsPath + lID + "." + pCodec);
 			soundsSpecs.set(lID, {urls:[lUrl],volume:Reflect.field(pList, lID) / 100, loop:pLoop} );
 			add(lUrl);
 		}

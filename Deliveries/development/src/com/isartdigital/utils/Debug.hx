@@ -1,10 +1,12 @@
 package com.isartdigital.utils;
 
+import pixi.core.text.Text;
+import pixi.core.graphics.Graphics;
+import com.isartdigital.utils.game.GameStage;
+import pixi.core.math.Point;
 import com.isartdigital.utils.system.DeviceCapabilities;
 import js.Browser;
 import js.html.Image;
-import pixi.core.ticker.Ticker;
-import jsfps.fpsmeter.FPSMeter;
 
 
 /**
@@ -18,10 +20,14 @@ class Debug
 	 * instance unique de la classe Main
 	 */
 	private static var instance: Debug;	
-	
-	public var fps:FPSMeter;
+
+	public static var debugPointsList:Array<Graphics> = [];
+	public static var debugPositionOnClick:Bool = false;
+	public static var debugIlluminateTileAtClick:Bool = false;
+
+	public var fps:Perf;
 	private static inline var QR_SIZE:Float = 0.35;
-	private var ticker:Ticker;
+
 
 	/**
 	 * Retourne l'instance unique de la classe, et la crée si elle n'existait pas au préalable
@@ -40,18 +46,9 @@ class Debug
 	 */
 	public function init():Void 
 	{
-		if (Config.fps) 
-		{
-			fps = new FPSMeter();
-			fps.show();
-			fps.showFps();
-			
-			ticker = new Ticker();
-			ticker.add(updateFps);
-			ticker.start();
-		}
+		if (Config.fps) fps = new Perf("TL");
 		
-		if (Config.qrcode) 
+		if (Config.qrcode && !DeviceCapabilities.isCocoonJS) 
 		{
 			var lQr:Image = new Image();
 			lQr.style.position = 'absolute';
@@ -61,11 +58,6 @@ class Debug
 			lQr.src = 'https://chart.googleapis.com/chart?chs='+lSize+'x'+lSize+'&cht=qr&chl=' + Browser.location.href + '&choe=UTF-8';
 			Browser.document.body.appendChild(lQr);
 		}
-	}
-	
-	private function updateFps ():Void {
-		fps.tick();
-		fps.tickStart();
 	}
 	
 	public static function error (pArg:Dynamic): Void {
@@ -84,8 +76,30 @@ class Debug
 		untyped console.info (pArg);
 	}
 	
-	public function destroy (): Void {
-		ticker.stop();
+	public function destroy (): Void {}
+
+	public static function addDebugPointAt(position:Point, color:Int = 0xFF0000):Void {
+		var debugPoint = new Graphics();
+		debugPoint.beginFill(color);
+		debugPoint.drawCircle(0, 0, 5);
+		debugPoint.position.set(position.x, position.y);
+		GameStage.getInstance().getGameContainer().addChild(debugPoint);
+		debugPointsList.push(debugPoint);
 	}
 
+	public static function addDebugTextAt(position:Point, text:String, color:Int = 0xff1010):Void {
+		var text = new Text(text, {font : '24px Arial', fill : color, align : 'center'});
+		text.position = new Point(position.x, position.y);
+		GameStage.getInstance().getGameContainer().addChild(text);
+	}
+	
+	public static function removeAllDebugPoint () : Void {
+		while (debugPointsList.length != 0) {
+			
+			debugPointsList[0].parent.removeChild(debugPointsList[0]);
+			debugPointsList[0].destroy();
+			debugPointsList.splice(0, 1);
+			
+		}
+	}
 }

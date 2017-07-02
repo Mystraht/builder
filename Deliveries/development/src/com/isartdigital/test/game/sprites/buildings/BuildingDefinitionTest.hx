@@ -1,11 +1,9 @@
 package game.sprites.buildings ;
 
-import com.isartdigital.builder.game.sprites.buildings.utils.BuildingDefinition;
+import com.isartdigital.builder.game.sprites.buildings.BuildingDefinition;
 import com.isartdigital.builder.game.sprites.buildings.def.BuildingDef;
 import com.isartdigital.utils.loader.GameLoader;
-import massive.munit.util.Timer;
 import massive.munit.Assert;
-import massive.munit.async.AsyncFactory;
 
 
 class BuildingDefinitionTest 

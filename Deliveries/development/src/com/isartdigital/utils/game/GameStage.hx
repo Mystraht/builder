@@ -43,7 +43,12 @@ class GameStage extends Container
 	 * conteneur des pop-in
 	 */
 	private var popinsContainer:Container;
-	
+
+	/**
+	 * conteneur de la FTUE
+	 **/
+	private var ftueContainer:Container;
+
 	/**
 	 * conteneur du Hud
 	 */
@@ -62,19 +67,15 @@ class GameStage extends Container
 	/**
 	 * conteneur des tiles
 	 */
+	private var fishContainer:Container;
 	private var tilesContainer:Container;
-	
-	/**
-	 * conteneur des buildings
-	 */
+	private var boatTrailsContainer:Container;
 	private var buildingsContainer:Container;
-	
-	/**
-	 * conteneur du background
-	 */
 	private var backgroundContainer:Container;
-	
-	
+	private var fireworksContainer:Container;
+	private var arrowsContainer:Container;
+	private var petalsContainer:Container;
+
 	public function new() 
 	{
 		super();
@@ -90,15 +91,33 @@ class GameStage extends Container
 		
 		popinsContainer = new Container();
 		addChild(popinsContainer);
-		
-		tilesContainer = new Container();		
-		gameContainer.addChild(tilesContainer);		
-				
-		buildingsContainer = new Container();		
-		gameContainer.addChild(buildingsContainer);
-		
+
+		ftueContainer = new Container();
+		addChild(ftueContainer);
+
 		backgroundContainer = new Container();
 		gameContainer.addChild(backgroundContainer);
+		
+		fishContainer = new Container();
+		gameContainer.addChild(fishContainer);
+
+		tilesContainer = new Container();
+		gameContainer.addChild(tilesContainer);
+
+		boatTrailsContainer = new Container();
+		gameContainer.addChild(boatTrailsContainer);
+		
+		buildingsContainer = new Container();		
+		gameContainer.addChild(buildingsContainer);
+
+		petalsContainer = new Container();
+		gameContainer.addChild(petalsContainer);
+
+		fireworksContainer = new Container();
+		gameContainer.addChild(fireworksContainer);
+
+		arrowsContainer = new Container();
+		gameContainer.addChild(arrowsContainer);
 	}
 	
 	/**
@@ -247,15 +266,23 @@ class GameStage extends Container
 	public function getPopinsContainer (): Container {
 		return popinsContainer;
 	}
+
+
+	public function getFtueContainer():Container {
+		return ftueContainer;
+	}
 	
-			
 	/**		
 	 * Accès en lecture au contenaure de tiles		
 	 * @return conteneur de tiles		
 	 */		
 	public function getTilesContainer ():Container {		
 		return tilesContainer;		
-	}		
+	}
+
+	public function getBoatTrailsContainer():Container {
+		return boatTrailsContainer;
+	}
 			
 	/**		
 	 * Accès en lecture au contenaure de buildings		
@@ -271,6 +298,22 @@ class GameStage extends Container
 	 */		
 	public function getBackgroundContainer ():Container {		
 		return backgroundContainer;		
+	}
+
+	public function getPetalsContainer():Container {
+		return petalsContainer;
+	}
+
+	public function getFireworksContainer():Container {
+		return fireworksContainer;
+	}
+
+	public function getArrowContainer():Container {
+		return arrowsContainer;
+	}
+
+	public function getFishContainer():Container {
+		return fishContainer;
 	}
 	
 	/**

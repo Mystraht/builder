@@ -1,0 +1,302 @@
+{
+ "movies": [
+  {
+   "layers": [
+    {
+     "name": "B_TimerParade_item",
+     "keyframes": [
+      {
+       "index": 0,
+       "tweened": false,
+       "loc": [
+        928.65,
+        1012.8
+       ],
+       "ref": "TimerParade",
+       "duration": 1
+      }
+     ]
+    },
+    {
+     "name": "T_ResourcesView_item",
+     "keyframes": [
+      {
+       "index": 0,
+       "tweened": false,
+       "loc": [
+        624,
+        0
+       ],
+       "ref": "ResourcesView",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "HudParade"
+  },
+  {
+   "layers": [
+    {
+     "name": "Calque 1",
+     "keyframes": [
+      {
+       "index": 0,
+       "tweened": false,
+       "ref": "ParadeMoreButtonAsset",
+       "duration": 1
+      },
+      {
+       "index": 1,
+       "tweened": false,
+       "ref": "ParadeMoreButtonClickAsset",
+       "duration": 1
+      },
+      {
+       "index": 2,
+       "tweened": false,
+       "ref": "ParadeMoreButtonClickAsset",
+       "duration": 1
+      }
+     ]
+    }
+   ],
+   "id": "ParadeMoreButton"
+  },
+  {
+   "layers": [
+    {
+     "name": "barreResourceAsset",
+     "keyframes": [
+      {
+       "index": 0,
+       "tweened": false,
+       "ref": "barreResourceAsset",
+       "duration": 1
+      }
+     ]
+    },
+    {
+     "name": "Pesos_txt",
+     "keyframes": [
+      {
+       "pivot": [
+        48.8,
+        0
+       ],
+       "scale": [
+        0.9974,
+        1
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "Pesos_txt",
+       "loc": [
+        191.0749,
+        35.15
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Pimientos_txt",
+     "keyframes": [
+      {
+       "pivot": [
+        48.5,
+        0
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "Pimientos_txt",
+       "loc": [
+        734.15,
+        35.15
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Offering_txt",
+     "keyframes": [
+      {
+       "pivot": [
+        48.5,
+        0
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "Offering_txt",
+       "loc": [
+        461.85,
+        35.15
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "ResourcesView"
+  },
+  {
+   "layers": [
+    {
+     "name": "timerAsset",
+     "keyframes": [
+      {
+       "index": 0,
+       "tweened": false,
+       "scale": [
+        1.275,
+        1.275
+       ],
+       "ref": "timerAsset",
+       "duration": 1
+      }
+     ]
+    },
+    {
+     "name": "timerParade_txt",
+     "keyframes": [
+      {
+       "pivot": [
+        74.2,
+        0
+       ],
+       "duration": 1,
+       "index": 0,
+       "tweened": false,
+       "ref": "timerParade_txt",
+       "loc": [
+        149.3,
+        30.5
+       ]
+      }
+     ]
+    }
+   ],
+   "id": "TimerParade"
+  }
+ ],
+ "md5": "e17679624af48ac2118e66e970ebf099",
+ "frameRate": 30,
+ "isNamespaced": false,
+ "textureGroups": [
+  {
+   "atlases": [
+    {
+     "textures": [
+      {
+       "rect": [
+        1,
+        1,
+        539,
+        243
+       ],
+       "symbol": "ParadeMoreButtonAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1,
+        246,
+        830,
+        128
+       ],
+       "symbol": "barreResourceAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        1,
+        376,
+        485,
+        218
+       ],
+       "symbol": "ParadeMoreButtonClickAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        542,
+        1,
+        232,
+        118
+       ],
+       "symbol": "timerAsset",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        542,
+        121,
+        149,
+        90
+       ],
+       "symbol": "timerParade_txt",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        693,
+        121,
+        98,
+        68
+       ],
+       "symbol": "Pesos_txt",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        776,
+        1,
+        97,
+        68
+       ],
+       "symbol": "Pimientos_txt",
+       "origin": [
+        0,
+        0
+       ]
+      },
+      {
+       "rect": [
+        793,
+        71,
+        97,
+        68
+       ],
+       "symbol": "Offering_txt",
+       "origin": [
+        0,
+        0
+       ]
+      }
+     ],
+     "file": "atlas0.png"
+    }
+   ],
+   "scaleFactor": 1
+  }
+ ]
+}

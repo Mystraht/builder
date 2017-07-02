@@ -1,5 +1,4 @@
 package com.isartdigital.utils.game;
-import pixi.core.display.Container;
 
 /**
  * Implémentation de base d'une Machine à état

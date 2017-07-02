@@ -1,21 +1,15 @@
 package game.sprites.buildings ;
 
 import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
-import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
-import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
-import com.isartdigital.builder.game.def.TileSavedDef;
-import com.isartdigital.builder.game.manager.MapManager;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingModelDef;
+import com.isartdigital.builder.game.def.TileModelDef;
+import com.isartdigital.builder.game.map.GMap;
 import com.isartdigital.builder.game.sprites.buildings.Building;
-import com.isartdigital.utils.game.factory.FlumpMovieAnimFactory;
-import com.isartdigital.utils.game.StateGraphic;
+import com.isartdigital.builder.game.type.ModelElementNames;
 import com.isartdigital.utils.loader.GameLoader;
 import pixi.core.math.Point;
-import massive.munit.util.Timer;
 import massive.munit.Assert;
-import massive.munit.async.AsyncFactory;
-import pixi.core.display.Container;
-import pixi.display.FlumpMovie;
-
+import org.hamcrest.Matchers.*;
 
 class BuildingTest 
 {
@@ -34,19 +28,22 @@ class BuildingTest
 	}
 	
 	public function initMap():Void {
-		var tile:TileSavedDef;
+		var tile:TileModelDef;
 		var lPosition:String;
 		globalMap = new Map<Int, Map<Int, Array<Dynamic>>> ();
 		
 		for (i in 0...20) {
 			for (j in 0...20) {
 				tile = {
+					type: ModelElementNames.TILE,
 					x: i,
 					y: j,
-					isBuildable: true
+					isBuildable: true,
+					isIlluminated: false,
+					alpha: 1
 				}
 				
-				if (!MapManager.getInstance().isElementAtPositionInMap(globalMap, i, j)) {
+				if (!GMap.isPositionExistAt(new Point(i, j), globalMap)) {
 					if (!globalMap.exists(i)) {
 						globalMap[i] = new Map<Int, Array<Dynamic>> ();
 					}
@@ -68,36 +65,62 @@ class BuildingTest
 	@Before
 	public function setup():Void
 	{
-		var lMapManager:MapManager = MapManager.getInstance();
 		initMap();
-		lMapManager.globalMap = globalMap;
+		GMap.globalMap = globalMap;
 		
-		var buildingDefinition:BuildingSavedDef = {
-			name: 'rocketfactory',
+		var buildingDefinition:BuildingModelDef = {
+			type: ModelElementNames.BUILDING,
+			name: 'city_hall',
 			x: 5,
 			y: 5,
 			color: "A",
-			buildingLevel: 0
+			buildingLevel: 1
 		}
 		
 		untyped GameLoader.getContent = function () {
 			return [
 				{
-					"name":"rocketfactory",
-					"spriteName":"Building_3x1",
-					"className":"RocketFactory",
-					"size":{
-						"width":3,
-						"height":1
-					}
-				}
+					 "name":"city_hall",
+					 "spriteName":"Building_CityHall",
+					 "className":"CityHall",
+					 "component": ["MOVABLE","ERASABLE","UPGRADABLE", "COLLECTABLE"],
+					 "size":{
+						"width":4,
+						"height":4
+					 }
+				  }
 			];
 		}
 		
-		building= new Building();
+		building = new Building();
 		
 		untyped building.addToStage = function () { };
+		untyped building.buildingConstructor.updateBuildingSavedInServer = function () { };
+		
+		globalMap[buildingDefinition.x][buildingDefinition.y].push(buildingDefinition);
+		
 		building.init(buildingDefinition);
+		
+		untyped GameLoader.getContent = function () {
+			return {
+			   "city_hall":{
+				  "1":{
+					 "resource_price":"gold",
+					 "price":50,
+					 "resource_upgrade":"offering",
+					 "upgrade_price":35,
+					 "hard_price":5,
+					 "contruction_time":3
+				  },
+				  "2":{
+					 "contruction_time":5
+				  },
+				  "3":{
+					 "contruction_time":8
+				  }
+			   }
+			};
+		}
 	}
 	
 	@After
@@ -111,5 +134,28 @@ class BuildingTest
 		Assert.isFalse(globalMap[3][5][1].isBuildable);
 		Assert.isFalse(globalMap[4][5][1].isBuildable);
 		Assert.isFalse(globalMap[5][5][1].isBuildable);
+	}
+	
+	@Test
+	public function should_throw_error_when_config_is_not_found():Void {
+		var error:Bool = false;
+		
+		untyped GameLoader.getContent = function () { return { } };
+		
+		try {
+			building.getConfig();
+		} catch (e:String){
+			error = true;
+		}
+		
+		Assert.isTrue(error);
+	}
+	
+	@Test
+	public function should_get_correct_config_in_json():Void {
+		var buildingConfig:Dynamic = building.getConfig();
+		var contructionTime:Dynamic = Reflect.field(buildingConfig, 'contruction_time');
+		
+		assertThat(contructionTime, equalTo(5));
 	}
 }

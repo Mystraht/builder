@@ -1,0 +1,275 @@
+[{
+	"event": "FTUEUI_OK",
+	"textLabel": ["label_FTUE_1", "label_FTUE_2", "label_FTUE_3", "label_FTUE_4", "label_FTUE_5", "label_FTUE_6"],
+	"tutorPosture": "show",
+	"timeToAppear": 1000,
+	"timeToDesappear": 0,
+	"saveStep": true,
+	"confirmButton": true,
+	"arrow": null
+}, {
+	"event": "SHOP_OPENED",
+	"textLabel": ["label_FTUE_7"],
+	"tutorPosture": "wait",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": false,
+	"confirmButton": false,
+	"arrow": "SHOP_BUTTON",
+	"camera": null
+}, {
+	"event": "BAR_BOUGHT",
+	"textLabel": ["label_FTUE_8"],
+	"tutorPosture": "finger",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": false,
+	"confirmButton": false,
+	"arrow": "SHOP_BUY_SOFT_BUTTON_LEFT",
+	"camera": null,
+	"sideApparition": "right"
+}, {
+	"event": "COLLECT_LEVEL_UP",
+	"textLabel": ["label_FTUE_9"],
+	"tutorPosture": "easy",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": false,
+	"confirmButton": false,
+	"arrow": null,
+	"camera": null
+}, {
+	"event": "BAR_PLACED",
+	"textLabel": ["label_FTUE_10"],
+	"tutorPosture": "show",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": true,
+	"confirmButton": false,
+	"arrow": null,
+	"camera": null
+}, {
+	"event": "PARADE_CONFIRM",
+	"textLabel": ["label_FTUE_11", "label_FTUE_12", "label_FTUE_13"],
+	"tutorPosture": "throw",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "PARADE_BUTTON",
+	"camera": null,
+	"sideApparition": "right"
+}, {
+	"event": "PARADE_LAUNCHED",
+	"textLabel": ["label_FTUE_14"],
+	"tutorPosture": "good",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "PARADE_BUY_SOFT_BUTTON",
+	"camera": null
+}, {
+	"event": "PARADE_SCENARIO_END",
+	"textLabel": null,
+	"tutorPosture": null,
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": null,
+	"camera": null
+}, {
+	"event": "PARADE_MOVED",
+	"textLabel": ["label_FTUE_15"],
+	"tutorPosture": "show",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "BONUS_PARADE",
+	"camera": {
+		"target": "BONUS_PARADE",
+		"delayBeforeMoving": 0
+	}
+}, {
+	"event": "PARADE_COLLECT",
+	"textLabel": null,
+	"tutorPosture": null,
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": true,
+	"confirmButton": false,
+	"arrow": null,
+	"camera": null
+}, {
+	"event": "HARVESTED",
+	"textLabel": ["label_FTUE_16", "label_FTUE_17"],
+	"tutorPosture": "throw",
+	"saveStep": true,
+	"camera": {
+		"target": "BAR",
+		"delayBeforeMoving": 0
+	},
+	"arrow": "BAR",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false
+}, {
+	"event": "CITYHALL_SELECT",
+	"textLabel": ["label_FTUE_18", "label_FTUE_19"],
+	"tutorPosture": "good",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "CITY_HALL",
+	"camera": {
+		"target": "CITY_HALL",
+		"delayBeforeMoving": 0
+	}
+}, {
+	"event": "CITYHALL_UPGRADE",
+	"textLabel": ["label_FTUE_20"],
+	"tutorPosture": "finger",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": true,
+	"confirmButton": false,
+	"arrow": "UPGRADE_BUTTON",
+	"camera": null
+}, {
+	"event": "CITYHALL_SELECT",
+	"textLabel": ["label_FTUE_21", "label_FTUE_22"],
+	"tutorPosture": "good",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "CITY_HALL",
+	"camera": null
+}, {
+	"event": "CITYHALL_HARD_BUILD_REQUEST",
+	"textLabel": ["label_FTUE_23"],
+	"tutorPosture": "finger",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "HARD_BUILD_BUTTON",
+	"camera": null
+}, {
+	"event": "CITYHALL_HARD_BUILD",
+	"textLabel": null,
+	"tutorPosture": "wait",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": true,
+	"confirmButton": false,
+	"arrow": null,
+	"camera": null
+}, {
+	"event": "SHOP_OPENED",
+	"textLabel": ["label_FTUE_24", "label_FTUE_25", "label_FTUE_26", "label_FTUE_27"],
+	"tutorPosture": "show",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "SHOP_BUTTON",
+	"camera": null
+}, {
+	"event": "HOUSE_BOUGHT",
+	"textLabel": ["label_FTUE_28"],
+	"tutorPosture": "show",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "SHOP_BUY_SOFT_BUTTON_RIGHT",
+	"camera": null
+}, {
+	"event": "HOUSE_PLACED",
+	"textLabel": ["label_FTUE_29"],
+	"tutorPosture": "easy",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": true,
+	"confirmButton": false,
+	"arrow": null,
+	"camera": null
+}, {
+	"event": "BAR_UPGRADED",
+	"textLabel": ["label_FTUE_30", "label_FTUE_31"],
+	"tutorPosture": "finger",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": true,
+	"confirmButton": false,
+	"arrow": "BAR",
+	"camera": {
+		"target": "BAR",
+		"delayBeforeMoving": 0
+	}
+}, {
+	"event": "PINATA_APPEAR",
+	"textLabel": null,
+	"tutorPosture": null,
+	"timeToAppear": 0,
+	"timeToDesappear": 0,
+	"saveStep": false,
+	"confirmButton": false,
+	"arrow": null,
+	"camera": null
+}, {
+	"event": "PINATA_EXPLODE",
+	"textLabel": ["label_FTUE_32"],
+	"tutorPosture": "finger",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": false,
+	"confirmButton": false,
+	"arrow": null,
+	"camera": null
+}, {
+	"event": "PINATA_RECOLT",
+	"textLabel": ["label_FTUE_33"],
+	"tutorPosture": "finger",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": false,
+	"confirmButton": false,
+	"arrow": null,
+	"camera": null
+}, {
+	"event": "FTUEUI_OK",
+	"textLabel": ["label_FTUE_34"],
+	"tutorPosture": "show",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": true,
+	"confirmButton": true,
+	"arrow": null
+}, {
+	"event": "LANTERN_SELECT",
+	"textLabel": ["label_FTUE_35","label_FTUE_36"],
+	"tutorPosture": "good",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "LANTERN",
+	"camera": {
+		"target": "LANTERN",
+		"delayBeforeMoving": 0
+	}
+}, {
+	"event": "LANTERN_BOUGHT",
+	"textLabel": ["label_FTUE_37"],
+	"tutorPosture": "throw",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"confirmButton": false,
+	"arrow": "LANTERN",
+	"camera": null
+}, {
+	"event": "FTUEUI_OK",
+	"textLabel": ["label_FTUE_38", "label_FTUE_39", "label_FTUE_40", "label_FTUE_41"],
+	"tutorPosture": "easy",
+	"timeToAppear": 500,
+	"timeToDesappear": 0,
+	"saveStep": true,
+	"confirmButton": true,
+	"arrow": null,
+	"camera": null
+}]

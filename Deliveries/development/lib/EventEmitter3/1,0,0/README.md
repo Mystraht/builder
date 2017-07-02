@@ -1,0 +1,1 @@
+Haxe externs for EventEmitter 3 (https://github.com/primus/eventemitter3)

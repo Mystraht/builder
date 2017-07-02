@@ -1,0 +1,14 @@
+{
+	"1" : {
+			"index" : 9,
+			"resource_gold" : 0,
+			"resource_offering" : 5,
+			"resource_spice" : 550
+		},	
+	"2" : {
+			"index" : 18,
+			"resource_gold" : 0,
+			"resource_offering" : 5,
+			"resource_spice" : 550
+		}
+}

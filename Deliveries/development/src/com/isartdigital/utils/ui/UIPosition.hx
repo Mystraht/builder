@@ -30,30 +30,29 @@ class UIPosition
 	* 
 	* @param	pTarget DisplayObject à positionner
 	* @param	pPosition type de positionnement
+	* @param 	pFit type de scaling
 	* @param	pOffsetX décalage en X (positif si c'est vers l'interieur de la zone de jeu sinon en négatif)
 	* @param	pOffsetY décalage en Y (positif si c'est vers l'interieur de la zone de jeu sinon en négatif)
 	*/
-	static public function setPosition (pTarget:DisplayObject, pPosition:String, pOffsetX:Float = 0, pOffsetY:Float = 0): Void {
-				
+	static public function setPosition (pTarget:DisplayObject, pPosition:String, pFit:String, pOffsetX:Float = 0, pOffsetY:Float = 0): Void {
 		var lScreen:Rectangle = DeviceCapabilities.getScreenRect(pTarget.parent);
-		
+
 		var lTopLeft:Point = new Point (lScreen.x, lScreen.y);
 		var lBottomRight:Point = new Point (lScreen.x+lScreen.width,lScreen.y+lScreen.height);
-		
+
 		if (pPosition == TOP || pPosition == TOP_LEFT || pPosition == TOP_RIGHT) pTarget.y = lTopLeft.y + pOffsetY;
 		if (pPosition == BOTTOM || pPosition == BOTTOM_LEFT || pPosition == BOTTOM_RIGHT) pTarget.y = lBottomRight.y - pOffsetY;
 		if (pPosition == LEFT || pPosition == TOP_LEFT || pPosition == BOTTOM_LEFT) pTarget.x = lTopLeft.x + pOffsetX;
 		if (pPosition == RIGHT || pPosition == TOP_RIGHT || pPosition == BOTTOM_RIGHT) pTarget.x = lBottomRight.x - pOffsetX;
-		
-		if (pPosition == FIT_WIDTH || pPosition == FIT_SCREEN) {
+
+		if (pFit == FIT_WIDTH || pFit == FIT_SCREEN) {
 			pTarget.x = lTopLeft.x;
 			untyped pTarget.width = lBottomRight.x - lTopLeft.x;
 		}
-		if (pPosition == FIT_HEIGHT || pPosition == FIT_SCREEN) {
+		if (pFit == FIT_HEIGHT || pFit == FIT_SCREEN) {
 			pTarget.y = lTopLeft.y;
 			untyped pTarget.height = lBottomRight.y - lTopLeft.y;
 		}
-
 	}
 	
 }

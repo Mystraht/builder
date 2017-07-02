@@ -1,26 +1,21 @@
-package game.sprites.buildings ;
+package game.sprites.buildings;
 
+import com.isartdigital.builder.game.map.GMap;
+import com.isartdigital.builder.game.map.GMapCreator;
 import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
-import com.isartdigital.builder.game.sprites.buildings.BuildingConstructor;
-import com.isartdigital.builder.game.sprites.buildings.def.BuildingSavedDef;
-import com.isartdigital.builder.game.def.TileSavedDef;
-import com.isartdigital.builder.game.manager.MapManager;
+import com.isartdigital.builder.game.sprites.buildings.def.BuildingModelDef;
 import com.isartdigital.builder.game.sprites.buildings.Building;
-import com.isartdigital.utils.game.factory.FlumpMovieAnimFactory;
-import com.isartdigital.utils.game.StateGraphic;
+import com.isartdigital.builder.game.type.ModelElementNames;
+import com.isartdigital.services.Users;
 import com.isartdigital.utils.loader.GameLoader;
 import pixi.core.math.Point;
-import massive.munit.util.Timer;
 import massive.munit.Assert;
-import massive.munit.async.AsyncFactory;
-import pixi.core.display.Container;
-import pixi.display.FlumpMovie;
-
+import org.hamcrest.Matchers.*;
 
 class BuildingConstructorTest 
 {
-	var globalMap:Map<Int, Map<Int, Array<Dynamic>>>;
 	var building:Building;
+	var buildingConstructor:BuildingConstructor;
 	
 	public function new() 
 	{
@@ -34,30 +29,8 @@ class BuildingConstructorTest
 	}
 	
 	public function initMap():Void {
-		var tile:TileSavedDef;
-		var lPosition:String;
-		globalMap = new Map<Int, Map<Int, Array<Dynamic>>> ();
-		
-		for (i in 0...20) {
-			for (j in 0...20) {
-				tile = {
-					x: i,
-					y: j,
-					isBuildable: true
-				}
-				
-				if (!MapManager.getInstance().isElementAtPositionInMap(globalMap, i, j)) {
-					if (!globalMap.exists(i)) {
-						globalMap[i] = new Map<Int, Array<Dynamic>> ();
-					}
-					globalMap[i][j] = new Array<Dynamic>();
-				}
-				
-				globalMap[i][j].push("");
-				globalMap[i][j].push(tile);
-				globalMap[i][j].push(123);
-			}
-		}
+		GMap.globalMap = new Map<Int, Map<Int, Array<Dynamic>>> ();
+		untyped GMapCreator.insertTilesInto(GMap.globalMap);
 	}
 	
 	@AfterClass
@@ -68,11 +41,10 @@ class BuildingConstructorTest
 	@Before
 	public function setup():Void
 	{
-		var lMapManager:MapManager = MapManager.getInstance();
 		initMap();
-		lMapManager.globalMap = globalMap;
-		
-		var buildingDefinition:BuildingSavedDef = {
+
+		var buildingSaved:BuildingModelDef = {
+			type: ModelElementNames.BUILDING,
 			name: 'rocketfactory',
 			x: 5,
 			y: 5,
@@ -97,7 +69,20 @@ class BuildingConstructorTest
 		building= new Building();
 		
 		untyped building.addToStage = function () { };
-		building.init(buildingDefinition);
+
+		untyped Users.infos = { };
+		untyped Users.infos.buildings = [{
+			"name": buildingSaved.name,
+			"x": buildingSaved.x,
+			"y": buildingSaved.y,
+			"construct_end_at": Date.now(),
+			"color": buildingSaved.color,
+		}];
+
+		untyped GMapCreator.insertBuildingsInto(GMap.globalMap);
+		building.init(buildingSaved);
+		untyped building.buildingConstructor.updateBuildingSavedInServer = function () { };
+		untyped buildingConstructor = building.buildingConstructor;
 	}
 	
 	@After
@@ -108,51 +93,55 @@ class BuildingConstructorTest
 
 	@Test
 	public function should_not_move_building_when_destination_tiles_is_not_constructible():Void {
-		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
+		buildingConstructor.setDestination(new Point(10, 10));
 		
-		buildingMover.setDestination(10, 10);
-		
-		globalMap[10][10][1].isBuildable = false;
-		
-		Assert.isFalse(buildingMover.tilesAtDestinationIsBuildable());
+		Assert.isFalse(buildingConstructor.canConstruct());
 	}
 	
 	@Test
 	public function should_move_building_when_destination_tiles_is_constructible():Void {
-		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
+		buildingConstructor.setDestination(new Point(10, 10));
 		
-		buildingMover.setDestination(10, 10);
+		GMap.getElementByTypeAt(new Point(10, 10), ModelElementNames.TILE).isBuildable = true;
+		GMap.getElementByTypeAt(new Point(9, 10), ModelElementNames.TILE).isBuildable = true;
+		GMap.getElementByTypeAt(new Point(8, 10), ModelElementNames.TILE).isBuildable = true;
 		
-		Assert.isTrue(buildingMover.tilesAtDestinationIsBuildable());
+		Assert.isTrue(buildingConstructor.canConstruct());
 	}
 	
 	@Test
 	public function should_set_tile_to_unconstructible_when_building_is_moved():Void {
-		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
+		buildingConstructor.setDestination(new Point(10, 10));
+		buildingConstructor.construct();
 		
-		buildingMover.setDestination(10, 10);
-		buildingMover.construct();
-		
-		Assert.isFalse(globalMap[10][10][1].isBuildable);
+		Assert.isFalse(GMap.getElementByTypeAt(new Point(10, 10), ModelElementNames.TILE).isBuildable);
 	}
 	
 	@Test
 	public function should_remove_building_from_original_position_in_global_map_when_building_is_moved():Void {
-		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
-		
-		buildingMover.setDestination(10, 10);
-		buildingMover.construct();
+		buildingConstructor.setDestination(new Point(10, 10));
+		buildingConstructor.construct();
 
-		Assert.isTrue(globalMap[5][5].length == 3);
+		Assert.isTrue(GMap.globalMap[5][5].length == 1);
+		Assert.isTrue(GMap.globalMap[4][5].length == 1);
+		Assert.isTrue(GMap.globalMap[3][5].length == 1);
 	}
 	
 	@Test
 	public function should_add_building_to_destination_position_in_global_map_when_building_is_moved():Void {
-		var buildingMover:BuildingConstructor = new BuildingConstructor(building, new Point(5, 5));
-		
-		buildingMover.setDestination(10, 10);
-		buildingMover.construct();
+		buildingConstructor.setDestination(new Point(10, 10));
+		buildingConstructor.construct();
 
-		Assert.isTrue(globalMap[10][10].length == 4);
+		Assert.isTrue(GMap.globalMap[10][10].length == 2);
+		Assert.isTrue(GMap.globalMap[9][10].length == 2);
+		Assert.isTrue(GMap.globalMap[8][10].length == 2);
+	}
+	
+	@Test
+	public function should_add_building_ref_under_each_position_of_building():Void {
+		var building:BuildingModelDef = GMap.getElementByTypeAt(new Point(4, 5), 'building');
+
+		assertThat(Std.int(building.x), equalTo(5));
+		assertThat(Std.int(building.y), equalTo(5));
 	}
 }

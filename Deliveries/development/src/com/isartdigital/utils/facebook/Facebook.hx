@@ -5,7 +5,6 @@ import js.Browser;
 import js.html.Element;
 import js.html.HTMLDocument;
 import js.html.ScriptElement;
-import js.html.SourceElement;
 
 /**
  * Classe haxe permettant l'accès à l'api Facebook 
@@ -37,17 +36,19 @@ class Facebook
 	/**
 	 * permissions de l'application
 	 */
-	private static var permissions:Permissions = { scope:"user_friends,email" };
+	private static var permissions:Permissions = { scope:"user_friends,email,publish_actions" };
 	 
 	/**
 	 * callback de connexion
 	 */
 	public static var onLogin:Void->Void;
-	
+	public inline static var FACEBOOK_APP_LINK:String = 'https://apps.facebook.com/builderisart';
+
+
 	/**
 	 * Initialisation asynchrone de la lib Facebook
 	 */
-	private static function init ():Void {	
+	private static function init():Void {
 		untyped FB.init({
 			appId		: appId,
 			xfbml		: true,
@@ -56,7 +57,6 @@ class Facebook
 		});
 		
 		untyped FB.getLoginStatus(getLoginStatus);
-		
 	}
 	
 	/**
@@ -65,22 +65,23 @@ class Facebook
 	 */
 	public static function load (pAppId:String,?pPermissions:Permissions=null):Void {
 		appId = pAppId;
-		untyped Browser.window.fbAsyncInit = init;
-		
-		var lDoc:HTMLDocument = Browser.window.document;
-		var lScript:String = "script";
-		var lID:String = "facebook-jssdk";
-		var lJs:ScriptElement;
-		var lFjs:Element = lDoc.getElementsByTagName(lScript)[0];
-				
-		if (lDoc.getElementById(appId)!=null) return;
-		
-		if (pPermissions!=null) permissions = pPermissions;		
-		
-		lJs = cast (lDoc.createElement(lScript),ScriptElement);
-		lJs.id = lID;
-		lJs.src = "//connect.facebook.net/en_US/sdk.js";
-		lFjs.parentNode.insertBefore(lJs, lFjs);
+		if (pPermissions!=null) permissions = pPermissions;
+		init();
+//		untyped Browser.window.fbAsyncInit = init;
+//
+//		var lDoc:HTMLDocument = Browser.window.document;
+//		var lScript:String = "script";
+//		var lID:String = "facebook-jssdk";
+//		var lJs:ScriptElement;
+//		var lFjs:Element = lDoc.getElementsByTagName(lScript)[0];
+//
+//		if (lDoc.getElementById(appId)!=null) return;
+//
+//
+//		lJs = cast (lDoc.createElement(lScript),ScriptElement);
+//		lJs.id = lID;
+//		lJs.src = "//connect.facebook.net/en_US/sdk.js";
+//		lFjs.parentNode.insertBefore(lJs, lFjs);
 		
 	}
 	
@@ -114,6 +115,10 @@ class Facebook
 	 */
 	public static function api (pPath:String,pMethod:Dynamic,?pParams:Dynamic,?pCallBack:Dynamic): Void {
 		untyped FB.api(pPath, pMethod, pParams, pCallBack);
+	}
+
+	public static function shareOnWall(shareParameters:ShareOnWallDef):Void {
+		api('/me/feed', 'post', shareParameters);
 	}
 	
 	/**
